@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Davis Reading Comprehension Test</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .correct {
+            background-color: #dcfce7;
+            border-left: 4px solid #10b981;
+        }
+
+        .incorrect {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .question-option {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .question-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-option.selected {
+            background-color: #e0f2fe;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+
+<body class="p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-6 sm:p-10 mb-8">
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">The First (Not-So-) Blue Jeans</h1>
+        <p class="text-gray-600 text-center mb-8">Read the passage. Then answer the questions.</p>
+
+        <div id="passage" class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
+            <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage:</h2>
+            <p class="mb-4">Jacob Davis was facing the challenge of a lifetime. A customer had just left his tailor shop in Reno, Nevada. She had posed an interesting problem to him. The woman needed Davis to make her husband special pants. They needed to be extra durable. They couldn't fall apart. Her husband's current work pants, she explained, ripped and tore far too easily.</p>
+            <p class="mb-4">Davis knew he could solve the problem. He was trained to be a tailor in his hometown of Riga, Latvia. This was where he was born in 1831 and raised by Jewish parents. In 1854, he came to America to practice his trade. He could use what he knew to help this woman.</p>
+            <p class="mb-4">Davis thought about the materials he used every day in his shop. The fabric was the first place to start. He looked closely at his stock of cotton fabric and focused on two: duck cloth and denim. He ordered both from a company in San Francisco, California. It was called Levi Strauss and Company. Both fabrics were made from tightly-knitted cotton. The only difference was in how the threads were woven. Davis decided to work with sturdy duck cloth.</p>
+            <p class="mb-4">Next, he thought about sewing the pants. How could he make the seams stronger? He looked at the supplies he used in his shop. Davis made items besides clothes. For example, he sold tents and covers for wagons. Then he thought about his horse blankets. Sometimes, Davis used metal fasteners. These fasteners were called rivets. That's it! Davis added copper rivets to the corners of the pants. They helped to keep the fabric from coming apart.</p>
+            <p class="mb-4">Davis' idea was a success! Not only did the pants work, but people began to hear about how durable they were. Soon, they also asked to buy his pants. Other tailors copied Davis' work. He knew that he must protect his idea. To do so, he had to apply for a patent from the government. But Davis could not afford the fee. For help, he turned to the man who supplied his fabric. After all, Davis would need a lot of duck cloth for his new pants!</p>
+            <p class="mb-4">Davis wrote Levi Strauss a letter. He tried to explain why his pants were special. "The secret of them Pents," he wrote, "is the Rivits that I put in those Pockets and I found the demand so large that I cannot make them up fast enough." Davis explained that he was selling his pants for three dollars apiece. This was a high price for pants at this time.</p>
+            <p class="mb-4">Strauss agreed that the pants were special. He hoped to sell them to the hand-working miners in San Francisco. Strauss asked Davis to move to San Francisco. He wanted the two men to become business partners.</p>
+            <p class="mb-4">Before long, Davis and his family left Reno. They moved to San Francisco. Davis started working at Levi Strauss and Company. He continued to try new ideas for clothing. Soon, he would build new pants using blue denim. This fabric was strong. But it stretched better than the duck cloth. And today's popular blue jeans were born!</p>
+        </div>
+
+        <div id="questions-container" class="space-y-10">
+
+            <!-- Question 1 -->
+            <div id="q1" class="question p-6 rounded-lg shadow-md bg-white border border-gray-200">
+                <p class="font-semibold text-lg mb-4">1. How is the information in the passage organized?</p>
+                <div class="space-y-4 text-sm sm:text-base">
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q1" value="A" class="mr-3">
+                        A. by showing the sequence of events that led to the invention of blue jeans
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q1" value="B" class="mr-3">
+                        B. by telling the effects of trying different types of fabric for work pants
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q1" value="C" class="mr-3">
+                        C. by explaining how each solution created a new problem for Davis
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q1" value="D" class="mr-3">
+                        D. by mentioning other tailors who were also making work pants at the time
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div id="q2" class="question p-6 rounded-lg shadow-md bg-white border border-gray-200">
+                <p class="font-semibold text-lg mb-4">2. What did Davis have to do before he could begin sewing the pants?</p>
+                <div class="space-y-4 text-sm sm:text-base">
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q2" value="A" class="mr-3">
+                        A. apply for a patent from the government
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q2" value="B" class="mr-3">
+                        B. order the fabric he would use
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q2" value="C" class="mr-3">
+                        C. add rivets to the corners of the pants
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q2" value="D" class="mr-3">
+                        D. move to San Francisco
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div id="q3" class="question p-6 rounded-lg shadow-md bg-white border border-gray-200">
+                <p class="font-semibold text-lg mb-4">3. What happened after Davis was able to make durable work pants?</p>
+                <div class="space-y-4 text-sm sm:text-base">
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q3" value="A" class="mr-3">
+                        A. More people started wearing pants.
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q3" value="B" class="mr-3">
+                        B. He thought about adding rivets to the pants.
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q3" value="C" class="mr-3">
+                        C. People wanted to buy his work pants.
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q3" value="D" class="mr-3">
+                        D. He started using duck cloth for his pants.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div id="q4" class="question p-6 rounded-lg shadow-md bg-white border border-gray-200">
+                <p class="font-semibold text-lg mb-4">4. Read the sentences from the passage. "Jacob Davis was facing the challenge of a lifetime. A customer had just left his tailor shop in Reno, Nevada. Which word from the sentences is a compound word?</p>
+                <div class="space-y-4 text-sm sm:text-base">
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q4" value="A" class="mr-3">
+                        A. challenge
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q4" value="B" class="mr-3">
+                        B. lifetime
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q4" value="C" class="mr-3">
+                        C. customer
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q4" value="D" class="mr-3">
+                        D. tailor
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div id="q5" class="question p-6 rounded-lg shadow-md bg-white border border-gray-200">
+                <p class="font-semibold text-lg mb-4">5. Read the sentence from the passage. "Davis explained that he was selling his pants for three dollars apiece." What does the compound word apiece mean?</p>
+                <div class="space-y-4 text-sm sm:text-base">
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q5" value="A" class="mr-3">
+                        A. all
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q5" value="B" class="mr-3">
+                        B. never
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q5" value="C" class="mr-3">
+                        C. always
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="radio" name="q5" value="D" class="mr-3">
+                        D. each
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div id="q6" class="question p-6 rounded-lg shadow-md bg-white border border-gray-200">
+                <p class="font-semibold text-lg mb-4">6. Select the words from the passage that are compound words.</p>
+                <div class="space-y-4 text-sm sm:text-base">
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="interesting" class="mr-3"> interesting
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="hometown" class="mr-3"> hometown
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="difference" class="mr-3"> difference
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="sometimes" class="mr-3"> sometimes
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="cannot" class="mr-3"> cannot
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="partners" class="mr-3"> partners
+                    </label>
+                    <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <input type="checkbox" name="q6" value="continued" class="mr-3"> continued
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <button id="submitBtn" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
+                Check Answers
+            </button>
+            <button id="resetBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 ml-4">
+                Try Again
+            </button>
+        </div>
+
+        <div id="results" class="mt-8 p-6 rounded-lg text-center font-bold text-lg hidden">
+            <p id="scoreText"></p>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            q1: "A",
+            q2: "B",
+            q3: "C",
+            q4: "B",
+            q5: "D",
+            q6: ["hometown", "sometimes", "cannot"]
+        };
+
+        const submitBtn = document.getElementById('submitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const resultsDiv = document.getElementById('results');
+        const scoreText = document.getElementById('scoreText');
+        const questionElements = document.querySelectorAll('.question');
+        const passage = document.getElementById('passage');
+
+        // Add event listeners to the option labels to add a 'selected' class for styling
+        document.querySelectorAll('.question-option').forEach(label => {
+            label.addEventListener('click', () => {
+                const input = label.querySelector('input');
+                if (input.type === 'radio') {
+                    document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
+                        radio.parentElement.classList.remove('selected');
+                    });
+                    label.classList.add('selected');
+                } else if (input.type === 'checkbox') {
+                    label.classList.toggle('selected');
+                }
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            let score = 0;
+            let totalQuestions = 0;
+
+            // Check each question
+            questionElements.forEach(question => {
+                const questionId = question.id;
+                const radios = question.querySelectorAll('input[type="radio"]');
+                const checkboxes = question.querySelectorAll('input[type="checkbox"]');
+                let isCorrect = false;
+
+                if (radios.length > 0) {
+                    totalQuestions++;
+                    const selected = question.querySelector('input[type="radio"]:checked');
+                    if (selected && selected.value === correctAnswers[questionId]) {
+                        isCorrect = true;
+                    }
+                    if (isCorrect) {
+                        question.classList.add('correct');
+                        question.classList.remove('incorrect');
+                        score++;
+                    } else {
+                        question.classList.add('incorrect');
+                        question.classList.remove('correct');
+                    }
+                } else if (checkboxes.length > 0) {
+                    totalQuestions++;
+                    const selectedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+                    const correctCheckboxAnswers = correctAnswers[questionId];
+                    const allCorrectSelected = correctCheckboxAnswers.every(val => selectedCheckboxes.includes(val));
+                    const noIncorrectSelected = selectedCheckboxes.every(val => correctCheckboxAnswers.includes(val));
+                    isCorrect = allCorrectSelected && noIncorrectSelected;
+                    
+                    if (isCorrect) {
+                        question.classList.add('correct');
+                        question.classList.remove('incorrect');
+                        score++;
+                    } else {
+                        question.classList.add('incorrect');
+                        question.classList.remove('correct');
+                    }
+                }
+            });
+
+            const percentage = (score / totalQuestions) * 100;
+            scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%).`;
+            resultsDiv.classList.remove('hidden');
+
+            if (score === totalQuestions) {
+                resultsDiv.classList.add('bg-green-100', 'text-green-700');
+                resultsDiv.classList.remove('bg-red-100', 'text-red-700');
+            } else {
+                resultsDiv.classList.add('bg-red-100', 'text-red-700');
+                resultsDiv.classList.remove('bg-green-100', 'text-green-700');
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            // Uncheck all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+
+            // Uncheck all checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+
+            // Remove feedback colors and selected styles
+            questionElements.forEach(question => {
+                question.classList.remove('correct', 'incorrect');
+            });
+            document.querySelectorAll('.question-option').forEach(label => {
+                label.classList.remove('selected');
+            });
+
+            // Hide results
+            resultsDiv.classList.add('hidden');
+        });
+
+        // Add a "click" event listener to the question options to handle selection
+        document.querySelectorAll('.question-option').forEach(label => {
+            label.addEventListener('click', () => {
+                const input = label.querySelector('input');
+                // For radio buttons, clear other selections in the group
+                if (input.type === 'radio') {
+                    document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
+                        radio.parentElement.classList.remove('selected');
+                    });
+                }
+                // Toggle the 'selected' class on the clicked label
+                label.classList.toggle('selected');
+            });
+        });
+
+    </script>
+</body>
+
+</html>
