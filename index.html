@@ -37,6 +37,16 @@
             background-color: #e0f2fe;
             border-left: 4px solid #3b82f6;
         }
+
+        .question-option.correct-answer {
+            background-color: #dcfce7;
+            border-left: 4px solid #10b981;
+        }
+
+        .question-option.incorrect-answer {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
     </style>
 </head>
 
@@ -220,7 +230,7 @@
             q3: "C",
             q4: "C",
             q5: "A",
-            q6: ["outdoor", "something", "pastime"]
+            q6: ["backyard", "outdoor", "something", "pastime"]
         };
 
         const submitBtn = document.getElementById('submitBtn');
@@ -249,9 +259,15 @@
             let score = 0;
             let totalQuestions = 0;
 
+            // Clear previous feedback
+            document.querySelectorAll('.question-option').forEach(label => {
+                label.classList.remove('selected', 'correct-answer', 'incorrect-answer');
+            });
+
             // Check each question
             questionElements.forEach(question => {
                 const questionId = question.id;
+                const labels = question.querySelectorAll('.question-option');
                 const radios = question.querySelectorAll('input[type="radio"]');
                 const checkboxes = question.querySelectorAll('input[type="checkbox"]');
                 let isCorrect = false;
@@ -259,32 +275,42 @@
                 if (radios.length > 0) {
                     totalQuestions++;
                     const selected = question.querySelector('input[type="radio"]:checked');
-                    if (selected && selected.value === correctAnswers[questionId]) {
+                    const correctAnswerValue = correctAnswers[questionId];
+
+                    labels.forEach(label => {
+                        const input = label.querySelector('input');
+                        if (input.value === correctAnswerValue) {
+                            label.classList.add('correct-answer');
+                        }
+                    });
+
+                    if (selected && selected.value === correctAnswerValue) {
                         isCorrect = true;
-                    }
-                    if (isCorrect) {
-                        question.classList.add('correct');
-                        question.classList.remove('incorrect');
                         score++;
-                    } else {
-                        question.classList.add('incorrect');
-                        question.classList.remove('correct');
+                    } else if (selected) {
+                        selected.parentElement.classList.add('incorrect-answer');
                     }
                 } else if (checkboxes.length > 0) {
                     totalQuestions++;
                     const selectedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
                     const correctCheckboxAnswers = correctAnswers[questionId];
+
+                    labels.forEach(label => {
+                        const input = label.querySelector('input');
+                        if (correctCheckboxAnswers.includes(input.value)) {
+                            label.classList.add('correct-answer');
+                        }
+                        if (selectedCheckboxes.includes(input.value) && !correctCheckboxAnswers.includes(input.value)) {
+                            label.classList.add('incorrect-answer');
+                        }
+                    });
+                    
                     const allCorrectSelected = correctCheckboxAnswers.every(val => selectedCheckboxes.includes(val));
                     const noIncorrectSelected = selectedCheckboxes.every(val => correctCheckboxAnswers.includes(val));
                     isCorrect = allCorrectSelected && noIncorrectSelected;
                     
                     if (isCorrect) {
-                        question.classList.add('correct');
-                        question.classList.remove('incorrect');
                         score++;
-                    } else {
-                        question.classList.add('incorrect');
-                        question.classList.remove('correct');
                     }
                 }
             });
@@ -303,37 +329,20 @@
         });
 
         resetBtn.addEventListener('click', () => {
-            // Uncheck all radio buttons
+            // Uncheck all radio buttons and checkboxes
             document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-
-            // Uncheck all checkboxes
             document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
 
-            // Remove feedback colors and selected styles
+            // Remove all feedback colors and selected styles
             questionElements.forEach(question => {
                 question.classList.remove('correct', 'incorrect');
             });
             document.querySelectorAll('.question-option').forEach(label => {
-                label.classList.remove('selected');
+                label.classList.remove('selected', 'correct-answer', 'incorrect-answer');
             });
 
             // Hide results
             resultsDiv.classList.add('hidden');
-        });
-
-        // Add a "click" event listener to the question options to handle selection
-        document.querySelectorAll('.question-option').forEach(label => {
-            label.addEventListener('click', () => {
-                const input = label.querySelector('input');
-                // For radio buttons, clear other selections in the group
-                if (input.type === 'radio') {
-                    document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
-                        radio.parentElement.classList.remove('selected');
-                    });
-                }
-                // Toggle the 'selected' class on the clicked label
-                label.classList.toggle('selected');
-            });
         });
     </script>
 </body>
