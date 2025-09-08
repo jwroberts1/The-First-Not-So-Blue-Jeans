@@ -47,6 +47,13 @@
             background-color: #fee2e2;
             border-left: 4px solid #ef4444;
         }
+
+        /* Custom styles for the game */
+        #game-canvas {
+            background-color: #000;
+            border: 2px solid #0ff;
+            box-shadow: 0 0 20px #0ff;
+        }
     </style>
 </head>
 
@@ -73,14 +80,40 @@
                 <button id="submitBtn" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
                     Check Answers
                 </button>
-                <button id="resetBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300">
-                    Reset Quiz
-                </button>
             </div>
         </div>
         
         <div id="results" class="mt-8 p-6 rounded-lg text-center font-bold text-lg hidden">
             <p id="scoreText"></p>
+            <div class="mt-4 space-x-4">
+                <button id="startGameBtn" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 hidden">
+                    Congratulations! Check out your reward
+                </button>
+                <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
+                    Retake Quiz
+                </button>
+            </div>
+        </div>
+
+        <hr class="my-12 border-gray-300">
+
+        <!-- Game Section -->
+        <div id="game-container" class="mt-8 text-center" style="display: none;">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Frisbee Catch Game</h2>
+            <div class="flex flex-col items-center justify-center">
+                <canvas id="game-canvas" width="600" height="400" class="rounded-lg shadow-2xl"></canvas>
+                <div id="countdown-overlay" class="absolute inset-0 flex items-center justify-center text-white text-9xl font-bold bg-black bg-opacity-75 z-10 hidden"></div>
+                <div class="mt-4 text-gray-800 font-semibold text-lg flex justify-between w-full max-w-sm">
+                    <span>Time: <span id="time-display">0.00</span>s</span>
+                    <span>Catches: <span id="catches-display">0</span></span>
+                </div>
+                <div id="game-over-message" class="mt-4 text-red-500 font-bold text-2xl hidden">
+                    GAME OVER!
+                </div>
+                <button id="restart-game-btn" class="mt-4 bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
+                    Play Again
+                </button>
+            </div>
         </div>
     </div>
 
@@ -169,10 +202,17 @@
         };
 
         const submitBtn = document.getElementById('submitBtn');
-        const resetBtn = document.getElementById('resetBtn');
+        const retakeQuizBtn = document.getElementById('retakeQuizBtn');
+        const startGameBtn = document.getElementById('startGameBtn');
         const resultsDiv = document.getElementById('results');
         const scoreText = document.getElementById('scoreText');
         const questionsContainer = document.getElementById('questions-container');
+
+        // Game-related elements
+        const quizContainer = document.getElementById('quiz-container');
+        const gameContainer = document.getElementById('game-container');
+        const countdownOverlay = document.getElementById('countdown-overlay');
+
 
         // Fisher-Yates shuffle algorithm
         function shuffleArray(array) {
@@ -187,6 +227,10 @@
             // Clear existing questions
             questionsContainer.innerHTML = '';
             resultsDiv.classList.add('hidden');
+            gameContainer.style.display = 'none';
+            startGameBtn.classList.add('hidden');
+            retakeQuizBtn.classList.add('hidden');
+            quizContainer.style.display = 'block';
             
             // Define the labels for the options
             const optionLabels = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
@@ -301,14 +345,279 @@
             if (score === totalQuestions) {
                 resultsDiv.classList.add('bg-green-100', 'text-green-700');
                 resultsDiv.classList.remove('bg-red-100', 'text-red-700');
+                startGameBtn.classList.remove('hidden');
             } else {
                 resultsDiv.classList.add('bg-red-100', 'text-red-700');
                 resultsDiv.classList.remove('bg-green-100', 'text-green-700');
             }
+            retakeQuizBtn.classList.remove('hidden');
         });
 
-        resetBtn.addEventListener('click', () => {
+        retakeQuizBtn.addEventListener('click', () => {
             renderQuiz();
+        });
+
+        startGameBtn.addEventListener('click', () => {
+            quizContainer.style.display = 'none';
+            gameContainer.style.display = 'block';
+            startCountdown();
+        });
+        
+        function startCountdown() {
+            let count = 3;
+            countdownOverlay.textContent = count;
+            countdownOverlay.classList.remove('hidden');
+            
+            const countdownInterval = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    countdownOverlay.textContent = count;
+                } else {
+                    clearInterval(countdownInterval);
+                    countdownOverlay.classList.add('hidden');
+                    resetGame();
+                    gameLoop();
+                }
+            }, 1000);
+        }
+
+        // --- Game Logic ---
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const timeDisplay = document.getElementById('time-display');
+        const catchesDisplay = document.getElementById('catches-display');
+        const gameOverMessage = document.getElementById('game-over-message');
+        const restartGameBtn = document.getElementById('restart-game-btn');
+
+        const initialCanvasWidth = 600;
+        const initialCanvasHeight = 400;
+        let currentCanvasWidth = initialCanvasWidth;
+        let currentCanvasHeight = initialCanvasHeight;
+
+        let isGameOver = false;
+        let startTime = 0;
+        let animationFrameId;
+        
+        let catches = 0;
+        
+        // Offset for centered boundary
+        let offsetX = 0;
+        let offsetY = 0;
+
+        const frisbee = {
+            x: initialCanvasWidth / 2,
+            y: initialCanvasHeight / 2,
+            radius: 15,
+            baseSpeed: 3,
+            speedMultiplier: 1,
+            dx: 3,
+            dy: 3,
+            color: '#0ff'
+        };
+
+        const player = {
+            x: initialCanvasWidth / 2 - 25,
+            y: 0,
+            width: 50,
+            height: 10,
+            color: '#ff0'
+        };
+        
+        const playerSpeed = 10;
+        let isMovingLeft = false;
+        let isMovingRight = false;
+
+
+        function drawFrisbee() {
+            ctx.beginPath();
+            ctx.arc(frisbee.x, frisbee.y, frisbee.radius, 0, Math.PI * 2);
+            ctx.fillStyle = frisbee.color;
+            ctx.shadowColor = frisbee.color;
+            ctx.shadowBlur = 15;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawPlayer() {
+            ctx.beginPath();
+            // Draw the player relative to the centered boundary height
+            player.y = offsetY + currentCanvasHeight - player.height - 10;
+            ctx.rect(player.x, player.y, player.width, player.height);
+            ctx.fillStyle = player.color;
+            ctx.shadowColor = player.color;
+            ctx.shadowBlur = 15;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Draws the glowing, shrinking boundary
+        function drawBounds() {
+            ctx.beginPath();
+            ctx.strokeStyle = '#0ff';
+            ctx.lineWidth = 2;
+            ctx.shadowColor = '#0ff';
+            ctx.shadowBlur = 20;
+            // Draw the boundary from the new offset
+            ctx.strokeRect(offsetX, offsetY, currentCanvasWidth, currentCanvasHeight);
+            ctx.closePath();
+        }
+
+        function update() {
+            // Update frisbee position
+            frisbee.x += frisbee.dx * frisbee.speedMultiplier;
+            frisbee.y += frisbee.dy * frisbee.speedMultiplier;
+
+            // Wall collision detection using new centered boundary coordinates
+            if (frisbee.x + frisbee.radius > offsetX + currentCanvasWidth || frisbee.x - frisbee.radius < offsetX) {
+                frisbee.dx = -frisbee.dx;
+            }
+            if (frisbee.y - frisbee.radius < offsetY) {
+                frisbee.dy = -frisbee.dy;
+            }
+
+            // Player movement
+            if (isMovingLeft) {
+                player.x -= playerSpeed;
+            }
+            if (isMovingRight) {
+                player.x += playerSpeed;
+            }
+            // Clamp player position to stay within the new centered boundary
+            player.x = Math.max(Math.min(player.x, offsetX + currentCanvasWidth - player.width), offsetX);
+
+            // Player collision detection
+            if (frisbee.x > player.x && frisbee.x < player.x + player.width &&
+                frisbee.y + frisbee.radius > player.y && frisbee.y - frisbee.radius < player.y + player.height) {
+                
+                // Reverse the direction of the frisbee
+                frisbee.dy = -frisbee.dy;
+                
+                // Increase the speed with each catch
+                frisbee.speedMultiplier += 0.25;
+
+                // Increment score
+                catches++;
+                catchesDisplay.textContent = catches;
+            }
+            
+            // Game over condition: frisbee falls past the player
+            if (frisbee.y + frisbee.radius > offsetY + currentCanvasHeight) {
+                isGameOver = true;
+            }
+
+            // Update time
+            const elapsedTime = (Date.now() - startTime) / 1000;
+            timeDisplay.textContent = elapsedTime.toFixed(2);
+        }
+
+        function gameLoop() {
+            if (isGameOver) {
+                cancelAnimationFrame(animationFrameId);
+                gameOverMessage.classList.remove('hidden');
+                restartGameBtn.classList.remove('hidden');
+                return;
+            }
+            
+            ctx.clearRect(0, 0, initialCanvasWidth, initialCanvasHeight); // Clear the full original canvas
+            
+            ctx.save(); // Save the current state of the canvas
+            ctx.beginPath();
+            ctx.rect(offsetX, offsetY, currentCanvasWidth, currentCanvasHeight);
+            ctx.clip(); // Clip the drawing area to the new, smaller size
+            
+            drawBounds(); // Draw the new boundary
+            update();
+            drawFrisbee();
+            drawPlayer();
+
+            ctx.restore(); // Restore the canvas state
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        function resetGame() {
+            isGameOver = false;
+            startTime = Date.now();
+            currentCanvasWidth = initialCanvasWidth;
+            currentCanvasHeight = initialCanvasHeight;
+            canvas.width = initialCanvasWidth;
+            canvas.height = initialCanvasHeight;
+            
+            catches = 0;
+            catchesDisplay.textContent = catches;
+
+            // Reset offsets
+            offsetX = 0;
+            offsetY = 0;
+
+            // Start frisbee in the upper right-hand corner
+            frisbee.x = initialCanvasWidth - frisbee.radius;
+            frisbee.y = frisbee.radius;
+            frisbee.dx = -3; // Move left
+            frisbee.dy = 3;  // Move down
+            frisbee.speedMultiplier = 1;
+
+            player.x = initialCanvasWidth / 2 - player.width / 2;
+            
+            gameOverMessage.classList.add('hidden');
+            restartGameBtn.classList.add('hidden');
+            timeDisplay.textContent = '0.00';
+        }
+
+        function shrinkCanvas() {
+            if (isGameOver) return;
+            const shrinkRate = 20; // Pixels to shrink per side
+            
+            currentCanvasWidth = Math.max(currentCanvasWidth - shrinkRate, 200);
+            currentCanvasHeight = Math.max(currentCanvasHeight - shrinkRate, 150);
+
+            // Update offsets to keep the drawing area centered
+            offsetX = (initialCanvasWidth - currentCanvasWidth) / 2;
+            offsetY = (initialCanvasHeight - currentCanvasHeight) / 2;
+
+            // Re-center player and frisbee
+            player.x = Math.max(Math.min(player.x, offsetX + currentCanvasWidth - player.width), offsetX);
+            frisbee.x = Math.max(Math.min(frisbee.x, offsetX + currentCanvasWidth - frisbee.radius), offsetX + frisbee.radius);
+            frisbee.y = Math.max(Math.min(frisbee.y, offsetY + currentCanvasHeight - frisbee.radius), offsetY + frisbee.radius);
+        }
+
+        // Mouse and touch controls
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            player.x = mouseX - player.width / 2;
+        });
+        
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling
+            const rect = canvas.getBoundingClientRect();
+            const touchX = e.touches[0].clientX - rect.left;
+            player.x = touchX - player.width / 2;
+        }, { passive: false });
+        
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                isMovingLeft = true;
+            } else if (e.key === 'ArrowRight') {
+                isMovingRight = true;
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'ArrowLeft') {
+                isMovingLeft = false;
+            } else if (e.key === 'ArrowRight') {
+                isMovingRight = false;
+            }
+        });
+
+        // Shrink canvas every 10 seconds
+        setInterval(shrinkCanvas, 10000);
+
+        restartGameBtn.addEventListener('click', () => {
+             quizContainer.style.display = 'block';
+             gameContainer.style.display = 'none';
+             renderQuiz();
         });
         
         // Render quiz on initial page load
