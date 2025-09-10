@@ -458,6 +458,14 @@
             isReturning: false,
         };
 
+        let attacksUsed = {
+            pistol: false,
+            axe: false,
+            bell: false
+        };
+        let hitsCount = 0;
+        const attacksNeeded = 3;
+
         function drawLuffy() {
             // Only draw the body if a bell attack is not active OR if the head is returning
             if (attack.type !== 'bell' || (attack.type === 'bell' && attack.isReturning === false)) {
@@ -590,10 +598,20 @@
                 dragon.y += dragon.fallSpeed;
                 dragon.rotation += 0.05;
                 if (dragon.y > canvasHeight) {
-                    gameMessageDisplay.textContent = 'POW! You knocked the dragon down!';
-                    gameMessageDisplay.classList.remove('hidden');
-                    attackButtons.style.display = 'none';
-                    return;
+                    hitsCount++;
+                    if (hitsCount < attacksNeeded) {
+                        dragon.isHit = false;
+                        dragon.y = 100;
+                        dragon.fallSpeed = 0;
+                        dragon.rotation = 0;
+                        gameMessageDisplay.textContent = `Hit ${hitsCount} of ${attacksNeeded}!`
+                        gameMessageDisplay.classList.remove('hidden');
+                    } else {
+                        gameMessageDisplay.textContent = 'POW! You knocked the dragon out!';
+                        gameMessageDisplay.classList.remove('hidden');
+                        attackButtons.style.display = 'none';
+                        return;
+                    }
                 }
             }
 
@@ -631,7 +649,7 @@
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance > attack.speed) {
                     attack.x += (dx / distance) * attack.speed;
-                    attack.y += (dy / distance) * attack.speed;
+                    attack.y += (dy / distance) * attack.y;
                 } else {
                     // Reset attack when it returns to the player
                     attack.active = false;
@@ -666,17 +684,30 @@
             dragon.y = 100;
             dragon.fallSpeed = 0;
             dragon.rotation = 0;
-            gameMessageDisplay.classList.add('hidden');
+            hitsCount = 0;
+            attacksUsed.pistol = false;
+            attacksUsed.axe = false;
+            attacksUsed.bell = false;
+
+            document.getElementById('pistol-btn').style.display = 'inline-block';
+            document.getElementById('axe-btn').style.display = 'inline-block';
+            document.getElementById('bell-btn').style.display = 'inline-block';
+
+            gameMessageDisplay.textContent = 'Use all three attacks to defeat the dragon!';
+            gameMessageDisplay.classList.remove('hidden');
             attackButtons.style.display = 'flex';
             requestAnimationFrame(gameLoop);
         }
 
         function handleAttack(type) {
-            if (attack.active || dragon.isHit) return;
+            if (attack.active || dragon.isHit || attacksUsed[type]) return;
+
+            attacksUsed[type] = true;
+            document.getElementById(`${type}-btn`).style.display = 'none';
 
             attack.active = true;
             attack.type = type;
-            attack.isReturning = false; // Reset returning state
+            attack.isReturning = false;
             gameMessageDisplay.classList.add('hidden');
 
             if (type === 'pistol') {
@@ -694,7 +725,6 @@
                 attack.endX = dragon.x + dragon.width / 2;
                 attack.endY = dragon.y + dragon.height / 2;
             } else if (type === 'bell') {
-                // Gum-Gum Bell logic
                 attack.startLimbX = player.x + player.width / 2;
                 attack.startLimbY = player.y;
                 attack.x = attack.startLimbX;
