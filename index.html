@@ -37,10 +37,11 @@
             background-color: #fee2e2;
             border-left: 4px solid #ef4444;
         }
-        
+
         /* Custom styles for the game */
         #game-canvas {
-            background-color: #1a1a2e; /* Dark, moody background */
+            background-color: #1a1a2e;
+            /* Dark, moody background */
             border: 2px solid #5d5d81;
             box-shadow: 0 0 20px #5d5d81;
             cursor: pointer;
@@ -59,19 +60,42 @@
             <div class="text-center font-semibold text-xl text-gray-700 mb-6">
                 Time: <span id="timer-display">0:00</span>
             </div>
-            <div id="passage" class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
+            <div id="passage"
+                class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
                 <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage:</h2>
-                <p class="mb-4">Most of us can only dream about becoming a famous artist, but Eiichiro Oda made his dream come true. He is known around the world for creating the manga and anime series *One Piece*. His story shows how hard work, dedication, and a big imagination can lead to incredible adventures.</p>
+                <p class="mb-4">Most of us can only dream about becoming a famous artist, but Eiichiro Oda made his dream come
+                    true. He is known around the world for creating the manga and anime series *One Piece*. His story shows
+                    how hard work, dedication, and a big imagination can lead to incredible adventures.</p>
 
-                <p class="mb-4">Oda began drawing from a very young age, inspired by the cartoons and stories he loved. When he was a teenager, he started working as an assistant for famous manga artists. It was a tough job with long hours, but it was like a secret training camp for him. He learned how to draw characters, create detailed backgrounds, and tell a story that would keep people interested for a long time. These skills were very important later on when he created his own world for *One Piece*.</p>
+                <p class="mb-4">Oda began drawing from a very young age, inspired by the cartoons and stories he loved. When he
+                    was a teenager, he started working as an assistant for famous manga artists. It was a tough job with
+                    long hours, but it was like a secret training camp for him. He learned how to draw characters, create
+                    detailed backgrounds, and tell a story that would keep people interested for a long time. These skills
+                    were very important later on when he created his own world for *One Piece*.</p>
 
-                <p class="mb-4">Once *One Piece* was a huge hit, Oda's work didn't stop. In fact, it got even more demanding. He works incredibly hard, often spending long hours in his studio, only taking short breaks. Some people say he only sleeps for a few hours a night! This is because he is very dedicated to his fans. He wants to make sure every chapter is perfect and full of surprises. He has a team of assistants who help him, but he draws all the main characters himself. He believes it's important for his own hand to bring the characters to life, making their expressions and actions just right.</p>
+                <p class="mb-4">Once *One Piece* was a huge hit, Oda's work didn't stop. In fact, it got even more demanding.
+                    He works incredibly hard, often spending long hours in his studio, only taking short breaks. Some
+                    people say he only sleeps for a few hours a night! This is because he is very dedicated to his fans. He
+                    wants to make sure every chapter is perfect and full of surprises. He has a team of assistants who help
+                    him, but he draws all the main characters himself. He believes it's important for his own hand to bring
+                    the characters to life, making their expressions and actions just right.</p>
 
-                <p class="mb-4">One of the most amazing things about Oda is how he plans out his story. He has the entire plot of *One Piece* planned years in advance, with all the big twists and turns already written down. This is why the story is so complex and exciting. He has notebooks filled with ideas, designs for new characters, and maps of new islands. He knows the ending of the story, but he has promised his readers that they will have to wait patiently for the final chapter.</p>
-                
-                <p class="mb-4">Oda's studio is a place full of wonder. It is not just a room with a desk; it's a creative playground. There are drawings everywhere, action figures of his characters, and stacks of his favorite comic books. He often listens to music while he draws to get into the right mood. Even though he is one of the most famous artists in the world, he stays humble and loves to talk about his favorite movies and TV shows. He is just a person who loves to tell stories, and his passion shines through in every page of *One Piece*.</p>
+                <p class="mb-4">One of the most amazing things about Oda is how he plans out his story. He has the entire
+                    plot of *One Piece* planned years in advance, with all the big twists and turns already written down.
+                    This is why the story is so complex and exciting. He has notebooks filled with ideas, designs for new
+                    characters, and maps of new islands. He knows the ending of the story, but he has promised his readers
+                    that they will have to wait patiently for the final chapter.</p>
 
-                <p class="mb-4">His success with *One Piece* has shown millions of people that dreams are worth working for. He is a living example of what can happen when you dedicate your life to something you love. His creativity has inspired people of all ages to draw, read, and imagine their own incredible worlds.</p>
+                <p class="mb-4">Oda's studio is a place full of wonder. It is not just a room with a desk; it's a creative
+                    playground. There are drawings everywhere, action figures of his characters, and stacks of his favorite
+                    comic books. He often listens to music while he draws to get into the right mood. Even though he is one
+                    of the most famous artists in the world, he stays humble and loves to talk about his favorite movies and
+                    TV shows. He is just a person who loves to tell stories, and his passion shines through in every page
+                    of *One Piece*.</p>
+
+                <p class="mb-4">His success with *One Piece* has shown millions of people that dreams are worth working for.
+                    He is a living example of what can happen when you dedicate your life to something you love. His
+                    creativity has inspired people of all ages to draw, read, and imagine their own incredible worlds.</p>
             </div>
 
             <div id="questions-container" class="space-y-10">
@@ -79,7 +103,8 @@
             </div>
 
             <div class="mt-10 text-center space-x-4">
-                <button id="submitBtn" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
+                <button id="submitBtn"
+                    class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
                     Check Answers
                 </button>
             </div>
@@ -88,15 +113,17 @@
         <div id="results" class="mt-8 p-6 rounded-lg text-center font-bold text-lg hidden">
             <p id="scoreText"></p>
             <div class="mt-4 space-x-4">
-                <button id="startGameBtn" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 hidden">
+                <button id="startGameBtn"
+                    class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 hidden">
                     Congratulations! Check out your reward
                 </button>
-                <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
+                <button id="retakeQuizBtn"
+                    class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
                     Retake Quiz
                 </button>
             </div>
         </div>
-        
+
         <hr class="my-12 border-gray-300">
 
         <!-- Game Section -->
@@ -104,15 +131,19 @@
             <h2 class="text-3xl font-bold text-gray-800 mb-4">Gum-Gum Dragon Smash!</h2>
             <div class="flex flex-col items-center justify-center">
                 <canvas id="game-canvas" width="600" height="400" class="rounded-lg shadow-2xl"></canvas>
-                <div id="game-message" class="mt-4 text-white font-bold text-2xl hidden p-2 rounded-lg bg-gray-800"></div>
+                <div id="game-message"
+                    class="mt-4 text-white font-bold text-2xl hidden p-2 rounded-lg bg-gray-800"></div>
                 <div id="attack-buttons" class="mt-4 space-x-4">
-                    <button id="pistol-btn" class="bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition duration-300">
+                    <button id="pistol-btn"
+                        class="bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition duration-300">
                         Gum-Gum Pistol
                     </button>
-                    <button id="axe-btn" class="bg-yellow-500 text-white font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300">
+                    <button id="axe-btn"
+                        class="bg-yellow-500 text-white font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300">
                         Gum-Gum Axe
                     </button>
-                    <button id="bell-btn" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
+                    <button id="bell-btn"
+                        class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
                         Gum-Gum Bell
                     </button>
                 </div>
@@ -121,84 +152,83 @@
     </div>
 
     <script>
-        const allQuestions = [
-            {
-                id: 'q1',
-                questionText: 'What is Eiichiro Oda known for creating?',
-                options: [
-                    { value: 'A', text: 'A famous video game' },
-                    { value: 'B', text: 'The manga and anime series *One Piece*' },
-                    { value: 'C', text: 'A popular cartoon about a dog' },
-                    { value: 'D', text: 'An animated movie about wizards' }
-                ],
-                type: 'radio'
-            },
-            {
-                id: 'q2',
-                questionText: 'According to the passage, why does Oda draw the main characters himself?',
-                options: [
-                    { value: 'A', text: 'His assistants are not good enough.' },
-                    { value: 'B', text: 'He wants to keep the best parts of the job for himself.' },
-                    { value: 'C', text: 'He wants his own hand to bring the characters to life.' },
-                    { value: 'D', text: 'He doesn\'t trust anyone else with his work.' }
-                ],
-                type: 'radio'
-            },
-            {
-                id: 'q3',
-                questionText: 'What does the passage say about Oda\'s story planning?',
-                options: [
-                    { value: 'A', text: 'He makes it up as he goes along.' },
-                    { value: 'B', text: 'He has the entire plot planned years in advance.' },
-                    { value: 'C', text: 'He asks his fans what should happen next.' },
-                    { value: 'D', text: 'He only plans a few weeks ahead.' }
-                ],
-                type: 'radio'
-            },
-            {
-                id: 'q4',
-                questionText: 'Which of the following describes Oda\'s studio?',
-                options: [
-                    { value: 'A', text: 'A dark and quiet room' },
-                    { value: 'B', text: 'A simple room with just a desk' },
-                    { value: 'C', text: 'A messy room with no decorations' },
-                    { value: 'D', text: 'A creative playground with drawings and action figures' }
-                ],
-                type: 'radio'
-            },
-            {
-                id: 'q5',
-                questionText: 'The passage describes Oda\'s journey from a young age to becoming a famous artist. Which word best describes the quality that helped him achieve his dreams?',
-                options: [
-                    { value: 'A', text: 'Luck' },
-                    { value: 'B', text: 'Laziness' },
-                    { value: 'C', text: 'Hard work' },
-                    { value: 'D', text: 'Wealth' }
-                ],
-                type: 'radio'
-            },
-            {
-                id: 'q6',
-                questionText: 'Based on the passage, what does the word **playground** mean in the sentence, "His studio is a creative playground"?',
-                options: [
-                    { value: 'A', text: 'A place with swings and slides' },
-                    { value: 'B', text: 'A place where he plays with his friends' },
-                    { value: 'C', text: 'A place where he can have fun and be creative' },
-                    { value: 'D', text: 'A place where children go to school' }
-                ],
-                type: 'radio'
-            },
-            {
-                id: 'q7',
-                questionText: 'Select all the things that Oda has in his notebooks.',
-                options: [
-                    { value: 'story ideas', text: 'ideas for the story' },
-                    { value: 'character designs', text: 'designs for new characters' },
-                    { value: 'maps of islands', text: 'maps of new islands' },
-                    { value: 'a list of his favorite foods', text: 'a list of his favorite foods' }
-                ],
-                type: 'checkbox'
-            }
+        const allQuestions = [{
+            id: 'q1',
+            questionText: 'What is Eiichiro Oda known for creating?',
+            options: [
+                { value: 'A', text: 'A famous video game' },
+                { value: 'B', text: 'The manga and anime series *One Piece*' },
+                { value: 'C', text: 'A popular cartoon about a dog' },
+                { value: 'D', text: 'An animated movie about wizards' }
+            ],
+            type: 'radio'
+        },
+        {
+            id: 'q2',
+            questionText: 'According to the passage, why does Oda draw the main characters himself?',
+            options: [
+                { value: 'A', text: 'His assistants are not good enough.' },
+                { value: 'B', text: 'He wants to keep the best parts of the job for himself.' },
+                { value: 'C', text: 'He wants his own hand to bring the characters to life.' },
+                { value: 'D', text: 'He doesn\'t trust anyone else with his work.' }
+            ],
+            type: 'radio'
+        },
+        {
+            id: 'q3',
+            questionText: 'What does the passage say about Oda\'s story planning?',
+            options: [
+                { value: 'A', text: 'He makes it up as he goes along.' },
+                { value: 'B', text: 'He has the entire plot planned years in advance.' },
+                { value: 'C', text: 'He asks his fans what should happen next.' },
+                { value: 'D', text: 'He only plans a few weeks ahead.' }
+            ],
+            type: 'radio'
+        },
+        {
+            id: 'q4',
+            questionText: 'Which of the following describes Oda\'s studio?',
+            options: [
+                { value: 'A', text: 'A dark and quiet room' },
+                { value: 'B', text: 'A simple room with just a desk' },
+                { value: 'C', text: 'A messy room with no decorations' },
+                { value: 'D', text: 'A creative playground with drawings and action figures' }
+            ],
+            type: 'radio'
+        },
+        {
+            id: 'q5',
+            questionText: 'The passage describes Oda\'s journey from a young age to becoming a famous artist. Which word best describes the quality that helped him achieve his dreams?',
+            options: [
+                { value: 'A', text: 'Luck' },
+                { value: 'B', text: 'Laziness' },
+                { value: 'C', text: 'Hard work' },
+                { value: 'D', text: 'Wealth' }
+            ],
+            type: 'radio'
+        },
+        {
+            id: 'q6',
+            questionText: 'Based on the passage, what does the word **playground** mean in the sentence, "His studio is a creative playground"?',
+            options: [
+                { value: 'A', text: 'A place with swings and slides' },
+                { value: 'B', text: 'A place where he plays with his friends' },
+                { value: 'C', text: 'A place where he can have fun and be creative' },
+                { value: 'D', text: 'A place where children go to school' }
+            ],
+            type: 'radio'
+        },
+        {
+            id: 'q7',
+            questionText: 'Select all the things that Oda has in his notebooks.',
+            options: [
+                { value: 'story ideas', text: 'ideas for the story' },
+                { value: 'character designs', text: 'designs for new characters' },
+                { value: 'maps of islands', text: 'maps of new islands' },
+                { value: 'a list of his favorite foods', text: 'a list of his favorite foods' }
+            ],
+            type: 'checkbox'
+        }
         ];
 
         const correctAnswers = {
@@ -263,12 +293,12 @@
             const optionLabels = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
             const shuffledQuestions = shuffleArray([...allQuestions]);
             let questionNumber = 1;
-            
+
             shuffledQuestions.forEach(q => {
                 const questionDiv = document.createElement('div');
                 questionDiv.id = q.id;
                 questionDiv.className = 'question p-6 rounded-lg shadow-md bg-white border border-gray-200';
-                
+
                 let optionsHtml = '';
                 const shuffledOptions = shuffleArray([...q.options]);
                 shuffledOptions.forEach((option, index) => {
@@ -322,7 +352,7 @@
                 const labels = question.querySelectorAll('.question-option');
                 const radios = question.querySelectorAll('input[type="radio"]');
                 const checkboxes = question.querySelectorAll('input[type="checkbox"]');
-                
+
                 if (radios.length > 0) {
                     totalQuestions++;
                     const selected = question.querySelector('input[type="radio"]:checked');
@@ -354,10 +384,10 @@
                             label.classList.add('incorrect-answer');
                         }
                     });
-                    
+
                     const allCorrectSelected = correctCheckboxAnswers.every(val => selectedCheckboxes.includes(val));
                     const noIncorrectSelected = selectedCheckboxes.every(val => correctCheckboxAnswers.includes(val));
-                    
+
                     if (allCorrectSelected && noIncorrectSelected) {
                         score++;
                     }
@@ -424,30 +454,43 @@
             endY: 0,
             startLimbX: 0,
             startLimbY: 0,
-            speed: 15
+            speed: 15,
+            isReturning: false,
         };
 
         function drawLuffy() {
-            // Body
-            ctx.fillStyle = '#ffb380'; // Skin tone
-            ctx.fillRect(player.x, player.y, player.width, player.height);
-            // Shirt
-            ctx.fillStyle = '#f0a040'; // Red shirt
-            ctx.fillRect(player.x, player.y, player.width, player.height / 2);
-            // Shorts
-            ctx.fillStyle = '#0055a8'; // Blue shorts
-            ctx.fillRect(player.x, player.y + player.height / 2, player.width, player.height / 2);
-            // Straw Hat
-            ctx.fillStyle = '#f7d34c'; // Yellow straw hat
-            ctx.beginPath();
-            ctx.arc(player.x + player.width / 2, player.y, 25, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.closePath();
-            ctx.fillStyle = '#653a18'; // Ribbon
-            ctx.beginPath();
-            ctx.arc(player.x + player.width / 2, player.y, 18, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.closePath();
+            // Only draw the body if a bell attack is not active OR if the head is returning
+            if (attack.type !== 'bell' || (attack.type === 'bell' && attack.isReturning === false)) {
+                // Body
+                ctx.fillStyle = '#ffb380'; // Skin tone
+                ctx.fillRect(player.x, player.y, player.width, player.height);
+                // Shirt
+                ctx.fillStyle = '#f0a040'; // Red shirt
+                ctx.fillRect(player.x, player.y, player.width, player.height / 2);
+                // Shorts
+                ctx.fillStyle = '#0055a8'; // Blue shorts
+                ctx.fillRect(player.x, player.y + player.height / 2, player.width, player.height / 2);
+
+                // Straw Hat and Head (static)
+                ctx.fillStyle = '#f7d34c'; // Yellow straw hat
+                ctx.beginPath();
+                ctx.arc(player.x + player.width / 2, player.y, 25, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.closePath();
+                ctx.fillStyle = '#653a18'; // Ribbon
+                ctx.beginPath();
+                ctx.arc(player.x + player.width / 2, player.y, 18, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.closePath();
+            } else {
+                // Draw the body without the head/hat during the bell attack
+                ctx.fillStyle = '#ffb380';
+                ctx.fillRect(player.x, player.y, player.width, player.height);
+                ctx.fillStyle = '#f0a040';
+                ctx.fillRect(player.x, player.y, player.width, player.height / 2);
+                ctx.fillStyle = '#0055a8';
+                ctx.fillRect(player.x, player.y + player.height / 2, player.width, player.height / 2);
+            }
         }
 
         function drawDragon() {
@@ -470,7 +513,7 @@
             ctx.fill();
             // Other wing
             ctx.moveTo(dragon.width / 2, -dragon.height / 2 + 10);
-            ctx.lineTo(dragon.width / 2 + 40, -dragon.height / 2 - 20);
+            ctx.lineTo(dragon.width / 2 + 40, dragon.y + 40);
             ctx.lineTo(dragon.width / 2, -dragon.height / 2 + 40);
             ctx.fill();
             // Tail
@@ -487,50 +530,54 @@
 
         function drawAttack() {
             if (!attack.active) return;
-            
-            let color = '';
-            let endSize = 10;
-            let startSize = 10;
-            let startX = attack.startLimbX;
-            let startY = attack.startLimbY;
-            let endX = attack.x;
-            let endY = attack.y;
 
-            if (attack.type === 'pistol') {
-                color = '#ffb380'; // Skin tone
-                endSize = 15;
-            } else if (attack.type === 'axe') {
-                color = '#ffb380';
-                endSize = 20;
-            } else { // bell
-                color = '#ffb380';
-                startSize = 25;
-                endSize = 25;
-            }
-
-            // Draw the stretching limb
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 15;
-            ctx.beginPath();
-            ctx.moveTo(startX, startY);
-            ctx.lineTo(endX, endY);
-            ctx.stroke();
-
-            // Draw the end shape
-            ctx.fillStyle = color;
             ctx.shadowColor = '#fff';
             ctx.shadowBlur = 10;
-            
-            if (attack.type === 'pistol') {
+
+            if (attack.type === 'pistol' || attack.type === 'axe') {
+                // Standard limb stretching animation
+                let color = '#ffb380';
+                let endSize = attack.type === 'pistol' ? 15 : 20;
+
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 15;
                 ctx.beginPath();
-                ctx.arc(endX, endY, endSize, 0, Math.PI * 2);
+                ctx.moveTo(attack.startLimbX, attack.startLimbY);
+                ctx.lineTo(attack.x, attack.y);
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.fillStyle = color;
+                if (attack.type === 'pistol') {
+                    ctx.beginPath();
+                    ctx.arc(attack.x, attack.y, endSize, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.closePath();
+                } else {
+                    ctx.fillRect(attack.x - endSize / 2, attack.y - endSize / 2, endSize, endSize);
+                }
+
+            } else if (attack.type === 'bell') {
+                // Gum-Gum Bell: head stretching
+                // Draw the stretching neck
+                ctx.strokeStyle = '#ffb380'; // Skin tone
+                ctx.lineWidth = 15;
+                ctx.beginPath();
+                ctx.moveTo(player.x + player.width / 2, player.y);
+                ctx.lineTo(attack.x, attack.y);
+                ctx.stroke();
+                ctx.closePath();
+
+                // Draw the head at the end of the stretched neck
+                ctx.fillStyle = '#f7d34c'; // Yellow straw hat
+                ctx.beginPath();
+                ctx.arc(attack.x, attack.y, 25, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.closePath();
-            } else if (attack.type === 'axe') {
-                ctx.fillRect(endX - endSize / 2, endY - endSize / 2, endSize, endSize);
-            } else { // bell
+
+                ctx.fillStyle = '#653a18'; // Ribbon and head
                 ctx.beginPath();
-                ctx.arc(endX, endY, endSize, 0, Math.PI * 2);
+                ctx.arc(attack.x, attack.y, 18, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.closePath();
             }
@@ -552,23 +599,45 @@
 
             if (!attack.active) return;
 
-            const dx = attack.endX - attack.x;
-            const dy = attack.endY - attack.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            // Outgoing movement
+            if (!attack.isReturning) {
+                const dx = attack.endX - attack.x;
+                const dy = attack.endY - attack.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance > attack.speed) {
-                attack.x += (dx / distance) * attack.speed;
-                attack.y += (dy / distance) * attack.speed;
-            } else {
-                attack.x = attack.endX;
-                attack.y = attack.endY;
-                attack.active = false;
-                
-                // Collision check with dragon
-                if (attack.endX > dragon.x && attack.endX < dragon.x + dragon.width &&
-                    attack.endY > dragon.y && attack.endY < dragon.y + dragon.height) {
-                    
-                    dragon.isHit = true;
+                if (distance > attack.speed) {
+                    attack.x += (dx / distance) * attack.speed;
+                    attack.y += (dy / distance) * attack.speed;
+                } else {
+                    attack.x = attack.endX;
+                    attack.y = attack.endY;
+
+                    // Check for collision on impact
+                    if (attack.endX > dragon.x && attack.endX < dragon.x + dragon.width &&
+                        attack.endY > dragon.y && attack.endY < dragon.y + dragon.height) {
+                        dragon.isHit = true;
+                    }
+
+                    // Start returning for Gum-Gum Bell
+                    if (attack.type === 'bell') {
+                        attack.isReturning = true;
+                    } else {
+                        attack.active = false;
+                    }
+                }
+            } else { // Returning movement
+                const dx = player.x + player.width / 2 - attack.x;
+                const dy = player.y - attack.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance > attack.speed) {
+                    attack.x += (dx / distance) * attack.speed;
+                    attack.y += (dy / distance) * attack.speed;
+                } else {
+                    // Reset attack when it returns to the player
+                    attack.active = false;
+                    attack.isReturning = false;
+                    attack.x = player.x + player.width / 2;
+                    attack.y = player.y;
                 }
             }
         }
@@ -601,12 +670,13 @@
             attackButtons.style.display = 'flex';
             requestAnimationFrame(gameLoop);
         }
-        
+
         function handleAttack(type) {
             if (attack.active || dragon.isHit) return;
-            
+
             attack.active = true;
             attack.type = type;
+            attack.isReturning = false; // Reset returning state
             gameMessageDisplay.classList.add('hidden');
 
             if (type === 'pistol') {
@@ -614,16 +684,17 @@
                 attack.startLimbY = player.y + player.height / 3;
                 attack.x = attack.startLimbX;
                 attack.y = attack.startLimbY;
-                attack.endX = dragon.x + dragon.width/2;
-                attack.endY = dragon.y + dragon.height/2;
+                attack.endX = dragon.x + dragon.width / 2;
+                attack.endY = dragon.y + dragon.height / 2;
             } else if (type === 'axe') {
                 attack.startLimbX = player.x + player.width / 2;
                 attack.startLimbY = player.y + player.height;
                 attack.x = attack.startLimbX;
                 attack.y = attack.startLimbY;
-                attack.endX = dragon.x + dragon.width/2;
-                attack.endY = dragon.y + dragon.height/2;
+                attack.endX = dragon.x + dragon.width / 2;
+                attack.endY = dragon.y + dragon.height / 2;
             } else if (type === 'bell') {
+                // Gum-Gum Bell logic
                 attack.startLimbX = player.x + player.width / 2;
                 attack.startLimbY = player.y;
                 attack.x = attack.startLimbX;
@@ -632,7 +703,7 @@
                 attack.endY = dragon.y + dragon.height / 2;
             }
         }
-        
+
         pistolBtn.addEventListener('click', () => handleAttack('pistol'));
         axeBtn.addEventListener('click', () => handleAttack('axe'));
         bellBtn.addEventListener('click', () => handleAttack('bell'));
