@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Creator of a Pirate Legend Quiz</title>
+    <title>The Story of the Mad World of Pandora Quiz</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bangers&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -38,64 +41,84 @@
             border-left: 4px solid #ef4444;
         }
 
-        /* Custom styles for the game */
+        .game-font {
+            font-family: 'Bangers', cursive;
+        }
+
+        /* Styles for the Vault Hunter's game */
         #game-canvas {
-            background-color: #1a1a2e;
-            /* Dark, moody background */
-            border: 2px solid #5d5d81;
-            box-shadow: 0 0 20px #5d5d81;
+            background-color: #333;
+            border: 4px solid #f5f5f5;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        #game-info {
+            background-color: #222;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 2px solid #555;
+        }
+
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(34, 34, 34, 0.95);
+            padding: 2.5rem;
+            border: 4px solid #f5f5f5;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+            text-align: center;
+            z-index: 1000;
+            border-radius: 15px;
+        }
+
+        .message-box button {
+            background-color: #f59e0b;
+            color: #1a1a1a;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            border: none;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .message-box button:hover {
+            background-color: #d97706;
+            transform: scale(1.05);
         }
     </style>
 </head>
 
 <body class="p-4 sm:p-8">
     <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-6 sm:p-10 mb-8">
-        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">The Creator of a Pirate Legend</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">The Story of the Mad World of Pandora Quiz</h1>
         <p class="text-gray-600 text-center mb-8">Read the passage. Then answer the questions.</p>
+
+        <!-- Timer Section -->
+        <div id="timer-container" class="bg-gray-100 p-4 rounded-lg text-center mb-6">
+            <p class="text-sm font-semibold text-gray-600">Time Elapsed:</p>
+            <p id="timer" class="text-2xl font-bold text-blue-600 mt-1">0:00</p>
+        </div>
 
         <!-- Quiz Section -->
         <div id="quiz-container">
-            <!-- Timer Display -->
-            <div class="text-center font-semibold text-xl text-gray-700 mb-6">
-                Time: <span id="timer-display">0:00</span>
-            </div>
-            <div id="passage"
-                class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
+            <div id="passage" class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
                 <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage:</h2>
-                <p class="mb-4">Most of us can only dream about becoming a famous artist, but Eiichiro Oda made his dream come
-                    true. He is known around the world for creating the manga and anime series *One Piece*. His story shows
-                    how hard work, dedication, and a big imagination can lead to incredible adventures.</p>
+                <p class="mb-4">Once upon a time, on a planet far, far away from any magical kingdoms, there was a group of brave people called "game creators." Their home was a place called Gearbox Software, and their job was to dream up entire new worlds for others to explore. But their biggest adventure wasn't in a game, it was in making a game!</p>
 
-                <p class="mb-4">Oda began drawing from a very young age, inspired by the cartoons and stories he loved. When he
-                    was a teenager, he started working as an assistant for famous manga artists. It was a tough job with
-                    long hours, but it was like a secret training camp for him. He learned how to draw characters, create
-                    detailed backgrounds, and tell a story that would keep people interested for a long time. These skills
-                    were very important later on when he created his own world for *One Piece*.</p>
+                <p class="mb-4">They had a grand plan for a new adventure story. They wanted to create a wild, dusty planet called Pandora, filled with brave heroes called Vault Hunters and dangerous creatures. Their first idea was to make the world look very, very real. The guns would look exactly like real guns, and the monsters would be super detailed and gritty, like something you'd see in a movie. The team worked for a long time, drawing and coding and building this realistic world. They were getting close to finishing, but something just didn't feel right. The game was okay, but it didn’t have a special feeling that would make it stand out from all the other games that looked the same. It was a little bit boring.</p>
 
-                <p class="mb-4">Once *One Piece* was a huge hit, Oda's work didn't stop. In fact, it got even more demanding.
-                    He works incredibly hard, often spending long hours in his studio, only taking short breaks. Some
-                    people say he only sleeps for a few hours a night! This is because he is very dedicated to his fans. He
-                    wants to make sure every chapter is perfect and full of surprises. He has a team of assistants who help
-                    him, but he draws all the main characters himself. He believes it's important for his own hand to bring
-                    the characters to life, making their expressions and actions just right.</p>
+                <p class="mb-4">The world they created was good, but it wasn't special. It didn't pop with excitement or feel as wacky as the ideas they had in their heads. One day, a brilliant person on the team had a wild thought. "What if," they asked, "we changed the whole thing?" This was a very risky idea. It's like building an entire house and then deciding to repaint every single wall just before you move in! But they believed in their idea. The head of the company, a man named Randy Pitchford, trusted his team and gave them the courage to try something completely different. Instead of making it look real, what if they made it look like a cartoon? Or even better, a living, breathing comic book?</p>
 
-                <p class="mb-4">One of the most amazing things about Oda is how he plans out his story. He has the entire
-                    plot of *One Piece* planned years in advance, with all the big twists and turns already written down.
-                    This is why the story is so complex and exciting. He has notebooks filled with ideas, designs for new
-                    characters, and maps of new islands. He knows the ending of the story, but he has promised his readers
-                    that they will have to wait patiently for the final chapter.</p>
+                <p class="mb-4">They decided to be brave and take the risk. They took all their super-realistic drawings and turned them into something new. They gave everything a thick, black outline, like a drawing you would make with a marker. The colors became brighter and bolder. The characters, who once looked like regular people, now had big, wild hair and crazy clothes that looked like they jumped right off a comic book page. The monsters, who were once scary, now had goofy faces and big, silly eyes. The whole world of Pandora went from being a gray and serious place to a mad, colorful, and fun adventure. This new art style was so special it had a name: cel-shading. It made the game look completely unique.</p>
 
-                <p class="mb-4">Oda's studio is a place full of wonder. It is not just a room with a desk; it's a creative
-                    playground. There are drawings everywhere, action figures of his characters, and stacks of his favorite
-                    comic books. He often listens to music while he draws to get into the right mood. Even though he is one
-                    of the most famous artists in the world, he stays humble and loves to talk about his favorite movies and
-                    TV shows. He is just a person who loves to tell stories, and his passion shines through in every page
-                    of *One Piece*.</p>
+                <p class="mb-4">This big change was the most important part of their journey. It's what made Borderlands unlike any other game. The brave decision to switch to a cartoonish style gave them the freedom to create a world where a hero could punch a bad guy and his head would explode into a shower of candy! It allowed them to create talking robots and wild vehicles and a giant dragon-like creature at the end of the game. All of these things might not have felt right in a "realistic" game, but in their new comic-book world, they fit perfectly. They also filled the game with lots of humor, from silly jokes told by a tiny robot named Claptrap to funny names on all the guns you could find.</p>
 
-                <p class="mb-4">His success with *One Piece* has shown millions of people that dreams are worth working for.
-                    He is a living example of what can happen when you dedicate your life to something you love. His
-                    creativity has inspired people of all ages to draw, read, and imagine their own incredible worlds.</p>
+                <p class="mb-4">And speaking of guns, the most famous part of Borderlands is its crazy amount of weapons. The creators decided there wouldn't just be a few guns, or even a hundred guns. They wanted to have a bazillion guns! They created a system where the game could put different parts together to make a new and unique gun almost every time. This meant that every time you found a gun, it was a special surprise. You might find a gun that shoots fire, one that talks, or one that makes enemies float into the sky.</p>
+
+                <p class="mb-4">The game creators worked together as a team, with each person adding their own special part to the grand story. The writers wrote funny jokes for the characters to say. The artists drew thousands of new guns and crazy costumes. The coders made sure every jump, every shot, and every explosion worked perfectly. It wasn't just one person who made the game; it was everyone at Gearbox Software working together to bring this big, wild idea to life. And because of their hard work, and their brave decision to be different, they created a game that millions of people love. The story of Borderlands teaches us that sometimes, the best ideas come from being a little bit silly and a lot bit brave. It’s a reminder that even when you think you're done, the best part of the adventure might be just around the corner.</p>
             </div>
 
             <div id="questions-container" class="space-y-10">
@@ -103,8 +126,7 @@
             </div>
 
             <div class="mt-10 text-center space-x-4">
-                <button id="submitBtn"
-                    class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
+                <button id="submitBtn" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
                     Check Answers
                 </button>
             </div>
@@ -113,12 +135,10 @@
         <div id="results" class="mt-8 p-6 rounded-lg text-center font-bold text-lg hidden">
             <p id="scoreText"></p>
             <div class="mt-4 space-x-4">
-                <button id="startGameBtn"
-                    class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 hidden">
+                <button id="startGameBtn" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 hidden">
                     Congratulations! Check out your reward
                 </button>
-                <button id="retakeQuizBtn"
-                    class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
+                <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
                     Retake Quiz
                 </button>
             </div>
@@ -127,120 +147,145 @@
         <hr class="my-12 border-gray-300">
 
         <!-- Game Section -->
-        <div id="game-container" class="mt-8 text-center" style="display: none;">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Gum-Gum Dragon Smash!</h2>
-            <div class="flex flex-col items-center justify-center">
-                <canvas id="game-canvas" width="600" height="400" class="rounded-lg shadow-2xl"></canvas>
-                <div id="game-message"
-                    class="mt-4 text-white font-bold text-2xl hidden p-2 rounded-lg bg-gray-800"></div>
-                <div id="attack-buttons" class="mt-4 space-x-4">
-                    <button id="pistol-btn"
-                        class="bg-red-500 text-white font-bold py-3 px-8 rounded-full hover:bg-red-600 transition duration-300">
-                        Gum-Gum Pistol
-                    </button>
-                    <button id="axe-btn"
-                        class="bg-yellow-500 text-white font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300">
-                        Gum-Gum Axe
-                    </button>
-                    <button id="bell-btn"
-                        class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
-                        Gum-Gum Bell
-                    </button>
+        <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-900 rounded-lg shadow-2xl" style="display: none;">
+            <div id="game-info" class="mb-6 w-full max-w-xl text-center text-white bg-gray-800 p-4 rounded-xl border-2 border-yellow-400">
+                <h1 class="text-3xl font-bold mb-2 game-font">Vault Hunter's Treasure</h1>
+                <p class="text-gray-300">Use the arrow keys to move and the <strong class="text-yellow-400">E key</strong> to investigate for key fragments!</p>
+                <div class="mt-4 text-xl">
+                    Key Fragments Found: <span id="foundCount" class="font-bold text-yellow-400">0</span> / 3
                 </div>
+            </div>
+            <div id="game-canvas-container" class="relative w-full max-w-xl aspect-square overflow-hidden rounded-lg">
+                <canvas id="game-canvas" class="w-full h-full"></canvas>
+            </div>
+            <button id="investigateBtn" class="bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full mt-6 hover:bg-yellow-500 transition duration-300 block sm:hidden">
+                Investigate
+            </button>
+            <div id="end-game-message" class="message-box hidden text-white">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Congratulations, Vault Hunter!</h2>
+                <div id="completed-key-container" class="mb-6 flex justify-center"></div>
+                <p class="mb-6 text-lg sm:text-xl">You have successfully completed the vault key. What knowledge will you seek?</p>
+                <button id="playAgainBtn">Play Again</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Quiz Data
         const allQuestions = [{
             id: 'q1',
-            questionText: 'What is Eiichiro Oda known for creating?',
-            options: [
-                { value: 'A', text: 'A famous video game' },
-                { value: 'B', text: 'The manga and anime series *One Piece*' },
-                { value: 'C', text: 'A popular cartoon about a dog' },
-                { value: 'D', text: 'An animated movie about wizards' }
-            ],
+            questionText: 'What is the main idea of this story?',
+            options: [{
+                value: 'B',
+                text: 'It is a story about a brave team making a video game.'
+            }, {
+                value: 'C',
+                text: 'It is a story about a talking robot.'
+            }, {
+                value: 'A',
+                text: 'It is a story about the planet Pandora.'
+            }, {
+                value: 'D',
+                text: 'It is a story about a video game with many guns.'
+            }],
             type: 'radio'
-        },
-        {
+        }, {
             id: 'q2',
-            questionText: 'According to the passage, why does Oda draw the main characters himself?',
-            options: [
-                { value: 'A', text: 'His assistants are not good enough.' },
-                { value: 'B', text: 'He wants to keep the best parts of the job for himself.' },
-                { value: 'C', text: 'He wants his own hand to bring the characters to life.' },
-                { value: 'D', text: 'He doesn\'t trust anyone else with his work.' }
-            ],
+            questionText: 'How did the bold decision to change the art style affect the game?',
+            options: [{
+                value: 'B',
+                text: 'It gave the creators freedom to add many silly and wild ideas.'
+            }, {
+                value: 'A',
+                text: 'It made the game look more realistic.'
+            }, {
+                value: 'C',
+                text: 'It made the game more boring and less exciting.'
+            }, {
+                value: 'D',
+                text: 'It made the game feel more serious.'
+            }],
             type: 'radio'
-        },
-        {
+        }, {
             id: 'q3',
-            questionText: 'What does the passage say about Oda\'s story planning?',
-            options: [
-                { value: 'A', text: 'He makes it up as he goes along.' },
-                { value: 'B', text: 'He has the entire plot planned years in advance.' },
-                { value: 'C', text: 'He asks his fans what should happen next.' },
-                { value: 'D', text: 'He only plans a few weeks ahead.' }
-            ],
+            questionText: 'Based on the passage, what is the most likely reason the creators felt the game was "a little bit boring?"',
+            options: [{
+                value: 'C',
+                text: 'It did not have a special feeling that would make it stand out.'
+            }, {
+                value: 'A',
+                text: 'The guns were not realistic enough.'
+            }, {
+                value: 'B',
+                text: 'The characters had wild hair and crazy clothes.'
+            }, {
+                value: 'D',
+                text: 'The game had too many explosions.'
+            }],
             type: 'radio'
-        },
-        {
+        }, {
             id: 'q4',
-            questionText: 'Which of the following describes Oda\'s studio?',
-            options: [
-                { value: 'A', text: 'A dark and quiet room' },
-                { value: 'B', text: 'A simple room with just a desk' },
-                { value: 'C', text: 'A messy room with no decorations' },
-                { value: 'D', text: 'A creative playground with drawings and action figures' }
-            ],
+            questionText: 'Read this sentence from the passage: "They wanted to have a bazillion guns!" What does the word "bazillion" mean in this sentence?',
+            options: [{
+                value: 'B',
+                text: 'A large, crazy amount'
+            }, {
+                value: 'A',
+                text: 'A special type of gun'
+            }, {
+                value: 'C',
+                text: 'A very small number'
+            }, {
+                value: 'D',
+                text: 'A new kind of monster'
+            }],
             type: 'radio'
-        },
-        {
+        }, {
             id: 'q5',
-            questionText: 'The passage describes Oda\'s journey from a young age to becoming a famous artist. Which word best describes the quality that helped him achieve his dreams?',
-            options: [
-                { value: 'A', text: 'Luck' },
-                { value: 'B', text: 'Laziness' },
-                { value: 'C', text: 'Hard work' },
-                { value: 'D', text: 'Wealth' }
-            ],
+            questionText: 'According to the passage, who was the leader that trusted his team to change the game?',
+            options: [{
+                value: 'B',
+                text: 'Randy Pitchford'
+            }, {
+                value: 'A',
+                text: 'The writer'
+            }, {
+                value: 'C',
+                text: 'Claptrap'
+            }, {
+                value: 'D',
+                text: 'The head of the company'
+            }],
             type: 'radio'
-        },
-        {
+        }, {
             id: 'q6',
-            questionText: 'Based on the passage, what does the word **playground** mean in the sentence, "His studio is a creative playground"?',
-            options: [
-                { value: 'A', text: 'A place with swings and slides' },
-                { value: 'B', text: 'A place where he plays with his friends' },
-                { value: 'C', text: 'A place where he can have fun and be creative' },
-                { value: 'D', text: 'A place where children go to school' }
-            ],
+            questionText: 'What happened right before the game creators decided to change the art style?',
+            options: [{
+                value: 'A',
+                text: 'A brilliant person had a wild thought.'
+            }, {
+                value: 'B',
+                text: 'They finished the game and released it.'
+            }, {
+                value: 'C',
+                text: 'They began to create the bazillion guns.'
+            }, {
+                value: 'D',
+                text: 'The game became very popular.'
+            }],
             type: 'radio'
-        },
-        {
-            id: 'q7',
-            questionText: 'Select all the things that Oda has in his notebooks.',
-            options: [
-                { value: 'story ideas', text: 'ideas for the story' },
-                { value: 'character designs', text: 'designs for new characters' },
-                { value: 'maps of islands', text: 'maps of new islands' },
-                { value: 'a list of his favorite foods', text: 'a list of his favorite foods' }
-            ],
-            type: 'checkbox'
-        }
-        ];
+        }];
 
         const correctAnswers = {
             q1: "B",
-            q2: "C",
-            q3: "B",
-            q4: "D",
-            q5: "C",
-            q6: "C",
-            q7: ["story ideas", "character designs", "maps of islands"]
+            q2: "B",
+            q3: "C",
+            q4: "B",
+            q5: "B",
+            q6: "A"
         };
 
+        // DOM elements
         const submitBtn = document.getElementById('submitBtn');
         const retakeQuizBtn = document.getElementById('retakeQuizBtn');
         const startGameBtn = document.getElementById('startGameBtn');
@@ -249,13 +294,14 @@
         const questionsContainer = document.getElementById('questions-container');
         const quizContainer = document.getElementById('quiz-container');
         const gameContainer = document.getElementById('game-container');
-        const gameMessage = document.getElementById('game-message');
-        const attackButtons = document.getElementById('attack-buttons');
-        const timerDisplay = document.getElementById('timer-display');
+        const timerDisplay = document.getElementById('timer');
+        const investigateBtn = document.getElementById('investigateBtn');
 
-        let quizStartTime = 0;
-        let quizTimerInterval = null;
+        // Quiz State
+        let startTime;
+        let timerInterval;
 
+        // Function to shuffle an array in place (Fisher-Yates shuffle)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -264,22 +310,29 @@
             return array;
         }
 
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = Math.floor(seconds % 60);
-            const formattedMinutes = String(minutes).padStart(1, '0');
-            const formattedSeconds = String(remainingSeconds).padStart(2, '0');
-            return `${formattedMinutes}:${formattedSeconds}`;
+        // Timer functions
+        function updateTimerDisplay() {
+            const currentTime = Date.now();
+            const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+            const minutes = Math.floor(elapsedTime / 60);
+            const seconds = elapsedTime % 60;
+            timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
 
-        function startQuizTimer() {
-            quizStartTime = Date.now();
-            quizTimerInterval = setInterval(() => {
-                const elapsedTimeInSeconds = (Date.now() - quizStartTime) / 1000;
-                timerDisplay.textContent = formatTime(elapsedTimeInSeconds);
-            }, 1000);
+        function startTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            startTime = Date.now();
+            updateTimerDisplay();
+            timerInterval = setInterval(updateTimerDisplay, 1000);
         }
 
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        // Renders the quiz questions to the page
         function renderQuiz() {
             questionsContainer.innerHTML = '';
             resultsDiv.classList.add('hidden');
@@ -288,60 +341,56 @@
             gameContainer.style.display = 'none';
             quizContainer.style.display = 'block';
 
-            startQuizTimer();
-
-            const optionLabels = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+            const optionLabels = ['A', 'B', 'C', 'D'];
             const shuffledQuestions = shuffleArray([...allQuestions]);
-            let questionNumber = 1;
 
-            shuffledQuestions.forEach(q => {
+            shuffledQuestions.forEach((q, questionIndex) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.id = q.id;
                 questionDiv.className = 'question p-6 rounded-lg shadow-md bg-white border border-gray-200';
 
-                let optionsHtml = '';
+                const questionText = document.createElement('p');
+                questionText.className = 'font-semibold text-lg mb-4';
+                questionText.innerHTML = `${questionIndex + 1}. ${q.questionText}`;
+                questionDiv.appendChild(questionText);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'space-y-4 text-sm sm:text-base';
+                questionDiv.appendChild(optionsDiv);
+
                 const shuffledOptions = shuffleArray([...q.options]);
                 shuffledOptions.forEach((option, index) => {
-                    const label = optionLabels[index];
-                    optionsHtml += `
-                        <label class="question-option block bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <input type="${q.type}" name="${q.id}" value="${option.value}" class="mr-3">
-                            ${label}. ${option.text}
-                        </label>
-                    `;
-                });
+                    const label = document.createElement('label');
+                    label.className = 'question-option block bg-gray-50 p-4 rounded-lg border border-gray-200';
+                    const input = document.createElement('input');
+                    input.type = q.type;
+                    input.name = q.id;
+                    input.value = option.value;
+                    input.className = 'mr-3';
 
-                questionDiv.innerHTML = `
-                    <p class="font-semibold text-lg mb-4">${questionNumber}. ${q.questionText}</p>
-                    <div class="space-y-4 text-sm sm:text-base">
-                        ${optionsHtml}
-                    </div>
-                `;
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(`${optionLabels[index]}. ${option.text}`));
+
+                    label.addEventListener('click', () => {
+                        if (input.type === 'radio') {
+                            document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
+                                radio.parentElement.classList.remove('selected');
+                            });
+                            label.classList.add('selected');
+                        }
+                    });
+                    optionsDiv.appendChild(label);
+                });
                 questionsContainer.appendChild(questionDiv);
-                questionNumber++;
             });
-
-            document.querySelectorAll('.question-option').forEach(label => {
-                label.addEventListener('click', () => {
-                    const input = label.querySelector('input');
-                    if (input.type === 'radio') {
-                        document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
-                            radio.parentElement.classList.remove('selected');
-                        });
-                        label.classList.add('selected');
-                    } else if (input.type === 'checkbox') {
-                        label.classList.toggle('selected');
-                    }
-                });
-            });
+            startTimer();
         }
 
+        // Event Listeners for quiz
         submitBtn.addEventListener('click', () => {
             let score = 0;
             let totalQuestions = 0;
-
-            clearInterval(quizTimerInterval);
-            const finalTime = formatTime((Date.now() - quizStartTime) / 1000);
+            let allAnswered = true;
 
             document.querySelectorAll('.question-option').forEach(label => {
                 label.classList.remove('selected', 'correct-answer', 'incorrect-answer');
@@ -350,62 +399,47 @@
             questionsContainer.querySelectorAll('.question').forEach(question => {
                 const questionId = question.id;
                 const labels = question.querySelectorAll('.question-option');
-                const radios = question.querySelectorAll('input[type="radio"]');
-                const checkboxes = question.querySelectorAll('input[type="checkbox"]');
+                const selected = question.querySelector('input[type="radio"]:checked');
+                const correctAnswerValue = correctAnswers[questionId];
 
-                if (radios.length > 0) {
-                    totalQuestions++;
-                    const selected = question.querySelector('input[type="radio"]:checked');
-                    const correctAnswerValue = correctAnswers[questionId];
+                if (!selected) {
+                    allAnswered = false;
+                    return;
+                }
 
-                    labels.forEach(label => {
-                        const input = label.querySelector('input');
-                        if (input.value === correctAnswerValue) {
-                            label.classList.add('correct-answer');
-                        }
-                    });
-
-                    if (selected && selected.value === correctAnswerValue) {
-                        score++;
-                    } else if (selected) {
-                        selected.parentElement.classList.add('incorrect-answer');
+                totalQuestions++;
+                labels.forEach(label => {
+                    const input = label.querySelector('input');
+                    if (input.value === correctAnswerValue) {
+                        label.classList.add('correct-answer');
                     }
-                } else if (checkboxes.length > 0) {
-                    totalQuestions++;
-                    const selectedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
-                    const correctCheckboxAnswers = correctAnswers[questionId];
+                });
 
-                    labels.forEach(label => {
-                        const input = label.querySelector('input');
-                        if (correctCheckboxAnswers.includes(input.value)) {
-                            label.classList.add('correct-answer');
-                        }
-                        if (selectedCheckboxes.includes(input.value) && !correctCheckboxAnswers.includes(input.value)) {
-                            label.classList.add('incorrect-answer');
-                        }
-                    });
-
-                    const allCorrectSelected = correctCheckboxAnswers.every(val => selectedCheckboxes.includes(val));
-                    const noIncorrectSelected = selectedCheckboxes.every(val => correctCheckboxAnswers.includes(val));
-
-                    if (allCorrectSelected && noIncorrectSelected) {
-                        score++;
-                    }
+                if (selected && selected.value === correctAnswerValue) {
+                    score++;
+                } else if (selected) {
+                    selected.parentElement.classList.add('incorrect-answer');
                 }
             });
 
+            if (!allAnswered) {
+                // Use a simple message box to inform the user
+                showBasicMessage("Please answer all questions before submitting.");
+                return;
+            }
+
             const percentage = (score / totalQuestions) * 100;
-            scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%) in ${finalTime}.`;
+            scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%).`;
             resultsDiv.classList.remove('hidden');
             retakeQuizBtn.classList.remove('hidden');
 
             if (score === totalQuestions) {
+                stopTimer(); // Stop the timer on a perfect score
+                const finalTime = timerDisplay.textContent;
+                scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%). You completed the quiz in ${finalTime}.`;
                 resultsDiv.classList.add('bg-green-100', 'text-green-700');
                 resultsDiv.classList.remove('bg-red-100', 'text-red-700');
                 startGameBtn.classList.remove('hidden');
-                quizContainer.style.display = 'none';
-                gameContainer.style.display = 'block';
-                initGame();
             } else {
                 resultsDiv.classList.add('bg-red-100', 'text-red-700');
                 resultsDiv.classList.remove('bg-green-100', 'text-green-700');
@@ -416,329 +450,259 @@
             renderQuiz();
         });
 
-        // --- Game Logic ---
+        startGameBtn.addEventListener('click', () => {
+            quizContainer.style.display = 'none';
+            gameContainer.style.display = 'flex';
+            initGame();
+        });
+
+        // Simple message box to replace alert()
+        function showBasicMessage(message) {
+            const messageBox = document.createElement('div');
+            messageBox.className = 'message-box flex flex-col items-center';
+            messageBox.innerHTML = `
+                <p class="text-white text-lg sm:text-xl mb-4">${message}</p>
+                <button class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">OK</button>
+            `;
+            document.body.appendChild(messageBox);
+            messageBox.querySelector('button').addEventListener('click', () => {
+                document.body.removeChild(messageBox);
+            });
+        }
+
+
+        // Game Logic for Vault Hunter's Treasure
         const canvas = document.getElementById('game-canvas');
         const ctx = canvas.getContext('2d');
-        const pistolBtn = document.getElementById('pistol-btn');
-        const axeBtn = document.getElementById('axe-btn');
-        const bellBtn = document.getElementById('bell-btn');
-        const gameMessageDisplay = document.getElementById('game-message');
+        const foundCountEl = document.getElementById('foundCount');
+        const messageBox = document.getElementById('end-game-message');
+        const playAgainBtn = document.getElementById('playAgainBtn');
+        const completedKeyContainer = document.getElementById('completed-key-container');
+        const hunterSize = 50;
+        let hunterX, hunterY;
+        const speed = 5;
+        let foundKeys = 0;
+        let isGameActive = false;
+        let animationFrameId;
 
-        const canvasWidth = canvas.width;
-        const canvasHeight = canvas.height;
+        const hunterSymbol = '🤠';
+        const keyFragmentImages = [];
+        let objects = [];
+        const numObjects = 10;
+        const objectSymbols = ['📦', '💰', '🛡️', '⚙️', '💎', '🧪'];
 
-        let player = {
-            x: 50,
-            y: 300,
-            width: 40,
-            height: 60
-        };
+        const keys = {};
 
-        let dragon = {
-            x: canvasWidth - 120,
-            y: 100,
-            width: 80,
-            height: 120,
-            color: '#ff4d4d',
-            isHit: false,
-            fallSpeed: 0,
-            rotation: 0
-        };
+        // SVG functions
+        function createDiamondFragmentSVG(fragmentIndex) {
+            const svgWidth = 50;
+            const svgHeight = 50;
+            let svgPath = '';
+            if (fragmentIndex === 0) {
+                svgPath = `M${svgWidth / 2},0 L0,${svgHeight / 2} L${svgWidth / 2},${svgHeight * 0.75} L${svgWidth},${svgHeight / 2} Z`;
+            } else if (fragmentIndex === 1) {
+                svgPath = `M0,${svgHeight / 2} L${svgWidth / 2},${svgHeight * 0.75} L${svgWidth / 2},${svgHeight} L0,${svgHeight} Z`;
+            } else if (fragmentIndex === 2) {
+                svgPath = `M${svgWidth},${svgHeight / 2} L${svgWidth / 2},${svgHeight * 0.75} L${svgWidth / 2},${svgHeight} L${svgWidth},${svgHeight} Z`;
+            }
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="${svgWidth}" height="${svgHeight}" viewBox="0 0 ${svgWidth} ${svgHeight}">
+                        <path d="${svgPath}" fill="#a855f7" stroke="#8b5cf6" stroke-width="2" />
+                    </svg>`;
+        }
 
-        let attack = {
-            active: false,
-            type: '',
-            x: 0,
-            y: 0,
-            endX: 0,
-            endY: 0,
-            startLimbX: 0,
-            startLimbY: 0,
-            speed: 15,
-            isReturning: false,
-        };
+        function createCompletedDiamondSVG() {
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                        <path d="M50,0 L0,50 L50,100 L100,50 Z" fill="#a855f7" stroke="#8b5cf6" stroke-width="4" />
+                    </svg>`;
+        }
 
-        let attacksUsed = {
-            pistol: false,
-            axe: false,
-            bell: false
-        };
-        let hitsCount = 0;
-        const attacksNeeded = 3;
-
-        function drawLuffy() {
-            // Only draw the body if a bell attack is not active OR if the head is returning
-            if (attack.type !== 'bell' || (attack.type === 'bell' && attack.isReturning === false)) {
-                // Body
-                ctx.fillStyle = '#ffb380'; // Skin tone
-                ctx.fillRect(player.x, player.y, player.width, player.height);
-                // Shirt
-                ctx.fillStyle = '#f0a040'; // Red shirt
-                ctx.fillRect(player.x, player.y, player.width, player.height / 2);
-                // Shorts
-                ctx.fillStyle = '#0055a8'; // Blue shorts
-                ctx.fillRect(player.x, player.y + player.height / 2, player.width, player.height / 2);
-
-                // Straw Hat and Head (static)
-                ctx.fillStyle = '#f7d34c'; // Yellow straw hat
-                ctx.beginPath();
-                ctx.arc(player.x + player.width / 2, player.y, 25, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.closePath();
-                ctx.fillStyle = '#653a18'; // Ribbon
-                ctx.beginPath();
-                ctx.arc(player.x + player.width / 2, player.y, 18, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.closePath();
-            } else {
-                // Draw the body without the head/hat during the bell attack
-                ctx.fillStyle = '#ffb380';
-                ctx.fillRect(player.x, player.y, player.width, player.height);
-                ctx.fillStyle = '#f0a040';
-                ctx.fillRect(player.x, player.y, player.width, player.height / 2);
-                ctx.fillStyle = '#0055a8';
-                ctx.fillRect(player.x, player.y + player.height / 2, player.width, player.height / 2);
+        function preloadKeyFragments() {
+            for (let i = 0; i < 3; i++) {
+                const keyFragImage = new Image();
+                const svgString = createDiamondFragmentSVG(i);
+                keyFragImage.src = 'data:image/svg+xml;base64,' + btoa(svgString);
+                keyFragmentImages.push(keyFragImage);
             }
         }
 
-        function drawDragon() {
-            ctx.save();
-            ctx.translate(dragon.x + dragon.width / 2, dragon.y + dragon.height / 2);
-            ctx.rotate(dragon.rotation);
-
-            // Dragon body
-            ctx.fillStyle = '#ff4d4d'; // Red
-            ctx.fillRect(-dragon.width / 2, -dragon.height / 2, dragon.width, dragon.height);
-            // Dragon head
-            ctx.fillStyle = '#ff4d4d';
-            ctx.fillRect(-dragon.width / 2 + 10, -dragon.height / 2 - 20, 30, 30);
-            // Wings
-            ctx.fillStyle = '#ff9999'; // Lighter red
-            ctx.beginPath();
-            ctx.moveTo(-dragon.width / 2, -dragon.height / 2 + 10);
-            ctx.lineTo(-dragon.width / 2 - 40, -dragon.height / 2 - 20);
-            ctx.lineTo(-dragon.width / 2, -dragon.height / 2 + 40);
-            ctx.fill();
-            // Other wing
-            ctx.moveTo(dragon.width / 2, -dragon.height / 2 + 10);
-            ctx.lineTo(dragon.width / 2 + 40, dragon.y + 40);
-            ctx.lineTo(dragon.width / 2, -dragon.height / 2 + 40);
-            ctx.fill();
-            // Tail
-            ctx.fillStyle = '#ff4d4d';
-            ctx.beginPath();
-            ctx.moveTo(dragon.width / 2, dragon.height / 2 - 10);
-            ctx.lineTo(dragon.width / 2 + 30, dragon.height / 2 + 20);
-            ctx.lineTo(dragon.width / 2, dragon.height / 2);
-            ctx.fill();
-            ctx.closePath();
-
-            ctx.restore();
+        function showGameMessage() {
+            completedKeyContainer.innerHTML = createCompletedDiamondSVG();
+            messageBox.classList.remove('hidden');
         }
 
-        function drawAttack() {
-            if (!attack.active) return;
+        function hideGameMessage() {
+            messageBox.classList.add('hidden');
+        }
 
-            ctx.shadowColor = '#fff';
-            ctx.shadowBlur = 10;
-
-            if (attack.type === 'pistol' || attack.type === 'axe') {
-                // Standard limb stretching animation
-                let color = '#ffb380';
-                let endSize = attack.type === 'pistol' ? 15 : 20;
-
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 15;
-                ctx.beginPath();
-                ctx.moveTo(attack.startLimbX, attack.startLimbY);
-                ctx.lineTo(attack.x, attack.y);
-                ctx.stroke();
-                ctx.closePath();
-
-                ctx.fillStyle = color;
-                if (attack.type === 'pistol') {
-                    ctx.beginPath();
-                    ctx.arc(attack.x, attack.y, endSize, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.closePath();
-                } else {
-                    ctx.fillRect(attack.x - endSize / 2, attack.y - endSize / 2, endSize, endSize);
-                }
-
-            } else if (attack.type === 'bell') {
-                // Gum-Gum Bell: head stretching
-                // Draw the stretching neck
-                ctx.strokeStyle = '#ffb380'; // Skin tone
-                ctx.lineWidth = 15;
-                ctx.beginPath();
-                ctx.moveTo(player.x + player.width / 2, player.y);
-                ctx.lineTo(attack.x, attack.y);
-                ctx.stroke();
-                ctx.closePath();
-
-                // Draw the head at the end of the stretched neck
-                ctx.fillStyle = '#f7d34c'; // Yellow straw hat
-                ctx.beginPath();
-                ctx.arc(attack.x, attack.y, 25, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.closePath();
-
-                ctx.fillStyle = '#653a18'; // Ribbon and head
-                ctx.beginPath();
-                ctx.arc(attack.x, attack.y, 18, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.closePath();
+        // Game state and object creation
+        function createObjects() {
+            objects = [];
+            const keyLocations = new Set();
+            while (keyLocations.size < 3) {
+                keyLocations.add(Math.floor(Math.random() * numObjects));
             }
-            ctx.shadowBlur = 0;
-        }
 
-        function updateGame() {
-            if (dragon.isHit) {
-                dragon.fallSpeed += 0.5;
-                dragon.y += dragon.fallSpeed;
-                dragon.rotation += 0.05;
-                if (dragon.y > canvasHeight) {
-                    hitsCount++;
-                    if (hitsCount < attacksNeeded) {
-                        dragon.isHit = false;
-                        dragon.y = 100;
-                        dragon.fallSpeed = 0;
-                        dragon.rotation = 0;
-                        gameMessageDisplay.textContent = `Hit ${hitsCount} of ${attacksNeeded}!`
-                        gameMessageDisplay.classList.remove('hidden');
-                    } else {
-                        gameMessageDisplay.textContent = 'POW! You knocked the dragon out!';
-                        gameMessageDisplay.classList.remove('hidden');
-                        attackButtons.style.display = 'none';
-                        return;
+            for (let i = 0; i < numObjects; i++) {
+                let x, y;
+                let overlap;
+                do {
+                    overlap = false;
+                    x = Math.random() * (canvas.width - 50);
+                    y = Math.random() * (canvas.height - 50);
+
+                    for (const obj of objects) {
+                        const dist = Math.sqrt(Math.pow(x - obj.x, 2) + Math.pow(y - obj.y, 2));
+                        if (dist < 100) {
+                            overlap = true;
+                            break;
+                        }
                     }
-                }
-            }
+                } while (overlap);
 
-            if (!attack.active) return;
-
-            // Outgoing movement
-            if (!attack.isReturning) {
-                const dx = attack.endX - attack.x;
-                const dy = attack.endY - attack.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance > attack.speed) {
-                    attack.x += (dx / distance) * attack.speed;
-                    attack.y += (dy / distance) * attack.speed;
-                } else {
-                    attack.x = attack.endX;
-                    attack.y = attack.endY;
-
-                    // Check for collision on impact
-                    if (attack.endX > dragon.x && attack.endX < dragon.x + dragon.width &&
-                        attack.endY > dragon.y && attack.endY < dragon.y + dragon.height) {
-                        dragon.isHit = true;
-                    }
-
-                    // Start returning for Gum-Gum Bell
-                    if (attack.type === 'bell') {
-                        attack.isReturning = true;
-                    } else {
-                        attack.active = false;
-                    }
-                }
-            } else { // Returning movement
-                const dx = player.x + player.width / 2 - attack.x;
-                const dy = player.y - attack.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance > attack.speed) {
-                    attack.x += (dx / distance) * attack.speed;
-                    attack.y += (dy / distance) * attack.y;
-                } else {
-                    // Reset attack when it returns to the player
-                    attack.active = false;
-                    attack.isReturning = false;
-                    attack.x = player.x + player.width / 2;
-                    attack.y = player.y;
-                }
+                objects.push({
+                    x: x,
+                    y: y,
+                    isKey: keyLocations.has(i),
+                    isFound: false,
+                    symbol: objectSymbols[Math.floor(Math.random() * objectSymbols.length)]
+                });
             }
         }
 
+        function resetGame() {
+            foundKeys = 0;
+            foundCountEl.textContent = foundKeys;
+            hunterX = canvas.width / 2 - hunterSize / 2;
+            hunterY = canvas.height / 2 - hunterSize / 2;
+            hideGameMessage();
+            createObjects();
+            isGameActive = true;
+            if (!animationFrameId) {
+                gameLoop();
+            }
+        }
+
+        // Game drawing logic
         function draw() {
-            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-            drawLuffy();
-            if (!dragon.isHit) {
-                drawDragon();
-            }
-            drawAttack();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#333';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            if (dragon.isHit) {
-                drawDragon();
-            }
+            objects.forEach(obj => {
+                ctx.save();
+                ctx.translate(obj.x, obj.y);
+                if (obj.isFound) {
+                    const foundKeyCount = objects.filter(o => o.isFound).length;
+                    const fragIndex = obj.isKey ? objects.filter(o => o.isKey).indexOf(obj) : -1;
+                    if (fragIndex !== -1 && keyFragmentImages[fragIndex]?.complete) {
+                        ctx.drawImage(keyFragmentImages[fragIndex], 0, 0, 50, 50);
+                    }
+                } else {
+                    ctx.font = '40px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(obj.symbol, 25, 25);
+                }
+                ctx.restore();
+            });
+
+            ctx.font = '50px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(hunterSymbol, hunterX + hunterSize / 2, hunterY + hunterSize / 2);
+        }
+
+        // Game logic
+        function investigate() {
+            if (!isGameActive) return;
+            let foundSomething = false;
+            objects.forEach(obj => {
+                if (!obj.isFound &&
+                    hunterX < obj.x + 50 &&
+                    hunterX + hunterSize > obj.x &&
+                    hunterY < obj.y + 50 &&
+                    hunterY + hunterSize > obj.y) {
+                    if (obj.isKey) {
+                        obj.isFound = true;
+                        foundKeys++;
+                        foundSomething = true;
+                        foundCountEl.textContent = foundKeys;
+                        if (foundKeys === 3) {
+                            showGameMessage();
+                            isGameActive = false;
+                        }
+                    }
+                }
+            });
+            draw();
         }
 
         function gameLoop() {
-            updateGame();
+            if (!isGameActive) return;
+
+            if (keys['ArrowUp']) hunterY -= speed;
+            if (keys['ArrowDown']) hunterY += speed;
+            if (keys['ArrowLeft']) hunterX -= speed;
+            if (keys['ArrowRight']) hunterX += speed;
+
+            hunterX = Math.max(0, Math.min(canvas.width - hunterSize, hunterX));
+            hunterY = Math.max(0, Math.min(canvas.height - hunterSize, hunterY));
+
             draw();
-            requestAnimationFrame(gameLoop);
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        // Event Listeners for game
+        document.addEventListener('keydown', (e) => {
+            if (!isGameActive) return;
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                e.preventDefault();
+                keys[e.key] = true;
+            }
+            if (e.key.toLowerCase() === 'e' || e.key === ' ') {
+                investigate();
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (!isGameActive) return;
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                keys[e.key] = false;
+            }
+        });
+
+        investigateBtn.addEventListener('click', investigate);
+        playAgainBtn.addEventListener('click', () => {
+            // New logic to return to the quiz
+            hideGameMessage(); // Hide the "You Win!" message box
+            gameContainer.style.display = 'none'; // Hide the game section
+            quizContainer.style.display = 'block'; // Show the quiz section
+            renderQuiz(); // Reset the quiz and restart the timer
+        });
+
+        function resizeCanvas() {
+            const container = document.getElementById('game-canvas-container');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            resetGame();
         }
 
         function initGame() {
-            dragon.isHit = false;
-            dragon.y = 100;
-            dragon.fallSpeed = 0;
-            dragon.rotation = 0;
-            hitsCount = 0;
-            attacksUsed.pistol = false;
-            attacksUsed.axe = false;
-            attacksUsed.bell = false;
-
-            document.getElementById('pistol-btn').style.display = 'inline-block';
-            document.getElementById('axe-btn').style.display = 'inline-block';
-            document.getElementById('bell-btn').style.display = 'inline-block';
-
-            gameMessageDisplay.textContent = 'Use all three attacks to defeat the dragon!';
-            gameMessageDisplay.classList.remove('hidden');
-            attackButtons.style.display = 'flex';
-            requestAnimationFrame(gameLoop);
+            preloadKeyFragments();
+            resizeCanvas();
+            isGameActive = true;
+            gameLoop();
         }
 
-        function handleAttack(type) {
-            if (attack.active || dragon.isHit || attacksUsed[type]) return;
-
-            attacksUsed[type] = true;
-            document.getElementById(`${type}-btn`).style.display = 'none';
-
-            attack.active = true;
-            attack.type = type;
-            attack.isReturning = false;
-            gameMessageDisplay.classList.add('hidden');
-
-            if (type === 'pistol') {
-                attack.startLimbX = player.x + player.width;
-                attack.startLimbY = player.y + player.height / 3;
-                attack.x = attack.startLimbX;
-                attack.y = attack.startLimbY;
-                attack.endX = dragon.x + dragon.width / 2;
-                attack.endY = dragon.y + dragon.height / 2;
-            } else if (type === 'axe') {
-                attack.startLimbX = player.x + player.width / 2;
-                attack.startLimbY = player.y + player.height;
-                attack.x = attack.startLimbX;
-                attack.y = attack.startLimbY;
-                attack.endX = dragon.x + dragon.width / 2;
-                attack.endY = dragon.y + dragon.height / 2;
-            } else if (type === 'bell') {
-                attack.startLimbX = player.x + player.width / 2;
-                attack.startLimbY = player.y;
-                attack.x = attack.startLimbX;
-                attack.y = attack.startLimbY;
-                attack.endX = dragon.x + dragon.width / 2;
-                attack.endY = dragon.y + dragon.height / 2;
-            }
-        }
-
-        pistolBtn.addEventListener('click', () => handleAttack('pistol'));
-        axeBtn.addEventListener('click', () => handleAttack('axe'));
-        bellBtn.addEventListener('click', () => handleAttack('bell'));
-
-        window.onload = renderQuiz;
+        // Initial setup on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+            window.addEventListener('resize', () => {
+                if (gameContainer.style.display === 'flex') {
+                    resizeCanvas();
+                }
+            });
+        });
     </script>
 </body>
 
