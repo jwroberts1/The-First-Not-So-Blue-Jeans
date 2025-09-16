@@ -88,6 +88,11 @@
             background-color: #d97706;
             transform: scale(1.05);
         }
+
+        .control-button {
+            @apply bg-gray-700 text-white p-4 rounded-xl text-2xl font-bold transition-transform transform active:scale-95;
+            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap */
+        }
     </style>
 </head>
 
@@ -158,9 +163,25 @@
             <div id="game-canvas-container" class="relative w-full max-w-xl aspect-square overflow-hidden rounded-lg">
                 <canvas id="game-canvas" class="w-full h-full"></canvas>
             </div>
-            <button id="investigateBtn" class="bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full mt-6 hover:bg-yellow-500 transition duration-300 block sm:hidden">
-                Investigate
-            </button>
+            
+            <!-- Mobile Controls -->
+            <div id="mobile-controls" class="sm:hidden flex flex-col items-center mt-6 w-full">
+                <div class="grid grid-cols-3 gap-2 w-48">
+                    <div class="col-span-1"></div>
+                    <button id="up-btn" class="control-button">▲</button>
+                    <div class="col-span-1"></div>
+                    <button id="left-btn" class="control-button">◀</button>
+                    <div class="col-span-1"></div>
+                    <button id="right-btn" class="control-button">▶</button>
+                    <div class="col-span-1"></div>
+                    <button id="down-btn" class="control-button">▼</button>
+                    <div class="col-span-1"></div>
+                </div>
+                <button id="investigateBtn" class="bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full mt-6 hover:bg-yellow-500 transition duration-300 w-48">
+                    Investigate
+                </button>
+            </div>
+
             <div id="end-game-message" class="message-box hidden text-white">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4">Congratulations, Vault Hunter!</h2>
                 <div id="completed-key-container" class="mb-6 flex justify-center"></div>
@@ -478,6 +499,10 @@
         const messageBox = document.getElementById('end-game-message');
         const playAgainBtn = document.getElementById('playAgainBtn');
         const completedKeyContainer = document.getElementById('completed-key-container');
+        const upBtn = document.getElementById('up-btn');
+        const downBtn = document.getElementById('down-btn');
+        const leftBtn = document.getElementById('left-btn');
+        const rightBtn = document.getElementById('right-btn');
         const hunterSize = 50;
         let hunterX, hunterY;
         const speed = 5;
@@ -669,6 +694,35 @@
             if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
                 keys[e.key] = false;
             }
+        });
+
+        // Touch/Mouse event listeners for new buttons
+        const controlButtons = {
+            'up-btn': 'ArrowUp',
+            'down-btn': 'ArrowDown',
+            'left-btn': 'ArrowLeft',
+            'right-btn': 'ArrowRight'
+        };
+
+        function startMovement(e) {
+            e.preventDefault();
+            const key = controlButtons[e.currentTarget.id];
+            if (key) keys[key] = true;
+        }
+
+        function stopMovement(e) {
+            e.preventDefault();
+            const key = controlButtons[e.currentTarget.id];
+            if (key) keys[key] = false;
+        }
+
+        Object.keys(controlButtons).forEach(id => {
+            const btn = document.getElementById(id);
+            btn.addEventListener('mousedown', startMovement);
+            btn.addEventListener('mouseup', stopMovement);
+            btn.addEventListener('mouseleave', stopMovement); // Prevents movement from getting stuck if cursor moves off button
+            btn.addEventListener('touchstart', startMovement);
+            btn.addEventListener('touchend', stopMovement);
         });
 
         investigateBtn.addEventListener('click', investigate);
