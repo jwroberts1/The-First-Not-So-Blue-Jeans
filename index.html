@@ -91,7 +91,15 @@
 
         .control-button {
             @apply bg-gray-700 text-white p-4 rounded-xl text-2xl font-bold transition-transform transform active:scale-95;
-            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap */
+            -webkit-tap-highlight-color: transparent;
+            /* Removes blue highlight on tap */
+        }
+        
+        /* Media query to show controls on screens smaller than large desktops */
+        @media (max-width: 1024px) {
+            #mobile-controls {
+                display: flex !important;
+            }
         }
     </style>
 </head>
@@ -163,9 +171,9 @@
             <div id="game-canvas-container" class="relative w-full max-w-xl aspect-square overflow-hidden rounded-lg">
                 <canvas id="game-canvas" class="w-full h-full"></canvas>
             </div>
-            
+
             <!-- Mobile Controls -->
-            <div id="mobile-controls" class="sm:hidden flex flex-col items-center mt-6 w-full">
+            <div id="mobile-controls" class="hidden flex-col items-center mt-6 w-full">
                 <div class="grid grid-cols-3 gap-2 w-48">
                     <div class="col-span-1"></div>
                     <button id="up-btn" class="control-button">▲</button>
