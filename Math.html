@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd Grade Math Homework Helper</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4;
+            /* Light green background */
+        }
+
+        .header-font {
+            font-family: 'Jost', sans-serif;
+        }
+
+        .question-option {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .question-option:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .question-option.selected {
+            background-color: #ecfdf5;
+            /* Lightest green */
+            border-left: 4px solid #10b981;
+            /* Green-500 */
+        }
+
+        .question-option.correct-answer {
+            background-color: #d1fae5;
+            /* Lighter green */
+            border-left: 4px solid #059669;
+            /* Green-600 */
+        }
+
+        .question-option.incorrect-answer {
+            background-color: #fee2e2;
+            /* Light red */
+            border-left: 4px solid #ef4444;
+            /* Red-500 */
+        }
+
+        /* Styles for the Modal/Help Box */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .rdw-step {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-left: 4px solid #3b82f6;
+            background-color: #eff6ff;
+            border-radius: 6px;
+        }
+
+        /* Game specific styles */
+        #game-canvas {
+            background-color: #fefce8;
+            border: 4px solid #facc15;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body class="p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
+            Math Mission: Equal Groups & Arrays
+        </h1>
+        <p class="text-gray-600 text-center mb-8 text-lg">
+            3rd Grade Practice: Solve 10 problems to unlock the Array Builder Game!
+        </p>
+
+        <!-- Quiz Section -->
+        <div id="quiz-container">
+            <div id="questions-container" class="space-y-8">
+                <!-- Questions will be dynamically inserted here by JavaScript -->
+            </div>
+
+            <div class="mt-10 text-center space-x-4">
+                <button id="submitBtn" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition duration-300 shadow-lg">
+                    Check Answers
+                </button>
+            </div>
+        </div>
+
+        <div id="results" class="mt-8 p-6 rounded-lg text-center font-bold text-lg hidden">
+            <p id="scoreText"></p>
+            <div class="mt-4 space-x-4">
+                <button id="startGameBtn" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300 shadow-md hidden">
+                    Perfect Score! Play the Array Builder!
+                </button>
+                <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 shadow-md hidden">
+                    Try Again
+                </button>
+            </div>
+        </div>
+
+        <!-- RDW Help Modal (Initially hidden) -->
+        <div id="helpModal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2 id="modalTitle" class="text-2xl font-bold text-blue-700 mb-4 header-font"></h2>
+                <div id="modalBody" class="text-gray-700 text-base space-y-3">
+                    <!-- RDW content inserted here -->
+                </div>
+                <button id="closeModalBtn" class="mt-6 bg-blue-500 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300">
+                    Close Explanation
+                </button>
+            </div>
+        </div>
+
+
+        <hr class="my-12 border-gray-200">
+
+        <!-- Game Section (Array Builder) -->
+        <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
+            <div id="game-info" class="mb-6 w-full max-w-xl text-center text-gray-800 bg-white p-4 rounded-xl border-2 border-yellow-400">
+                <h1 class="text-3xl font-bold mb-2 header-font text-yellow-700">The Array Builder</h1>
+                <p class="text-gray-600 mb-4">Build arrays by entering the number of **Rows** and **Columns**.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <label for="rows" class="font-semibold">Rows:</label>
+                        <input type="number" id="rows" value="4" min="1" max="10" class="w-20 p-2 border rounded-lg text-center">
+                    </div>
+                    <span class="text-2xl font-bold text-gray-500 hidden sm:block">x</span>
+                    <div class="flex items-center space-x-2">
+                        <label for="cols" class="font-semibold">Columns:</label>
+                        <input type="number" id="cols" value="6" min="1" max="10" class="w-20 p-2 border rounded-lg text-center">
+                    </div>
+                </div>
+                <button id="buildArrayBtn" class="mt-4 bg-purple-500 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-600 transition duration-300 shadow-md">
+                    Build Array
+                </button>
+                <div class="mt-4 text-xl font-semibold">
+                    Total Blocks: <span id="totalBlocks" class="font-bold text-purple-700">24</span>
+                </div>
+            </div>
+            <div class="w-full max-w-xl aspect-square overflow-hidden rounded-lg">
+                <canvas id="game-canvas" class="w-full h-full"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- QUIZ DATA ---
+        const allQuestions = [{
+            id: 'q1',
+            questionText: 'A librarian needs to organize 24 books equally onto 4 shelves. How many books will be on each shelf?',
+            options: [{
+                value: 'A',
+                text: '8 books'
+            }, {
+                value: 'B',
+                text: '6 books'
+            }, {
+                value: 'C',
+                text: '4 books'
+            }, {
+                value: 'D',
+                text: '20 books'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>Total books: 24. Number of groups (shelves): 4. We need to find the number of books in each group.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Imagine drawing 4 boxes (shelves) and putting 1 dot (book) in each, repeating until all 24 books are used. The math equation is $24 \\div 4 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Since $4 \\times 6 = 24$, the answer is $24 \\div 4 = 6$. There will be <strong>6 books</strong> on each shelf.</p>
+                </div>
+            `
+        }, {
+            id: 'q2',
+            questionText: 'Ms. Lily buys 6 packs of pencils. Each pack has 8 pencils. How many pencils did she buy in total?',
+            options: [{
+                value: 'A',
+                text: '14 pencils'
+            }, {
+                value: 'B',
+                text: '42 pencils'
+            }, {
+                value: 'C',
+                text: '48 pencils'
+            }, {
+                value: 'D',
+                text: '56 pencils'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>Number of equal groups (packs): 6. Size of each group (pencils): 8. We need to find the total number of pencils.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Imagine drawing 6 rows with 8 small squares in each row (a $6 \\times 8$ array). The math equation is $6 \\times 8 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>By skip counting by 8 (8, 16, 24, 32, 40, 48) or by knowing the multiplication fact, we find $6 \\times 8 = 48$. She bought <strong>48 pencils</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q3',
+            questionText: 'A chocolate bar is broken into an array of 5 rows and 7 columns. How many small pieces are there in total?',
+            options: [{
+                value: 'A',
+                text: '12 pieces'
+            }, {
+                value: 'B',
+                text: '35 pieces'
+            }, {
+                value: 'C',
+                text: '40 pieces'
+            }, {
+                value: 'D',
+                text: '57 pieces'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>The problem describes an array with 5 rows and 7 columns. We need to find the total number of pieces.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Draw a grid with 5 rows going down and 7 columns going across. Counting the squares will give the total. The math equation is $5 \\times 7 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>We multiply the rows by the columns: $5 \\times 7 = 35$. There are <strong>35 small pieces</strong> in total.</p>
+                </div>
+            `
+        }, {
+            id: 'q4',
+            questionText: '36 donuts are packaged into boxes of 9. How many boxes are needed?',
+            options: [{
+                value: 'A',
+                text: '4 boxes'
+            }, {
+                value: 'B',
+                text: '6 boxes'
+            }, {
+                value: 'C',
+                text: '3 boxes'
+            }, {
+                value: 'D',
+                text: '9 boxes'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>Total items: 36 donuts. Size of each group (box): 9 donuts. We need to find the number of groups (boxes).</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Start with 36 and take away 9 repeatedly: $36 - 9 = 27$, $27 - 9 = 18$, $18 - 9 = 9$, $9 - 9 = 0$. You subtracted 9 four times. The math equation is $36 \\div 9 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>The inverse multiplication fact is $9 \\times 4 = 36$. Therefore, $36 \\div 9 = 4$. You need <strong>4 boxes</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q5',
+            questionText: 'A baker made 40 cookies and arranged them into 5 equal rows on a tray. How many cookies are in each row?',
+            options: [{
+                value: 'A',
+                text: '5 cookies'
+            }, {
+                value: 'B',
+                text: '6 cookies'
+            }, {
+                value: 'C',
+                text: '8 cookies'
+            }, {
+                value: 'D',
+                text: '10 cookies'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>Total: 40 cookies. Number of rows: 5. We need to find the number of columns (cookies in each row).</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Draw 5 horizontal lines (rows) and draw dots to represent the cookies, making sure all 5 rows have the same number of dots until you reach 40. The math equation is $40 \\div 5 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>We know that $5 \\times 8 = 40$. So, $40 \\div 5 = 8$. There are <strong>8 cookies</strong> in each row.</p>
+                </div>
+            `
+        }, {
+            id: 'q6',
+            questionText: 'What is the missing number in the multiplication sentence: $7 \\times \\text{?} = 49$?',
+            options: [{
+                value: 'A',
+                text: '6'
+            }, {
+                value: 'B',
+                text: '7'
+            }, {
+                value: 'C',
+                text: '8'
+            }, {
+                value: 'D',
+                text: '9'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>We are looking for the factor that, when multiplied by 7, gives the product 49.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>You could skip count by 7 until you reach 49: 7, 14, 21, 28, 35, 42, 49. Count how many times you skip counted. The division sentence is $49 \\div 7 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>The multiplication fact is $7 \\times 7 = 49$. The missing number is <strong>7</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q7',
+            questionText: 'There are 8 teams in a soccer league, and each team has 10 players. How many players are there in total?',
+            options: [{
+                value: 'A',
+                text: '18 players'
+            }, {
+                value: 'B',
+                text: '80 players'
+            }, {
+                value: 'C',
+                text: '60 players'
+            }, {
+                value: 'D',
+                text: '70 players'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>Number of groups (teams): 8. Size of each group (players): 10. We need to find the total.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Imagine 8 equal circles, each containing the number 10. The operation is multiplication: $8 \\times 10 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Multiplying any number by 10 is easy—just add a zero to the end of the number. $8 \\times 10 = 80$. There are <strong>80 players</strong> in total.</p>
+                </div>
+            `
+        }, {
+            id: 'q8',
+            questionText: 'If $9 \\times 3 = 27$, which division sentence is also true?',
+            options: [{
+                value: 'A',
+                text: ' $3 \\div 9 = 27$'
+            }, {
+                value: 'B',
+                text: ' $27 \\div 9 = 3$'
+            }, {
+                value: 'C',
+                text: ' $27 \\div 3 = 6$'
+            }, {
+                value: 'D',
+                text: ' $9 \\div 3 = 3$'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>We are using the given multiplication fact ($9 \\times 3 = 27$) to find the related division fact. This is the concept of a fact family.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Imagine an array with 9 rows and 3 columns (total 27). If you divide the total (27) by the number of rows (9), you must get the number of columns (3).</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>In a fact family, the product (27) becomes the dividend. The two division facts are $27 \\div 9 = 3$ and $27 \\div 3 = 9$. The correct option is <strong>$27 \\div 9 = 3$</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q9',
+            questionText: 'Mark has 2 rows of 6 toy cars on his shelf. His sister gives him 12 more cars. If he puts all the cars into 3 equal rows, how many cars are in each row?',
+            options: [{
+                value: 'A',
+                text: '12 cars'
+            }, {
+                value: 'B',
+                text: '8 cars'
+            }, {
+                value: 'C',
+                text: '10 cars'
+            }, {
+                value: 'D',
+                text: '6 cars'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p>
+                    <p>Step 1: Mark starts with $2 \\times 6$ cars, then adds 12 more. Find the new total. Step 2: Divide the new total into 3 equal rows.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>First array: $2 \\times 6 = 12$ cars. Total cars: $12 + 12 = 24$ cars. Now, draw 3 equal rows (groups) to put the 24 cars in. The final math equation is $24 \\div 3 = \\text{?}$</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Step 1: $2 \\times 6 = 12$. New total: $12 + 12 = 24$. Step 2: $24 \\div 3 = 8$. There are <strong>8 cars</strong> in each row.</p>
+                </div>
+            `
+        }, {
+            id: 'q10',
+            questionText: 'Which multiplication fact equals the total number of blocks in an array with 9 columns and 5 rows?',
+            options: [{
+                value: 'A',
+                text: ' $5 \\times 9 = 45$'
+            }, {
+                value: 'B',
+                text: ' $9 \\times 5 = 54$'
+            }, {
+                value: 'C',
+                text: ' $9 \\times 9 = 81$'
+            }, {
+                value: 'D',
+                text: ' $5 \\times 5 = 25$'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>The array has 5 rows and 9 columns. We need the total number of blocks, which is the product of these two numbers.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Draw a grid. 5 rows of 9 boxes each. The problem is a simple multiplication: $5 \\times 9$ or $9 \\times 5$.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Using the multiplication fact, $5 \\times 9 = 45$. This also means $9 \\times 5 = 45$. The correct equation is <strong>$5 \\times 9 = 45$</strong>.</p>
+                </div>
+            `
+        }];
+
+
+        // --- DOM Elements & Global State ---
+        const submitBtn = document.getElementById('submitBtn');
+        const retakeQuizBtn = document.getElementById('retakeQuizBtn');
+        const startGameBtn = document.getElementById('startGameBtn');
+        const resultsDiv = document.getElementById('results');
+        const scoreText = document.getElementById('scoreText');
+        const questionsContainer = document.getElementById('questions-container');
+        const quizContainer = document.getElementById('quiz-container');
+        const gameContainer = document.getElementById('game-container');
+
+        const helpModal = document.getElementById('helpModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        let isQuizSubmitted = false;
+
+
+        // --- QUIZ FUNCTIONS ---
+
+        // Renders the quiz questions to the page
+        function renderQuiz() {
+            questionsContainer.innerHTML = '';
+            resultsDiv.classList.add('hidden');
+            retakeQuizBtn.classList.add('hidden');
+            startGameBtn.classList.add('hidden');
+            gameContainer.style.display = 'none';
+            quizContainer.style.display = 'block';
+            isQuizSubmitted = false;
+
+            allQuestions.forEach((q, questionIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.id = q.id;
+                questionDiv.className = 'question p-6 rounded-xl shadow-md bg-white border border-green-100';
+
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'flex justify-between items-start mb-4';
+
+                const questionText = document.createElement('p');
+                questionText.className = 'font-semibold text-lg text-gray-800 flex-grow';
+                questionText.innerHTML = `${questionIndex + 1}. ${q.questionText}`;
+                headerDiv.appendChild(questionText);
+
+                // Get Help Button
+                const helpBtn = document.createElement('button');
+                helpBtn.className = 'ml-4 text-sm font-semibold text-blue-500 hover:text-blue-700 transition duration-150 py-1 px-3 rounded-full border border-blue-200';
+                helpBtn.textContent = 'Get Help';
+                helpBtn.setAttribute('data-question-id', q.id);
+                helpBtn.addEventListener('click', showHelpModal);
+                headerDiv.appendChild(helpBtn);
+
+                questionDiv.appendChild(headerDiv);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'space-y-3 text-sm sm:text-base';
+                questionDiv.appendChild(optionsDiv);
+
+                q.options.forEach(option => {
+                    const label = document.createElement('label');
+                    label.className = 'question-option block bg-gray-50 p-3 rounded-lg border border-gray-200';
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = q.id;
+                    input.value = option.value;
+                    input.className = 'mr-3 accent-green-600';
+
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(option.text));
+
+                    label.addEventListener('click', () => {
+                        // Remove 'selected' from all radio buttons in this group
+                        document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
+                            radio.parentElement.classList.remove('selected');
+                        });
+                        // Add 'selected' to the clicked label
+                        label.classList.add('selected');
+                        input.checked = true; // Ensure the radio button is marked checked
+                    });
+                    optionsDiv.appendChild(label);
+                });
+                questionsContainer.appendChild(questionDiv);
+            });
+        }
+
+        // Event listener for quiz submission
+        submitBtn.addEventListener('click', () => {
+            if (isQuizSubmitted) return; // Prevent double submission
+            isQuizSubmitted = true;
+
+            let score = 0;
+            let totalQuestions = allQuestions.length;
+            let allAnswered = true;
+
+            // Reset classes
+            document.querySelectorAll('.question-option').forEach(label => {
+                label.classList.remove('selected', 'correct-answer', 'incorrect-answer');
+                label.classList.add('cursor-default'); // Disable hover for review mode
+            });
+            document.querySelectorAll('.question input').forEach(input => input.disabled = true);
+
+            allQuestions.forEach(q => {
+                const questionDiv = document.getElementById(q.id);
+                const selected = questionDiv.querySelector('input[type="radio"]:checked');
+                const correctAnswerValue = q.correctAnswer;
+
+                if (!selected) {
+                    allAnswered = false;
+                    return;
+                }
+
+                questionDiv.querySelectorAll('.question-option').forEach(label => {
+                    const input = label.querySelector('input');
+                    if (input.value === correctAnswerValue) {
+                        label.classList.add('correct-answer');
+                    }
+                });
+
+                if (selected.value === correctAnswerValue) {
+                    score++;
+                } else {
+                    selected.parentElement.classList.add('incorrect-answer');
+                }
+            });
+
+            if (!allAnswered) {
+                showBasicMessage("Please answer all questions before submitting.");
+                // Re-enable options since submission was invalid
+                document.querySelectorAll('.question input').forEach(input => input.disabled = false);
+                isQuizSubmitted = false;
+                return;
+            }
+
+            const percentage = (score / totalQuestions) * 100;
+            scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%).`;
+            resultsDiv.classList.remove('hidden');
+            retakeQuizBtn.classList.remove('hidden');
+
+            if (score === totalQuestions) {
+                resultsDiv.classList.add('bg-yellow-100', 'text-green-800');
+                resultsDiv.classList.remove('bg-red-100', 'text-red-700');
+                startGameBtn.classList.remove('hidden');
+            } else {
+                resultsDiv.classList.add('bg-red-100', 'text-red-700');
+                resultsDiv.classList.remove('bg-yellow-100', 'text-green-800');
+            }
+        });
+
+        // Event listener for retaking the quiz
+        retakeQuizBtn.addEventListener('click', () => {
+            renderQuiz();
+            // Re-enable options
+            document.querySelectorAll('.question input').forEach(input => input.disabled = false);
+            document.querySelectorAll('.question-option').forEach(label => label.classList.remove('cursor-default'));
+        });
+
+        // Event listener to start the game
+        startGameBtn.addEventListener('click', () => {
+            quizContainer.style.display = 'none';
+            gameContainer.style.display = 'flex';
+            initGame();
+        });
+
+
+        // --- HELP MODAL FUNCTIONS ---
+
+        // Shows the RDW explanation modal
+        function showHelpModal(event) {
+            const questionId = event.currentTarget.getAttribute('data-question-id');
+            const question = allQuestions.find(q => q.id === questionId);
+
+            if (question) {
+                modalTitle.textContent = `Read-Draw-Write Help for Question ${questionId.replace('q', '')}`;
+                modalBody.innerHTML = question.rdw;
+                helpModal.classList.remove('hidden');
+            }
+        }
+
+        // Closes the RDW explanation modal
+        closeModalBtn.addEventListener('click', () => {
+            helpModal.classList.add('hidden');
+        });
+
+        // Closes the modal when clicking outside of it
+        helpModal.addEventListener('click', (e) => {
+            if (e.target === helpModal) {
+                helpModal.classList.add('hidden');
+            }
+        });
+
+        // Simple message box (replaces alert())
+        function showBasicMessage(message) {
+            const messageBox = document.createElement('div');
+            messageBox.className = 'modal-overlay';
+            messageBox.innerHTML = `
+                <div class="modal-content bg-yellow-50 border-4 border-yellow-400">
+                    <p class="text-gray-800 text-lg sm:text-xl mb-4 font-semibold">${message}</p>
+                    <button class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">OK</button>
+                </div>
+            `;
+            document.body.appendChild(messageBox);
+            messageBox.querySelector('button').addEventListener('click', () => {
+                document.body.removeChild(messageBox);
+            });
+        }
+
+
+        // --- ARRAY BUILDER GAME LOGIC ---
+
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const rowsInput = document.getElementById('rows');
+        const colsInput = document.getElementById('cols');
+        const totalBlocksEl = document.getElementById('totalBlocks');
+        const buildArrayBtn = document.getElementById('buildArrayBtn');
+
+        let blockSize = 40;
+        const padding = 20;
+
+        function drawArray(rows, cols) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fefce8'; // Canvas background
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const totalWidth = cols * blockSize;
+            const totalHeight = rows * blockSize;
+
+            // Center the array
+            const startX = (canvas.width - totalWidth) / 2;
+            const startY = (canvas.height - totalHeight) / 2;
+
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#facc15'; // Yellow border
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const x = startX + c * blockSize;
+                    const y = startY + r * blockSize;
+
+                    // Draw the block (a filled rectangle)
+                    ctx.fillStyle = r % 2 === 0 ? '#10b981' : '#059669'; // Alternating green colors
+                    ctx.fillRect(x, y, blockSize, blockSize);
+
+                    // Draw the block border (grid lines)
+                    ctx.strokeRect(x, y, blockSize, blockSize);
+                }
+            }
+        }
+
+        function handleBuildArray() {
+            let rows = parseInt(rowsInput.value) || 1;
+            let cols = parseInt(colsInput.value) || 1;
+
+            // Clamp values
+            rows = Math.min(10, Math.max(1, rows));
+            cols = Math.min(10, Math.max(1, cols));
+
+            rowsInput.value = rows;
+            colsInput.value = cols;
+
+            const total = rows * cols;
+            totalBlocksEl.textContent = total;
+
+            // Adjust block size based on the larger dimension to fit the canvas
+            const maxDimension = Math.max(rows, cols);
+            const availableSpace = Math.min(canvas.width, canvas.height) - 2 * padding;
+            blockSize = Math.floor(availableSpace / maxDimension);
+            blockSize = Math.max(20, Math.min(50, blockSize)); // Keep it reasonable
+
+            drawArray(rows, cols);
+        }
+
+        buildArrayBtn.addEventListener('click', handleBuildArray);
+
+        function resizeCanvas() {
+            const container = document.getElementById('game-canvas-container');
+            // Ensure the canvas is square and fits the container width
+            const size = container.clientWidth;
+            canvas.width = size;
+            canvas.height = size;
+            handleBuildArray(); // Redraw array on resize
+        }
+
+        function initGame() {
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+            // Attach initial resize listener for the game setup
+            window.addEventListener('resize', () => {
+                if (gameContainer.style.display === 'flex') {
+                    resizeCanvas();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
