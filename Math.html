@@ -95,6 +95,13 @@
 </head>
 
 <body class="p-4 sm:p-8">
+    <!-- Navigation Link -->
+    <div class="max-w-4xl mx-auto text-right mb-4">
+        <a href="index.html" class="text-green-600 hover:text-green-800 font-semibold underline text-lg">
+            &larr; Go to Reading Review
+        </a>
+    </div>
+
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
             Math Mission: Equal Groups & Arrays
@@ -764,7 +771,7 @@
         function resizeCanvas() {
             const container = document.getElementById('game-canvas-container');
             // Ensure the canvas is square and fits the container width
-            const size = container.clientWidth;
+            const size = canvas.parentElement.clientWidth;
             canvas.width = size;
             canvas.height = size;
             handleBuildArray(); // Redraw array on resize
