@@ -97,7 +97,7 @@
 <body class="p-4 sm:p-8">
     <!-- Navigation Link -->
     <div class="max-w-4xl mx-auto text-right mb-4">
-        <a href="index.html" class="text-green-600 hover:text-green-800 font-semibold underline text-lg">
+        <a href="./index.html" class="text-green-600 hover:text-green-800 font-semibold underline text-lg">
             &larr; Go to Reading Review
         </a>
     </div>
@@ -184,171 +184,16 @@
         // --- QUIZ DATA ---
         const allQuestions = [{
             id: 'q1',
-            questionText: 'A librarian needs to organize 24 books equally onto 4 shelves. How many books will be on each shelf?',
+            questionText: 'What number makes this equation true? 3 X ___ = 12',
             options: [{
                 value: 'A',
-                text: '8 books'
+                text: '3'
             }, {
                 value: 'B',
-                text: '6 books'
+                text: '4'
             }, {
                 value: 'C',
-                text: '4 books'
-            }, {
-                value: 'D',
-                text: '20 books'
-            }],
-            correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>Total books: 24. Number of groups (shelves): 4. We need to find the number of books in each group.</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Imagine drawing 4 boxes (shelves) and putting 1 dot (book) in each, repeating until all 24 books are used. The math equation is $24 \\div 4 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>Since $4 \\times 6 = 24$, the answer is $24 \\div 4 = 6$. There will be <strong>6 books</strong> on each shelf.</p>
-                </div>
-            `
-        }, {
-            id: 'q2',
-            questionText: 'Ms. Lily buys 6 packs of pencils. Each pack has 8 pencils. How many pencils did she buy in total?',
-            options: [{
-                value: 'A',
-                text: '14 pencils'
-            }, {
-                value: 'B',
-                text: '42 pencils'
-            }, {
-                value: 'C',
-                text: '48 pencils'
-            }, {
-                value: 'D',
-                text: '56 pencils'
-            }],
-            correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>Number of equal groups (packs): 6. Size of each group (pencils): 8. We need to find the total number of pencils.</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Imagine drawing 6 rows with 8 small squares in each row (a $6 \\times 8$ array). The math equation is $6 \\times 8 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>By skip counting by 8 (8, 16, 24, 32, 40, 48) or by knowing the multiplication fact, we find $6 \\times 8 = 48$. She bought <strong>48 pencils</strong>.</p>
-                </div>
-            `
-        }, {
-            id: 'q3',
-            questionText: 'A chocolate bar is broken into an array of 5 rows and 7 columns. How many small pieces are there in total?',
-            options: [{
-                value: 'A',
-                text: '12 pieces'
-            }, {
-                value: 'B',
-                text: '35 pieces'
-            }, {
-                value: 'C',
-                text: '40 pieces'
-            }, {
-                value: 'D',
-                text: '57 pieces'
-            }],
-            correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>The problem describes an array with 5 rows and 7 columns. We need to find the total number of pieces.</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Draw a grid with 5 rows going down and 7 columns going across. Counting the squares will give the total. The math equation is $5 \\times 7 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>We multiply the rows by the columns: $5 \\times 7 = 35$. There are <strong>35 small pieces</strong> in total.</p>
-                </div>
-            `
-        }, {
-            id: 'q4',
-            questionText: '36 donuts are packaged into boxes of 9. How many boxes are needed?',
-            options: [{
-                value: 'A',
-                text: '4 boxes'
-            }, {
-                value: 'B',
-                text: '6 boxes'
-            }, {
-                value: 'C',
-                text: '3 boxes'
-            }, {
-                value: 'D',
-                text: '9 boxes'
-            }],
-            correctAnswer: 'A',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>Total items: 36 donuts. Size of each group (box): 9 donuts. We need to find the number of groups (boxes).</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Start with 36 and take away 9 repeatedly: $36 - 9 = 27$, $27 - 9 = 18$, $18 - 9 = 9$, $9 - 9 = 0$. You subtracted 9 four times. The math equation is $36 \\div 9 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>The inverse multiplication fact is $9 \\times 4 = 36$. Therefore, $36 \\div 9 = 4$. You need <strong>4 boxes</strong>.</p>
-                </div>
-            `
-        }, {
-            id: 'q5',
-            questionText: 'A baker made 40 cookies and arranged them into 5 equal rows on a tray. How many cookies are in each row?',
-            options: [{
-                value: 'A',
-                text: '5 cookies'
-            }, {
-                value: 'B',
-                text: '6 cookies'
-            }, {
-                value: 'C',
-                text: '8 cookies'
-            }, {
-                value: 'D',
-                text: '10 cookies'
-            }],
-            correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>Total: 40 cookies. Number of rows: 5. We need to find the number of columns (cookies in each row).</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Draw 5 horizontal lines (rows) and draw dots to represent the cookies, making sure all 5 rows have the same number of dots until you reach 40. The math equation is $40 \\div 5 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>We know that $5 \\times 8 = 40$. So, $40 \\div 5 = 8$. There are <strong>8 cookies</strong> in each row.</p>
-                </div>
-            `
-        }, {
-            id: 'q6',
-            questionText: 'What is the missing number in the multiplication sentence: $7 \\times \\text{?} = 49$?',
-            options: [{
-                value: 'A',
-                text: '6'
-            }, {
-                value: 'B',
-                text: '7'
-            }, {
-                value: 'C',
-                text: '8'
+                text: '5'
             }, {
                 value: 'D',
                 text: '9'
@@ -357,139 +202,293 @@
             rdw: `
                 <div class="rdw-step">
                     <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>We are looking for the factor that, when multiplied by 7, gives the product 49.</p>
+                    <p>The equation is a multiplication problem where one factor is missing. We know one factor is 3 and the product is 12.</p>
                 </div>
                 <div class="rdw-step">
                     <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>You could skip count by 7 until you reach 49: 7, 14, 21, 28, 35, 42, 49. Count how many times you skip counted. The division sentence is $49 \\div 7 = \\text{?}$</p>
+                    <p>You can think of this as 12 ÷ 3 = ?. Draw 12 dots and circle them in groups of 3. You will have 4 groups.</p>
                 </div>
                 <div class="rdw-step">
                     <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>The multiplication fact is $7 \\times 7 = 49$. The missing number is <strong>7</strong>.</p>
+                    <p>By skip-counting by 3 (3, 6, 9, 12), we see that it takes 4 steps. So, 3 X 4 = 12. The missing number is <strong>4</strong>.</p>
                 </div>
             `
         }, {
-            id: 'q7',
-            questionText: 'There are 8 teams in a soccer league, and each team has 10 players. How many players are there in total?',
+            id: 'q2',
+            questionText: 'Mr. Davis sets up chairs for a school play. He sets up 4 rows of 8 chairs. Which array shows how he set up the chairs?',
             options: [{
                 value: 'A',
-                text: '18 players'
+                text: `Array A (4 rows, 8 columns):<br><svg width="128" height="64" class="mx-auto mt-2 bg-gray-100 rounded">${Array(4).fill(0).map((_, r) => Array(8).fill(0).map((_, c) => `<rect x="${c*16}" y="${r*16}" width="15" height="15" fill="#60a5fa"></rect>`).join('')).join('')}</svg>`
             }, {
                 value: 'B',
-                text: '80 players'
+                text: `Array B (8 rows, 4 columns):<br><svg width="64" height="128" class="mx-auto mt-2 bg-gray-100 rounded">${Array(8).fill(0).map((_, r) => Array(4).fill(0).map((_, c) => `<rect x="${c*16}" y="${r*16}" width="15" height="15" fill="#60a5fa"></rect>`).join('')).join('')}</svg>`
             }, {
                 value: 'C',
-                text: '60 players'
+                text: `Array C (4 rows, 4 columns):<br><svg width="64" height="64" class="mx-auto mt-2 bg-gray-100 rounded">${Array(4).fill(0).map((_, r) => Array(4).fill(0).map((_, c) => `<rect x="${c*16}" y="${r*16}" width="15" height="15" fill="#60a5fa"></rect>`).join('')).join('')}</svg>`
             }, {
                 value: 'D',
-                text: '70 players'
-            }],
-            correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>Number of groups (teams): 8. Size of each group (players): 10. We need to find the total.</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Imagine 8 equal circles, each containing the number 10. The operation is multiplication: $8 \\times 10 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>Multiplying any number by 10 is easy—just add a zero to the end of the number. $8 \\times 10 = 80$. There are <strong>80 players</strong> in total.</p>
-                </div>
-            `
-        }, {
-            id: 'q8',
-            questionText: 'If $9 \\times 3 = 27$, which division sentence is also true?',
-            options: [{
-                value: 'A',
-                text: ' $3 \\div 9 = 27$'
-            }, {
-                value: 'B',
-                text: ' $27 \\div 9 = 3$'
-            }, {
-                value: 'C',
-                text: ' $27 \\div 3 = 6$'
-            }, {
-                value: 'D',
-                text: ' $9 \\div 3 = 3$'
-            }],
-            correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>We are using the given multiplication fact ($9 \\times 3 = 27$) to find the related division fact. This is the concept of a fact family.</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Imagine an array with 9 rows and 3 columns (total 27). If you divide the total (27) by the number of rows (9), you must get the number of columns (3).</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>In a fact family, the product (27) becomes the dividend. The two division facts are $27 \\div 9 = 3$ and $27 \\div 3 = 9$. The correct option is <strong>$27 \\div 9 = 3$</strong>.</p>
-                </div>
-            `
-        }, {
-            id: 'q9',
-            questionText: 'Mark has 2 rows of 6 toy cars on his shelf. His sister gives him 12 more cars. If he puts all the cars into 3 equal rows, how many cars are in each row?',
-            options: [{
-                value: 'A',
-                text: '12 cars'
-            }, {
-                value: 'B',
-                text: '8 cars'
-            }, {
-                value: 'C',
-                text: '10 cars'
-            }, {
-                value: 'D',
-                text: '6 cars'
-            }],
-            correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p>
-                    <p>Step 1: Mark starts with $2 \\times 6$ cars, then adds 12 more. Find the new total. Step 2: Divide the new total into 3 equal rows.</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>First array: $2 \\times 6 = 12$ cars. Total cars: $12 + 12 = 24$ cars. Now, draw 3 equal rows (groups) to put the 24 cars in. The final math equation is $24 \\div 3 = \\text{?}$</p>
-                </div>
-                <div class="rdw-step">
-                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>Step 1: $2 \\times 6 = 12$. New total: $12 + 12 = 24$. Step 2: $24 \\div 3 = 8$. There are <strong>8 cars</strong> in each row.</p>
-                </div>
-            `
-        }, {
-            id: 'q10',
-            questionText: 'Which multiplication fact equals the total number of blocks in an array with 9 columns and 5 rows?',
-            options: [{
-                value: 'A',
-                text: ' $5 \\times 9 = 45$'
-            }, {
-                value: 'B',
-                text: ' $9 \\times 5 = 54$'
-            }, {
-                value: 'C',
-                text: ' $9 \\times 9 = 81$'
-            }, {
-                value: 'D',
-                text: ' $5 \\times 5 = 25$'
+                text: `Array D (3 rows, 8 columns):<br><svg width="128" height="48" class="mx-auto mt-2 bg-gray-100 rounded">${Array(3).fill(0).map((_, r) => Array(8).fill(0).map((_, c) => `<rect x="${c*16}" y="${r*16}" width="15" height="15" fill="#60a5fa"></rect>`).join('')).join('')}</svg>`
             }],
             correctAnswer: 'A',
             rdw: `
                 <div class="rdw-step">
                     <p class="font-bold text-lg text-blue-700">1. Read:</p>
-                    <p>The array has 5 rows and 9 columns. We need the total number of blocks, which is the product of these two numbers.</p>
+                    <p>The problem says there are <strong>4 rows</strong> and <strong>8 chairs in each row</strong>. Rows go across (horizontally).</p>
                 </div>
                 <div class="rdw-step">
                     <p class="font-bold text-lg text-blue-700">2. Draw:</p>
-                    <p>Draw a grid. 5 rows of 9 boxes each. The problem is a simple multiplication: $5 \\times 9$ or $9 \\times 5$.</p>
+                    <p>An array with 4 rows and 8 columns will have 4 lines of chairs going across, with 8 chairs in each line.</p>
                 </div>
                 <div class="rdw-step">
                     <p class="font-bold text-lg text-blue-700">3. Write:</p>
-                    <p>Using the multiplication fact, $5 \\times 9 = 45$. This also means $9 \\times 5 = 45$. The correct equation is <strong>$5 \\times 9 = 45$</strong>.</p>
+                    <p>Array A is the only one with exactly 4 rows and 8 columns. This represents the equation 4 X 8.</p>
+                </div>
+            `
+        }, {
+            id: 'q3',
+            questionText: 'Based on the problem about Mr. Davis\'s chairs (4 rows of 8 chairs), which two expressions show the total number of chairs?',
+            options: [{
+                value: 'A',
+                text: '4 X 8 and 8+8+8+8'
+            }, {
+                value: 'B',
+                text: '8 ÷ 4 and 4+4+4+4'
+            }, {
+                value: 'C',
+                text: '4+8 and 8 X 8'
+            }, {
+                value: 'D',
+                text: '4 X 4 and 8+8'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>We need to find two ways to write the total for 4 rows of 8. This means 4 groups of 8.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>You can write this as a multiplication sentence (4 X 8) or as repeated addition (8+8+8+8).</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>The expression 4 X 8 means "4 groups of 8". The expression 8+8+8+8 also means adding 8 four times. Both are correct.</p>
+                </div>
+            `
+        }, {
+            id: 'q4',
+            questionText: 'How many total chairs did Mr. Davis set up?',
+            options: [{
+                value: 'A',
+                text: '12 chairs'
+            }, {
+                value: 'B',
+                text: '24 chairs'
+            }, {
+                value: 'C',
+                text: '32 chairs'
+            }, {
+                value: 'D',
+                text: '36 chairs'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>To find the total, we need to solve for 4 rows of 8 chairs, which is 4 X 8.</p>
+                </div>
+                 <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>You can count the boxes in the correct array from the previous question, or use repeated addition: 8, 16, 24, 32.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>The multiplication fact is 4 X 8 = 32. There are <strong>32 chairs</strong> in total.</p>
+                </div>
+            `
+        }, {
+            id: 'q5',
+            questionText: 'Is the expression (4 X 5) + (2 X 5) equal to 6 X 5?',
+            options: [{
+                value: 'A',
+                text: 'Yes'
+            }, {
+                value: 'B',
+                text: 'No'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>This is a distributive property problem. It asks if breaking the 6 in 6 X 5 into a (4+2) gives the same answer.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Solve both sides. Left side: 6 X 5 = 30. Right side: (4 X 5) + (2 X 5) = 20 + 10 = 30.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Since both sides equal 30, the expression is true. The answer is <strong>Yes</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q6',
+            questionText: `An array is shown with 7 rows of 4 stars. Solve for the blanks: <br> 7 X 4 = (5 X 4) + (___ X 4) <br> 7 X 4 = 20 + ___ <br> 7 X 4 = ___`,
+            options: [{
+                value: 'A',
+                text: 'Blanks: 2, 8, 28'
+            }, {
+                value: 'B',
+                text: 'Blanks: 2, 4, 28'
+            }, {
+                value: 'C',
+                text: 'Blanks: 1, 8, 28'
+            }, {
+                value: 'D',
+                text: 'Blanks: 2, 8, 32'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>We are breaking apart a 7 X 4 array. First, find the missing part of 7 if one part is 5. Second, solve for that part. Third, find the grand total.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw and Write:</p>
+                    <p>First blank: 5 + ___ = 7. The answer is 2. So the first line is (5 X 4) + (2 X 4).</p>
+                    <p>Second blank: We know (5 X 4) = 20. The second part is (2 X 4), which is 8. So the second line is 20 + 8.</p>
+                    <p>Third blank: The total is 20 + 8 = 28. So the final line is 7 X 4 = 28.</p>
+                </div>
+                <div class="rdw-step">
+                     <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>The numbers that fill the blanks are <strong>2, 8, and 28</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q7',
+            questionText: 'Which two situations can be represented by 12 ÷ 3?',
+            options: [{
+                value: 'A',
+                text: 'The total of 12 books and 3 books.'
+            }, {
+                value: 'B',
+                text: 'The number of rows when 12 flowers are planted in rows of 3, AND the number of marbles each child gets when 3 children share 12 marbles.'
+            }, {
+                value: 'C',
+                text: 'The total grapes when 3 children each have 3 grapes.'
+            }, {
+                value: 'D',
+                text: 'The difference between 12 cookies and 3 cookies.'
+            }],
+            correctAnswer: 'B',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>The expression 12 ÷ 3 can mean two things: splitting 12 into groups of 3 (to find the number of groups), or splitting 12 into 3 equal groups (to find the size of each group).</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Planting 12 flowers in rows of 3 is splitting 12 into groups of 3. Sharing 12 marbles among 3 children is splitting 12 into 3 equal groups.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Both the flower problem and the marble problem are correct representations of division. Addition, subtraction, and multiplication are incorrect.</p>
+                </div>
+            `
+        }, {
+            id: 'q8',
+            questionText: "Miss Wong's class earns 5 points for each question they answer correctly. On Monday, they earn 40 points. How many questions did they answer correctly?",
+            options: [{
+                value: 'A',
+                text: '6 questions'
+            }, {
+                value: 'B',
+                text: '7 questions'
+            }, {
+                value: 'C',
+                text: '8 questions'
+            }, {
+                value: 'D',
+                text: '9 questions'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>The total points is 40. Each question is worth 5 points. We need to find the number of questions. The expression is 5 X ___ = 40.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>This is the same as asking 40 ÷ 5 = ?. You can skip-count by 5 until you reach 40: 5, 10, 15, 20, 25, 30, 35, 40. That took 8 steps.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Since 5 X 8 = 40, they answered <strong>8 questions</strong> correctly.</p>
+                </div>
+            `
+        }, {
+            id: 'q9',
+            questionText: 'On Tuesday, Miss Wong\'s class answers 7 questions correctly. What is the total number of points the class earned on Monday AND Tuesday?',
+            options: [{
+                value: 'A',
+                text: '35 points'
+            }, {
+                value: 'B',
+                text: '47 points'
+            }, {
+                value: 'C',
+                text: '75 points'
+            }, {
+                value: 'D',
+                text: '85 points'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p>
+                    <p>Step 1: Find the points for Tuesday (7 questions at 5 points each). Step 2: Add Tuesday's points to Monday's points (40).</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw:</p>
+                    <p>Step 1: 7 X 5 = ?. Step 2: 40 + answer from Step 1 = ?</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>Step 1: 7 X 5 = 35 points for Tuesday. Step 2: 40 + 35 = 75 total points. The total is <strong>75 points</strong>.</p>
+                </div>
+            `
+        }, {
+            id: 'q10',
+            questionText: 'Which expression equals 30?',
+            options: [{
+                value: 'A',
+                text: '6 X 5'
+            }, {
+                value: 'B',
+                text: '8 ÷ 2'
+            }, {
+                value: 'C',
+                text: '20 ÷ 4'
+            }, {
+                value: 'D',
+                text: '7 X 3'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">1. Read:</p>
+                    <p>We need to solve each of the four expressions to see which one equals 30.</p>
+                </div>
+                <div class="rdw-step">
+                    <p class="font-bold text-lg text-blue-700">2. Draw and Write:</p>
+                    <p>A: 6 X 5 = 30.</p>
+                    <p>B: 8 ÷ 2 = 4.</p>
+                    <p>C: 20 ÷ 4 = 5.</p>
+                    <p>D: 7 X 3 = 21.</p>
+                </div>
+                <div class="rdw-step">
+                     <p class="font-bold text-lg text-blue-700">3. Write:</p>
+                    <p>The only expression that equals 30 is <strong>6 X 5</strong>.</p>
                 </div>
             `
         }];
@@ -562,7 +561,11 @@
                     input.className = 'mr-3 accent-green-600';
 
                     label.appendChild(input);
-                    label.appendChild(document.createTextNode(option.text));
+                    // Use innerHTML to render the SVG in the array question
+                    const optionTextNode = document.createElement('span');
+                    optionTextNode.innerHTML = option.text;
+                    label.appendChild(optionTextNode);
+
 
                     label.addEventListener('click', () => {
                         // Remove 'selected' from all radio buttons in this group
@@ -769,8 +772,7 @@
         buildArrayBtn.addEventListener('click', handleBuildArray);
 
         function resizeCanvas() {
-            const container = document.getElementById('game-canvas-container');
-            // Ensure the canvas is square and fits the container width
+            // Ensure the canvas is square and fits its container
             const size = canvas.parentElement.clientWidth;
             canvas.width = size;
             canvas.height = size;
@@ -796,3 +798,4 @@
 </body>
 
 </html>
+
