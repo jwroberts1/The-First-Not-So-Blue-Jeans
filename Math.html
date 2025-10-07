@@ -115,7 +115,7 @@
     </div>
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Equal Groups & Arrays
+            Math Mission: Wonderlands Edition
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
             3rd Grade Practice: Solve 10 problems to unlock the Array Builder Game!
@@ -209,139 +209,139 @@
         // --- QUIZ DATA ---
         const allQuestions = [{
             id: 'q1',
-            questionText: 'Which number makes the equation true? 6 X ___ = 24',
+            questionText: 'The Dragon Lord raises his skeleton army. He raises 5 skeletons each minute. Which equation shows how many skeletons (s) he raises in 7 minutes?',
             options: [{
                 value: 'A',
-                text: '3'
+                text: '7 X s = 5'
             }, {
                 value: 'B',
-                text: '4'
+                text: '5 + 7 = s'
             }, {
                 value: 'C',
-                text: '5'
+                text: '5 X 7 = s'
             }, {
                 value: 'D',
-                text: '6'
+                text: 's ÷ 5 = 7'
             }],
-            correctAnswer: 'B',
+            correctAnswer: 'C',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The equation is 6 times some number equals 24. We need to find the missing number.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>You can think of this as a division problem: 24 ÷ 6 = ?. Or, you can skip count by 6 until you reach 24: 6, 12, 18, 24. How many times did you count?</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>You counted 4 times. So, 6 X 4 = 24. The missing number is <strong>4</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 7 equal groups of 5. We need to find the total number of skeletons, 's'.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 circles, and put 5 dots in each circle. To find the total, you multiply the number of groups by the number in each group.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The correct equation is <strong>5 X 7 = s</strong>.</p></div>
             `
         }, {
             id: 'q2',
-            questionText: 'Which of the following equations is NOT correct?',
+            questionText: 'Queen Butt Stallion checks the scores from the Bunkers & Badasses game. Which score is calculated incorrectly?',
             options: [{
                 value: 'A',
-                text: '9 X 3 = 27'
+                text: 'Valentine: 8 X 4 = 32'
             }, {
                 value: 'B',
-                text: '18 ÷ 6 = 3'
+                text: 'Frette: 42 ÷ 7 = 6'
             }, {
                 value: 'C',
-                text: '5 X 5 = 20'
+                text: 'Dragon Lord: 9 X 5 = 40'
             }, {
                 value: 'D',
-                text: '32 ÷ 4 = 8'
+                text: 'Fatemaker: 6 X 6 = 36'
             }],
             correctAnswer: 'C',
             rdw: `
                 <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to check each math problem to find the one that is wrong.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's check each one. A: 9+9+9 = 27 (Correct). B: 18 divided into 6 groups is 3 (Correct). C: 5+5+5+5+5 = 25, not 20 (Incorrect). D: 32 divided by 4 is 8 (Correct).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The equation <strong>5 X 5 = 20</strong> is the one that is not correct.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's check each one. A: 8 X 4 is 32 (Correct). B: 42 divided into 7 groups is 6 (Correct). C: Skip counting by 5 nine times is 5, 10, 15, 20, 25, 30, 35, 40, 45. So 9 X 5 is 45, not 40 (Incorrect). D: 6 X 6 is 36 (Correct).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The equation <strong>9 X 5 = 40</strong> is the one that is not correct.</p></div>
             `
         }, {
             id: 'q3',
-            questionText: 'Anu sets up her healing devices in her lab. She arranges them in 3 rows of 7. Which array correctly shows how she arranged the devices?',
+            questionText: 'Tiny Tina sets up her goblin miniatures for a battle. She arranges them in 4 rows of 6. Which array correctly shows her setup?',
             options: [{
                 value: 'A',
-                text: generateArray(7, 3) + '<p class="text-center text-xs text-gray-600 mt-1">7 rows of 3</p>'
+                text: generateArray(6, 4) + '<p class="text-center text-xs text-gray-600 mt-1">6 rows of 4</p>'
             }, {
                 value: 'B',
-                text: generateArray(3, 3) + '<p class="text-center text-xs text-gray-600 mt-1">3 rows of 3</p>'
+                text: generateArray(4, 6) + '<p class="text-center text-xs text-gray-600 mt-1">4 rows of 6</p>'
             }, {
                 value: 'C',
-                text: generateArray(3, 7) + '<p class="text-center text-xs text-gray-600 mt-1">3 rows of 7</p>'
+                text: generateArray(4, 4) + '<p class="text-center text-xs text-gray-600 mt-1">4 rows of 4</p>'
             }, {
                 value: 'D',
-                text: generateArray(7, 7) + '<p class="text-center text-xs text-gray-600 mt-1">7 rows of 7</p>'
-            }],
-            correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 3 rows and 7 columns (items in each row).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. Columns go side to side. We need to find the picture with 3 rows. Within each of those 3 rows, there should be 7 items.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option C is the only picture that shows 3 rows with 7 items in each one.</p></div>
-            `
-        }, {
-            id: 'q4',
-            questionText: 'Based on the problem above (3 rows of 7 devices), which expression correctly shows the total number of devices?',
-            options: [{
-                value: 'A',
-                text: '7 + 7 + 7'
-            }, {
-                value: 'B',
-                text: '3 + 3 + 3'
-            }, {
-                value: 'C',
-                text: '7 X 7'
-            }, {
-                value: 'D',
-                text: '3 + 7'
-            }],
-            correctAnswer: 'A',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find an expression that matches 3 groups of 7. This can be multiplication (3 X 7) or repeated addition.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think of the 3 rows. The first row has 7. The second row has 7. The third row has 7. To find the total, you add them: 7 + 7 + 7.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>7 + 7 + 7</strong> correctly represents 3 rows of 7.</p></div>
-            `
-        }, {
-            id: 'q5',
-            questionText: 'How many total healing devices did Anu set up in her lab?',
-            options: [{
-                value: 'A',
-                text: '10 devices'
-            }, {
-                value: 'B',
-                text: '21 devices'
-            }, {
-                value: 'C',
-                text: '24 devices'
-            }, {
-                value: 'D',
-                text: '28 devices'
+                text: generateArray(6, 6) + '<p class="text-center text-xs text-gray-600 mt-1">6 rows of 6</p>'
             }],
             correctAnswer: 'B',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 3 rows of 7 devices.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 3 X 7. You can skip count by 7 three times: 7, 14, 21.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>3 X 7 = 21. There are <strong>21 devices</strong> in total.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 4 rows and 6 columns (items in each row).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 4 rows. Within each of those 4 rows, there should be 6 items.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option B is the only picture that shows 4 rows with 6 items in each one.</p></div>
             `
         }, {
-            id: 'q6',
-            questionText: 'Which expression is equal to 8 X 4?',
+            id: 'q4',
+            questionText: 'Based on the problem above (4 rows of 6 goblins), which expression correctly shows the total number of miniatures?',
             options: [{
                 value: 'A',
-                text: '(4 X 4) + (2 X 4)'
+                text: '4 + 6'
             }, {
                 value: 'B',
-                text: '(8 X 2) + (8 X 3)'
+                text: '4 + 4 + 4 + 4'
             }, {
                 value: 'C',
-                text: '(5 X 4) + (3 X 4)'
+                text: '6 + 6 + 6 + 6'
             }, {
                 value: 'D',
-                text: '(8 X 4) + (1 X 4)'
+                text: '6 X 6 X 6 X 6'
             }],
             correctAnswer: 'C',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 8 in '8 X 4' but still equals the same total.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 8 X 4 = 32. Now, let's solve the options. A: 16 + 8 = 24. B: 16 + 24 = 40. C: 20 + 12 = 32. D: 32 + 4 = 36.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(5 X 4) + (3 X 4)</strong> is the only one that equals 32. Notice that 5 + 3 = 8.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find an expression that matches 4 groups of 6. This can be multiplication (4 X 6) or repeated addition.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think of the 4 rows. Each row has 6. To find the total, you add them: 6 + 6 + 6 + 6.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>6 + 6 + 6 + 6</strong> correctly represents 4 rows of 6.</p></div>
+            `
+        }, {
+            id: 'q5',
+            questionText: 'How many total goblin miniatures did Tina set up?',
+            options: [{
+                value: 'A',
+                text: '10 miniatures'
+            }, {
+                value: 'B',
+                text: '20 miniatures'
+            }, {
+                value: 'C',
+                text: '24 miniatures'
+            }, {
+                value: 'D',
+                text: '30 miniatures'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 4 rows of 6 miniatures.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 4 X 6. You can skip count by 6 four times: 6, 12, 18, 24.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 X 6 = 24. There are <strong>24 miniatures</strong> in total.</p></div>
+            `
+        }, {
+            id: 'q6',
+            questionText: 'The Fatemaker casts a spell that is equal to 9 X 6. Which expression is also equal to the spell?',
+            options: [{
+                value: 'A',
+                text: '(5 X 6) + (4 X 6)'
+            }, {
+                value: 'B',
+                text: '(9 X 3) + (9 X 2)'
+            }, {
+                value: 'C',
+                text: '(3 X 6) + (3 X 6)'
+            }, {
+                value: 'D',
+                text: '(9 X 6) + (1 X 6)'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 9 in '9 X 6' but still equals the same total.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 9 X 6 = 54. Now, let's solve the options. A: 30 + 24 = 54. B: 27 + 18 = 45. C: 18 + 18 = 36. D: 54 + 6 = 60.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(5 X 6) + (4 X 6)</strong> is the only one that equals 54. Notice that 5 + 4 = 9.</p></div>
             `
         }, {
             id: 'q7',
-            questionText: 'Look at the equation: 7 X 4 = (5 X 4) + (___ X 4). What number goes in the blank?',
+            questionText: 'Look at the equation: 8 X 7 = (5 X 7) + (___ X 7). What number goes in the blank?',
             options: [{
                 value: 'A',
                 text: '1'
@@ -355,77 +355,77 @@
                 value: 'D',
                 text: '4'
             }],
-            correctAnswer: 'B',
+            correctAnswer: 'C',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 7. It says that 7 fours is the same as 5 fours plus some more fours.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 rows of 4 dots. We can split that into a group of 5 rows and a group of 2 rows. 5 + 2 = 7.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 2 = 7, the missing number is <strong>2</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 8. It says that 8 sevens is the same as 5 sevens plus some more sevens.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 8 rows of 7 dots. We can split that into a group of 5 rows and a group of 3 rows. 5 + 3 = 8.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 3 = 8, the missing number is <strong>3</strong>.</p></div>
             `
         }, {
             id: 'q8',
-            questionText: 'Which situation can be represented by 24 ÷ 6?',
+            questionText: 'Which situation can be represented by 30 ÷ 5?',
             options: [{
                 value: 'A',
-                text: 'Fran has 24 fro-yos and gets 6 more.'
+                text: 'The Fatemaker has 30 gold coins and finds 5 more.'
             }, {
                 value: 'B',
-                text: 'Octavio has 24 gadgets and gives 6 away.'
+                text: 'Valentine has 30 gadgets and Frette has 5 gadgets.'
             }, {
                 value: 'C',
-                text: 'Anu has 24 devices and puts them into 6 equal rows.'
+                text: 'The Dragon Lord has 30 skeletons and splits them into 5 equal groups to attack.'
             }, {
                 value: 'D',
-                text: 'LOU13 has 24 jokes and 6 of them are bad.'
+                text: 'Tiny Tina has 30 cupcakes and eats 5 of them.'
             }],
             correctAnswer: 'C',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The expression 24 ÷ 6 means taking a total of 24 and splitting it into 6 equal groups, or making groups of 6.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Option A is addition (24+6). Option B is subtraction (24-6). Option C is splitting 24 into 6 equal groups. This is division. Option D is just describing parts of a whole.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The expression 30 ÷ 5 means taking a total of 30 and splitting it into 5 equal groups.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Option A is addition (30+5). Option B is comparing (30 and 5). Option C is splitting 30 into 5 equal groups, which is division. Option D is subtraction (30-5).</p></div>
                 <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The only situation that represents dividing into equal groups is <strong>C</strong>.</p></div>
             `
         }, {
             id: 'q9',
-            questionText: `Fran's Frogurt shop plays a game. Customers earn 4 tokens for each fro-yo they buy. On Friday, a customer earned 32 tokens. How many fro-yos did they buy?`,
+            questionText: `The goblins of G.T.F.O. earn 8 gold pieces for each evil boss they defeat. On Monday, they earned 56 gold pieces. How many bosses did they defeat?`,
             options: [{
                 value: 'A',
-                text: '6 fro-yos'
+                text: '6 bosses'
             }, {
                 value: 'B',
-                text: '7 fro-yos'
+                text: '7 bosses'
             }, {
                 value: 'C',
-                text: '8 fro-yos'
+                text: '8 bosses'
             }, {
                 value: 'D',
-                text: '9 fro-yos'
+                text: '9 bosses'
             }],
-            correctAnswer: 'C',
+            correctAnswer: 'B',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 32 tokens. Each group is worth 4 tokens. We need to find out how many groups there are. The expression is 4 X ___ = 32, or 32 ÷ 4.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's skip count by 4 until we get to 32: 4, 8, 12, 16, 20, 24, 28, 32. We counted 8 times.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>32 ÷ 4 = 8. They bought <strong>8 fro-yos</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 56 gold pieces. Each group is worth 8 pieces. We need to find out how many groups there are. The expression is 8 X ___ = 56, or 56 ÷ 8.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's skip count by 8 until we get to 56: 8, 16, 24, 32, 40, 48, 56. We counted 7 times.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>56 ÷ 8 = 7. They defeated <strong>7 bosses</strong>.</p></div>
             `
         }, {
             id: 'q10',
-            questionText: 'On Saturday, the same customer bought 6 fro-yos (4 tokens each). What is the total number of tokens the customer earned on Friday (32 tokens) and Saturday combined?',
+            questionText: 'On Tuesday, the goblins defeated 5 bosses (8 gold pieces each). What is the total number of gold pieces they earned on Monday (56 pieces) and Tuesday combined?',
             options: [{
                 value: 'A',
-                text: '56 tokens'
+                text: '40 pieces'
             }, {
                 value: 'B',
-                text: '24 tokens'
+                text: '96 pieces'
             }, {
                 value: 'C',
-                text: '38 tokens'
+                text: '69 pieces'
             }, {
                 value: 'D',
-                text: '60 tokens'
+                text: '100 pieces'
             }],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how many tokens were earned on Saturday (6 fro-yos X 4 tokens). Step 2: Add Saturday's tokens to Friday's tokens (32).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Saturday: 6 X 4 = 24 tokens. Total: 32 (Friday) + 24 (Saturday).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>32 + 24 = 56. The total is <strong>56 tokens</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how much gold was earned on Tuesday (5 bosses X 8 gold pieces). Step 2: Add Tuesday's gold to Monday's gold (56).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Tuesday: 5 X 8 = 40 gold pieces. Total: 56 (Monday) + 40 (Tuesday).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>56 + 40 = 96. The total is <strong>96 gold pieces</strong>.</p></div>
             `
         }];
 
