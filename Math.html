@@ -39,7 +39,7 @@
         }
 
         .question-option.correct-answer {
-            background-color: #d1fae_5;
+            background-color: #d1fae5;
             /* Lighter green */
             border-left: 4px solid #059669;
             /* Green-600 */
@@ -83,14 +83,6 @@
             background-color: #eff6ff;
             border-radius: 6px;
         }
-
-        /* Game specific styles */
-        #game-canvas {
-            background-color: #fefce8;
-            border: 4px solid #facc15;
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
-            margin-top: 1rem;
-        }
         
         /* Styles for generated arrays */
         .array-table {
@@ -103,6 +95,19 @@
             background-color: #475569;
             border-radius: 50%;
             margin: 2px;
+        }
+        
+        /* New Game Styles */
+        .container-btn {
+            @apply p-2 border-2 border-gray-300 rounded-lg flex items-center justify-center transition-all duration-200;
+        }
+        .container-btn.selected {
+            @apply border-blue-500 bg-blue-50 shadow-lg;
+        }
+        #visualizer-svg svg {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
         }
     </style>
 </head>
@@ -118,7 +123,7 @@
             Math Mission: Dog Man Edition
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
-            3rd Grade Practice: Solve 10 problems to unlock the Array Builder Game!
+            3rd Grade Practice: Solve 10 problems to unlock the Volume Explorer!
         </p>
 
         <!-- Quiz Section -->
@@ -138,7 +143,7 @@
             <p id="scoreText"></p>
             <div class="mt-4 space-x-4">
                 <button id="startGameBtn" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300 shadow-md hidden">
-                    Perfect Score! Play the Array Builder!
+                    Perfect Score! Play the Volume Explorer!
                 </button>
                 <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 shadow-md hidden">
                     Try Again
@@ -162,31 +167,47 @@
 
         <hr class="my-12 border-gray-200">
 
-        <!-- Game Section (Array Builder) -->
-        <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
-            <div id="game-info" class="mb-6 w-full max-w-xl text-center text-gray-800 bg-white p-4 rounded-xl border-2 border-yellow-400">
-                <h1 class="text-3xl font-bold mb-2 header-font text-yellow-700">The Array Builder</h1>
-                <p class="text-gray-600 mb-4">Build arrays by entering the number of **Rows** and **Columns**.</p>
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <div class="flex items-center space-x-2">
-                        <label for="rows" class="font-semibold">Rows:</label>
-                        <input type="number" id="rows" value="4" min="1" max="10" class="w-20 p-2 border rounded-lg text-center">
-                    </div>
-                    <span class="text-2xl font-bold text-gray-500 hidden sm:block">x</span>
-                    <div class="flex items-center space-x-2">
-                        <label for="cols" class="font-semibold">Columns:</label>
-                        <input type="number" id="cols" value="6" min="1" max="10" class="w-20 p-2 border rounded-lg text-center">
-                    </div>
-                </div>
-                <button id="buildArrayBtn" class="mt-4 bg-purple-500 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-600 transition duration-300 shadow-md">
-                    Build Array
-                </button>
-                <div class="mt-4 text-xl font-semibold">
-                    Total Blocks: <span id="totalBlocks" class="font-bold text-purple-700">24</span>
-                </div>
+        <!-- Game Section (Volume Explorer) -->
+        <div id="game-container" class="p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
+            <div class="text-center mb-6">
+                 <h1 class="text-3xl font-bold mb-2 header-font text-blue-700">Volume Explorer</h1>
+                 <p class="text-gray-600">Choose a container, enter an amount, and see how full it gets!</p>
             </div>
-            <div class="w-full max-w-xl aspect-square overflow-hidden rounded-lg">
-                <canvas id="game-canvas" class="w-full h-full"></canvas>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Container Selection -->
+                <div id="container-selector" class="md:col-span-1 flex md:flex-col justify-around md:justify-start space-x-2 md:space-x-0 md:space-y-4">
+                    <button id="juice-box-btn" class="container-btn">
+                        <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M20,80 L20,20 L80,20 L80,80 Z M30,15 L70,15 L70,20 L30,20 Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
+                    </button>
+                     <button id="water-bottle-btn" class="container-btn">
+                        <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M30 95 L30 40 Q30 20 50 20 Q70 20 70 40 L70 95 Z M40 15 L60 15 L60 20 L40 20Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
+                    </button>
+                     <button id="milk-carton-btn" class="container-btn">
+                         <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M20 95 L20 30 L50 10 L80 30 L80 95 Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
+                    </button>
+                     <button id="soda-bottle-btn" class="container-btn">
+                        <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M35 95 C 20 80, 20 50, 35 40 L 40 15 L 60 15 L 65 40 C 80 50, 80 80, 65 95 Z M45 10 L55 10 L55 15 L45 15Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
+                    </button>
+                </div>
+                <!-- Visualizer -->
+                <div class="md:col-span-3 flex flex-col items-center">
+                    <div id="visualizer-svg" class="w-full h-64 md:h-96 bg-white rounded-lg border-2 border-gray-300 p-2 mb-4">
+                        <!-- SVG will be injected here -->
+                    </div>
+                    <div class="text-center mb-4">
+                        <p class="font-semibold text-lg" id="container-name">Select a container</p>
+                        <p class="text-gray-600" id="container-capacity"></p>
+                    </div>
+                     <!-- Controls -->
+                    <div class="flex items-center space-x-2 bg-white p-3 rounded-lg border border-gray-300 shadow-sm">
+                        <input type="number" id="volume-input" value="1" class="w-24 p-2 border rounded-lg text-center font-bold">
+                        <select id="unit-selector" class="p-2 border rounded-lg bg-gray-50">
+                            <option value="L">Liters (L)</option>
+                            <option value="mL" selected>milliliters (mL)</option>
+                        </select>
+                        <button id="fill-btn" class="bg-blue-500 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-600 transition">Fill it!</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -210,223 +231,63 @@
         const allQuestions = [{
             id: 'q1',
             questionText: 'Petey\'s Invisibility Spray comes in a small spray bottle. Which is a more likely amount for the bottle to hold?',
-            options: [{
-                value: 'A',
-                text: '200 Liters'
-            }, {
-                value: 'B',
-                text: '20 Liters'
-            }, {
-                value: 'C',
-                text: '200 milliliters'
-            }, {
-                value: 'D',
-                text: '2 milliliters'
-            }],
+            options: [{ value: 'A', text: '200 Liters' }, { value: 'B', text: '20 Liters' }, { value: 'C', text: '200 milliliters' }, { value: 'D', text: '2 milliliters' }],
             correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a small spray bottle. We need to know if Liters or milliliters are bigger.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A liter is the size of a large carton of milk. A milliliter is very small, like a drop of water. A spray bottle would hold many drops, but not as much as 20 or 200 big milk cartons. 2 milliliters is too small.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>200 milliliters</strong> is the most reasonable estimate for a small spray bottle.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a small spray bottle. We need to know if Liters or milliliters are bigger.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A liter is the size of a large carton of milk. A milliliter is very small, like a drop of water. A spray bottle would hold many drops, but not as much as 20 or 200 big milk cartons. 2 milliliters is too small.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>200 milliliters</strong> is the most reasonable estimate for a small spray bottle.</p></div>`
         }, {
             id: 'q2',
             questionText: 'Philly fills a giant vat of mustard to defeat the Hot Dog Weenie Monster. The vat holds exactly 3 Liters. How many milliliters of mustard is that?',
-            options: [{
-                value: 'A',
-                text: '30 milliliters'
-            }, {
-                value: 'B',
-                text: '300 milliliters'
-            }, {
-                value: 'C',
-                text: '3,000 milliliters'
-            }, {
-                value: 'D',
-                text: '30,000 milliliters'
-            }],
+            options: [{ value: 'A', text: '30 milliliters' }, { value: 'B', text: '300 milliliters' }, { value: 'C', text: '3,000 milliliters' }, { value: 'D', text: '30,000 milliliters' }],
             correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to convert 3 Liters into milliliters.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Remember that 1 Liter = 1,000 milliliters. So for 3 Liters, we would have 3 groups of 1,000.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>3 X 1,000 = 3,000. So, 3 Liters is equal to <strong>3,000 milliliters</strong>.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to convert 3 Liters into milliliters.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Remember that 1 Liter = 1,000 milliliters. So for 3 Liters, we would have 3 groups of 1,000.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>3 X 1,000 = 3,000. So, 3 Liters is equal to <strong>3,000 milliliters</strong>.</p></div>`
         }, {
             id: 'q3',
             questionText: 'The Chief bought a carton of milk for the breakroom. Which is a more likely amount for the carton to hold?',
-            options: [{
-                value: 'A',
-                text: '1 Liter'
-            }, {
-                value: 'B',
-                text: '10 Liters'
-            }, {
-                value: 'C',
-                text: '1 milliliter'
-            }, {
-                value: 'D',
-                text: '10 milliliters'
-            }],
+            options: [{ value: 'A', text: '1 Liter' }, { value: 'B', text: '10 Liters' }, { value: 'C', text: '1 milliliter' }, { value: 'D', text: '10 milliliters' }],
             correctAnswer: 'A',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a standard milk carton you would buy at the store.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think about a carton of milk from the grocery store. It's about the same size as a large water bottle. Milliliters are too small (a few drops). 10 Liters would be a very, very large container, not a carton.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>1 Liter</strong> is the most reasonable estimate for a carton of milk.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a standard milk carton you would buy at the store.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think about a carton of milk from the grocery store. It's about the same size as a large water bottle. Milliliters are too small (a few drops). 10 Liters would be a very, very large container, not a carton.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>1 Liter</strong> is the most reasonable estimate for a carton of milk.</p></div>`
         }, {
             id: 'q4',
             questionText: 'George and Harold draw 8 pages of their Dog Man comic every single day. How many pages do they draw in 6 days?',
-            options: [{
-                value: 'A',
-                text: '14 pages'
-            }, {
-                value: 'B',
-                text: '42 pages'
-            }, {
-                value: 'C',
-                text: '48 pages'
-            }, {
-                value: 'D',
-                text: '56 pages'
-            }],
+            options: [{ value: 'A', text: '14 pages' }, { value: 'B', text: '42 pages' }, { value: 'C', text: '48 pages' }, { value: 'D', text: '56 pages' }],
             correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 6 equal groups of 8 pages. We need to find the total.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 6 X 8. You can skip count by 8 six times: 8, 16, 24, 32, 40, 48.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 X 8 = 48. They draw <strong>48 pages</strong>.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 6 equal groups of 8 pages. We need to find the total.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 6 X 8. You can skip count by 8 six times: 8, 16, 24, 32, 40, 48.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 X 8 = 48. They draw <strong>48 pages</strong>.</p></div>`
         }, {
             id: 'q5',
             questionText: 'Petey lines up his stolen diamonds in an array with 5 rows and 8 columns. Which array correctly shows his setup?',
-            options: [{
-                value: 'A',
-                text: generateArray(8, 5) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 5</p>'
-            }, {
-                value: 'B',
-                text: generateArray(5, 5) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 5</p>'
-            }, {
-                value: 'C',
-                text: generateArray(5, 8) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 8</p>'
-            }, {
-                value: 'D',
-                text: generateArray(8, 8) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 8</p>'
-            }],
+            options: [{ value: 'A', text: generateArray(8, 5) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 5</p>' }, { value: 'B', text: generateArray(5, 5) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 5</p>' }, { value: 'C', text: generateArray(5, 8) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 8</p>' }, { value: 'D', text: generateArray(8, 8) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 8</p>' }],
             correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 5 rows and 8 columns (items in each row).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 5 rows. Within each of those 5 rows, there should be 8 items.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option C is the only picture that shows 5 rows with 8 items in each one.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 5 rows and 8 columns (items in each row).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 5 rows. Within each of those 5 rows, there should be 8 items.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option C is the only picture that shows 5 rows with 8 items in each one.</p></div>`
         }, {
             id: 'q6',
             questionText: 'How many total diamonds did Petey line up?',
-            options: [{
-                value: 'A',
-                text: '13 diamonds'
-            }, {
-                value: 'B',
-                text: '35 diamonds'
-            }, {
-                value: 'C',
-                text: '40 diamonds'
-            }, {
-                value: 'D',
-                text: '45 diamonds'
-            }],
+            options: [{ value: 'A', text: '13 diamonds' }, { value: 'B', text: '35 diamonds' }, { value: 'C', text: '40 diamonds' }, { value: 'D', text: '45 diamonds' }],
             correctAnswer: 'C',
-            rdw: `
-                 <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 5 rows of 8 diamonds.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 5 X 8. You can skip count by 8 five times: 8, 16, 24, 32, 40.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>5 X 8 = 40. There are <strong>40 diamonds</strong> in total.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 5 rows of 8 diamonds.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 5 X 8. You can skip count by 8 five times: 8, 16, 24, 32, 40.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>5 X 8 = 40. There are <strong>40 diamonds</strong> in total.</p></div>`
         }, {
             id: 'q7',
             questionText: 'The Chief eats 9 X 4 donuts. Which expression is also equal to this?',
-            options: [{
-                value: 'A',
-                text: '(9 X 2) + (9 X 2)'
-            }, {
-                value: 'B',
-                text: '(5 X 4) + (3 X 4)'
-            }, {
-                value: 'C',
-                text: '(9 X 4) + (1 X 4)'
-            }, {
-                value: 'D',
-                text: '(3 X 4) + (3 X 4)'
-            }],
+            options: [{ value: 'A', text: '(9 X 2) + (9 X 2)' }, { value: 'B', text: '(5 X 4) + (3 X 4)' }, { value: 'C', text: '(9 X 4) + (1 X 4)' }, { value: 'D', text: '(3 X 4) + (3 X 4)' }],
             correctAnswer: 'A',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 4 in '9 X 4' but still equals the same total.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 9 X 4 = 36. Now, let's solve the options. A: 18 + 18 = 36. B: 20 + 12 = 32. C: 36 + 4 = 40. D: 12 + 12 = 24.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(9 X 2) + (9 X 2)</strong> is the only one that equals 36. Notice that 2 + 2 = 4.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 4 in '9 X 4' but still equals the same total.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 9 X 4 = 36. Now, let's solve the options. A: 18 + 18 = 36. B: 20 + 12 = 32. C: 36 + 4 = 40. D: 12 + 12 = 24.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(9 X 2) + (9 X 2)</strong> is the only one that equals 36. Notice that 2 + 2 = 4.</p></div>`
         }, {
             id: 'q8',
             questionText: 'Look at the equation: 7 X 8 = (5 X 8) + (___ X 8). What number goes in the blank?',
-            options: [{
-                value: 'A',
-                text: '1'
-            }, {
-                value: 'B',
-                text: '2'
-            }, {
-                value: 'C',
-                text: '3'
-            }, {
-                value: 'D',
-                text: '4'
-            }],
+            options: [{ value: 'A', text: '1' }, { value: 'B', text: '2' }, { value: 'C', text: '3' }, { value: 'D', text: '4' }],
             correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 7. It says that 7 eights is the same as 5 eights plus some more eights.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 rows of 8 dots. We can split that into a group of 5 rows and a group of 2 rows. 5 + 2 = 7.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 2 = 7, the missing number is <strong>2</strong>.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 7. It says that 7 eights is the same as 5 eights plus some more eights.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 rows of 8 dots. We can split that into a group of 5 rows and a group of 2 rows. 5 + 2 = 7.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 2 = 7, the missing number is <strong>2</strong>.</p></div>`
         }, {
             id: 'q9',
             questionText: 'Dog Man has 36 dog treats. He wants to share them equally among his 9 police dog friends. How many treats does each dog get?',
-            options: [{
-                value: 'A',
-                text: '3 treats'
-            }, {
-                value: 'B',
-                text: '4 treats'
-            }, {
-                value: 'C',
-                text: '5 treats'
-            }, {
-                value: 'D',
-                text: '6 treats'
-            }],
+            options: [{ value: 'A', text: '3 treats' }, { value: 'B', text: '4 treats' }, { value: 'C', text: '5 treats' }, { value: 'D', text: '6 treats' }],
             correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 36 treats. The number of groups is 9. We need to find out how many treats are in each group. The expression is 36 ÷ 9.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>We can think of the related multiplication fact: 9 X ___ = 36. Let's skip count by 9: 9, 18, 27, 36. We counted 4 times.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. Each dog gets <strong>4 treats</strong>.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 36 treats. The number of groups is 9. We need to find out how many treats are in each group. The expression is 36 ÷ 9.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>We can think of the related multiplication fact: 9 X ___ = 36. Let's skip count by 9: 9, 18, 27, 36. We counted 4 times.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. Each dog gets <strong>4 treats</strong>.</p></div>`
         }, {
             id: 'q10',
             questionText: 'Petey reads 6 books each day in cat jail. On Monday, he reads his daily amount. On Tuesday, he reads twice as many as Monday. How many books did he read in total on Monday and Tuesday?',
-            options: [{
-                value: 'A',
-                text: '12 books'
-            }, {
-                value: 'B',
-                text: '18 books'
-            }, {
-                value: 'C',
-                text: '24 books'
-            }, {
-                value: 'D',
-                text: '30 books'
-            }],
+            options: [{ value: 'A', text: '12 books' }, { value: 'B', text: '18 books' }, { value: 'C', text: '24 books' }, { value: 'D', text: '30 books' }],
             correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how many books he read on Tuesday (Monday's amount X 2). Step 2: Add Tuesday's books to Monday's books (6).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Tuesday: 6 X 2 = 12 books. Total: 6 (Monday) + 12 (Tuesday).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 + 12 = 18. The total is <strong>18 books</strong>.</p></div>
-            `
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how many books he read on Tuesday (Monday's amount X 2). Step 2: Add Tuesday's books to Monday's books (6).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Tuesday: 6 X 2 = 12 books. Total: 6 (Monday) + 12 (Tuesday).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 + 12 = 18. The total is <strong>18 books</strong>.</p></div>`
         }];
 
 
@@ -450,7 +311,6 @@
 
         // --- QUIZ FUNCTIONS ---
 
-        // Renders the quiz questions to the page
         function renderQuiz() {
             questionsContainer.innerHTML = '';
             resultsDiv.classList.add('hidden');
@@ -473,7 +333,6 @@
                 questionText.innerHTML = `${questionIndex + 1}. ${q.questionText}`;
                 headerDiv.appendChild(questionText);
 
-                // Get Help Button
                 const helpBtn = document.createElement('button');
                 helpBtn.className = 'ml-4 text-sm font-semibold text-blue-500 hover:text-blue-700 transition duration-150 py-1 px-3 rounded-full border border-blue-200';
                 helpBtn.textContent = 'Get Help';
@@ -497,19 +356,16 @@
                     input.className = 'mr-3 accent-green-600';
 
                     label.appendChild(input);
-                    // Use innerHTML to render the image tag if it exists
                     const optionTextNode = document.createElement('span');
                     optionTextNode.innerHTML = option.text;
                     label.appendChild(optionTextNode);
 
                     label.addEventListener('click', () => {
-                        // Remove 'selected' from all radio buttons in this group
                         document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
                             radio.parentElement.classList.remove('selected');
                         });
-                        // Add 'selected' to the clicked label
                         label.classList.add('selected');
-                        input.checked = true; // Ensure the radio button is marked checked
+                        input.checked = true; 
                     });
                     optionsDiv.appendChild(label);
                 });
@@ -517,19 +373,16 @@
             });
         }
 
-        // Event listener for quiz submission
         submitBtn.addEventListener('click', () => {
-            if (isQuizSubmitted) return; // Prevent double submission
+            if (isQuizSubmitted) return;
             isQuizSubmitted = true;
-
             let score = 0;
             let totalQuestions = allQuestions.length;
             let allAnswered = true;
 
-            // Reset classes
             document.querySelectorAll('.question-option').forEach(label => {
                 label.classList.remove('selected', 'correct-answer', 'incorrect-answer');
-                label.classList.add('cursor-default'); // Disable hover for review mode
+                label.classList.add('cursor-default');
             });
             document.querySelectorAll('.question input').forEach(input => input.disabled = true);
 
@@ -537,19 +390,12 @@
                 const questionDiv = document.getElementById(q.id);
                 const selected = questionDiv.querySelector('input[type="radio"]:checked');
                 const correctAnswerValue = q.correctAnswer;
-
-                if (!selected) {
-                    allAnswered = false;
-                    return;
-                }
-
+                if (!selected) { allAnswered = false; return; }
                 questionDiv.querySelectorAll('.question-option').forEach(label => {
-                    const input = label.querySelector('input');
-                    if (input.value === correctAnswerValue) {
+                    if (label.querySelector('input').value === correctAnswerValue) {
                         label.classList.add('correct-answer');
                     }
                 });
-
                 if (selected.value === correctAnswerValue) {
                     score++;
                 } else {
@@ -559,7 +405,6 @@
 
             if (!allAnswered) {
                 showBasicMessage("Please answer all questions before submitting.");
-                // Re-enable options since submission was invalid
                 document.querySelectorAll('.question input').forEach(input => input.disabled = false);
                 isQuizSubmitted = false;
                 return;
@@ -580,49 +425,32 @@
             }
         });
 
-        // Event listener for retaking the quiz
         retakeQuizBtn.addEventListener('click', () => {
             renderQuiz();
-            // Re-enable options
             document.querySelectorAll('.question input').forEach(input => input.disabled = false);
             document.querySelectorAll('.question-option').forEach(label => label.classList.remove('cursor-default'));
         });
 
-        // Event listener to start the game
         startGameBtn.addEventListener('click', () => {
             quizContainer.style.display = 'none';
-            gameContainer.style.display = 'flex';
+            gameContainer.style.display = 'grid';
             initGame();
         });
 
-
-        // --- HELP MODAL FUNCTIONS ---
-
-        // Shows the RDW explanation modal
         function showHelpModal(event) {
             const questionId = event.currentTarget.getAttribute('data-question-id');
             const question = allQuestions.find(q => q.id === questionId);
-
             if (question) {
                 modalTitle.textContent = `Read-Draw-Write Help for Question ${questionId.replace('q', '')}`;
                 modalBody.innerHTML = question.rdw;
                 helpModal.classList.remove('hidden');
             }
         }
-
-        // Closes the RDW explanation modal
-        closeModalBtn.addEventListener('click', () => {
-            helpModal.classList.add('hidden');
-        });
-
-        // Closes the modal when clicking outside of it
+        closeModalBtn.addEventListener('click', () => { helpModal.classList.add('hidden'); });
         helpModal.addEventListener('click', (e) => {
-            if (e.target === helpModal) {
-                helpModal.classList.add('hidden');
-            }
+            if (e.target === helpModal) { helpModal.classList.add('hidden'); }
         });
 
-        // Simple message box (replaces alert())
         function showBasicMessage(message) {
             const messageBox = document.createElement('div');
             messageBox.className = 'modal-overlay';
@@ -630,105 +458,132 @@
                 <div class="modal-content bg-yellow-50 border-4 border-yellow-400">
                     <p class="text-gray-800 text-lg sm:text-xl mb-4 font-semibold">${message}</p>
                     <button class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">OK</button>
-                </div>
-            `;
+                </div>`;
             document.body.appendChild(messageBox);
             messageBox.querySelector('button').addEventListener('click', () => {
                 document.body.removeChild(messageBox);
             });
         }
 
+        // --- VOLUME EXPLORER GAME LOGIC ---
+        const visualizerDiv = document.getElementById('visualizer-svg');
+        const containerNameEl = document.getElementById('container-name');
+        const containerCapacityEl = document.getElementById('container-capacity');
+        const volumeInput = document.getElementById('volume-input');
+        const unitSelector = document.getElementById('unit-selector');
+        const fillBtn = document.getElementById('fill-btn');
+        const containerButtons = {
+            'juice-box': document.getElementById('juice-box-btn'),
+            'water-bottle': document.getElementById('water-bottle-btn'),
+            'milk-carton': document.getElementById('milk-carton-btn'),
+            'soda-bottle': document.getElementById('soda-bottle-btn'),
+        };
+        let currentContainerId = null;
 
-        // --- ARRAY BUILDER GAME LOGIC ---
-
-        const canvas = document.getElementById('game-canvas');
-        const ctx = canvas.getContext('2d');
-        const rowsInput = document.getElementById('rows');
-        const colsInput = document.getElementById('cols');
-        const totalBlocksEl = document.getElementById('totalBlocks');
-        const buildArrayBtn = document.getElementById('buildArrayBtn');
-
-        let blockSize = 40;
-        const padding = 20;
-
-        function drawArray(rows, cols) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#fefce8'; // Canvas background
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            const totalWidth = cols * blockSize;
-            const totalHeight = rows * blockSize;
-
-            // Center the array
-            const startX = (canvas.width - totalWidth) / 2;
-            const startY = (canvas.height - totalHeight) / 2;
-
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#facc15'; // Yellow border
-
-            for (let r = 0; r < rows; r++) {
-                for (let c = 0; c < cols; c++) {
-                    const x = startX + c * blockSize;
-                    const y = startY + r * blockSize;
-
-                    // Draw the block (a filled rectangle)
-                    ctx.fillStyle = r % 2 === 0 ? '#10b981' : '#059669'; // Alternating green colors
-                    ctx.fillRect(x, y, blockSize, blockSize);
-
-                    // Draw the block border (grid lines)
-                    ctx.strokeRect(x, y, blockSize, blockSize);
-                }
+        const containers = {
+            'juice-box': {
+                name: 'Juice Box',
+                capacity: 250, // mL
+                fillableHeight: 175, // The 'fillable' pixel height in the SVG
+                fillableY: 50, // The starting Y position for filling
+                svg: `
+                    <svg viewBox="0 0 150 250">
+                        <defs><clipPath id="juice-clip"><path d="M25,225 V50 H125 V225 Z" /></clipPath></defs>
+                        <rect id="liquid" clip-path="url(#juice-clip)" x="0" y="250" width="150" height="0" fill="#f97316" style="transition: all 0.5s ease-in-out;"/>
+                        <path d="M25,225 V50 H125 V225 Z M40,35 H110 V50 H40 Z" fill="none" stroke="#4b5563" stroke-width="4" />
+                    </svg>`
+            },
+            'water-bottle': {
+                name: 'Water Bottle',
+                capacity: 500, // mL
+                fillableHeight: 140,
+                fillableY: 100,
+                svg: `
+                    <svg viewBox="0 0 150 250">
+                        <defs><clipPath id="water-clip"><path d="M40,240 V100 C40,70 110,70 110,100 V240 Z" /></clipPath></defs>
+                        <rect id="liquid" clip-path="url(#water-clip)" x="0" y="250" width="150" height="0" fill="#38bdf8" style="transition: all 0.5s ease-in-out;"/>
+                        <path d="M40,240 V100 C40,70 110,70 110,100 V240 Z M50,50 h50 v-15 h-50 Z M60,35 h30 v-15 h-30 Z" fill="none" stroke="#4b5563" stroke-width="4" />
+                    </svg>`
+            },
+            'milk-carton': {
+                name: 'Milk Carton',
+                capacity: 1000, // mL
+                fillableHeight: 170, 
+                fillableY: 70, 
+                svg: `
+                    <svg viewBox="0 0 150 250">
+                        <defs><clipPath id="milk-clip"><path d="M25,240 V70 L75,30 L125,70 V240 Z" /></clipPath></defs>
+                        <rect id="liquid" clip-path="url(#milk-clip)" x="0" y="250" width="150" height="0" fill="#e2e8f0" style="transition: all 0.5s ease-in-out;"/>
+                        <path d="M25,240 V70 L75,30 L125,70 V240 Z" fill="none" stroke="#4b5563" stroke-width="4" />
+                    </svg>`
+            },
+            'soda-bottle': {
+                name: 'Soda Bottle',
+                capacity: 2000, // mL
+                fillableHeight: 160,
+                fillableY: 80,
+                svg: `
+                    <svg viewBox="0 0 150 250">
+                        <defs><clipPath id="soda-clip"><path d="M45,240 C20,200 20,100 45,80 V40 H105 V80 C130,100 130,200 105,240 Z" /></clipPath></defs>
+                        <rect id="liquid" clip-path="url(#soda-clip)" x="0" y="250" width="150" height="0" fill="#166534" style="transition: all 0.5s ease-in-out;"/>
+                        <path d="M45,240 C20,200 20,100 45,80 V40 H105 V80 C130,100 130,200 105,240 Z M60,20 h30 v20 h-30 Z" fill="none" stroke="#4b5563" stroke-width="4" />
+                    </svg>`
             }
+        };
+
+        function selectContainer(id) {
+            currentContainerId = id;
+            const container = containers[id];
+
+            visualizerDiv.innerHTML = container.svg;
+            containerNameEl.textContent = container.name;
+            containerCapacityEl.textContent = `Capacity: ${container.capacity} mL (${container.capacity / 1000} L)`;
+            
+            for (const btnId in containerButtons) {
+                containerButtons[btnId].classList.toggle('selected', btnId === id);
+            }
+
+            volumeInput.value = container.capacity / 2;
+            unitSelector.value = 'mL';
+            handleFill();
         }
 
-        function handleBuildArray() {
-            let rows = parseInt(rowsInput.value) || 1;
-            let cols = parseInt(colsInput.value) || 1;
+        function handleFill() {
+            if (!currentContainerId) return;
 
-            // Clamp values
-            rows = Math.min(10, Math.max(1, rows));
-            cols = Math.min(10, Math.max(1, cols));
+            const container = containers[currentContainerId];
+            const liquidEl = document.getElementById('liquid');
+            
+            let amount = parseFloat(volumeInput.value) || 0;
+            const unit = unitSelector.value;
 
-            rowsInput.value = rows;
-            colsInput.value = cols;
+            if (unit === 'L') {
+                amount *= 1000; // Convert Liters to mL
+            }
 
-            const total = rows * cols;
-            totalBlocksEl.textContent = total;
-
-            // Adjust block size based on the larger dimension to fit the canvas
-            const maxDimension = Math.max(rows, cols);
-            const availableSpace = Math.min(canvas.width, canvas.height) - 2 * padding;
-            blockSize = Math.floor(availableSpace / maxDimension);
-            blockSize = Math.max(20, Math.min(50, blockSize)); // Keep it reasonable
-
-            drawArray(rows, cols);
-        }
-
-        buildArrayBtn.addEventListener('click', handleBuildArray);
-
-        function resizeCanvas() {
-            const container = document.getElementById('game-canvas-container');
-            // Ensure the canvas is square and fits the container width
-            const size = container.clientWidth;
-            canvas.width = size;
-            canvas.height = size;
-            handleBuildArray(); // Redraw array on resize
+            let fillPercent = (amount / container.capacity);
+            fillPercent = Math.max(0, Math.min(1, fillPercent)); // Clamp between 0 and 1
+            
+            const liquidHeight = fillPercent * container.fillableHeight;
+            const yPos = container.fillableY + container.fillableHeight - liquidHeight;
+            
+            liquidEl.setAttribute('y', yPos);
+            liquidEl.setAttribute('height', liquidHeight);
         }
 
         function initGame() {
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
+            containerButtons['juice-box'].addEventListener('click', () => selectContainer('juice-box'));
+            containerButtons['water-bottle'].addEventListener('click', () => selectContainer('water-bottle'));
+            containerButtons['milk-carton'].addEventListener('click', () => selectContainer('milk-carton'));
+            containerButtons['soda-bottle'].addEventListener('click', () => selectContainer('soda-bottle'));
+            fillBtn.addEventListener('click', handleFill);
+            
+            selectContainer('juice-box');
         }
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             renderQuiz();
-            // Attach initial resize listener for the game setup
-            window.addEventListener('resize', () => {
-                if (gameContainer.style.display === 'flex') {
-                    resizeCanvas();
-                }
-            });
         });
     </script>
 </body>
