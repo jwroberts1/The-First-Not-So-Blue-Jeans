@@ -181,17 +181,20 @@
                  <canvas id="game-canvas" class="w-full h-full"></canvas>
             </div>
             <!-- Mobile Controls -->
-            <div id="mobile-controls" class="hidden grid-cols-3 gap-2 w-48 mt-6">
-                <div class="col-start-2">
-                    <button id="up-btn" class="control-button w-full">▲</button>
-                </div>
+            <div id="mobile-controls" class="hidden grid grid-cols-3 gap-2 w-48 mt-6">
+                <div></div> <!-- Top-left empty -->
+                <button id="up-btn" class="control-button w-full">▲</button>
+                <div></div> <!-- Top-right empty -->
+                
                 <button id="left-btn" class="control-button w-full">◀</button>
-                <div class="col-span-1"></div>
+                <div></div> <!-- Middle-center empty -->
                 <button id="right-btn" class="control-button w-full">▶</button>
-                 <div class="col-start-2">
-                    <button id="down-btn" class="control-button w-full">▼</button>
-                </div>
+                
+                <div></div> <!-- Bottom-left empty -->
+                <button id="down-btn" class="control-button w-full">▼</button>
+                <div></div> <!-- Bottom-right empty -->
             </div>
+
 
             <div id="win-message" class="modal-overlay hidden">
                  <div class="modal-content text-center bg-yellow-50 border-4 border-yellow-400">
