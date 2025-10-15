@@ -45,61 +45,46 @@
             font-family: 'Bangers', cursive;
         }
 
-        /* Styles for the Vault Hunter's game */
+        /* New Game Styles */
         #game-canvas {
-            background-color: #333;
-            border: 4px solid #f5f5f5;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            background-color: #e0f2fe; /* Light blue sky */
+            border: 4px solid #0284c7; /* Sky blue border */
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
         }
-
-        #game-info {
-            background-color: #222;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 2px solid #555;
-        }
-
-        .message-box {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(34, 34, 34, 0.95);
-            padding: 2.5rem;
-            border: 4px solid #f5f5f5;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-            text-align: center;
-            z-index: 1000;
-            border-radius: 15px;
-        }
-
-        .message-box button {
-            background-color: #f59e0b;
-            color: #1a1a1a;
-            font-weight: bold;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .message-box button:hover {
-            background-color: #d97706;
-            transform: scale(1.05);
-        }
-
+        
         .control-button {
             @apply bg-gray-700 text-white p-4 rounded-xl text-2xl font-bold transition-transform transform active:scale-95;
-            -webkit-tap-highlight-color: transparent;
-            /* Removes blue highlight on tap */
+            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap */
         }
 
-        /* Media query to show controls on screens smaller than large desktops */
         @media (max-width: 1024px) {
             #mobile-controls {
-                display: flex !important;
+                display: grid !important;
             }
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -176,7 +161,7 @@
             <p id="scoreText"></p>
             <div class="mt-4 space-x-4">
                 <button id="startGameBtn" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 hidden">
-                    Congratulations! Check out your reward
+                    Congratulations! Play the Chase Game!
                 </button>
                 <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 hidden">
                     Retake Quiz
@@ -186,42 +171,34 @@
 
         <hr class="my-12 border-gray-300">
 
-        <!-- Game Section -->
-        <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-900 rounded-lg shadow-2xl" style="display: none;">
-            <div id="game-info" class="mb-6 w-full max-w-xl text-center text-white bg-gray-800 p-4 rounded-xl border-2 border-yellow-400">
-                <h1 class="text-3xl font-bold mb-2 game-font">Vault Hunter's Treasure</h1>
-                <p class="text-gray-300">Use the arrow keys to move and the <strong class="text-yellow-400">E key</strong> to investigate for key fragments!</p>
-                <div class="mt-4 text-xl">
-                    Key Fragments Found: <span id="foundCount" class="font-bold text-yellow-400">0</span> / 3
-                </div>
+        <!-- Game Section (Dog Man Chase) -->
+        <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
+            <div id="game-info" class="mb-6 w-full max-w-xl text-center text-gray-800 bg-white p-4 rounded-xl border-2 border-blue-400">
+                <h1 class="text-3xl font-bold mb-2 header-font text-blue-700">Dog Man Chase!</h1>
+                <p class="text-gray-600">Use the arrow keys or buttons to help Dog Man catch Petey! Dodge the bombs!</p>
             </div>
             <div id="game-canvas-container" class="relative w-full max-w-xl aspect-square overflow-hidden rounded-lg">
-                <canvas id="game-canvas" class="w-full h-full"></canvas>
+                 <canvas id="game-canvas" class="w-full h-full"></canvas>
             </div>
-
             <!-- Mobile Controls -->
-            <div id="mobile-controls" class="hidden flex-col items-center mt-6 w-full">
-                <div class="grid grid-cols-3 gap-2 w-48">
-                    <div class="col-span-1"></div>
-                    <button id="up-btn" class="control-button">▲</button>
-                    <div class="col-span-1"></div>
-                    <button id="left-btn" class="control-button">◀</button>
-                    <div class="col-span-1"></div>
-                    <button id="right-btn" class="control-button">▶</button>
-                    <div class="col-span-1"></div>
-                    <button id="down-btn" class="control-button">▼</button>
-                    <div class="col-span-1"></div>
+            <div id="mobile-controls" class="hidden grid-cols-3 gap-2 w-48 mt-6">
+                <div class="col-start-2">
+                    <button id="up-btn" class="control-button w-full">▲</button>
                 </div>
-                <button id="investigateBtn" class="bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full mt-6 hover:bg-yellow-500 transition duration-300 w-48">
-                    Investigate
-                </button>
+                <button id="left-btn" class="control-button w-full">◀</button>
+                <div class="col-span-1"></div>
+                <button id="right-btn" class="control-button w-full">▶</button>
+                 <div class="col-start-2">
+                    <button id="down-btn" class="control-button w-full">▼</button>
+                </div>
             </div>
 
-            <div id="end-game-message" class="message-box hidden text-white">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Congratulations, Vault Hunter!</h2>
-                <div id="completed-key-container" class="mb-6 flex justify-center"></div>
-                <p class="mb-6 text-lg sm:text-xl">You have successfully completed the vault key. What knowledge will you seek?</p>
-                <button id="playAgainBtn">Play Again</button>
+            <div id="win-message" class="modal-overlay hidden">
+                 <div class="modal-content text-center bg-yellow-50 border-4 border-yellow-400">
+                    <h2 class="text-3xl font-bold mb-4 text-yellow-700 header-font">You Caught Petey!</h2>
+                    <p class="text-gray-800 text-lg mb-6">Great job, hero!</p>
+                    <button id="playAgainBtn" class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">Play Again</button>
+                </div>
             </div>
         </div>
     </div>
@@ -423,7 +400,6 @@
         const quizContainer = document.getElementById('quiz-container');
         const gameContainer = document.getElementById('game-container');
         const timerDisplay = document.getElementById('timer');
-        const investigateBtn = document.getElementById('investigateBtn');
 
         // Quiz State
         let startTime;
@@ -587,10 +563,12 @@
         // Simple message box to replace alert()
         function showBasicMessage(message) {
             const messageBox = document.createElement('div');
-            messageBox.className = 'message-box flex flex-col items-center';
+            messageBox.className = 'modal-overlay';
             messageBox.innerHTML = `
-                <p class="text-white text-lg sm:text-xl mb-4">${message}</p>
-                <button class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">OK</button>
+                <div class="modal-content text-center bg-yellow-50 border-4 border-yellow-400">
+                    <p class="text-gray-800 text-lg sm:text-xl mb-4 font-semibold">${message}</p>
+                    <button class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">OK</button>
+                </div>
             `;
             document.body.appendChild(messageBox);
             messageBox.querySelector('button').addEventListener('click', () => {
@@ -599,270 +577,213 @@
         }
 
 
-        // Game Logic for Vault Hunter's Treasure
+        // --- DOG MAN CHASE GAME LOGIC ---
         const canvas = document.getElementById('game-canvas');
         const ctx = canvas.getContext('2d');
-        const foundCountEl = document.getElementById('foundCount');
-        const messageBox = document.getElementById('end-game-message');
+        const winMessage = document.getElementById('win-message');
         const playAgainBtn = document.getElementById('playAgainBtn');
-        const completedKeyContainer = document.getElementById('completed-key-container');
-        const upBtn = document.getElementById('up-btn');
-        const downBtn = document.getElementById('down-btn');
-        const leftBtn = document.getElementById('left-btn');
-        const rightBtn = document.getElementById('right-btn');
-        const hunterSize = 50;
-        let hunterX, hunterY;
-        const speed = 5;
-        let foundKeys = 0;
+
         let isGameActive = false;
         let animationFrameId;
-
-        const hunterSymbol = '🤠';
-        const keyFragmentImages = [];
-        let objects = [];
-        const numObjects = 10;
-        const objectSymbols = ['📦', '💰', '🛡️', '⚙️', '💎', '🧪'];
-
         const keys = {};
 
-        // SVG functions
-        function createDiamondFragmentSVG(fragmentIndex) {
-            const svgWidth = 50;
-            const svgHeight = 50;
-            let svgPath = '';
-            if (fragmentIndex === 0) {
-                svgPath = `M${svgWidth / 2},0 L0,${svgHeight / 2} L${svgWidth / 2},${svgHeight * 0.75} L${svgWidth},${svgHeight / 2} Z`;
-            } else if (fragmentIndex === 1) {
-                svgPath = `M0,${svgHeight / 2} L${svgWidth / 2},${svgHeight * 0.75} L${svgWidth / 2},${svgHeight} L0,${svgHeight} Z`;
-            } else if (fragmentIndex === 2) {
-                svgPath = `M${svgWidth},${svgHeight / 2} L${svgWidth / 2},${svgHeight * 0.75} L${svgWidth / 2},${svgHeight} L${svgWidth},${svgHeight} Z`;
-            }
-            return `<svg xmlns="http://www.w3.org/2000/svg" width="${svgWidth}" height="${svgHeight}" viewBox="0 0 ${svgWidth} ${svgHeight}">
-                        <path d="${svgPath}" fill="#a855f7" stroke="#8b5cf6" stroke-width="2" />
-                    </svg>`;
-        }
-
-        function createCompletedDiamondSVG() {
-            return `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                        <path d="M50,0 L0,50 L50,100 L100,50 Z" fill="#a855f7" stroke="#8b5cf6" stroke-width="4" />
-                    </svg>`;
-        }
-
-        function preloadKeyFragments() {
-            for (let i = 0; i < 3; i++) {
-                const keyFragImage = new Image();
-                const svgString = createDiamondFragmentSVG(i);
-                keyFragImage.src = 'data:image/svg+xml;base64,' + btoa(svgString);
-                keyFragmentImages.push(keyFragImage);
-            }
-        }
-
-        function showGameMessage() {
-            completedKeyContainer.innerHTML = createCompletedDiamondSVG();
-            messageBox.classList.remove('hidden');
-        }
-
-        function hideGameMessage() {
-            messageBox.classList.add('hidden');
-        }
-
-        // Game state and object creation
-        function createObjects() {
-            objects = [];
-            const keyLocations = new Set();
-            while (keyLocations.size < 3) {
-                keyLocations.add(Math.floor(Math.random() * numObjects));
-            }
-
-            for (let i = 0; i < numObjects; i++) {
-                let x, y;
-                let overlap;
-                do {
-                    overlap = false;
-                    x = Math.random() * (canvas.width - 50);
-                    y = Math.random() * (canvas.height - 50);
-
-                    for (const obj of objects) {
-                        const dist = Math.sqrt(Math.pow(x - obj.x, 2) + Math.pow(y - obj.y, 2));
-                        if (dist < 100) {
-                            overlap = true;
-                            break;
-                        }
-                    }
-                } while (overlap);
-
-                objects.push({
-                    x: x,
-                    y: y,
-                    isKey: keyLocations.has(i),
-                    isFound: false,
-                    symbol: objectSymbols[Math.floor(Math.random() * objectSymbols.length)]
-                });
-            }
-        }
+        const player = { x: 0, y: 0, width: 40, height: 40, speed: 4, symbol: '🐶' };
+        const petey = { x: 0, y: 0, width: 40, height: 40, speed: 2, symbol: '🐱' };
+        const obstacles = [];
+        const obstacleSize = 20;
+        let peteyThrowInterval;
 
         function resetGame() {
-            foundKeys = 0;
-            foundCountEl.textContent = foundKeys;
-            hunterX = canvas.width / 2 - hunterSize / 2;
-            hunterY = canvas.height / 2 - hunterSize / 2;
-            hideGameMessage();
-            createObjects();
-            isGameActive = true;
-            if (!animationFrameId) {
-                gameLoop();
+            // Stop any active game processes
+            isGameActive = false;
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+            clearInterval(peteyThrowInterval);
+
+            // Hide win message and clear obstacles
+            winMessage.classList.add('hidden');
+            obstacles.length = 0;
+
+            // Set initial positions for drawing during countdown
+            player.x = 50;
+            player.y = canvas.height / 2 - player.height / 2;
+            petey.x = canvas.width - 50 - petey.width;
+            petey.y = canvas.height / 2 - petey.height / 2;
+
+            function drawStaticFrame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#65a30d'; // Grassy green
+                ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+                ctx.font = '40px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(player.symbol, player.x + player.width / 2, player.y + player.height / 2);
+                ctx.fillText(petey.symbol, petey.x + petey.width / 2, petey.y + petey.height / 2);
             }
-        }
 
-        // Game drawing logic
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#333';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            function drawCountdownText(text) {
+                drawStaticFrame(); // Draw the background first
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.font = 'bold 96px Bangers, cursive';
+                ctx.fillStyle = '#ffffff';
+                ctx.strokeStyle = '#27272a';
+                ctx.lineWidth = 6;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.strokeText(text, canvas.width / 2, canvas.height / 2);
+                ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+            }
 
-            objects.forEach(obj => {
-                ctx.save();
-                ctx.translate(obj.x, obj.y);
-                if (obj.isFound) {
-                    const foundKeyCount = objects.filter(o => o.isFound).length;
-                    const fragIndex = obj.isKey ? objects.filter(o => o.isKey).indexOf(obj) : -1;
-                    if (fragIndex !== -1 && keyFragmentImages[fragIndex]?.complete) {
-                        ctx.drawImage(keyFragmentImages[fragIndex], 0, 0, 50, 50);
-                    }
+            let count = 3;
+            drawCountdownText(count); // Draw initial "3"
+
+            const countdownInterval = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    drawCountdownText(count);
+                } else if (count === 0) {
+                    drawCountdownText('GO!');
                 } else {
-                    ctx.font = '40px sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText(obj.symbol, 25, 25);
-                }
-                ctx.restore();
-            });
-
-            ctx.font = '50px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(hunterSymbol, hunterX + hunterSize / 2, hunterY + hunterSize / 2);
-        }
-
-        // Game logic
-        function investigate() {
-            if (!isGameActive) return;
-            let foundSomething = false;
-            objects.forEach(obj => {
-                if (!obj.isFound &&
-                    hunterX < obj.x + 50 &&
-                    hunterX + hunterSize > obj.x &&
-                    hunterY < obj.y + 50 &&
-                    hunterY + hunterSize > obj.y) {
-                    if (obj.isKey) {
-                        obj.isFound = true;
-                        foundKeys++;
-                        foundSomething = true;
-                        foundCountEl.textContent = foundKeys;
-                        if (foundKeys === 3) {
-                            showGameMessage();
-                            isGameActive = false;
-                        }
+                    clearInterval(countdownInterval);
+                    // --- START THE ACTUAL GAME ---
+                    isGameActive = true;
+                    if (!animationFrameId) {
+                        gameLoop();
                     }
+                    peteyThrowInterval = setInterval(() => {
+                        if (!isGameActive) return;
+                        obstacles.push({
+                            x: petey.x,
+                            y: petey.y + petey.height / 2,
+                            width: obstacleSize,
+                            height: obstacleSize,
+                            speed: 5,
+                            symbol: '💣'
+                        });
+                    }, 1200);
                 }
-            });
-            draw();
+            }, 1000);
+        }
+        
+        function checkCollision(rect1, rect2) {
+            return rect1.x < rect2.x + rect2.width &&
+                   rect1.x + rect1.width > rect2.x &&
+                   rect1.y < rect2.y + rect2.height &&
+                   rect1.y + rect1.height > rect2.y;
         }
 
         function gameLoop() {
-            if (!isGameActive) return;
+            if (!isGameActive) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+                return;
+            }
 
-            if (keys['ArrowUp']) hunterY -= speed;
-            if (keys['ArrowDown']) hunterY += speed;
-            if (keys['ArrowLeft']) hunterX -= speed;
-            if (keys['ArrowRight']) hunterX += speed;
+            // Update player position
+            if (keys['ArrowUp'] && player.y > 0) player.y -= player.speed;
+            if (keys['ArrowDown'] && player.y < canvas.height - player.height) player.y += player.speed;
+            if (keys['ArrowLeft'] && player.x > 0) player.x -= player.speed;
+            if (keys['ArrowRight'] && player.x < canvas.width - player.width) player.x += player.speed;
 
-            hunterX = Math.max(0, Math.min(canvas.width - hunterSize, hunterX));
-            hunterY = Math.max(0, Math.min(canvas.height - hunterSize, hunterY));
+            // Update Petey's position (simple AI)
+            if (player.y < petey.y && petey.y > 0) {
+                petey.y -= petey.speed;
+            } else if (player.y > petey.y && petey.y < canvas.height - petey.height) {
+                petey.y += petey.speed;
+            }
 
-            draw();
+            // Update obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                const obstacle = obstacles[i];
+                obstacle.x -= obstacle.speed;
+                if (obstacle.x + obstacle.width < 0) {
+                    obstacles.splice(i, 1); // Remove obstacle if it's off-screen
+                }
+            }
+
+            // Check for collisions
+            // 1. Dog Man hits a bomb
+            for (const obstacle of obstacles) {
+                if (checkCollision(player, obstacle)) {
+                    resetGame(); // Restart the game
+                    return; // Exit loop for this frame
+                }
+            }
+            // 2. Dog Man catches Petey
+            if (checkCollision(player, petey)) {
+                isGameActive = false;
+                winMessage.classList.remove('hidden');
+            }
+
+            // --- DRAW EVERYTHING ---
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Draw ground
+            ctx.fillStyle = '#65a30d'; // Grassy green
+            ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+            
+            // Draw characters and obstacles
+            ctx.font = '40px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(player.symbol, player.x + player.width / 2, player.y + player.height / 2);
+            ctx.fillText(petey.symbol, petey.x + petey.width / 2, petey.y + petey.height / 2);
+            
+            ctx.font = '20px sans-serif';
+            obstacles.forEach(obstacle => {
+                 ctx.fillText(obstacle.symbol, obstacle.x + obstacle.width / 2, obstacle.y + obstacle.height / 2);
+            });
+
+
             animationFrameId = requestAnimationFrame(gameLoop);
         }
 
-        // Event Listeners for game
-        document.addEventListener('keydown', (e) => {
-            if (!isGameActive) return;
-            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        // --- EVENT LISTENERS FOR GAME ---
+        document.addEventListener('keydown', e => {
+             if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
                 e.preventDefault();
                 keys[e.key] = true;
             }
-            if (e.key.toLowerCase() === 'e' || e.key === ' ') {
-                investigate();
-            }
         });
+        document.addEventListener('keyup', e => { keys[e.key] = false; });
+        
+        playAgainBtn.addEventListener('click', resetGame);
 
-        document.addEventListener('keyup', (e) => {
-            if (!isGameActive) return;
-            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-                keys[e.key] = false;
-            }
-        });
-
-        // Touch/Mouse event listeners for new buttons
+        // Mobile Controls
         const controlButtons = {
-            'up-btn': 'ArrowUp',
-            'down-btn': 'ArrowDown',
-            'left-btn': 'ArrowLeft',
-            'right-btn': 'ArrowRight'
+            'up-btn': 'ArrowUp', 'down-btn': 'ArrowDown',
+            'left-btn': 'ArrowLeft', 'right-btn': 'ArrowRight'
         };
-
-        function startMovement(e) {
-            e.preventDefault();
-            const key = controlButtons[e.currentTarget.id];
-            if (key) keys[key] = true;
-        }
-
-        function stopMovement(e) {
-            e.preventDefault();
-            const key = controlButtons[e.currentTarget.id];
-            if (key) keys[key] = false;
-        }
 
         Object.keys(controlButtons).forEach(id => {
             const btn = document.getElementById(id);
-            btn.addEventListener('mousedown', startMovement);
-            btn.addEventListener('mouseup', stopMovement);
-            btn.addEventListener('mouseleave', stopMovement); // Prevents movement from getting stuck if cursor moves off button
-            btn.addEventListener('touchstart', startMovement);
-            btn.addEventListener('touchend', stopMovement);
-        });
-
-        investigateBtn.addEventListener('click', investigate);
-        playAgainBtn.addEventListener('click', () => {
-            // New logic to return to the quiz
-            hideGameMessage(); // Hide the "You Win!" message box
-            gameContainer.style.display = 'none'; // Hide the game section
-            quizContainer.style.display = 'block'; // Show the quiz section
-            renderQuiz(); // Reset the quiz and restart the timer
+            const key = controlButtons[id];
+            btn.addEventListener('mousedown', (e) => { e.preventDefault(); keys[key] = true; });
+            btn.addEventListener('mouseup', (e) => { e.preventDefault(); keys[key] = false; });
+            btn.addEventListener('mouseleave', (e) => { keys[key] = false; });
+            btn.addEventListener('touchstart', (e) => { e.preventDefault(); keys[key] = true; });
+            btn.addEventListener('touchend', (e) => { e.preventDefault(); keys[key] = false; });
         });
 
         function resizeCanvas() {
             const container = document.getElementById('game-canvas-container');
-            canvas.width = container.clientWidth;
-            canvas.height = container.clientHeight;
-            resetGame();
+            const size = container.clientWidth;
+            canvas.width = size;
+            canvas.height = size;
+            if (isGameActive) {
+                resetGame();
+            }
         }
 
         function initGame() {
-            preloadKeyFragments();
             resizeCanvas();
-            isGameActive = true;
-            gameLoop();
+            resetGame();
         }
 
-        // Initial setup on page load
+        // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             renderQuiz();
-            window.addEventListener('resize', () => {
-                if (gameContainer.style.display === 'flex') {
-                    resizeCanvas();
-                }
-            });
+            window.addEventListener('resize', resizeCanvas);
         });
     </script>
 </body>
