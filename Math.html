@@ -39,7 +39,7 @@
         }
 
         .question-option.correct-answer {
-            background-color: #d1fae5;
+            background-color: #d1fae_5;
             /* Lighter green */
             border-left: 4px solid #059669;
             /* Green-600 */
@@ -115,7 +115,7 @@
     </div>
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Wonderlands Edition
+            Math Mission: Dog Man Edition
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
             3rd Grade Practice: Solve 10 problems to unlock the Array Builder Game!
@@ -209,139 +209,161 @@
         // --- QUIZ DATA ---
         const allQuestions = [{
             id: 'q1',
-            questionText: 'The Dragon Lord raises his skeleton army. He raises 5 skeletons each minute. Which equation shows how many skeletons (s) he raises in 7 minutes?',
+            questionText: 'Petey\'s Invisibility Spray comes in a small spray bottle. Which is a more likely amount for the bottle to hold?',
             options: [{
                 value: 'A',
-                text: '7 X s = 5'
+                text: '200 Liters'
             }, {
                 value: 'B',
-                text: '5 + 7 = s'
+                text: '20 Liters'
             }, {
                 value: 'C',
-                text: '5 X 7 = s'
+                text: '200 milliliters'
             }, {
                 value: 'D',
-                text: 's ÷ 5 = 7'
+                text: '2 milliliters'
             }],
             correctAnswer: 'C',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 7 equal groups of 5. We need to find the total number of skeletons, 's'.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 circles, and put 5 dots in each circle. To find the total, you multiply the number of groups by the number in each group.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The correct equation is <strong>5 X 7 = s</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a small spray bottle. We need to know if Liters or milliliters are bigger.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A liter is the size of a large carton of milk. A milliliter is very small, like a drop of water. A spray bottle would hold many drops, but not as much as 20 or 200 big milk cartons. 2 milliliters is too small.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>200 milliliters</strong> is the most reasonable estimate for a small spray bottle.</p></div>
             `
         }, {
             id: 'q2',
-            questionText: 'Queen Butt Stallion checks the scores from the Bunkers & Badasses game. Which score is calculated incorrectly?',
+            questionText: 'Philly fills a giant vat of mustard to defeat the Hot Dog Weenie Monster. The vat holds exactly 3 Liters. How many milliliters of mustard is that?',
             options: [{
                 value: 'A',
-                text: 'Valentine: 8 X 4 = 32'
+                text: '30 milliliters'
             }, {
                 value: 'B',
-                text: 'Frette: 42 ÷ 7 = 6'
+                text: '300 milliliters'
             }, {
                 value: 'C',
-                text: 'Dragon Lord: 9 X 5 = 40'
+                text: '3,000 milliliters'
             }, {
                 value: 'D',
-                text: 'Fatemaker: 6 X 6 = 36'
+                text: '30,000 milliliters'
             }],
             correctAnswer: 'C',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to check each math problem to find the one that is wrong.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's check each one. A: 8 X 4 is 32 (Correct). B: 42 divided into 7 groups is 6 (Correct). C: Skip counting by 5 nine times is 5, 10, 15, 20, 25, 30, 35, 40, 45. So 9 X 5 is 45, not 40 (Incorrect). D: 6 X 6 is 36 (Correct).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The equation <strong>9 X 5 = 40</strong> is the one that is not correct.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to convert 3 Liters into milliliters.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Remember that 1 Liter = 1,000 milliliters. So for 3 Liters, we would have 3 groups of 1,000.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>3 X 1,000 = 3,000. So, 3 Liters is equal to <strong>3,000 milliliters</strong>.</p></div>
             `
         }, {
             id: 'q3',
-            questionText: 'Tiny Tina sets up her goblin miniatures for a battle. She arranges them in 4 rows of 6. Which array correctly shows her setup?',
+            questionText: 'The Chief bought a carton of milk for the breakroom. Which is a more likely amount for the carton to hold?',
             options: [{
                 value: 'A',
-                text: generateArray(6, 4) + '<p class="text-center text-xs text-gray-600 mt-1">6 rows of 4</p>'
+                text: '1 Liter'
             }, {
                 value: 'B',
-                text: generateArray(4, 6) + '<p class="text-center text-xs text-gray-600 mt-1">4 rows of 6</p>'
+                text: '10 Liters'
             }, {
                 value: 'C',
-                text: generateArray(4, 4) + '<p class="text-center text-xs text-gray-600 mt-1">4 rows of 4</p>'
+                text: '1 milliliter'
             }, {
                 value: 'D',
-                text: generateArray(6, 6) + '<p class="text-center text-xs text-gray-600 mt-1">6 rows of 6</p>'
-            }],
-            correctAnswer: 'B',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 4 rows and 6 columns (items in each row).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 4 rows. Within each of those 4 rows, there should be 6 items.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option B is the only picture that shows 4 rows with 6 items in each one.</p></div>
-            `
-        }, {
-            id: 'q4',
-            questionText: 'Based on the problem above (4 rows of 6 goblins), which expression correctly shows the total number of miniatures?',
-            options: [{
-                value: 'A',
-                text: '4 + 6'
-            }, {
-                value: 'B',
-                text: '4 + 4 + 4 + 4'
-            }, {
-                value: 'C',
-                text: '6 + 6 + 6 + 6'
-            }, {
-                value: 'D',
-                text: '6 X 6 X 6 X 6'
-            }],
-            correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find an expression that matches 4 groups of 6. This can be multiplication (4 X 6) or repeated addition.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think of the 4 rows. Each row has 6. To find the total, you add them: 6 + 6 + 6 + 6.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>6 + 6 + 6 + 6</strong> correctly represents 4 rows of 6.</p></div>
-            `
-        }, {
-            id: 'q5',
-            questionText: 'How many total goblin miniatures did Tina set up?',
-            options: [{
-                value: 'A',
-                text: '10 miniatures'
-            }, {
-                value: 'B',
-                text: '20 miniatures'
-            }, {
-                value: 'C',
-                text: '24 miniatures'
-            }, {
-                value: 'D',
-                text: '30 miniatures'
-            }],
-            correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 4 rows of 6 miniatures.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 4 X 6. You can skip count by 6 four times: 6, 12, 18, 24.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 X 6 = 24. There are <strong>24 miniatures</strong> in total.</p></div>
-            `
-        }, {
-            id: 'q6',
-            questionText: 'The Fatemaker casts a spell that is equal to 9 X 6. Which expression is also equal to the spell?',
-            options: [{
-                value: 'A',
-                text: '(5 X 6) + (4 X 6)'
-            }, {
-                value: 'B',
-                text: '(9 X 3) + (9 X 2)'
-            }, {
-                value: 'C',
-                text: '(3 X 6) + (3 X 6)'
-            }, {
-                value: 'D',
-                text: '(9 X 6) + (1 X 6)'
+                text: '10 milliliters'
             }],
             correctAnswer: 'A',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 9 in '9 X 6' but still equals the same total.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 9 X 6 = 54. Now, let's solve the options. A: 30 + 24 = 54. B: 27 + 18 = 45. C: 18 + 18 = 36. D: 54 + 6 = 60.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(5 X 6) + (4 X 6)</strong> is the only one that equals 54. Notice that 5 + 4 = 9.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a standard milk carton you would buy at the store.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think about a carton of milk from the grocery store. It's about the same size as a large water bottle. Milliliters are too small (a few drops). 10 Liters would be a very, very large container, not a carton.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>1 Liter</strong> is the most reasonable estimate for a carton of milk.</p></div>
+            `
+        }, {
+            id: 'q4',
+            questionText: 'George and Harold draw 8 pages of their Dog Man comic every single day. How many pages do they draw in 6 days?',
+            options: [{
+                value: 'A',
+                text: '14 pages'
+            }, {
+                value: 'B',
+                text: '42 pages'
+            }, {
+                value: 'C',
+                text: '48 pages'
+            }, {
+                value: 'D',
+                text: '56 pages'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 6 equal groups of 8 pages. We need to find the total.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 6 X 8. You can skip count by 8 six times: 8, 16, 24, 32, 40, 48.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 X 8 = 48. They draw <strong>48 pages</strong>.</p></div>
+            `
+        }, {
+            id: 'q5',
+            questionText: 'Petey lines up his stolen diamonds in an array with 5 rows and 8 columns. Which array correctly shows his setup?',
+            options: [{
+                value: 'A',
+                text: generateArray(8, 5) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 5</p>'
+            }, {
+                value: 'B',
+                text: generateArray(5, 5) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 5</p>'
+            }, {
+                value: 'C',
+                text: generateArray(5, 8) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 8</p>'
+            }, {
+                value: 'D',
+                text: generateArray(8, 8) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 8</p>'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 5 rows and 8 columns (items in each row).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 5 rows. Within each of those 5 rows, there should be 8 items.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option C is the only picture that shows 5 rows with 8 items in each one.</p></div>
+            `
+        }, {
+            id: 'q6',
+            questionText: 'How many total diamonds did Petey line up?',
+            options: [{
+                value: 'A',
+                text: '13 diamonds'
+            }, {
+                value: 'B',
+                text: '35 diamonds'
+            }, {
+                value: 'C',
+                text: '40 diamonds'
+            }, {
+                value: 'D',
+                text: '45 diamonds'
+            }],
+            correctAnswer: 'C',
+            rdw: `
+                 <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 5 rows of 8 diamonds.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 5 X 8. You can skip count by 8 five times: 8, 16, 24, 32, 40.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>5 X 8 = 40. There are <strong>40 diamonds</strong> in total.</p></div>
             `
         }, {
             id: 'q7',
-            questionText: 'Look at the equation: 8 X 7 = (5 X 7) + (___ X 7). What number goes in the blank?',
+            questionText: 'The Chief eats 9 X 4 donuts. Which expression is also equal to this?',
+            options: [{
+                value: 'A',
+                text: '(9 X 2) + (9 X 2)'
+            }, {
+                value: 'B',
+                text: '(5 X 4) + (3 X 4)'
+            }, {
+                value: 'C',
+                text: '(9 X 4) + (1 X 4)'
+            }, {
+                value: 'D',
+                text: '(3 X 4) + (3 X 4)'
+            }],
+            correctAnswer: 'A',
+            rdw: `
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 4 in '9 X 4' but still equals the same total.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 9 X 4 = 36. Now, let's solve the options. A: 18 + 18 = 36. B: 20 + 12 = 32. C: 36 + 4 = 40. D: 12 + 12 = 24.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(9 X 2) + (9 X 2)</strong> is the only one that equals 36. Notice that 2 + 2 = 4.</p></div>
+            `
+        }, {
+            id: 'q8',
+            questionText: 'Look at the equation: 7 X 8 = (5 X 8) + (___ X 8). What number goes in the blank?',
             options: [{
                 value: 'A',
                 text: '1'
@@ -355,77 +377,55 @@
                 value: 'D',
                 text: '4'
             }],
-            correctAnswer: 'C',
+            correctAnswer: 'B',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 8. It says that 8 sevens is the same as 5 sevens plus some more sevens.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 8 rows of 7 dots. We can split that into a group of 5 rows and a group of 3 rows. 5 + 3 = 8.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 3 = 8, the missing number is <strong>3</strong>.</p></div>
-            `
-        }, {
-            id: 'q8',
-            questionText: 'Which situation can be represented by 30 ÷ 5?',
-            options: [{
-                value: 'A',
-                text: 'The Fatemaker has 30 gold coins and finds 5 more.'
-            }, {
-                value: 'B',
-                text: 'Valentine has 30 gadgets and Frette has 5 gadgets.'
-            }, {
-                value: 'C',
-                text: 'The Dragon Lord has 30 skeletons and splits them into 5 equal groups to attack.'
-            }, {
-                value: 'D',
-                text: 'Tiny Tina has 30 cupcakes and eats 5 of them.'
-            }],
-            correctAnswer: 'C',
-            rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The expression 30 ÷ 5 means taking a total of 30 and splitting it into 5 equal groups.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Option A is addition (30+5). Option B is comparing (30 and 5). Option C is splitting 30 into 5 equal groups, which is division. Option D is subtraction (30-5).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The only situation that represents dividing into equal groups is <strong>C</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 7. It says that 7 eights is the same as 5 eights plus some more eights.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 rows of 8 dots. We can split that into a group of 5 rows and a group of 2 rows. 5 + 2 = 7.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 2 = 7, the missing number is <strong>2</strong>.</p></div>
             `
         }, {
             id: 'q9',
-            questionText: `The goblins of G.T.F.O. earn 8 gold pieces for each evil boss they defeat. On Monday, they earned 56 gold pieces. How many bosses did they defeat?`,
+            questionText: 'Dog Man has 36 dog treats. He wants to share them equally among his 9 police dog friends. How many treats does each dog get?',
             options: [{
                 value: 'A',
-                text: '6 bosses'
+                text: '3 treats'
             }, {
                 value: 'B',
-                text: '7 bosses'
+                text: '4 treats'
             }, {
                 value: 'C',
-                text: '8 bosses'
+                text: '5 treats'
             }, {
                 value: 'D',
-                text: '9 bosses'
+                text: '6 treats'
             }],
             correctAnswer: 'B',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 56 gold pieces. Each group is worth 8 pieces. We need to find out how many groups there are. The expression is 8 X ___ = 56, or 56 ÷ 8.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's skip count by 8 until we get to 56: 8, 16, 24, 32, 40, 48, 56. We counted 7 times.</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>56 ÷ 8 = 7. They defeated <strong>7 bosses</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 36 treats. The number of groups is 9. We need to find out how many treats are in each group. The expression is 36 ÷ 9.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>We can think of the related multiplication fact: 9 X ___ = 36. Let's skip count by 9: 9, 18, 27, 36. We counted 4 times.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. Each dog gets <strong>4 treats</strong>.</p></div>
             `
         }, {
             id: 'q10',
-            questionText: 'On Tuesday, the goblins defeated 5 bosses (8 gold pieces each). What is the total number of gold pieces they earned on Monday (56 pieces) and Tuesday combined?',
+            questionText: 'Petey reads 6 books each day in cat jail. On Monday, he reads his daily amount. On Tuesday, he reads twice as many as Monday. How many books did he read in total on Monday and Tuesday?',
             options: [{
                 value: 'A',
-                text: '40 pieces'
+                text: '12 books'
             }, {
                 value: 'B',
-                text: '96 pieces'
+                text: '18 books'
             }, {
                 value: 'C',
-                text: '69 pieces'
+                text: '24 books'
             }, {
                 value: 'D',
-                text: '100 pieces'
+                text: '30 books'
             }],
             correctAnswer: 'B',
             rdw: `
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how much gold was earned on Tuesday (5 bosses X 8 gold pieces). Step 2: Add Tuesday's gold to Monday's gold (56).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Tuesday: 5 X 8 = 40 gold pieces. Total: 56 (Monday) + 40 (Tuesday).</p></div>
-                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>56 + 40 = 96. The total is <strong>96 gold pieces</strong>.</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how many books he read on Tuesday (Monday's amount X 2). Step 2: Add Tuesday's books to Monday's books (6).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Tuesday: 6 X 2 = 12 books. Total: 6 (Monday) + 12 (Tuesday).</p></div>
+                <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 + 12 = 18. The total is <strong>18 books</strong>.</p></div>
             `
         }];
 
