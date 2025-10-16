@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3rd Grade Math Homework Helper</title>
-    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,17 +119,15 @@
     </div>
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Dog Man Edition
+            Math Mission: A Tale of Two Kitties
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
             3rd Grade Practice: Solve 10 problems to unlock the Volume Explorer!
         </p>
 
-        <!-- Quiz Section -->
         <div id="quiz-container">
             <div id="questions-container" class="space-y-8">
-                <!-- Questions will be dynamically inserted here by JavaScript -->
-            </div>
+                </div>
 
             <div class="mt-10 text-center space-x-4">
                 <button id="submitBtn" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition duration-300 shadow-lg">
@@ -151,13 +148,11 @@
             </div>
         </div>
 
-        <!-- RDW Help Modal (Initially hidden) -->
         <div id="helpModal" class="modal-overlay hidden">
             <div class="modal-content">
                 <h2 id="modalTitle" class="text-2xl font-bold text-blue-700 mb-4 header-font"></h2>
                 <div id="modalBody" class="text-gray-700 text-base space-y-3">
-                    <!-- RDW content inserted here -->
-                </div>
+                    </div>
                 <button id="closeModalBtn" class="mt-6 bg-blue-500 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300">
                     Close Explanation
                 </button>
@@ -167,14 +162,12 @@
 
         <hr class="my-12 border-gray-200">
 
-        <!-- Game Section (Volume Explorer) -->
         <div id="game-container" class="p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
             <div class="text-center mb-6">
                  <h1 class="text-3xl font-bold mb-2 header-font text-blue-700">Volume Explorer</h1>
                  <p class="text-gray-600">Choose a container, enter an amount, and see how full it gets!</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Container Selection -->
                 <div id="container-selector" class="md:col-span-1 flex md:flex-col justify-around md:justify-start space-x-2 md:space-x-0 md:space-y-4">
                     <button id="juice-box-btn" class="container-btn">
                         <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M20,80 L20,20 L80,20 L80,80 Z M30,15 L70,15 L70,20 L30,20 Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
@@ -189,17 +182,14 @@
                         <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M35 95 C 20 80, 20 50, 35 40 L 40 15 L 60 15 L 65 40 C 80 50, 80 80, 65 95 Z M45 10 L55 10 L55 15 L45 15Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
                     </button>
                 </div>
-                <!-- Visualizer -->
                 <div class="md:col-span-3 flex flex-col items-center">
                     <div id="visualizer-svg" class="w-full h-64 md:h-96 bg-white rounded-lg border-2 border-gray-300 p-2 mb-4">
-                        <!-- SVG will be injected here -->
-                    </div>
+                        </div>
                     <div class="text-center mb-4">
                         <p class="font-semibold text-lg" id="container-name">Select a container</p>
                         <p class="text-gray-600" id="container-capacity"></p>
                     </div>
-                     <!-- Controls -->
-                    <div class="flex items-center space-x-2 bg-white p-3 rounded-lg border border-gray-300 shadow-sm">
+                     <div class="flex items-center space-x-2 bg-white p-3 rounded-lg border border-gray-300 shadow-sm">
                         <input type="number" id="volume-input" value="1" class="w-24 p-2 border rounded-lg text-center font-bold">
                         <select id="unit-selector" class="p-2 border rounded-lg bg-gray-50">
                             <option value="L">Liters (L)</option>
@@ -230,64 +220,64 @@
         // --- QUIZ DATA ---
         const allQuestions = [{
             id: 'q1',
-            questionText: 'Petey\'s Invisibility Spray comes in a small spray bottle. Which is a more likely amount for the bottle to hold?',
-            options: [{ value: 'A', text: '200 Liters' }, { value: 'B', text: '20 Liters' }, { value: 'C', text: '200 milliliters' }, { value: 'D', text: '2 milliliters' }],
+            questionText: 'Petey spills a bottle of "Living Spray" that creates the Supa-Soup Monster. Which is a more likely amount for the spray bottle to hold?',
+            options: [{ value: 'A', text: '500 Liters' }, { value: 'B', text: '50 Liters' }, { value: 'C', text: '500 milliliters' }, { value: 'D', text: '5 milliliters' }],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a small spray bottle. We need to know if Liters or milliliters are bigger.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A liter is the size of a large carton of milk. A milliliter is very small, like a drop of water. A spray bottle would hold many drops, but not as much as 20 or 200 big milk cartons. 2 milliliters is too small.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>200 milliliters</strong> is the most reasonable estimate for a small spray bottle.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a spray bottle. We need to know if Liters or milliliters are bigger.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A liter is the size of a large carton of milk. A milliliter is very small, like a drop of water. A spray bottle would hold many drops, but not as much as 50 or 500 big milk cartons. 5 milliliters is too small, like a spoonful.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>500 milliliters</strong> is the most reasonable estimate for a spray bottle.</p></div>`
         }, {
             id: 'q2',
-            questionText: 'Philly fills a giant vat of mustard to defeat the Hot Dog Weenie Monster. The vat holds exactly 3 Liters. How many milliliters of mustard is that?',
-            options: [{ value: 'A', text: '30 milliliters' }, { value: 'B', text: '300 milliliters' }, { value: 'C', text: '3,000 milliliters' }, { value: 'D', text: '30,000 milliliters' }],
+            questionText: 'The Supa-Soup Monster was a giant tidal wave of 4 Liters of hot soup. How many milliliters of soup is that?',
+            options: [{ value: 'A', text: '40 milliliters' }, { value: 'B', text: '400 milliliters' }, { value: 'C', text: '4,000 milliliters' }, { value: 'D', text: '40,000 milliliters' }],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to convert 3 Liters into milliliters.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Remember that 1 Liter = 1,000 milliliters. So for 3 Liters, we would have 3 groups of 1,000.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>3 X 1,000 = 3,000. So, 3 Liters is equal to <strong>3,000 milliliters</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to convert 4 Liters into milliliters.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Remember that 1 Liter = 1,000 milliliters. So for 4 Liters, we would have 4 groups of 1,000.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 X 1,000 = 4,000. So, 4 Liters is equal to <strong>4,000 milliliters</strong>.</p></div>`
         }, {
             id: 'q3',
-            questionText: 'The Chief bought a carton of milk for the breakroom. Which is a more likely amount for the carton to hold?',
-            options: [{ value: 'A', text: '1 Liter' }, { value: 'B', text: '10 Liters' }, { value: 'C', text: '1 milliliter' }, { value: 'D', text: '10 milliliters' }],
+            questionText: 'Dog Man gets a big water bowl to cool off after the fight. Which is a more likely amount for the bowl to hold?',
+            options: [{ value: 'A', text: '2 Liters' }, { value: 'B', text: '20 Liters' }, { value: 'C', text: '2 milliliters' }, { value: 'D', text: '20 milliliters' }],
             correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a standard milk carton you would buy at the store.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think about a carton of milk from the grocery store. It's about the same size as a large water bottle. Milliliters are too small (a few drops). 10 Liters would be a very, very large container, not a carton.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>1 Liter</strong> is the most reasonable estimate for a carton of milk.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the volume of a big water bowl for a dog.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A dog bowl is big, but not huge. Milliliters are too small (a few drops). 20 Liters would be like a large water cooler jug, which is too big for a dog bowl.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>2 Liters</strong> is the most reasonable estimate for a large dog bowl.</p></div>`
         }, {
             id: 'q4',
-            questionText: 'George and Harold draw 8 pages of their Dog Man comic every single day. How many pages do they draw in 6 days?',
-            options: [{ value: 'A', text: '14 pages' }, { value: 'B', text: '42 pages' }, { value: 'C', text: '48 pages' }, { value: 'D', text: '56 pages' }],
+            questionText: 'Li\'l Petey draws 7 pictures of rainbows every single day in cat jail. How many pictures does he draw in 5 days?',
+            options: [{ value: 'A', text: '12 pictures' }, { value: 'B', text: '30 pictures' }, { value: 'C', text: '35 pictures' }, { value: 'D', text: '42 pictures' }],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 6 equal groups of 8 pages. We need to find the total.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 6 X 8. You can skip count by 8 six times: 8, 16, 24, 32, 40, 48.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 X 8 = 48. They draw <strong>48 pages</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 5 equal groups of 7 pictures. We need to find the total.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 5 X 7. You can skip count by 7 five times: 7, 14, 21, 28, 35.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>5 X 7 = 35. He draws <strong>35 pictures</strong>.</p></div>`
         }, {
             id: 'q5',
-            questionText: 'Petey lines up his stolen diamonds in an array with 5 rows and 8 columns. Which array correctly shows his setup?',
-            options: [{ value: 'A', text: generateArray(8, 5) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 5</p>' }, { value: 'B', text: generateArray(5, 5) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 5</p>' }, { value: 'C', text: generateArray(5, 8) + '<p class="text-center text-xs text-gray-600 mt-1">5 rows of 8</p>' }, { value: 'D', text: generateArray(8, 8) + '<p class="text-center text-xs text-gray-600 mt-1">8 rows of 8</p>' }],
+            questionText: 'Flat Petey steals hot dogs and lines them up in an array with 4 rows and 6 columns. Which array correctly shows his setup?',
+            options: [{ value: 'A', text: generateArray(6, 4) + '<p class="text-center text-xs text-gray-600 mt-1">6 rows of 4</p>' }, { value: 'B', text: generateArray(4, 4) + '<p class="text-center text-xs text-gray-600 mt-1">4 rows of 4</p>' }, { value: 'C', text: generateArray(4, 6) + '<p class="text-center text-xs text-gray-600 mt-1">4 rows of 6</p>' }, { value: 'D', text: generateArray(6, 6) + '<p class="text-center text-xs text-gray-600 mt-1">6 rows of 6</p>' }],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 5 rows and 8 columns (items in each row).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 5 rows. Within each of those 5 rows, there should be 8 items.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option C is the only picture that shows 5 rows with 8 items in each one.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The problem asks for an array with 4 rows and 6 columns (items in each row).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Rows go up and down. We need to find the picture with 4 rows. Within each of those 4 rows, there should be 6 items.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Option C is the only picture that shows 4 rows with 6 items in each one.</p></div>`
         }, {
             id: 'q6',
-            questionText: 'How many total diamonds did Petey line up?',
-            options: [{ value: 'A', text: '13 diamonds' }, { value: 'B', text: '35 diamonds' }, { value: 'C', text: '40 diamonds' }, { value: 'D', text: '45 diamonds' }],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 5 rows of 8 diamonds.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 5 X 8. You can skip count by 8 five times: 8, 16, 24, 32, 40.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>5 X 8 = 40. There are <strong>40 diamonds</strong> in total.</p></div>`
+            questionText: 'How many total hot dogs did Flat Petey steal?',
+            options: [{ value: 'A', text: '10 hot dogs' }, { value: 'B', text: '24 hot dogs' }, { value: 'C', text: '28 hot dogs' }, { value: 'D', text: '30 hot dogs' }],
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the total of 4 rows of 6 hot dogs.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math problem is 4 X 6. You can skip count by 6 four times: 6, 12, 18, 24.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 X 6 = 24. There are <strong>24 hot dogs</strong> in total.</p></div>`
         }, {
             id: 'q7',
-            questionText: 'The Chief eats 9 X 4 donuts. Which expression is also equal to this?',
-            options: [{ value: 'A', text: '(9 X 2) + (9 X 2)' }, { value: 'B', text: '(5 X 4) + (3 X 4)' }, { value: 'C', text: '(9 X 4) + (1 X 4)' }, { value: 'D', text: '(3 X 4) + (3 X 4)' }],
+            questionText: 'The Robo-Pants 2000 has 8 X 6 bolts holding it together. Which expression is also equal to this?',
+            options: [{ value: 'A', text: '(8 X 3) + (8 X 3)' }, { value: 'B', text: '(4 X 6) + (3 X 6)' }, { value: 'C', text: '(8 X 6) + (1 X 6)' }, { value: 'D', text: '(2 X 6) + (2 X 6)' }],
             correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 4 in '9 X 4' but still equals the same total.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 9 X 4 = 36. Now, let's solve the options. A: 18 + 18 = 36. B: 20 + 12 = 32. C: 36 + 4 = 40. D: 12 + 12 = 24.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(9 X 2) + (9 X 2)</strong> is the only one that equals 36. Notice that 2 + 2 = 4.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are using the distributive property. We need to find which expression breaks apart the 6 in '8 X 6' but still equals the same total.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>First, 8 X 6 = 48. Now, let's solve the options. A: 24 + 24 = 48. B: 24 + 18 = 42. C: 48 + 6 = 54. D: 12 + 12 = 24.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The expression <strong>(8 X 3) + (8 X 3)</strong> is the only one that equals 48. Notice that 3 + 3 = 6.</p></div>`
         }, {
             id: 'q8',
-            questionText: 'Look at the equation: 7 X 8 = (5 X 8) + (___ X 8). What number goes in the blank?',
+            questionText: 'Look at the equation: 9 X 7 = (5 X 7) + (___ X 7). Petey is trying to solve it. What number goes in the blank?',
             options: [{ value: 'A', text: '1' }, { value: 'B', text: '2' }, { value: 'C', text: '3' }, { value: 'D', text: '4' }],
-            correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 7. It says that 7 eights is the same as 5 eights plus some more eights.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 7 rows of 8 dots. We can split that into a group of 5 rows and a group of 2 rows. 5 + 2 = 7.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 2 = 7, the missing number is <strong>2</strong>.</p></div>`
+            correctAnswer: 'D',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>This equation breaks apart the number 9. It says that 9 sevens is the same as 5 sevens plus some more sevens.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 9 rows of 7 dots. We can split that into a group of 5 rows and a group of 4 rows. 5 + 4 = 9.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Since 5 + 4 = 9, the missing number is <strong>4</strong>.</p></div>`
         }, {
             id: 'q9',
-            questionText: 'Dog Man has 36 dog treats. He wants to share them equally among his 9 police dog friends. How many treats does each dog get?',
-            options: [{ value: 'A', text: '3 treats' }, { value: 'B', text: '4 treats' }, { value: 'C', text: '5 treats' }, { value: 'D', text: '6 treats' }],
-            correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 36 treats. The number of groups is 9. We need to find out how many treats are in each group. The expression is 36 ÷ 9.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>We can think of the related multiplication fact: 9 X ___ = 36. Let's skip count by 9: 9, 18, 27, 36. We counted 4 times.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. Each dog gets <strong>4 treats</strong>.</p></div>`
+            questionText: 'Dog Man has 45 doggie donuts. He wants to share them equally among his 5 police dog friends. How many donuts does each dog get?',
+            options: [{ value: 'A', text: '7 donuts' }, { value: 'B', text: '8 donuts' }, { value: 'C', text: '9 donuts' }, { value: 'D', text: '10 donuts' }],
+            correctAnswer: 'C',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>The total is 45 donuts. The number of groups is 5. We need to find out how many donuts are in each group. The expression is 45 ÷ 5.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>We can think of the related multiplication fact: 5 X ___ = 45. Let's skip count by 5: 5, 10, 15, 20, 25, 30, 35, 40, 45. We counted 9 times.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>45 ÷ 5 = 9. Each dog gets <strong>9 donuts</strong>.</p></div>`
         }, {
             id: 'q10',
-            questionText: 'Petey reads 6 books each day in cat jail. On Monday, he reads his daily amount. On Tuesday, he reads twice as many as Monday. How many books did he read in total on Monday and Tuesday?',
-            options: [{ value: 'A', text: '12 books' }, { value: 'B', text: '18 books' }, { value: 'C', text: '24 books' }, { value: 'D', text: '30 books' }],
-            correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Two Steps!):</p><p>Step 1: Find out how many books he read on Tuesday (Monday's amount X 2). Step 2: Add Tuesday's books to Monday's books (6).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Tuesday: 6 X 2 = 12 books. Total: 6 (Monday) + 12 (Tuesday).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>6 + 12 = 18. The total is <strong>18 books</strong>.</p></div>`
+            questionText: 'Petey reads 8 chapters of a book to Li\'l Petey. On Wednesday, they read twice as many chapters as Tuesday. On Tuesday, they read 5 chapters. How many chapters did they read on Wednesday?',
+            options: [{ value: 'A', text: '10 chapters' }, { value: 'B', text: '13 chapters' }, { value: 'C', text: '15 chapters' }, { value: 'D', text: '16 chapters' }],
+            correctAnswer: 'A',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read (Watch out!):</p><p>This is a two-step problem, but one of the numbers isn't needed! We only need to find how many chapters they read on Wednesday. They read 5 chapters on Tuesday, and twice as many on Wednesday.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The math is just: 5 X 2. The number 8 is extra information to try to trick you.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>5 X 2 = 10. They read <strong>10 chapters</strong> on Wednesday.</p></div>`
         }];
 
 
@@ -589,4 +579,3 @@
 </body>
 
 </html>
-
