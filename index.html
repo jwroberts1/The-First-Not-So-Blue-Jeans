@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Man: A Tale of Two Kitties Quiz</title>
+    <!-- Updated Title -->
+    <title>Dog Man: For Whom the Ball Rolls Quiz</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +46,7 @@
             font-family: 'Bangers', cursive;
         }
 
-        /* New Game Styles */
+        /* Game Styles (Unchanged) */
         #game-canvas {
             background-color: #e0f2fe; /* Light blue sky */
             border: 4px solid #0284c7; /* Sky blue border */
@@ -63,7 +64,7 @@
             }
         }
         
-        /* Modal Styles */
+        /* Modal Styles (Unchanged) */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -90,7 +91,7 @@
 </head>
 
 <body class="p-4 sm:p-8">
-    <!-- Navigation Link -->
+    <!-- Navigation Link (Unchanged) -->
     <div class="max-w-4xl mx-auto text-right mb-4">
         <a href="./Math.html" class="text-blue-600 hover:text-blue-800 font-semibold underline text-lg">
             Go to Math Review &rarr;
@@ -98,10 +99,11 @@
     </div>
 
     <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-6 sm:p-10 mb-8">
-        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">Dog Man: A Tale of Two Kitties</h1>
+        <!-- Updated Title -->
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">Dog Man: For Whom the Ball Rolls</h1>
         <p class="text-gray-600 text-center mb-8">Read the passage. Then answer the questions.</p>
 
-        <!-- Timer Section -->
+        <!-- Timer Section (Unchanged) -->
         <div id="timer-container" class="bg-gray-100 p-4 rounded-lg text-center mb-6">
             <p class="text-sm font-semibold text-gray-600">Time Elapsed:</p>
             <p id="timer" class="text-2xl font-bold text-blue-600 mt-1">0:00</p>
@@ -109,36 +111,39 @@
 
         <!-- Quiz Section -->
         <div id="quiz-container">
+            <!-- *** UPDATED AND EXPANDED PASSAGE *** -->
             <div id="passage" class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
-                <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage: The Clone and the Kitties</h2>
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage: The Ball of Fear</h2>
 
-                <p class="mb-4">Our story, once again created by the comic geniuses George and Harold, begins with our hero, Dog Man, doing what he does best: being a very good boy and a very bad kitty's worst nightmare. After being celebrated for saving the city from an army of evil words, Dog Man was back on the job, sniffing out crime and accidentally chewing on the Chief’s furniture. Life seemed pretty normal, but not for long. In the darkest corner of cat jail, the world's most evil cat, Petey, was hatching a brand new plan. He was tired of being defeated all by himself. "What I need is a partner!" he declared. "An evil sidekick who is just as clever and wicked as I am. I need... another me!"</p>
-                <p class="mb-6">So, Petey put his giant brain to work. Using a collection of smuggled spare parts, including a watch, a toaster, and a roll of toilet paper, he built a magnificent machine: the Clone-a-Tron 2000. This machine could create a perfect copy of anything. Petey cackled with glee as he stepped inside, setting the dial to "EVIL." He pushed the big red button, and the machine whirred and zapped. But just at that moment, a guard walked by, and Petey, in his haste, accidentally bumped the "EVIL" switch. The machine sputtered, the lights flickered, and when the smoke cleared, standing beside Petey was not an evil, snarling copy of himself, but a tiny, adorable, wide-eyed kitten. The clone was a total failure! Or was it?</p>
+                <p class="mb-4">Our story, once again brought to life by George and Harold's amazing comics, begins with Dog Man on patrol. He's the city's greatest hero, a perfect blend of man and dog... well, *almost* perfect. While chasing a robber, Dog Man is doing great until the crook, in a moment of genius, rolls a simple red ball across the street. Dog Man's doggy instincts take over completely. He forgets all about the robber and happily chases the ball, barking with joy. The robber, of course, gets away easily. Back at the police station, the Chief is furious. This isn't the first time Dog Man's obsession with balls has caused a problem. "This has to stop!" the Chief yells. Dog Man, feeling ashamed, knows he needs help.</p>
+                <p class="mb-6">His best friends, Li'l Petey (the world's kindest kitten) and 80-HD (their super-smart robot), decide to form the Supa Buddies to help Dog Man. Their first mission: cure Dog Man of his ball-chasing habit. They try everything. They try reasoning with him, but Dog Man just tilts his head. They try hiding all the balls, but he just finds round things to chase, like apples and the Chief's bald head. Finally, Li'l Petey has an idea. He finds a spray bottle and fills it with water. "This is a 'Bad Habit' spray bottle," he explains. "Every time you chase a ball, you get a spray!" The training begins. Li'l Petey rolls a ball. Dog Man chases it. *PSSSSHT!* Dog Man gets a spray of water in the face. This goes on all day. Roll, chase, *PSSSSHT!* Roll, chase, *PSSSSHT!* It seems to be working! Dog Man stops chasing the ball.</p>
+                <p class="mb-6">The only problem is... it works *too* well. The next day, when the Chief throws a ball, Dog Man doesn't just ignore it. He screams in terror, leaps into the air, and crashes onto the Chief's desk, trembling. The training didn't just stop his habit; it replaced it with a deep, paralyzing fear. Now, even the *word* "ball" (or "call," "fall," or "mall") is enough to send him into a panic. Dog Man, the city's hero, is now afraid of balls.</p>
 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">The World's Cutest Problem</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A New Life and an Old Grudge</h3>
 
-                <p class="mb-4">Petey was furious. "You're supposed to be my evil twin!" he yelled. The kitten just blinked its big, innocent eyes and said, "Hewwo, Papa!" Petey couldn't believe it. This little kitten, who he quickly named Li'l Petey, was nothing like him. Li'l Petey was sweet, kind, and loved to play. He thought Petey was his father and followed him everywhere, asking endless questions and wanting to play patty-cake. Petey tried his best to teach his new clone the ways of evil. He gave him lessons on how to build death rays and how to cackle maniacally. But Li'l Petey just wasn't interested. He'd rather draw pictures of rainbows and hug Dog Man, who he thought was the coolest hero ever.</p>
-                <p class="mb-6">Meanwhile, Dog Man was facing a new kind of problem. A mysterious villain was committing crimes all over the city. But this villain was strange; he was completely flat! It was Flat Petey, a paper-thin drawing of Petey from a previous adventure who had been accidentally brought to life. Flat Petey was tired of being a second-rate villain. He wanted to prove that he was even more evil than the real Petey. He started with small crimes, like stealing all the hot dogs from Philly's stand and replacing them with broccoli. The city was confused, but Dog Man, with his super sniffer, was on the case, even if he did stop to chase a few squirrels along the way.</p>
+                <p class="mb-4">While Dog Man is dealing with his new phobia, his old enemy, Petey the Cat, is having the best day of his life. Because he helped save the city in the last adventure (from the giant Robo-Pants and the Supa-Soup Monster), the Mayor officially pardons him of all his crimes. Petey is finally a free cat! He joyfully leaves cat jail, ready to start a new life as a good guy and, most importantly, as a full-time dad to Li'l Petey. He takes Li'l Petey to his amazing secret lair, a giant hollowed-out volcano filled with cool inventions and comfy furniture. Petey is excited to be a real family. "No more evil schemes for me!" he declares. "From now on, I'm just going to be a good dad."</p>
+                <p class="mb-6">Li'l Petey is happy, but he notices something. Whenever Petey talks about his own childhood, he gets quiet and sad. Li'l Petey, being the curious and kind kitten he is, asks 80-HD to do some research. The robot's computer brain quickly finds the secret: a long time ago, Petey's father, a mean-looking cat named Grampa, abandoned Petey when he was just a little kitten, leaving him all alone. Li'l Petey, with his pure heart, thinks, "If Petey is sad about his dad, then maybe finding his dad will make him happy!" This turns out to be a very bad idea. Without telling Petey, Li'l Petey uses 80-HD's technology to find Grampa's location and sends him an invitation for a family reunion at the secret lair.</p>
 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Petey's Big Plan</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A New Villain Rolls In</h3>
 
-                <p class="mb-4">While Dog Man was busy dealing with the paper-thin pest, the real Petey had escaped cat jail with his new, unwanted sidekick. He had a new, bigger, and much more stompy plan. He built a pair of gigantic, skyscraper-sized robot pants called the "Robo-Pants 2000." His plan was to use these giant pants to stomp all over the city, crushing buildings and causing chaos until everyone declared him the new king. He climbed into the cockpit at the top of the pants, dragging a very nervous Li'l Petey with him. "Behold, my son!" Petey announced. "This is how true evil works! Soon, this whole city will be ours!"</p>
-                <p class="mb-6">The Robo-Pants stomped through the streets, sending cars flying and people running in fear. CRUNCH! STOMP! The police force was helpless against the giant trousers. Dog Man arrived on the scene, ready for a fight. He barked bravely at the giant metal legs, but they were just too big. The pants kicked Dog Man and sent him flying into a giant donut sign. It looked like Petey was finally going to win. From inside the cockpit, Li'l Petey watched in horror. "Papa, no!" he cried. "This is wrong! Being a bully isn't fun!" But Petey was too busy enjoying his evil victory to listen.</p>
+                <p class="mb-4">The next day, the doorbell rings. It's Grampa. And he is *not* a nice cat. He's rude, grumpy, and selfish. He immediately makes fun of Petey's lair, criticizes Petey for being "soft," and is a terrible influence on Li'l Petey, trying to teach him how to lie and steal. Petey is miserable. He's trying so hard to be a good dad, but his own mean father is making it impossible. The family reunion is a disaster. Grampa just sits on the couch, complaining and insulting everyone.</p>
+                <p class="mb-6">While Petey's family drama unfolds, a new supervillain is watching the city. His name is Dr. Scum, and he has a brilliant, evil plan. From his blimp high above the city, he's been watching Dog Man. He sees Dog Man run in terror from a basketball, a gumball, and even a meatball. Dr. Scum cackles. "If the hero is afraid of balls," he says, "then I shall build an army of... BALLS!" He gets to work, and soon he unleashes his newest invention: the "Burgle Balls." These are high-tech, robotic spheres that roll through the city at high speed.  They smash into the jewelry store and steal all the diamonds. They roll into the bank and steal all the money. They even roll into the joke shop and steal every single whoopee cushion! The city is in chaos. Alarms are ringing everywhere. And where is Dog Man? He's hiding under his desk, too scared of the round, rolling villains to do anything to stop them.</p>
+
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Commander Cupcake?</h3>
+
+                <p class="mb-4">With Dog Man out of action, the city is defenseless. Or is it? Elsewhere, the city's tiniest villains, the FLEAS (Piggy, Bub, and Crunky), are hatching their own plot. They've been trying to create a new supervillain, but all their plans fail. Then, they find Big Jim, a big, tough-looking (but not very smart) character. Using a "Hypno-Hat," they hypnotize him. "You are now... Commander Cupcake!" they declare. "Your mission is to... uh... do... evil things! But first, you have an uncontrollable craving for cupcakes!" Their plan is to use him to steal for them, but it immediately backfires. Commander Cupcake isn't evil; he's just obsessed with finding and eating cupcakes.</p>
+                <p class="mb-6">He bumbles around the city, following the scent of sugary snacks. Just as Dr. Scum's Burgle Balls are finishing their robbery, Commander Cupcake spots a cupcake truck across the street. He runs straight towards it, accidentally crashing right through the Burgle Balls, smashing them to pieces. *CRASH!* *BAM!* The famous news reporter, Sarah Hatoff, arrives on the scene just in time to see the broken robots and Commander Cupcake standing among them, holding a cupcake. "Amazing!" she reports. "A new hero named Commander Cupcake has saved the city!" The next day, the newspaper headline reads: "COMMANDER CUPCAKE DEFEATS BURGLE BALLS! Dog Man Was 'Too Scared' to Help." Dog Man feels lower than ever. He failed, and an accidental "hero" got all the credit.</p>
                 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A Flat-Out Complication</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Being Good vs. Doing Good</h3>
 
-                <p class="mb-4">Just then, Flat Petey showed up, and he was not happy. He flew his paper airplane into the cockpit of the Robo-Pants. "I'm the main villain around here!" he squeaked in his high-pitched paper voice. He and the real Petey started to argue. "No, I'm the main villain!" shouted Petey. "No, I am!" insisted Flat Petey. While they were bickering, Flat Petey accidentally knocked over a bottle of "Living Spray." The spray went everywhere, and it landed on a nearby bowl of soup. The soup bubbled and churned, and a giant, living tidal wave of hot soup rose from the bowl. It was a Supa-Soup Monster!</p>
-                <p class="mb-6">The Supa-Soup Monster sloshed through the streets, melting everything it touched. Now Dog Man had two giant problems to deal with! The Robo-Pants were still stomping, and the hot soup monster was dissolving the city. Thinking fast, Dog Man remembered something important about soup: it needs to be eaten with a spoon. He raced to the city museum, which had a giant silver spoon on display as a piece of art. He grabbed the giant spoon and used it to scoop up the hot soup monster, flinging it far away into the ocean where it could cool down and become regular, non-monster soup again.</p>
+                <p class="mb-4">Back at the volcano lair, things are even worse for Petey. While he's trying to cope with his terrible father, Grampa plays one last, cruel trick. He tells Petey he wants to "help him" load up his old, "junky" inventions into a truck to take them to the dump. But as soon as the truck is full of Petey's most valuable gadgets, Grampa hops in the driver's seat. "You'll never change, Petey!" Grampa sneers. "You were born a bad guy, and you'll always be a bad guy! So long, loser!" And he drives off, stealing everything. Petey is heartbroken. He falls to his knees, believing his father is right. Maybe he really is just a bad guy.</p>
+                <p class="mb-6">But Li'l Petey, who sees the whole thing, runs up to his dad and gives him a hug. "That's not true, Papa!" he says. "You're a good dad! But Grampa doesn't get it." Then, Li'l Petey says the most important words in the whole book: **"It's not enough to just *be* good... you gotta *do* good!"** This simple sentence clicks in Petey's brain. It's like a lightbulb turning on. He's right. It's not about what his father says he is; it's about what he *chooses* to do. At that very same moment, Dog Man is at the police station, feeling sorry for himself. He hears Li'l Petey's voice (over a communicator) and has the exact same realization. He can't let his fear *stop* him from *doing* good. He's a police officer, and his friends are in danger.</p>
+                <p class="mb-6">Just then, Dr. Scum returns, and he is furious. His Burgle Balls are gone, so he's back with his ultimate weapon: a giant, flying "Death Sphere" (which, of course, is just a giant, terrifying ball).  It hovers over the city, threatening to destroy everything. Commander Cupcake tries to "fight" it by throwing cupcakes, which does nothing. The city is doomed. But then, a blue and red streak flies through the sky. It's Dog Man! He is visibly shaking with fear, but he's flying straight towards the giant ball. Remembering Li'l Petey's words, he bravely faces his fear to *do* good. He lands on the sphere, finds Dr. Scum, and after a long fight, he and 80-HD manage to defeat the villain and save the city for real! </p>
 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A Change of Heart</h3>
-
-                <p class="mb-4">With the soup gone, it was back to the pants. Inside the cockpit, the fighting between the two Peteys got worse. During their struggle, Li'l Petey was knocked out of the cockpit and was left hanging from the giant robot's knee, hundreds of feet in the air! "Papa, help me!" he cried. Petey looked down and saw his little clone, his son, in terrible danger. For the first time, Petey felt something other than evil. He felt scared. He didn't care about crushing the city anymore. He only cared about saving Li'l Petey.</p>
-                <p class="mb-6">Petey used a claw arm on the Robo-Pants to gently grab Li'l Petey and bring him back to safety. "Are you okay?" Petey asked, hugging the little kitten. At that moment, he realized that he loved Li'l Petey more than he loved being evil. While Petey was distracted, Dog Man saw his chance. He climbed up the giant legs of the Robo-Pants. He found the main power button, which was conveniently labeled "OFF," and pressed it with his nose. The giant pants powered down and tipped over, crashing harmlessly in a park.</p>
-
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Two Kitties, One Family</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A True Hero, A True Dad</h3>
                 
-                <p class="mb-4">The day was saved! Dog Man had defeated both a soup monster and a pair of giant robot pants. The Chief arrived and arrested both Peteys. "It's back to cat jail for you two!" he yelled. As they were being led away, Li'l Petey ran up to his papa. "I love you, Papa," he said, giving Petey a big hug. Petey looked at the little kitten and smiled a real, genuine smile. "I love you too, son," he said.</p>
-                <p class="mb-6">Back in their jail cell, things were different. Petey wasn't plotting evil schemes anymore. He was reading bedtime stories to Li'l Petey and teaching him how to draw. He was becoming a real dad. The story ends with Dog Man looking at a picture Li'l Petey had drawn for him. It was a drawing of Dog Man, Petey, and Li'l Petey all smiling together like a family. It truly was a tale of two kitties: one who was born good, and one who was learning that maybe, just maybe, being good wasn't so bad after all, especially when you have someone to love.</p>
+                <p class="mb-4">At the exact same time, Petey *does* good, too. He catches up to Grampa's truck. But instead of fighting his father, he uses a clever invention to non-violently stop the truck and get his stuff back. He looks at his mean old dad, who is now helpless. Petey has a choice: he could get revenge, or he could just be a good dad to Li'l Petey. He chooses his son. He lets Grampa go, telling him he just feels sorry for him. Petey has finally broken the cycle. He proved he isn't a bad guy; he's a good dad.</p>
+                <p class="mb-6">In the end, Dog Man is celebrated as the true hero he is, having overcome his fear when it mattered most. Sarah Hatoff corrects the newspaper, giving Dog Man the credit he deserves. And Petey? He and Li'l Petey return to their lair (what's left of it) happier than ever, knowing they are a real family. The story ends with Dog Man, Petey, and Li'l Petey all understanding that being a hero isn't about *being* fearless; it's about *doing* good, even when you're scared. (And as for Commander Cupcake? The last we see him, he's happily found and is eating all the stolen whoopee cushions, still as clueless as ever.)</p>
             </div>
 
             <div id="questions-container" class="space-y-10">
@@ -166,7 +171,7 @@
 
         <hr class="my-12 border-gray-300">
 
-        <!-- Game Section (Dog Man Chase) -->
+        <!-- Game Section (Unchanged) -->
         <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
             <div id="game-info" class="mb-6 w-full max-w-xl text-center text-gray-800 bg-white p-4 rounded-xl border-2 border-blue-400">
                 <h1 class="text-3xl font-bold mb-2 header-font text-blue-700">Dog Man Chase!</h1>
@@ -202,71 +207,74 @@
     </div>
 
     <script>
-        // Quiz Data
+        // --- Updated Quiz Data (Still relevant to the expanded story) ---
         const allQuestions = [{
             id: 'q1',
-            questionText: 'Why did Petey decide to build the Clone-a-Tron 2000?',
-            options: [{ value: 'A', text: 'He wanted a new pet.' }, { value: 'B', text: 'He was lonely in cat jail.' }, { value: 'C', text: 'He wanted an evil sidekick exactly like him.' }, { value: 'D', text: 'He wanted to make a good version of himself.' }],
+            questionText: 'What is Dog Man\'s big problem at the beginning of the story?',
+            options: [{ value: 'A', text: 'He is afraid of water.' }, { value: 'B', text: 'He cannot resist chasing balls.' }, { value: 'C', text: 'He is allergic to cats.' }, { value: 'D', text: 'He lost his police badge.' }],
             type: 'radio'
         }, {
             id: 'q2',
-            questionText: 'What was the result of Petey\'s cloning experiment?',
-            options: [{ value: 'A', text: 'It created an evil monster.' }, { value: 'B', text: 'It created a tiny, adorable kitten.' }, { value: 'C', text: 'The machine exploded.' }, { value: 'D', text: 'It made a perfect, evil copy of Petey.' }],
+            questionText: 'What happens after Li\'l Petey sprays Dog Man with water for chasing balls?',
+            options: [{ value: 'A', text: 'Dog Man learns to fetch perfectly.' }, { value: 'B', text: 'Dog Man becomes terrified of balls.' }, { value: 'C', text: 'Dog Man gets angry at Li\'l Petey.' }, { value: 'D', text: 'Dog Man learns to talk.' }],
             type: 'radio'
         }, {
             id: 'q3',
-            questionText: 'What is the name of Petey\'s kitten clone?',
-            options: [{ value: 'A', text: 'Petey Jr.' }, { value: 'B', text: 'Cat Man' }, { value: 'C', text: 'Li\'l Petey' }, { value: 'D', text: 'Tiny Cat' }],
+            questionText: 'Who is the new supervillain that attacks the city?',
+            options: [{ value: 'A', text: 'Grampa' }, { value: 'B', text: 'Commander Cupcake' }, { value: 'C', text: 'Dr. Scum' }, { value: 'D', text: 'Big Jim' }],
             type: 'radio'
         }, {
             id: 'q4',
-            questionText: 'What was Petey\'s giant evil invention that he used to stomp the city?',
-            options: [{ value: 'A', text: 'The Robo-Glove 2000' }, { value: 'B', text: 'The Robo-Pants 2000' }, { value: 'C', text: 'The Stompy-Bot 5000' }, { value: 'D', text: 'A giant vacuum cleaner' }],
+            questionText: 'What evil invention does Dr. Scum use to steal things?',
+            options: [{ value: 'A', text: 'Robotic Burgle Balls' }, { value: 'B', text: 'A giant magnet' }, { value: 'C', text: 'An invisibility spray' }, { value: 'D', text: 'Hypnotized birds' }],
             type: 'radio'
         }, {
             id: 'q5',
-            questionText: 'Who is the paper-thin villain that causes trouble in the story?',
-            options: [{ value: 'A', text: 'Paper Man' }, { value: 'B', text: 'Flat Stanley' }, { value: 'C', text: 'Origami Cat' }, { value: 'D', text: 'Flat Petey' }],
+            questionText: 'Why is Dr. Scum\'s invention so successful at first?',
+            options: [{ value: 'A', text: 'The balls are too fast for Dog Man.' }, { value: 'B', text: 'Dog Man is too scared of the balls to fight them.' }, { value: 'C', text: 'The police are on vacation.' }, { value: 'D', text: 'Petey helps the villain.' }],
             type: 'radio'
         }, {
             id: 'q6',
-            questionText: 'What monster was accidentally created when the Living Spray spilled on a bowl of soup?',
-            options: [{ value: 'A', text: 'A Supa-Soup Monster' }, { value: 'B', text: 'A Noodle Nightmare' }, { value: 'C', text: 'The Cracker Creature' }, { value: 'D', text: 'A Hot Dog Weenie Monster' }],
+            questionText: 'What good thing happens to Petey near the start of the book?',
+            options: [{ value: 'A', text: 'He learns to build a robot.' }, { value: 'B', text: 'He is pardoned and set free from jail.' }, { value: 'C', text: 'He finds a hidden treasure.' }, { value: 'D', text: 'He becomes the new police chief.' }],
             type: 'radio'
         }, {
             id: 'q7',
-            questionText: 'How did Dog Man defeat the Supa-Soup Monster?',
-            options: [{ value: 'A', text: 'He froze it with a freeze ray.' }, { value: 'B', text: 'He used a giant spoon to fling it into the ocean.' }, { value: 'C', text: 'He drank the whole thing.' }, { value: 'D', text: 'He built a giant robot to fight it.' }],
+            questionText: 'Who does Li\'l Petey find and invite to the secret lair?',
+            options: [{ value: 'A', text: 'Sarah Hatoff, the reporter' }, { value: 'B', text: 'The Mayor' }, { value: 'C', text: 'Petey\'s father, Grampa' }, { value: 'D', text: 'Dog Man' }],
             type: 'radio'
         }, {
             id: 'q8',
-            questionText: 'What event caused Petey to have a change of heart and stop his evil plan?',
-            options: [{ value: 'A', text: 'Dog Man convinced him to be good.' }, { value: 'B', text: 'He realized Li\'l Petey was in danger.' }, { value: 'C', text: 'The Robo-Pants ran out of batteries.' }, { value: 'D', text: 'The Chief offered him a peace treaty.' }],
+            questionText: 'Who are the tiny villains that create Commander Cupcake?',
+            options: [{ value: 'A', text: 'Dr. Scum\'s robots' }, { value: 'B', text: 'Petey and Li\'l Petey' }, { value: 'C', text: 'The FLEAS (Piggy, Bub, and Crunky)' }, { value: 'D', text: 'The Supa Buddies' }],
             type: 'radio'
         }, {
             id: 'q9',
-            questionText: 'How does Petey\'s relationship with Li\'l Petey change at the end of the book?',
-            options: [{ value: 'A', text: 'He decides to abandon Li\'l Petey.' }, { value: 'B', text: 'He finally teaches Li\'l Petey to be evil.' }, { value: 'C', text: 'He starts acting like a real, caring father.' }, { value: 'D', text: 'He sends Li\'l Petey to live with Dog Man.' }],
+            questionText: 'What important lesson does Li\'l Petey teach Petey and Dog Man?',
+            options: [{ value: 'A', text: 'That crime always pays.' }, { value: 'B', text: 'That balls are not scary.' }, { value: 'C', text: 'That it\'s not enough to "be good," you have to "do good."' }, { value: 'D', text: 'How to build a better robot.' }],
             type: 'radio'
         }, {
             id: 'q10',
-            questionText: 'The title is "A Tale of Two Kitties." Who are the two kitties?',
-            options: [{ value: 'A', text: 'Dog Man and the Chief' }, { value: 'B', text: 'Petey and Flat Petey' }, { value: 'C', text: 'Petey and Li\'l Petey' }, { value: 'D', text: 'George and Harold' }],
+            questionText: 'What does Grampa (Petey\'s father) do at the end of the story?',
+            options: [{ value: 'A', text: 'He apologizes to Petey.' }, { value: 'B', text: 'He helps Dog Man fight Dr. Scum.' }, { value: 'C', text: 'He becomes a good guy.' }, { value: 'D', text: 'He steals Petey\'s inventions and furniture.' }],
             type: 'radio'
         }];
 
+        // --- Updated Correct Answers ---
         const correctAnswers = {
-            q1: "C",
+            q1: "B",
             q2: "B",
             q3: "C",
-            q4: "B",
-            q5: "D",
-            q6: "A",
-            q7: "B",
-            q8: "B",
+            q4: "A",
+            q5: "B",
+            q6: "B",
+            q7: "C",
+            q8: "C",
             q9: "C",
-            q10: "C"
+            q10: "D"
         };
+
+        // --- Unchanged JavaScript Logic Below ---
 
         // DOM elements
         const submitBtn = document.getElementById('submitBtn');
@@ -326,6 +334,7 @@
             const optionLabels = ['A', 'B', 'C', 'D'];
             const shuffledQuestions = shuffleArray([...allQuestions]);
 
+            // *** THIS IS THE CORRECTED LINE ***
             shuffledQuestions.forEach((q, questionIndex) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.id = q.id;
@@ -455,7 +464,7 @@
         }
 
 
-        // --- DOG MAN CHASE GAME LOGIC ---
+        // --- DOG MAN CHASE GAME LOGIC (Unchanged) ---
         const canvas = document.getElementById('game-canvas');
         const ctx = canvas.getContext('2d');
         const winMessage = document.getElementById('win-message');
