@@ -180,18 +180,26 @@
 
 
     <script>
-        // --- WORD DATA ---
-        // TO-DO: Replace these 5 example words with your son's weekly spelling list.
-        // You can add as many as you want!
-        const allWords = [
-            { word: "friend", definition: "A person you like and trust.", wrong: ["An enemy", "A teacher"] },
-            { word: "school", definition: "A place where children go to learn.", wrong: ["A park", "A store"] },
-            { word: "practice", definition: "To do something repeatedly to get better at it.", wrong: ["To sleep", "To eat"] },
+        // --- SPELLING WORD DATA ---
+        // TO-DO: Add your son's weekly spelling words here.
+        // The "definition" is used as the prompt in the spelling test.
+        const spellingWords = [
+            { word: "friend", definition: "A person you like and trust." },
+            { word: "school", definition: "A place where children go to learn." },
+            { word: "practice", definition: "To do something repeatedly to get better at it." }
+            
+            // --- Add more spelling words below like this ---
+            // { word: "believe", definition: "To accept that something is true." },
+        ];
+
+        // --- VOCABULARY WORD DATA ---
+        // TO-DO: Add your son's weekly vocabulary words here.
+        // "wrong" options are used in the multiple-choice quiz.
+        const vocabWords = [
             { word: "receive", definition: "To get or be given something.", wrong: ["To give something away", "To run fast"] },
             { word: "separate", definition: "To move or keep things apart.", wrong: ["To join things together", "To build a house"] }
-            
-            // --- Add more words below like this ---
-            // { word: "believe", definition: "To accept that something is true.", wrong: ["To deny something", "To write a story"] },
+
+            // --- Add more vocab words below like this ---
             // { word: "science", definition: "The study of the natural world.", wrong: ["A history lesson", "A spelling test"] },
         ];
 
@@ -233,7 +241,11 @@
         // --- 1. RENDER SPELLING LIST ---
         function renderSpellingList() {
             spellingWordListContainer.innerHTML = '';
-            allWords.forEach(wordData => {
+            if (spellingWords.length === 0) {
+                 spellingWordListContainer.innerHTML = `<p class="text-gray-500 italic">No spelling words added for this week.</p>`;
+                 return;
+            }
+            spellingWords.forEach(wordData => {
                 const div = document.createElement('div');
                 // Simple list item for just the word
                 div.className = 'p-2 bg-gray-50 rounded-md border border-gray-200';
@@ -245,7 +257,11 @@
         // --- 2. RENDER VOCAB LIST ---
         function renderVocabList() {
             vocabWordListContainer.innerHTML = '';
-            allWords.forEach(wordData => {
+            if (vocabWords.length === 0) {
+                 vocabWordListContainer.innerHTML = `<p class="text-gray-500 italic">No vocabulary words added for this week.</p>`;
+                 return;
+            }
+            vocabWords.forEach(wordData => {
                 const div = document.createElement('div');
                 // This is the original card with word + definition
                 div.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200';
@@ -264,7 +280,13 @@
             vocabPassed = false;
             checkReward();
             
-            const shuffledWords = shuffleArray(allWords);
+            if (vocabWords.length === 0) {
+                document.getElementById('vocab-quiz-container').innerHTML = '<h2 class="text-2xl font-bold text-gray-800 mb-6 header-font">Activity 1: Vocabulary Match</h2><p class="text-gray-500 italic text-center">No vocabulary words to quiz.</p>';
+                vocabPassed = true; // Nothing to test, so they pass.
+                return;
+            }
+
+            const shuffledWords = shuffleArray(vocabWords);
 
             shuffledWords.forEach((wordData, index) => {
                 const questionDiv = document.createElement('div');
@@ -308,7 +330,9 @@
         submitVocabBtn.addEventListener('click', () => {
             let score = 0;
             let allAnswered = true;
-            const totalQuestions = allWords.length;
+            const totalQuestions = vocabWords.length;
+
+            if (totalQuestions === 0) return; // Don't do anything if no words
 
             vocabQuestionsContainer.querySelectorAll('.question').forEach((questionDiv, index) => {
                 const selected = questionDiv.querySelector('input[type="radio"]:checked');
@@ -364,7 +388,13 @@
             spellingPassed = false;
             checkReward();
 
-            const shuffledWords = shuffleArray(allWords);
+            if (spellingWords.length === 0) {
+                document.getElementById('spelling-quiz-container').innerHTML = '<h2 class="text-2xl font-bold text-gray-800 mb-6 header-font">Activity 2: Spelling Test</h2><p class="text-gray-500 italic text-center">No spelling words to quiz.</p>';
+                spellingPassed = true; // Nothing to test, so they pass.
+                return;
+            }
+
+            const shuffledWords = shuffleArray(spellingWords);
 
             shuffledWords.forEach((wordData, index) => {
                 const div = document.createElement('div');
@@ -389,7 +419,9 @@
 
         submitSpellingBtn.addEventListener('click', () => {
             let score = 0;
-            const totalQuestions = allWords.length;
+            const totalQuestions = spellingWords.length;
+
+            if (totalQuestions === 0) return; // Don't do anything if no words
             
             const inputs = spellingQuestionsContainer.querySelectorAll('.spelling-input');
 
@@ -426,6 +458,8 @@
 
         // --- 5. REWARD & MODAL FUNCTIONS ---
         function checkReward() {
+            // Only show reward if *both* quizzes are passed.
+            // If a quiz has 0 words, it's considered "passed" by default.
             if (vocabPassed && spellingPassed) {
                 rewardMessage.classList.remove('hidden');
             } else {
@@ -443,8 +477,8 @@
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Safety check: Show a message if the word list is empty
-            if (allWords.length === 0) {
+            // Safety check: Show a message if *both* lists are empty
+            if (spellingWords.length === 0 && vocabWords.length === 0) {
                 mainContent.innerHTML = `
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-indigo-800 mb-4 header-font">
                         Spelling & Vocab Mission
@@ -454,7 +488,7 @@
                     </p>
                     <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
                         <h2 class="text-xl font-bold text-indigo-700 mb-2">How to use this page:</h2>
-                        <p class="text-gray-700">Please open the \`Spelling.html\` file, find the \`allWords\` list in the \`<script>\` section at the bottom, and add your son's spelling words.</p>
+                        <p class="text-gray-700">Please open the \`Spelling.html\` file, find the \`spellingWords\` and \`vocabWords\` lists in the \`<script>\` section at the bottom, and add your son's words.</p>
                     </div>
                 `;
                 return; // Stop running the rest of the code
@@ -467,6 +501,5 @@
         });
     </script>
 </body>
-</html> 
-
+</html>
 
