@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Title -->
-    <title>Dog Man: For Whom the Ball Rolls Quiz</title>
+    <title>Dog Man: 20,000 Fleas Under the Sea Quiz</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +45,7 @@
             font-family: 'Bangers', cursive;
         }
 
-        /* Game Styles (Unchanged) */
+        /* New Game Styles */
         #game-canvas {
             background-color: #e0f2fe; /* Light blue sky */
             border: 4px solid #0284c7; /* Sky blue border */
@@ -64,7 +63,7 @@
             }
         }
         
-        /* Modal Styles (Unchanged) */
+        /* Modal Styles */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -91,19 +90,21 @@
 </head>
 
 <body class="p-4 sm:p-8">
-    <!-- Navigation Link (Unchanged) -->
-    <div class="max-w-4xl mx-auto text-right mb-4">
-        <a href="./Math.html" class="text-blue-600 hover:text-blue-800 font-semibold underline text-lg">
-            Go to Math Review &rarr;
+    <!-- Navigation Links -->
+    <div class="max-w-4xl mx-auto flex justify-between mb-4 text-lg font-semibold">
+        <a href="./Spelling.html" class="text-indigo-600 hover:text-indigo-800 underline">
+            &larr; Go to Spelling
+        </a>
+        <a href="./Math.html" class="text-green-600 hover:text-green-800 underline">
+            Go to Math &rarr;
         </a>
     </div>
 
     <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-6 sm:p-10 mb-8">
-        <!-- Updated Title -->
-        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">Dog Man: For Whom the Ball Rolls</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">Dog Man: 20,000 Fleas Under the Sea</h1>
         <p class="text-gray-600 text-center mb-8">Read the passage. Then answer the questions.</p>
 
-        <!-- Timer Section (Unchanged) -->
+        <!-- Timer Section -->
         <div id="timer-container" class="bg-gray-100 p-4 rounded-lg text-center mb-6">
             <p class="text-sm font-semibold text-gray-600">Time Elapsed:</p>
             <p id="timer" class="text-2xl font-bold text-blue-600 mt-1">0:00</p>
@@ -111,39 +112,36 @@
 
         <!-- Quiz Section -->
         <div id="quiz-container">
-            <!-- *** UPDATED AND EXPANDED PASSAGE *** -->
             <div id="passage" class="bg-gray-50 rounded-lg p-6 mb-10 text-gray-700 leading-relaxed text-sm sm:text-base border border-gray-200">
-                <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage: The Ball of Fear</h2>
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4">Passage: The Deep-Sea Dilemma</h2>
 
-                <p class="mb-4">Our story, once again brought to life by George and Harold's amazing comics, begins with Dog Man on patrol. He's the city's greatest hero, a perfect blend of man and dog... well, *almost* perfect. While chasing a robber, Dog Man is doing great until the crook, in a moment of genius, rolls a simple red ball across the street. Dog Man's doggy instincts take over completely. He forgets all about the robber and happily chases the ball, barking with joy. The robber, of course, gets away easily. Back at the police station, the Chief is furious. This isn't the first time Dog Man's obsession with balls has caused a problem. "This has to stop!" the Chief yells. Dog Man, feeling ashamed, knows he needs help.</p>
-                <p class="mb-6">His best friends, Li'l Petey (the world's kindest kitten) and 80-HD (their super-smart robot), decide to form the Supa Buddies to help Dog Man. Their first mission: cure Dog Man of his ball-chasing habit. They try everything. They try reasoning with him, but Dog Man just tilts his head. They try hiding all the balls, but he just finds round things to chase, like apples and the Chief's bald head. Finally, Li'l Petey has an idea. He finds a spray bottle and fills it with water. "This is a 'Bad Habit' spray bottle," he explains. "Every time you chase a ball, you get a spray!" The training begins. Li'l Petey rolls a ball. Dog Man chases it. *PSSSSHT!* Dog Man gets a spray of water in the face. This goes on all day. Roll, chase, *PSSSSHT!* Roll, chase, *PSSSSHT!* It seems to be working! Dog Man stops chasing the ball.</p>
-                <p class="mb-6">The only problem is... it works *too* well. The next day, when the Chief throws a ball, Dog Man doesn't just ignore it. He screams in terror, leaps into the air, and crashes onto the Chief's desk, trembling. The training didn't just stop his habit; it replaced it with a deep, paralyzing fear. Now, even the *word* "ball" (or "call," "fall," or "mall") is enough to send him into a panic. Dog Man, the city's hero, is now afraid of balls.</p>
+                <p class="mb-4">The adventure, brought to life once again by George and Harold, blasts off not with a crime, but with a date! The Chief, after finally working up the courage, asks Nurse Lady out to dinner, and he brings Dog Man along as his "wingman." Of course, with Dog Man involved, nothing stays simple. They go to a fancy restaurant called the Shark Shack, but the grumpy cook refuses to serve Dog Man. While the Chief and Nurse Lady try to have a nice date, Dog Man chases a squirrel, which leads to a chaotic chase through the kitchen. This ends with the grumpy cook getting covered in dogs and, strangely, deciding he loves them. This small, silly moment, however, is just the beginning of a much bigger, and much smaller, adventure.</p>
+                <p class="mb-6">Meanwhile, Petey the Cat is a free man... well, a free cat. He's been released from cat jail and is trying his best to be a good "papa" to Li'l Petey. His first project as a good guy is to rebuild his secret lab. But he immediately hits a wall. The construction lady he tries to hire recognizes him. "Hey! You're the cat who stole all the toilets!" she yells, remembering one of his past evil schemes. She refuses to work for an ex-convict, leaving Petey feeling frustrated. He complains to Li'l Petey and their tadpole friend, Molly, that it's impossible to do good when no one will give him a second chance. Petey is stuck, unable to move forward because of his past.</p>
 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A New Life and an Old Grudge</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">The Tiniest Breakout</h3>
 
-                <p class="mb-4">While Dog Man is dealing with his new phobia, his old enemy, Petey the Cat, is having the best day of his life. Because he helped save the city in the last adventure (from the giant Robo-Pants and the Supa-Soup Monster), the Mayor officially pardons him of all his crimes. Petey is finally a free cat! He joyfully leaves cat jail, ready to start a new life as a good guy and, most importantly, as a full-time dad to Li'l Petey. He takes Li'l Petey to his amazing secret lair, a giant hollowed-out volcano filled with cool inventions and comfy furniture. Petey is excited to be a real family. "No more evil schemes for me!" he declares. "From now on, I'm just going to be a good dad."</p>
-                <p class="mb-6">Li'l Petey is happy, but he notices something. Whenever Petey talks about his own childhood, he gets quiet and sad. Li'l Petey, being the curious and kind kitten he is, asks 80-HD to do some research. The robot's computer brain quickly finds the secret: a long time ago, Petey's father, a mean-looking cat named Grampa, abandoned Petey when he was just a little kitten, leaving him all alone. Li'l Petey, with his pure heart, thinks, "If Petey is sad about his dad, then maybe finding his dad will make him happy!" This turns out to be a very bad idea. Without telling Petey, Li'l Petey uses 80-HD's technology to find Grampa's location and sends him an invitation for a family reunion at the secret lair.</p>
+                <p class="mb-4">While Petey is struggling with his new life, his old life is causing new problems. Deep in the city, the tiny, shrunken villains known as the FLEAS (Fuzzy Little Evil Animal Squad) are still trapped in the Mini-Jail. The leader, Piggy, is as grumpy and evil as ever. His two henchmen, Crunky the kraken and Bub the ape, however, have had a change of heart. They have decided they don't want to be evil anymore. They want to be... the "Friendly Friends"! They spend all day singing cheerful songs about helping and caring, which drives Piggy absolutely crazy. "Stop singing!" he screams, but they won't. Piggy is surrounded by goodness, and he hates it.</p>
+                <p class="mb-6">Their tiny prison, however, isn't as secure as they thought. A big, friendly dog named Mister Stinkles, out on a walk, spots the Mini-Jail. Thinking it's a toy, he picks it up, shakes it, and then drops it, shattering the jail to pieces. The FLEAS are free! Piggy is overjoyed. "Now we can do evil!" he cackles. But Crunky and Bub have other plans. "Hooray!" they cheer. "Now we can do good!" They immediately find a kind inventor named Uncle Larry, who also happens to be a frog. Uncle Larry is thrilled to meet the "Friendly Friends" and shows them his amazing headquarters, complete with a brand-new invention: a high-tech, flying submarine! Piggy, seeing the submarine, gets a diabolical idea. He tricks Uncle Larry and the Friendly Friends, trapping them so he can steal the submarine for his own evil plans.</p>
 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A New Villain Rolls In</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A Panic in the City</h3>
 
-                <p class="mb-4">The next day, the doorbell rings. It's Grampa. And he is *not* a nice cat. He's rude, grumpy, and selfish. He immediately makes fun of Petey's lair, criticizes Petey for being "soft," and is a terrible influence on Li'l Petey, trying to teach him how to lie and steal. Petey is miserable. He's trying so hard to be a good dad, but his own mean father is making it impossible. The family reunion is a disaster. Grampa just sits on the couch, complaining and insulting everyone.</p>
-                <p class="mb-6">While Petey's family drama unfolds, a new supervillain is watching the city. His name is Dr. Scum, and he has a brilliant, evil plan. From his blimp high above the city, he's been watching Dog Man. He sees Dog Man run in terror from a basketball, a gumball, and even a meatball. Dr. Scum cackles. "If the hero is afraid of balls," he says, "then I shall build an army of... BALLS!" He gets to work, and soon he unleashes his newest invention: the "Burgle Balls." These are high-tech, robotic spheres that roll through the city at high speed.  They smash into the jewelry store and steal all the diamonds. They roll into the bank and steal all the money. They even roll into the joke shop and steal every single whoopee cushion! The city is in chaos. Alarms are ringing everywhere. And where is Dog Man? He's hiding under his desk, too scared of the round, rolling villains to do anything to stop them.</p>
-
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Commander Cupcake?</h3>
-
-                <p class="mb-4">With Dog Man out of action, the city is defenseless. Or is it? Elsewhere, the city's tiniest villains, the FLEAS (Piggy, Bub, and Crunky), are hatching their own plot. They've been trying to create a new supervillain, but all their plans fail. Then, they find Big Jim, a big, tough-looking (but not very smart) character. Using a "Hypno-Hat," they hypnotize him. "You are now... Commander Cupcake!" they declare. "Your mission is to... uh... do... evil things! But first, you have an uncontrollable craving for cupcakes!" Their plan is to use him to steal for them, but it immediately backfires. Commander Cupcake isn't evil; he's just obsessed with finding and eating cupcakes.</p>
-                <p class="mb-6">He bumbles around the city, following the scent of sugary snacks. Just as Dr. Scum's Burgle Balls are finishing their robbery, Commander Cupcake spots a cupcake truck across the street. He runs straight towards it, accidentally crashing right through the Burgle Balls, smashing them to pieces. *CRASH!* *BAM!* The famous news reporter, Sarah Hatoff, arrives on the scene just in time to see the broken robots and Commander Cupcake standing among them, holding a cupcake. "Amazing!" she reports. "A new hero named Commander Cupcake has saved the city!" The next day, the newspaper headline reads: "COMMANDER CUPCAKE DEFEATS BURGLE BALLS! Dog Man Was 'Too Scared' to Help." Dog Man feels lower than ever. He failed, and an accidental "hero" got all the credit.</p>
+                <p class="mb-4">At the news station, superstar reporter Sarah Hatoff gets a tip about the escaped villains. She calls in the story: "The FLEAS are back!" But the media boss at the TV station isn't listening properly. "What's that?" he yells. "A disease? Coming from the sea? Got it!" The station immediately runs a breaking news story: "A terrifying plague of '20,000 FLEAS UNDER THE SEA' is coming to wipe out the city!" The news is completely wrong, but it causes a massive panic. Everyone in the city starts buying toilet paper and building bunkers, terrified of the imaginary plague.</p>
+                <p class="mb-6">Piggy, watching the news from his stolen submarine, is thrilled. "They're all panicking over nothing!" he laughs. "This is the perfect distraction!" While the entire city is hiding from a fake sickness, Piggy uses the submarine to fly around and commit crimes. He robs banks, steals art, and causes chaos, and no one is around to stop him. The Supa Buddies (Dog Man, Li'l Petey, Molly, and 80-HD) realize what's happening. They team up with Petey, who is desperate to prove he's a good guy now. "We have to stop him!" Petey declares. They all manage to sneak aboard the flying submarine, ready for a showdown with Piggy.</p>
                 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Being Good vs. Doing Good</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">Way, Way Down</h3>
 
-                <p class="mb-4">Back at the volcano lair, things are even worse for Petey. While he's trying to cope with his terrible father, Grampa plays one last, cruel trick. He tells Petey he wants to "help him" load up his old, "junky" inventions into a truck to take them to the dump. But as soon as the truck is full of Petey's most valuable gadgets, Grampa hops in the driver's seat. "You'll never change, Petey!" Grampa sneers. "You were born a bad guy, and you'll always be a bad guy! So long, loser!" And he drives off, stealing everything. Petey is heartbroken. He falls to his knees, believing his father is right. Maybe he really is just a bad guy.</p>
-                <p class="mb-6">But Li'l Petey, who sees the whole thing, runs up to his dad and gives him a hug. "That's not true, Papa!" he says. "You're a good dad! But Grampa doesn't get it." Then, Li'l Petey says the most important words in the whole book: **"It's not enough to just *be* good... you gotta *do* good!"** This simple sentence clicks in Petey's brain. It's like a lightbulb turning on. He's right. It's not about what his father says he is; it's about what he *chooses* to do. At that very same moment, Dog Man is at the police station, feeling sorry for himself. He hears Li'l Petey's voice (over a communicator) and has the exact same realization. He can't let his fear *stop* him from *doing* good. He's a police officer, and his friends are in danger.</p>
-                <p class="mb-6">Just then, Dr. Scum returns, and he is furious. His Burgle Balls are gone, so he's back with his ultimate weapon: a giant, flying "Death Sphere" (which, of course, is just a giant, terrifying ball).  It hovers over the city, threatening to destroy everything. Commander Cupcake tries to "fight" it by throwing cupcakes, which does nothing. The city is doomed. But then, a blue and red streak flies through the sky. It's Dog Man! He is visibly shaking with fear, but he's flying straight towards the giant ball. Remembering Li'l Petey's words, he bravely faces his fear to *do* good. He lands on the sphere, finds Dr. Scum, and after a long fight, he and 80-HD manage to defeat the villain and save the city for real! </p>
+                <p class="mb-4">A giant fight breaks out inside the submarine. Piggy, Crunky, Bub, and the Supa Buddies are all rolling around, crashing into controls. In the chaos, Piggy grabs a powerful new weapon: the Shrink-V Scepter. "I'll shrink you all!" he screams. He blasts the Supa Buddies, but the beam reflects off 80-HD's metal head and hits the submarine's controls instead. The entire submarine, with everyone inside it (except Piggy), begins to shrink. It gets smaller, and smaller, and smaller... down to the size of a tiny speck of dust.</p>
+                <p class="mb-6">Piggy, now alone in his cockpit, laughs as he watches the tiny submarine float away. "Good riddance!" he sneers. But then, he feels a tickle on his nose. He sneezes, and the microscopic submarine is sucked right into his nostril! The heroes are trapped, floating in the one place they never wanted to be: inside Piggy's body. They navigate the submarine through the dark, slimy passages until they are accidentally washed into one of Piggy's sweat glands. To them, it's like a giant, dark ocean. "This must be the sea!" says Li'l Petey. "I guess the news was right after all!"</p>
 
-                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A True Hero, A True Dad</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">The Mighty Mite</h3>
+
+                <p class="mb-4">But they are not alone. A creature lurks in the darkness of the sweat gland. A monstrous, horrifying, giant... parasitic mite. To the tiny heroes, this mite is the size of a blue whale. It's a "Mighty Mite," and it's hungry. The mite attacks the submarine, its giant claws tearing at the metal. The heroes are terrified. "We have to fight it!" yells Dog Man. Petey, using his smarts, realizes the submarine is damaged. "The propeller is broken!" he shouts. "Molly, you're a tadpole! You have to swim outside and be our new propeller!"</p>
+                <p class="mb-6">Molly, who is just a tiny tadpole, is terrified. "I can't! I'm too small!" she cries. But Li'l Petey gives her a hug. "It's not about being big or small, Molly," he says. "It's about being brave and DOING good!" Inspired, Molly takes a deep breath, swims out of the sub, and starts kicking her tail as fast as she can. She becomes a living motor, pushing the submarine forward. They ram the Mighty Mite, and then, in a burst of inspiration, Petey finds the "Grow" button. "Everyone, hold on!" he yells. He slams the button just as they escape Piggy's nostril.</p>
+
+                <h3 class="text-lg sm:text-xl font-semibold mt-6 mb-3">A Big Ending</h3>
                 
-                <p class="mb-4">At the exact same time, Petey *does* good, too. He catches up to Grampa's truck. But instead of fighting his father, he uses a clever invention to non-violently stop the truck and get his stuff back. He looks at his mean old dad, who is now helpless. Petey has a choice: he could get revenge, or he could just be a good dad to Li'l Petey. He chooses his son. He lets Grampa go, telling him he just feels sorry for him. Petey has finally broken the cycle. He proved he isn't a bad guy; he's a good dad.</p>
-                <p class="mb-6">In the end, Dog Man is celebrated as the true hero he is, having overcome his fear when it mattered most. Sarah Hatoff corrects the newspaper, giving Dog Man the credit he deserves. And Petey? He and Li'l Petey return to their lair (what's left of it) happier than ever, knowing they are a real family. The story ends with Dog Man, Petey, and Li'l Petey all understanding that being a hero isn't about *being* fearless; it's about *doing* good, even when you're scared. (And as for Commander Cupcake? The last we see him, he's happily found and is eating all the stolen whoopee cushions, still as clueless as ever.)</p>
+                <p class="mb-4">The submarine explodes out of Piggy's nose and instantly grows to a massive, skyscraper-sized ship, right in the middle of the city. Piggy, still on board, is captured. The giant submarine lands harmlessly, and the city is saved. The news station, realizing its mistake, quickly changes the story: "The FLEAS have been stopped, and the 'plague' is over! Hooray for the Supa Buddies... and Petey!"</p>
+                <p class="mb-6">For the first time, Petey is celebrated as a hero. The construction lady who had rejected him sees him on TV. "Wow," she says. "I guess he really has changed." The next day, she shows up at Petey's place, along with Dog Man, Li'l Petey, Molly, 80-HD, and even Crunky and Bub (the Friendly Friends). "We're here to help you rebuild, Papa," Li'l Petey says, holding up a hammer. Petey, looking at all his new friends, finally understands. It wasn't just about *being* good; it was about *doing* good. And for the first time, he wasn't alone. He finally had a team, and a family, to help him do it.</p>
             </div>
 
             <div id="questions-container" class="space-y-10">
@@ -171,7 +169,7 @@
 
         <hr class="my-12 border-gray-300">
 
-        <!-- Game Section (Unchanged) -->
+        <!-- Game Section (Dog Man Chase) -->
         <div id="game-container" class="flex flex-col items-center justify-center min-h-[500px] p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
             <div id="game-info" class="mb-6 w-full max-w-xl text-center text-gray-800 bg-white p-4 rounded-xl border-2 border-blue-400">
                 <h1 class="text-3xl font-bold mb-2 header-font text-blue-700">Dog Man Chase!</h1>
@@ -207,74 +205,75 @@
     </div>
 
     <script>
-        // --- Updated Quiz Data (Still relevant to the expanded story) ---
+        // --- QUIZ DATA ---
+        // (New questions for "20,000 Fleas Under the Sea")
         const allQuestions = [{
             id: 'q1',
-            questionText: 'What is Dog Man\'s big problem at the beginning of the story?',
-            options: [{ value: 'A', text: 'He is afraid of water.' }, { value: 'B', text: 'He cannot resist chasing balls.' }, { value: 'C', text: 'He is allergic to cats.' }, { value: 'D', text: 'He lost his police badge.' }],
+            questionText: 'Why did Petey have trouble hiring a construction lady to rebuild his lab?',
+            options: [{ value: 'A', text: 'He didn\'t have enough money.' }, { value: 'B', text: 'She recognized him as the villain who stole all the toilets.' }, { value: 'C', text: 'She was allergic to cats.' }, { value: 'D', text: 'His lab was in a dangerous location.' }],
             type: 'radio'
         }, {
             id: 'q2',
-            questionText: 'What happens after Li\'l Petey sprays Dog Man with water for chasing balls?',
-            options: [{ value: 'A', text: 'Dog Man learns to fetch perfectly.' }, { value: 'B', text: 'Dog Man becomes terrified of balls.' }, { value: 'C', text: 'Dog Man gets angry at Li\'l Petey.' }, { value: 'D', text: 'Dog Man learns to talk.' }],
+            questionText: 'What did Crunky and Bub rename their team after they decided to be good?',
+            options: [{ value: 'A', text: 'The Supa Buddies' }, { value: 'B', text: 'The Friendly Friends' }, { value: 'C', text: 'The Evil-No-More Club' }, { value: 'D', text: 'The Kraken and Ape Crew' }],
             type: 'radio'
         }, {
             id: 'q3',
-            questionText: 'Who is the new supervillain that attacks the city?',
-            options: [{ value: 'A', text: 'Grampa' }, { value: 'B', text: 'Commander Cupcake' }, { value: 'C', text: 'Dr. Scum' }, { value: 'D', text: 'Big Jim' }],
+            questionText: 'How did the FLEAS escape from the Mini-Jail?',
+            options: [{ value: 'A', text: 'Dog Man accidentally broke it.' }, { value: 'B', text: 'Piggy built a tiny hammer.' }, { value: 'C', text: 'A dog named Mister Stinkles shook it and broke it.' }, { value: 'D', text: 'Uncle Larry rescued them with his submarine.' }],
             type: 'radio'
         }, {
             id: 'q4',
-            questionText: 'What evil invention does Dr. Scum use to steal things?',
-            options: [{ value: 'A', text: 'Robotic Burgle Balls' }, { value: 'B', text: 'A giant magnet' }, { value: 'C', text: 'An invisibility spray' }, { value: 'D', text: 'Hypnotized birds' }],
+            questionText: 'What was the name of the kind frog inventor who built the flying submarine?',
+            options: [{ value: 'A', text: 'Molly' }, { value: 'B', text: 'Bub' }, { value: 'C', text: 'Nurse Lady' }, { value: 'D', text: 'Uncle Larry' }],
             type: 'radio'
         }, {
             id: 'q5',
-            questionText: 'Why is Dr. Scum\'s invention so successful at first?',
-            options: [{ value: 'A', text: 'The balls are too fast for Dog Man.' }, { value: 'B', text: 'Dog Man is too scared of the balls to fight them.' }, { value: 'C', text: 'The police are on vacation.' }, { value: 'D', text: 'Petey helps the villain.' }],
+            questionText: 'What fake news story did the TV station report that caused the whole city to panic?',
+            options: [{ value: 'A', text: 'That Dog Man was retiring.' }, { value: 'B', text: 'A plague of "20,000 Fleas Under the Sea" was coming.' }, { value: 'C', text: 'Petey had become the new mayor.' }, { value: 'D', text: 'A giant tidal wave was about to hit the city.' }],
             type: 'radio'
         }, {
             id: 'q6',
-            questionText: 'What good thing happens to Petey near the start of the book?',
-            options: [{ value: 'A', text: 'He learns to build a robot.' }, { value: 'B', text: 'He is pardoned and set free from jail.' }, { value: 'C', text: 'He finds a hidden treasure.' }, { value: 'D', text: 'He becomes the new police chief.' }],
+            questionText: 'How did the Supa Buddies and Petey get shrunk down to a microscopic size?',
+            options: [{ value: 'A', text: 'Piggy blasted them with the Shrink-V Scepter.' }, { value: 'B', text: 'They drank a shrinking potion.' }, { value: 'C', text: 'Piggy\'s shrink beam reflected off 80-HD and hit the submarine.' }, { value: 'D', text: 'They pressed the wrong button on the submarine.' }],
             type: 'radio'
         }, {
             id: 'q7',
-            questionText: 'Who does Li\'l Petey find and invite to the secret lair?',
-            options: [{ value: 'A', text: 'Sarah Hatoff, the reporter' }, { value: 'B', text: 'The Mayor' }, { value: 'C', text: 'Petey\'s father, Grampa' }, { value: 'D', text: 'Dog Man' }],
+            questionText: 'After being shrunk, where did the heroes end up trapped?',
+            options: [{ value: 'A', text: 'In the real ocean.' }, { value: 'B', text: 'In a bottle of soda.' }, { value: 'C', text: 'Inside a giant sweat gland on Piggy\'s nose.' }, { value: 'D', text: 'In the city\'s sewer system.' }],
             type: 'radio'
         }, {
             id: 'q8',
-            questionText: 'Who are the tiny villains that create Commander Cupcake?',
-            options: [{ value: 'A', text: 'Dr. Scum\'s robots' }, { value: 'B', text: 'Petey and Li\'l Petey' }, { value: 'C', text: 'The FLEAS (Piggy, Bub, and Crunky)' }, { value: 'D', text: 'The Supa Buddies' }],
+            questionText: 'What giant creature did the tiny heroes have to fight inside Piggy?',
+            options: [{ value: 'A', text: 'A giant germ' }, { value: 'B', text: 'A parasitic Mighty Mite' }, { value: 'C', text: 'A baby kraken' }, { value: 'D', text: 'A robotic flea' }],
             type: 'radio'
         }, {
             id: 'q9',
-            questionText: 'What important lesson does Li\'l Petey teach Petey and Dog Man?',
-            options: [{ value: 'A', text: 'That crime always pays.' }, { value: 'B', text: 'That balls are not scary.' }, { value: 'C', text: 'That it\'s not enough to "be good," you have to "do good."' }, { value: 'D', text: 'How to build a better robot.' }],
+            questionText: 'Who acted as the submarine\'s new propeller to help them escape?',
+            options: [{ value: 'A', text: 'Molly the tadpole' }, { value: 'B', text: 'Dog Man by wagging his tail' }, { value: 'C', text: 'Li\'l Petey' }, { value: 'D', text: '80-HD' }],
             type: 'radio'
         }, {
             id: 'q10',
-            questionText: 'What does Grampa (Petey\'s father) do at the end of the story?',
-            options: [{ value: 'A', text: 'He apologizes to Petey.' }, { value: 'B', text: 'He helps Dog Man fight Dr. Scum.' }, { value: 'C', text: 'He becomes a good guy.' }, { value: 'D', text: 'He steals Petey\'s inventions and furniture.' }],
+            questionText: 'What happened at the very end of the story?',
+            options: [{ value: 'A', text: 'Petey decided to become a villain again.' }, { value: 'B', text: 'Piggy became a good guy and joined the Friendly Friends.' }, { value: 'C', text: 'All of Petey\'s new friends showed up to help him rebuild his lab.' }, { value: 'D', text: 'Dog Man got an award from the Mayor.' }],
             type: 'radio'
         }];
 
-        // --- Updated Correct Answers ---
+        // (New correct answers)
         const correctAnswers = {
             q1: "B",
             q2: "B",
             q3: "C",
-            q4: "A",
+            q4: "D",
             q5: "B",
-            q6: "B",
+            q6: "C",
             q7: "C",
-            q8: "C",
-            q9: "C",
-            q10: "D"
+            q8: "B",
+            q9: "A",
+            q10: "C"
         };
+        // --- END OF QUIZ DATA ---
 
-        // --- Unchanged JavaScript Logic Below ---
 
         // DOM elements
         const submitBtn = document.getElementById('submitBtn');
@@ -332,10 +331,10 @@
             quizContainer.style.display = 'block';
 
             const optionLabels = ['A', 'B', 'C', 'D'];
-            const shuffledQuestions = shuffleArray([...allQuestions]);
+            // We use allQuestions directly, no shuffling of question order
+            // const shuffledQuestions = shuffleArray([...allQuestions]);
 
-            // *** THIS IS THE CORRECTED LINE ***
-            shuffledQuestions.forEach((q, questionIndex) => {
+            allQuestions.forEach((q, questionIndex) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.id = q.id;
                 questionDiv.className = 'question p-6 rounded-lg shadow-md bg-white border border-gray-200';
@@ -359,8 +358,13 @@
                     input.value = option.value;
                     input.className = 'mr-3';
 
+                    // Find the original label (A, B, C, D) for the shuffled option
+                    const originalOption = allQuestions[questionIndex].options.find(o => o.value === option.value);
+                    const originalLabel = allQuestions[questionIndex].options.indexOf(originalOption);
+                    
                     label.appendChild(input);
-                    label.appendChild(document.createTextNode(`${optionLabels[index]}. ${option.text}`));
+                    // We display the option text, not a,b,c,d
+                    label.appendChild(document.createTextNode(` ${option.text}`));
 
                     label.addEventListener('click', () => {
                         if (input.type === 'radio') {
@@ -368,6 +372,7 @@
                                 radio.parentElement.classList.remove('selected');
                             });
                             label.classList.add('selected');
+                            input.checked = true;
                         }
                     });
                     optionsDiv.appendChild(label);
@@ -430,6 +435,7 @@
                 scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%). You completed the quiz in ${finalTime}.`;
                 resultsDiv.classList.add('bg-green-100', 'text-green-700');
                 resultsDiv.classList.remove('bg-red-100', 'text-red-700');
+Dos
                 startGameBtn.classList.remove('hidden');
             } else {
                 resultsDiv.classList.add('bg-red-100', 'text-red-700');
@@ -464,7 +470,7 @@
         }
 
 
-        // --- DOG MAN CHASE GAME LOGIC (Unchanged) ---
+        // --- DOG MAN CHASE GAME LOGIC ---
         const canvas = document.getElementById('game-canvas');
         const ctx = canvas.getContext('2d');
         const winMessage = document.getElementById('win-message');
@@ -644,6 +650,7 @@
 
         Object.keys(controlButtons).forEach(id => {
             const btn = document.getElementById(id);
+            if (!btn) return; // Add guard clause in case element isn't found
             const key = controlButtons[id];
             btn.addEventListener('mousedown', (e) => { e.preventDefault(); keys[key] = true; });
             btn.addEventListener('mouseup', (e) => { e.preventDefault(); keys[key] = false; });
@@ -654,12 +661,14 @@
 
         function resizeCanvas() {
             const container = document.getElementById('game-canvas-container');
+            if (!container) return; // Add guard clause
             const size = container.clientWidth;
             canvas.width = size;
             canvas.height = size;
-            if (isGameActive) {
-                resetGame();
-            }
+            // Don't reset game on resize, let it continue
+            // if (isGameActive) {
+            //     resetGame();
+            // }
         }
 
         function initGame() {
