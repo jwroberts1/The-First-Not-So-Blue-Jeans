@@ -92,7 +92,7 @@
 <body class="p-4 sm:p-8">
     <!-- Navigation Links -->
     <div class="max-w-4xl mx-auto flex justify-between mb-4 text-lg font-semibold">
-        <a href="./Spelling.html" class="text-indigo-600 hover:text-indigo-800 underline">
+        <a href="./spelling.html" class="text-indigo-600 hover:text-indigo-800 underline">
             &larr; Go to Spelling
         </a>
         <a href="./Math.html" class="text-green-600 hover:text-green-800 underline">
@@ -250,7 +250,7 @@
         }, {
             id: 'q9',
             questionText: 'Who acted as the submarine\'s new propeller to help them escape?',
-            options: [{ value: 'A', text: 'Molly the tadpole' }, { value: 'B', text: 'Dog Man by wagging his tail' }, { value: 'C', text: 'Li\'l Petey' }, { value: 'D', text: '80-HD' }],
+            options: [{ value: 'A', text: 'Molly the tadpole' }, { value: 'B', text: 'Dog Man by wagging his tail' }, { value: 'C', text: 'Li\'l Petey' }, { value: 'D', 'text': '80-HD' }],
             type: 'radio'
         }, {
             id: 'q10',
@@ -435,7 +435,7 @@
                 scoreText.textContent = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(0)}%). You completed the quiz in ${finalTime}.`;
                 resultsDiv.classList.add('bg-green-100', 'text-green-700');
                 resultsDiv.classList.remove('bg-red-100', 'text-red-700');
-Dos
+                // This is the line I fixed. Removed 'Dos'
                 startGameBtn.classList.remove('hidden');
             } else {
                 resultsDiv.classList.add('bg-red-100', 'text-red-700');
