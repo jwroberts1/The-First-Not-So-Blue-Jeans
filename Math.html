@@ -123,7 +123,7 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Grime and Punishment
+            Math Mission: Springfield Glitch
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
             3rd Grade Practice: Solve 10 problems to unlock the Volume Explorer!
@@ -217,119 +217,119 @@
 
     <script>
         // --- QUIZ DATA ---
-        // (New questions based on rounding/estimation concepts and "Grime and Punishment" story)
+        // (New questions based on rounding/estimation concepts and "Simpsons in Fortnite" story)
         const allQuestions = [{
             id: 'q1',
-            questionText: `Dog Man digs up 63 roses from the Mayor's garden. Li'l Petey plants 28 new flowers.
-                          <br>Estimate the <strong>total</strong> number of flowers involved by rounding each number to the nearest <strong>ten</strong>.`,
+            questionText: `Homer eats 32 Lard Lad Donuts. Bart hits 18 players with his slingshot.
+                          <br>Estimate the <strong>total</strong> number of donuts and hits by rounding each number to the nearest <strong>ten</strong>.`,
             options: [
-                { value: 'A', text: '90 flowers' }, 
-                { value: 'B', text: '91 flowers' }, 
-                { value: 'C', text: '80 flowers' }, 
-                { value: 'D', text: '100 flowers' }
+                { value: 'A', text: '40' }, 
+                { value: 'B', text: '50' }, 
+                { value: 'C', text: '60' }, 
+                { value: 'D', text: '50' }
             ],
-            correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the total of Dog Man's roses (63) and Li'l Petey's flowers (28). First, round both numbers to the nearest ten. Then, add the rounded numbers.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>63 is between 60 and 70. It's closer to 60. So, 63 rounds to 60.<br>28 is between 20 and 30. It's closer to 30. So, 28 rounds to 30.<br>Now add: 60 + 30.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>60 + 30 = 90. The estimated total is <strong>90 flowers</strong>.</p></div>`
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the total of donuts (32) and hits (18). First, round both numbers to the nearest ten. Then, add the rounded numbers.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>32 is between 30 and 40. It's closer to 30. So, 32 rounds to 30.<br>18 is between 10 and 20. It's closer to 20. So, 18 rounds to 20.<br>Now add: 30 + 20.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>30 + 20 = 50. The estimated total is <strong>50</strong>.</p></div>`
         }, {
             id: 'q2',
-            questionText: `Grampa Petey, as Crud, smashes 77 windows. Later, Munchy eats 34 books.
-                          <br>Estimate how many <strong>more</strong> windows Crud smashed than books Munchy ate by rounding each number to the nearest <strong>ten</strong>.`,
+            questionText: `Peely builds a tower 88 meters high. The Kwik-E-Mart is 23 meters high.
+                          <br>Estimate how much <strong>taller</strong> Peely's tower is than the Kwik-E-Mart by rounding each number to the nearest <strong>ten</strong>.`,
             options: [
-                { value: 'A', text: '40 items' }, 
-                { value: 'B', text: '43 items' }, 
-                { value: 'C', text: '50 items' }, 
-                { value: 'D', text: '110 items' }
+                { value: 'A', text: '60 meters' }, 
+                { value: 'B', text: '65 meters' }, 
+                { value: 'C', text: '70 meters' }, 
+                { value: 'D', text: '110 meters' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the difference between the windows Crud smashed (77) and the books Munchy ate (34). First, round both numbers to the nearest ten. Then, subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>77 is between 70 and 80. It's closer to 80. So, 77 rounds to 80.<br>34 is between 30 and 40. It's closer to 30. So, 34 rounds to 30.<br>Now subtract: 80 - 30.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>80 - 30 = 50. Crud smashed about <strong>50 more items</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the difference between Peely's tower (88) and the Kwik-E-Mart (23). First, round both numbers to the nearest ten. Then, subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>88 is between 80 and 90. It's closer to 90. So, 88 rounds to 90.<br>23 is between 20 and 30. It's closer to 20. So, 23 rounds to 20.<br>Now subtract: 90 - 20.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>90 - 20 = 70. Peely's tower is about <strong>70 meters</strong> taller.</p></div>`
         }, {
             id: 'q3',
-            questionText: 'Munchy the lunch bag monster grows to be 528 cm tall. What is 528 rounded to the nearest <strong>ten</strong>?',
+            questionText: 'The new Battle Bus, disguised as Otto\'s school bus, flies 742 meters above Springfield. What is 742 rounded to the nearest <strong>ten</strong>?',
             options: [
-                { value: 'A', text: '500' }, 
-                { value: 'B', text: '520' }, 
-                { value: 'C', text: '530' }, 
-                { value: 'D', text: '600' }
+                { value: 'A', text: '700' }, 
+                { value: 'B', text: '740' }, 
+                { value: 'C', text: '750' }, 
+                { value: 'D', text: '800' }
             ],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 528 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the tens place (2). Now look at the ones place (8). The rule is: "5 or more, raise the score. 4 or less, let it rest."<br>Since 8 is "more," we "raise the score," meaning the tens place (2) goes up to 3. The one's place becomes 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>528 rounded to the nearest ten is <strong>530</strong>.</p></div>`
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 742 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the tens place (4). Now look at the ones place (2). The rule is: "5 or more, raise the score. 4 or less, let it rest."<br>Since 2 is "less," we "let it rest," meaning the tens place (4) stays the same. The one's place becomes 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>742 rounded to the nearest ten is <strong>740</strong>.</p></div>`
         }, {
             id: 'q4',
-            questionText: 'Munchy the lunch bag monster grows to be 528 cm tall. What is 528 rounded to the nearest <strong>hundred</strong>?',
+            questionText: 'The new Battle Bus flies 742 meters above Springfield. What is 742 rounded to the nearest <strong>hundred</strong>?',
             options: [
-                { value: 'A', text: '500' }, 
-                { value: 'B', text: '520' }, 
-                { value: 'C', text: '530' }, 
-                { value: 'D', text: '600' }
+                { value: 'A', text: '700' }, 
+                { value: 'B', text: '740' }, 
+                { value: 'C', text: '750' }, 
+                { value: 'D', text: '800' }
             ],
             correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 528 to the nearest hundred.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the hundreds place (5). Now look at the tens place (2). The rule is: "5 or more, raise the score. 4 or less, let it rest."<br>Since 2 is "less," we "let it rest," meaning the hundreds place (5) stays the same. All other places become 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>528 rounded to the nearest hundred is <strong>500</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 742 to the nearest hundred.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the hundreds place (7). Now look at the tens place (4). The rule is: "5 or more, raise the score. 4 or less, let it rest."<br>Since 4 is "less," we "let it rest," meaning the hundreds place (7) stays the same. All other places become 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>742 rounded to the nearest hundred is <strong>700</strong>.</p></div>`
         }, {
             id: 'q5',
-            questionText: 'The Chief cries about Dog Man being fired. Which amount of tears would round to 40 mL if rounded to the nearest <strong>ten</strong>?',
+            questionText: 'Homer finds a pile of Chug Splashes. The number of splashes rounds to 60 when rounded to the nearest <strong>ten</strong>. Which of these could be the number of splashes?',
             options: [
-                { value: 'A', text: '34 mL' }, 
-                { value: 'B', text: '46 mL' }, 
-                { value: 'C', text: '38 mL' }, 
-                { value: 'D', text: '45 mL' }
+                { value: 'A', text: '54 splashes' }, 
+                { value: 'B', text: '66 splashes' }, 
+                { value: 'C', text: '58 splashes' }, 
+                { value: 'D', text: '65 splashes' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find which of the answers rounds to 40 (nearest ten).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's check each one:<br>A: 34 rounds to 30 (because 4 is "4 or less").<br>B: 46 rounds to 50 (because 6 is "5 or more").<br>C: 38 rounds to 40 (because 8 is "5 or more").<br>D: 45 rounds to 50 (because 5 is "5 or more").</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>38 mL</strong> is the only number that rounds to 40.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find which of the answers rounds to 60 (nearest ten).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's check each one:<br>A: 54 rounds to 50 (because 4 is "4 or less").<br>B: 66 rounds to 70 (because 6 is "5 or more").<br>C: 58 rounds to 60 (because 8 is "5 or more").<br>D: 65 rounds to 70 (because 5 is "5 or more").</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>58 splashes</strong> is the only number that rounds to 60.</p></div>`
         }, {
             id: 'q6',
-            questionText: 'The Mayor has 73 photos of his teddy bear, Mr. Snookums. What is 73 rounded to the nearest <strong>ten</strong>?',
+            questionText: 'Lisa finds 47 blue mushrooms by the pond. What is 47 rounded to the nearest <strong>ten</strong>?',
             options: [
-                { value: 'A', text: '70' }, 
-                { value: 'B', text: '75' }, 
-                { value: 'C', text: '73' }, 
-                { value: 'D', text: '80' }
+                { value: 'A', text: '40' }, 
+                { value: 'B', text: '45' }, 
+                { value: 'C', text: '50' }, 
+                { value: 'D', text: '47' }
             ],
-            correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round 73 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The number 73 is between 70 and 80. The midpoint is 75. Since 73 is less than 75, it is closer to 70.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>73 rounds down to <strong>70</strong>.</p></div>`
+            correctAnswer: 'C',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round 47 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The number 47 is between 40 and 50. The ones digit is 7. Since 7 is "5 or more," we "raise the score" and round up to 50.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>47 rounds up to <strong>50</strong>.</p></div>`
         }, {
             id: 'q7',
-            questionText: 'Petey reads 265 pages about forgiveness. Li\'l Petey reads 188 pages of comics. Estimate how many <strong>more</strong> pages Petey read by rounding both numbers to the nearest <strong>ten</strong>.',
+            questionText: 'The Nuclear Power Plant has 685 buttons. Homer presses 103 of them. Estimate how many buttons Homer <strong>didn\'t</strong> press by rounding both numbers to the nearest <strong>ten</strong>.',
             options: [
-                { value: 'A', text: '70 pages' }, 
-                { value: 'B', text: '77 pages' }, 
-                { value: 'C', text: '80 pages' }, 
-                { value: 'D', text: '100 pages' }
+                { value: 'A', text: '580 buttons' }, 
+                { value: 'B', text: '590 buttons' }, 
+                { value: 'C', text: '500 buttons' }, 
+                { value: 'D', text: '600 buttons' }
             ],
-            correctAnswer: 'C', // Corrected from 'A' to 'C'
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the difference between 265 and 188. Round both numbers to the nearest ten, then subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>265 rounds up to 270 (because 5 is "5 or more").<br>188 rounds up to 190 (because 8 is "5 or more").<br>Now subtract: 270 - 190.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>270 - 190 = 80. The estimated difference is <strong>80 pages</strong>.</p></div>` // Corrected the final sentence.
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the difference between 685 and 103. Round both numbers to the nearest ten, then subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>685 rounds up to 690 (because 5 is "5 or more").<br>103 rounds down to 100 (because 3 is "4 or less").<br>Now subtract: 690 - 100.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>690 - 100 = 590. The estimated difference is <strong>590 buttons</strong>.</p></div>`
         }, {
             id: 'q8',
-            questionText: '80-HD uses 619 bolts and 275 wires to build the Cat Man suit. Estimate the <strong>total</strong> parts used by rounding both numbers to the nearest <strong>hundred</strong>.',
+            questionText: 'Marge collects 377 wood. Homer collects 219 stone. Estimate the <strong>total</strong> materials they have by rounding both numbers to the nearest <strong>hundred</strong>.',
             options: [
-                { value: 'A', text: '800' }, 
-                { value: 'B', text: '894' }, 
-                { value: 'C', text: '900' }, 
-                { value: 'D', text: '1000' }
+                { value: 'A', text: '500' }, 
+                { value: 'B', text: '596' }, 
+                { value: 'C', text: '600' }, 
+                { value: 'D', 'text': '700' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the sum of 619 and 275. Round both numbers to the nearest hundred, then add.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>619 rounds down to 600 (because the tens digit, 1, is "4 or less").<br>275 rounds up to 300 (because the tens digit, 7, is "5 or more").<br>Now add: 600 + 300.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>600 + 300 = 900. The estimated total is <strong>900 parts</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the sum of 377 and 219. Round both numbers to the nearest hundred, then add.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>377 rounds up to 400 (because the tens digit, 7, is "5 or more").<br>219 rounds down to 200 (because the tens digit, 1, is "4 or less").<br>Now add: 400 + 200.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>400 + 200 = 600. The estimated total is <strong>600 materials</strong>.</p></div>`
         }, {
             id: 'q9',
-            questionText: 'Dog Man saved the Mayor from a fire! The temperature was so hot it rounded to 450 degrees when rounded to the nearest <strong>ten</strong>. What is the <strong>greatest</strong> whole number temperature it could have been?',
+            questionText: 'The storm circle will close in a number of seconds that rounds to 180 (nearest <strong>ten</strong>). What is the <strong>greatest</strong> whole number of seconds it could be?',
             options: [
-                { value: 'A', text: '449 degrees' }, 
-                { value: 'B', text: '451 degrees' }, 
-                { value: 'C', text: '454 degrees' }, 
-                { value: 'D', text: '455 degrees' }
+                { value: 'A', text: '179 seconds' }, 
+                { value: 'B', text: '181 seconds' }, 
+                { value: 'C', text: '184 seconds' }, 
+                { value: 'D', text: '185 seconds' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the biggest whole number that still rounds down or stays at 450 (nearest ten).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The numbers that round to 450 (nearest ten) start at 445 (which rounds up) and go all the way up to...<br>Let's check 455. The ones digit is 5 ("5 or more"), so 455 rounds up to 460. That's too high.<br>Let's check 454. The ones digit is 4 ("4 or less"), so 454 rounds down to 450. This is the biggest number that works.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The greatest possible temperature is <strong>454 degrees</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the biggest whole number that still rounds down or stays at 180 (nearest ten).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The numbers that round to 180 (nearest ten) start at 175 (which rounds up) and go all the way up to...<br>Let's check 185. The ones digit is 5 ("5 or more"), so 185 rounds up to 190. That's too high.<br>Let's check 184. The ones digit is 4 ("4 or less"), so 184 rounds down to 180. This is the biggest number that works.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The greatest possible number of seconds is <strong>184 seconds</strong>.</p></div>`
         }, {
             id: 'q10',
-            questionText: 'Li\'l Petey and Molly draw pictures on Munchy. The main picture frame is 25 cm long and 15 cm wide. What is the <strong>total distance around the frame</strong> (the perimeter)?',
+            questionText: 'The Simpsons\' new house on the island has a yard that is 35 meters long and 25 meters wide. What is the <strong>total distance around the yard</strong> (the perimeter)?',
             options: [
-                { value: 'A', text: '40 cm' }, 
-                { value: 'B', text: '70 cm' }, 
-                { value: 'C', text: '80 cm' }, 
-                { value: 'D', text: '375 cm' }
+                { value: 'A', text: '60 meters' }, 
+                { value: 'B', text: '100 meters' }, 
+                { value: 'C', text: '120 meters' }, 
+                { value: 'D', text: '875 meters' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the perimeter of a rectangle. The sides are 25 cm and 15 cm.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A rectangle has 4 sides. Two long sides (25 cm) and two short sides (15 cm).<br>We must add all four sides: 25 + 25 + 15 + 15.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>25 + 25 = 50.<br>15 + 15 = 30.<br>50 + 30 = 80. The total perimeter is <strong>80 cm</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the perimeter of a rectangle. The sides are 35 m and 25 m.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A rectangle has 4 sides. Two long sides (35 m) and two short sides (25 m).<br>We must add all four sides: 35 + 35 + 25 + 25.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>35 + 35 = 70.<br>25 + 25 = 50.<br>70 + 50 = 120. The total perimeter is <strong>120 meters</strong>.</p></div>`
         }];
 
 
