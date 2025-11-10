@@ -102,7 +102,7 @@
             <!-- Spelling Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
                 <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">This Week's Spelling Words</h2>
-                <ul id="spelling-list" class="list-decimal list-inside text-gray-700 text-lg space-y-1">
+                <ul id="spelling-list" class="list-decimal list-inside text-gray-700 text-lg space-y-1 columns-2">
                     <!-- Spelling words will be injected here by JavaScript -->
                 </ul>
             </div>
@@ -171,24 +171,33 @@
     <script>
         // --- WORD DATA ---
 
-        // (New word lists from the images, with hints added)
+        // (New word list from the image)
         const spellingWords = [
-            { word: 'Thumb', hint: 'The short, thick finger on your hand' },
-            { word: 'Thirteen', hint: 'The number that comes after twelve' },
-            { word: 'Think', hint: 'To use your mind to have ideas' },
-            { word: 'Thick', hint: 'The opposite of thin' },
-            { word: 'Thorn', hint: 'A sharp point on a rose stem' },
-            { word: 'Thermos', hint: 'A container that keeps drinks hot or cold' },
-            { word: 'Thermometer', hint: 'Used to measure temperature' },
-            { word: 'Wheel', hint: 'A round object used to move a car or bike' },
-            { word: 'White', hint: 'The color of snow or milk' },
+            { word: 'Sheep', hint: 'A farm animal with wool' },
+            { word: 'Shoe', hint: 'You wear this on your foot' },
+            { word: 'Ship', hint: 'A large boat on the ocean' },
+            { word: 'Shirt', hint: 'You wear this on your upper body' },
+            { word: 'Shelf', hint: 'You put books on this' },
+            { word: 'Shell', hint: 'You can find this on a beach' },
+            { word: 'Cheese', hint: 'A yellow food made from milk' },
+            { word: 'Chin', hint: 'The part of your face below your mouth' },
+            { word: 'Chick', hint: 'A baby chicken' },
+            { word: 'Chain', hint: 'Made of metal links' },
+            { word: 'Chair', hint: 'You sit on this' },
+            { word: 'Wheel', hint: 'A round object on a car' },
+            { word: 'Wheelbarrow', hint: 'A cart with one wheel' },
+            { word: 'Whistle', hint: 'You blow this to make a sound' },
             { word: 'Whisker', hint: 'A long hair on a cat\'s face' },
-            { word: 'Whale', hint: 'A very large animal that lives in the ocean' },
-            { word: 'Wheelbarrow', hint: 'A cart with one wheel to move things' },
-            { word: 'Whistle', hint: 'You blow this to make a sharp sound' },
-            { word: 'Wheat', hint: 'A grain used to make bread' }
+            { word: 'Whale', hint: 'A very large ocean animal' },
+            { word: 'Thumb', hint: 'The short, thick finger on your hand' },
+            { word: 'Thirteen', hint: 'The number after twelve' },
+            { word: 'Thick', hint: 'The opposite of thin' },
+            { word: 'Thermos', hint: 'Keeps your drink hot or cold' },
+            { word: 'Thermometer', hint: 'Measures temperature' },
+            { word: 'Thorn', hint: 'A sharp point on a rose' }
         ];
 
+        // (Unchanged vocab list)
         const vocabWords = [
             { word: 'imagine', definition: 'picture something in your mind' },
             { word: 'bounce', definition: 'spring back after hitting something' },
@@ -200,7 +209,7 @@
             { word: 'rhyme', definition: 'when words end with the same sound' }
         ];
 
-        // (New Simpsons/Fortnite-themed vocab questions)
+        // (Unchanged Simpsons/Fortnite-themed vocab questions)
         const vocabQuestions = [
             {
                 question: "Homer had to _____ what a world made of cartoons would look like inside Fortnite.",
@@ -308,7 +317,7 @@
                 const questionDiv = document.createElement('div');
                 questionDiv.id = `vq-${index}`;
                 questionDiv.className = 'question p-6 rounded-lg shadow-md bg-white border border-gray-200';
-                // FIX: Store the full question text in a data attribute
+                // Store the full question text in a data attribute
                 questionDiv.setAttribute('data-question-text', q.question);
 
                 const questionText = document.createElement('p');
@@ -391,11 +400,10 @@
                 }
 
                 // Find the original question object
-                // FIX: Get the full question text from the data attribute
+                // Get the full question text from the data attribute
                 const questionText = questionDiv.getAttribute('data-question-text');
                 const question = vocabQuestions.find(q => q.question === questionText);
                 
-                // This is the line that caused the error. Check if question was found.
                 if (question) {
                     const correctAnswer = question.correct;
                     
@@ -516,4 +524,3 @@
 </body>
 
 </html>
-
