@@ -123,10 +123,10 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Llama-Nado!
+            Math Mission: Zero Hour
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
-            3rd Grade Practice: Solve 10 problems to unlock the Volume Explorer!
+            Help the heroes defeat the Dark Presence by solving these math problems!
         </p>
 
         <!-- Quiz Section -->
@@ -217,119 +217,114 @@
 
     <script>
         // --- QUIZ DATA ---
-        // (New questions based on rounding/estimation concepts and "Llama-Nado" story)
-        const allQuestions = [{
+        // Updated questions based on "Zero Hour" story and user's requested math types
+        const allQuestions = [
+        {
             id: 'q1',
-            questionText: `Mr. Burns's Llama-Nado sucked up 48 donuts from Lard Lad and 23 tacos from Greasy Grove.
-                          <br>Estimate the <strong>total</strong> number of snacks he stole by rounding each number to the nearest <strong>ten</strong>.`,
+            questionText: `Each Supply Drop contains <strong>3 Medkits</strong> (green) and <strong>3 Shield Potions</strong> (blue). 
+                          <br>That means each drop has 6 items. If you have 4 Supply Drops, what is the total number of items? 
+                          <br><em>(Hint: 4 sixes is the same as 8 threes)</em>`,
             options: [
-                { value: 'A', text: '60 snacks' }, 
-                { value: 'B', text: '70 snacks' }, 
-                { value: 'C', text: '71 snacks' }, 
-                { value: 'D', text: '80 snacks' }
+                { value: 'A', text: '18 items' }, 
+                { value: 'B', text: '24 items' }, 
+                { value: 'C', text: '12 items' }, 
+                { value: 'D', text: '30 items' }
             ],
             correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the total of donuts (48) and tacos (23). First, round both numbers to the nearest ten. Then, add the rounded numbers.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>48 is between 40 and 50. It's closer to 50. So, 48 rounds to 50.<br>23 is between 20 and 30. It's closer to 20. So, 23 rounds to 20.<br>Now add: 50 + 20.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>50 + 20 = 70. The estimated total is <strong>70 snacks</strong>.</p></div>`
-        }, {
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>One drop has 3 green + 3 blue items. That's 6 items per drop. We need the total for 4 drops.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 4 drops. Inside each are two groups of 3 (3 green, 3 blue). <br>So, 4 groups of 6 items is the same as 4 groups of (2 × 3).<br>This equals 8 groups of 3.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Skip count by 6 four times: 6, 12, 18, <strong>24</strong>.<br>Or skip count by 3 eight times: 3, 6, 9, 12, 15, 18, 21, <strong>24</strong>.</p></div>`
+        }, 
+        {
             id: 'q2',
-            questionText: `Peely's banana stand had 92 bananas. The Llama-Nado stole 59 of them.
-                          <br>Estimate how many bananas Peely has <strong>left</strong> by rounding each number to the nearest <strong>ten</strong>.`,
+            questionText: `Jonesy buys <strong>9 packs</strong> of Heavy Ammo. Each pack has <strong>9 bullets</strong>. 
+                          After fighting the Dark Presence, he has <strong>27 bullets left</strong>. 
+                          <br>How many bullets did he fire?`,
             options: [
-                { value: 'A', text: '30 bananas' }, 
-                { value: 'B', text: '33 bananas' }, 
-                { value: 'C', text: '40 bananas' }, 
-                { value: 'D', text: '150 bananas' }
+                { value: 'A', text: '81 bullets' }, 
+                { value: 'B', text: '45 bullets' }, 
+                { value: 'C', text: '54 bullets' }, 
+                { value: 'D', text: '63 bullets' }
             ],
-            correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to estimate the difference between the starting bananas (92) and the stolen ones (59). First, round both numbers to the nearest ten. Then, subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>92 is between 90 and 100. It's closer to 90. So, 92 rounds to 90.<br>59 is between 50 and 60. It's closer to 60. So, 59 rounds to 60.<br>Now subtract: 90 - 60.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>90 - 60 = 30. Peely has about <strong>30 bananas</strong> left.</p></div>`
-        }, {
+            correctAnswer: 'C',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>First, find the total ammo Jonesy started with. Then subtract what is left to find what was used.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Start: 9 packs × 9 bullets = 81 bullets.<br>Left: 27 bullets.<br>Used: 81 - 27.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>81 - 27 = 54. Jonesy fired <strong>54 bullets</strong>.</p></div>`
+        },
+        {
             id: 'q3',
-            questionText: 'Lisa\'s drone flies 348 meters into the Llama-Nado fortress. What is 348 rounded to the nearest <strong>ten</strong>?',
+            questionText: `Bart wants to buy <strong>7 new 'Hero' skins</strong>. Each skin costs <strong>9 Battle Stars</strong>. 
+                          <br>What is the total cost? (Use the letter <em>c</em> to represent the total cost).`,
             options: [
-                { value: 'A', text: '300' }, 
-                { value: 'B', text: '340' }, 
-                { value: 'C', text: '350' }, 
-                { value: 'D', text: '400' }
+                { value: 'A', text: 'c = 16' }, 
+                { value: 'B', text: 'c = 56' }, 
+                { value: 'C', text: 'c = 63' }, 
+                { value: 'D', text: 'c = 72' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 348 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the tens place (4). Now look at the ones place (8). The rule is: "5 or more, raise the score."<br>Since 8 is "more," we "raise the score," meaning the tens place (4) goes up to 5. The one's place becomes 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>348 rounded to the nearest ten is <strong>350</strong>.</p></div>`
-        }, {
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 7 groups (skins) of 9 items (stars) each. We need to find the total.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw a tape diagram with 7 boxes. Put 9 in each box. The total length is <em>c</em>.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>7 × 9 = 63. So, <strong>c = 63</strong>.</p></div>`
+        },
+        {
             id: 'q4',
-            questionText: 'Lisa\'s drone flies 348 meters into the Llama-Nado fortress. What is 348 rounded to the nearest <strong>hundred</strong>?',
+            questionText: `Peely divides <strong>36 Golden Mushrooms</strong> equally into <strong>9 baskets</strong> for the refugees. 
+                          <br>Let <em>m</em> be the number of mushrooms in each basket. Which equation helps you solve for <em>m</em>?`,
             options: [
-                { value: 'A', text: '300' }, 
-                { value: 'B', text: '340' }, 
-                { value: 'C', text: '350' }, 
-                { value: 'D', text: '400' }
+                { value: 'A', text: '36 ÷ 9 = m' }, 
+                { value: 'B', text: '36 + 9 = m' }, 
+                { value: 'C', text: '9 × m = 360' }, 
+                { value: 'D', text: '36 - 9 = m' }
             ],
             correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 348 to the nearest hundred.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the hundreds place (3). Now look at the tens place (4). The rule is: "4 or less, let it rest."<br>Since 4 is "less," we "let it rest," meaning the hundreds place (3) stays the same. All other places become 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>348 rounded to the nearest hundred is <strong>300</strong>.</p></div>`
-        }, {
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are sharing a total (36) into equal groups (9). This is division.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw a tape diagram with total 36. Split it into 9 equal parts. Each part is <em>m</em>.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. So, <strong>m = 4</strong> mushrooms per basket.</p></div>`
+        },
+        {
             id: 'q5',
-            questionText: 'Mr. Burns stole a number of gold bars that rounds to 80 when rounded to the nearest <strong>ten</strong>. Which of these could be the number of bars he stole?',
+            questionText: `Hatsune Miku gives packs of <strong>9 songs</strong> to her fans. She gives away a total of <strong>45 songs</strong>. 
+                          <br>How many packs did she give away?`,
             options: [
-                { value: 'A', text: '74 bars' }, 
-                { value: 'B', text: '86 bars' }, 
-                { value: 'C', text: '78 bars' }, 
-                { value: 'D', text: '85 bars' }
+                { value: 'A', text: '4 packs' }, 
+                { value: 'B', text: '5 packs' }, 
+                { value: 'C', text: '6 packs' }, 
+                { value: 'D', text: '9 packs' }
             ],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find which of the answers rounds to 80 (nearest ten).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Let's check each one:<br>A: 74 rounds to 70 (because 4 is "4 or less").<br>B: 86 rounds to 90 (because 6 is "5 or more").<br>C: 78 rounds to 80 (because 8 is "5 or more").<br>D: 85 rounds to 90 (because 5 is "5 or more").</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>78 bars</strong> is the only number that rounds to 80.</p></div>`
-        }, {
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total is 45. Size of each group is 9. We need to find the number of groups (packs).</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>You can count by 9s until you hit 45: 9, 18, 27, 36, 45.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>It took 5 counts. 45 ÷ 9 = <strong>5 packs</strong>.</p></div>`
+        },
+        {
             id: 'q6',
-            questionText: 'Homer finds 63 Squishees floating in the fortress. What is 63 rounded to the nearest <strong>ten</strong>?',
+            questionText: `Iron Man shares a cable that is <strong>72 meters</strong> long equally with <strong>8 heroes</strong> to tow the Battle Bus. 
+                          <br>How long is the piece of cable that each hero gets?`,
             options: [
-                { value: 'A', text: '60' }, 
-                { value: 'B', text: '65' }, 
-                { value: 'C', text: '70' }, 
-                { value: 'D', text: '63' }
+                { value: 'A', text: '7 meters' }, 
+                { value: 'B', text: '8 meters' }, 
+                { value: 'C', text: '9 meters' }, 
+                { value: 'D', text: '10 meters' }
             ],
-            correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round 63 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The number 63 is between 60 and 70. The ones digit is 3. Since 3 is "4 or less," we "let it rest" and round down to 60.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>63 rounds down to <strong>60</strong>.</p></div>`
-        }, {
+            correctAnswer: 'C',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total length is 72. Divide it by 8 people.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think of your multiplication facts: 8 times what equals 72?</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>8 × 9 = 72. So, 72 ÷ 8 = <strong>9 meters</strong>.</p></div>`
+        },
+        {
             id: 'q7',
-            questionText: 'The Battle Bus flies 782 meters. Mr. Burns\'s fortress is 418 meters high. Estimate the <strong>difference</strong> by rounding both numbers to the nearest <strong>ten</strong>.',
+            questionText: `Lisa is checking supplies. She knows that <strong>4 groups of (2 × 3)</strong> items is the same amount as <strong>4 groups of 6</strong> items. 
+                          <br>What is the total amount?`,
             options: [
-                { value: 'A', text: '360 meters' }, 
-                { value: 'B', text: '370 meters' }, 
-                { value: 'C', text: '300 meters' }, 
-                { value: 'D', text: '400 meters' }
+                { value: 'A', text: '12 items' }, 
+                { value: 'B', text: '24 items' }, 
+                { value: 'C', text: '18 items' }, 
+                { value: 'D', text: '36 items' }
             ],
-            correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the difference between 782 and 418. Round both numbers to the nearest ten, then subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>782 rounds down to 780 (because 2 is "4 or less").<br>418 rounds up to 420 (because 8 is "5 or more").<br>Now subtract: 780 - 420.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>780 - 420 = 360. The estimated difference is <strong>360 meters</strong>.</p></div>`
-        }, {
-            id: 'q8',
-            questionText: 'Marge uses 153 wood to build a wall. Bart uses 478 stone to build a ramp. Estimate the <strong>total</strong> materials used by rounding both numbers to the nearest <strong>hundred</strong>.',
-            options: [
-                { value: 'A', text: '600' }, 
-                { value: 'B', text: '631' }, 
-                { value: 'C', text: '700' }, 
-                { value: 'D', text: '800' }
-            ],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the sum of 153 and 478. Round both numbers to the nearest hundred, then add.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>153 rounds up to 200 (because the tens digit, 5, is "5 or more").<br>478 rounds up to 500 (because the tens digit, 7, is "5 or more").<br>Now add: 200 + 500.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>200 + 500 = 700. The estimated total is <strong>700 materials</strong>.</p></div>`
-        }, {
-            id: 'q9',
-            questionText: 'Homer belly-flops on the "EJECT" button for a number of seconds that rounds to 210 (nearest <strong>ten</strong>). What is the <strong>greatest</strong> whole number of seconds it could have been?',
-            options: [
-                { value: 'A', text: '209 seconds' }, 
-                { value: 'B', text: '211 seconds' }, 
-                { value: 'C', text: '214 seconds' }, 
-                { value: 'D', text: '215 seconds' }
-            ],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the biggest whole number that still rounds down or stays at 210 (nearest ten).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The numbers that round to 210 (nearest ten) start at 205 (which rounds up) and go all the way up to...<br>Let's check 215. The ones digit is 5 ("5 or more"), so 215 rounds up to 220. That's too high.<br>Let's check 214. The ones digit is 4 ("4 or less"), so 214 rounds down to 210. This is the biggest number that works.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The greatest possible number of seconds is <strong>214 seconds</strong>.</p></div>`
-        }, {
-            id: 'q10',
-            questionText: 'The main donut vault in Mr. Burns\'s fortress is 40 meters long and 20 meters wide. What is the <strong>total distance around the vault</strong> (the perimeter)?',
-            options: [
-                { value: 'A', text: '60 meters' }, 
-                { value: 'B', text: '100 meters' }, 
-                { value: 'C', text: '120 meters' }, 
-                { value: 'D', text: '800 meters' }
-            ],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to find the perimeter of a rectangle. The sides are 40 m and 20 m.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>A rectangle has 4 sides. Two long sides (40 m) and two short sides (20 m).<br>We must add all four sides: 40 + 40 + 20 + 20.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>40 + 40 = 80.<br>20 + 20 = 40.<br>80 + 40 = 120. The total perimeter is <strong>120 meters</strong>.</p></div>`
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>First solve the inside of the parenthesis: (2 × 3) = 6.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Now you have 4 groups of 6. This is the same as skip counting by 6 four times.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 × 6 = <strong>24 items</strong>.</p></div>`
         }];
 
 
