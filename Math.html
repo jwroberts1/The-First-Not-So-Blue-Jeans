@@ -123,10 +123,10 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Zero Hour
+            Math Mission: Chopper's Medicine
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
-            Help the heroes defeat the Dark Presence by solving these math problems!
+            Help Dr. Chopper calculate the right doses and supplies for the crew!
         </p>
 
         <!-- Quiz Section -->
@@ -217,44 +217,42 @@
 
     <script>
         // --- QUIZ DATA ---
-        // Updated questions based on "Zero Hour" story and user's requested math types
+        // Updated questions based on "Chopper's Journey" and requested math types
         const allQuestions = [
         {
             id: 'q1',
-            questionText: `Each Supply Drop contains <strong>3 Medkits</strong> (green) and <strong>3 Shield Potions</strong> (blue). 
-                          <br>That means each drop has 6 items. If you have 4 Supply Drops, what is the total number of items? 
-                          <br><em>(Hint: 4 sixes is the same as 8 threes)</em>`,
+            questionText: `Chopper makes snack bags for Luffy. Each bag has <strong>3 Rumble Balls</strong> (yellow) and <strong>3 Cotton Candy sticks</strong> (pink). 
+                          <br>a. Skip-count by threes to find the total items in 4 bags. <br>b. Finish this statement: <strong>4 sixes is the same as ____ threes.</strong>`,
             options: [
-                { value: 'A', text: '18 items' }, 
-                { value: 'B', text: '24 items' }, 
-                { value: 'C', text: '12 items' }, 
-                { value: 'D', text: '30 items' }
+                { value: 'A', text: '12 threes' }, 
+                { value: 'B', text: '8 threes' }, 
+                { value: 'C', text: '6 threes' }, 
+                { value: 'D', text: '16 threes' }
             ],
             correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>One drop has 3 green + 3 blue items. That's 6 items per drop. We need the total for 4 drops.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Imagine 4 drops. Inside each are two groups of 3 (3 green, 3 blue). <br>So, 4 groups of 6 items is the same as 4 groups of (2 × 3).<br>This equals 8 groups of 3.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>Skip count by 6 four times: 6, 12, 18, <strong>24</strong>.<br>Or skip count by 3 eight times: 3, 6, 9, 12, 15, 18, 21, <strong>24</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>One bag has 3 yellow + 3 pink = 6 items. We have 4 bags.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw 4 bags. Inside each, draw 2 groups of 3.<br>Count the groups of 3: 1, 2, 3, 4, 5, 6, 7, 8.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 groups of 6 is equal to 8 groups of 3.<br>Answer: <strong>8 threes</strong>.</p></div>`
         }, 
         {
             id: 'q2',
-            questionText: `Jonesy buys <strong>9 packs</strong> of Heavy Ammo. Each pack has <strong>9 bullets</strong>. 
-                          After fighting the Dark Presence, he has <strong>27 bullets left</strong>. 
-                          <br>How many bullets did he fire?`,
+            questionText: `Chopper has <strong>36 rolls of bandages</strong>. He divides them equally among <strong>9 injured reindeer</strong>. 
+                          <br>Draw a tape diagram to model this. Let <em>b</em> be the number of bandages per reindeer. Solve for <em>b</em>.`,
             options: [
-                { value: 'A', text: '81 bullets' }, 
-                { value: 'B', text: '45 bullets' }, 
-                { value: 'C', text: '54 bullets' }, 
-                { value: 'D', text: '63 bullets' }
+                { value: 'A', text: 'b = 3 bandages' }, 
+                { value: 'B', text: 'b = 4 bandages' }, 
+                { value: 'C', text: 'b = 6 bandages' }, 
+                { value: 'D', text: 'b = 9 bandages' }
             ],
-            correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>First, find the total ammo Jonesy started with. Then subtract what is left to find what was used.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Start: 9 packs × 9 bullets = 81 bullets.<br>Left: 27 bullets.<br>Used: 81 - 27.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>81 - 27 = 54. Jonesy fired <strong>54 bullets</strong>.</p></div>`
+            correctAnswer: 'B',
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total is 36. We are dividing into 9 equal groups. We need to find the size of one group.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw a long rectangle (tape) representing 36. Cut it into 9 equal sections. Label one section <em>b</em>.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. So, <strong>b = 4</strong>.</p></div>`
         },
         {
             id: 'q3',
-            questionText: `Bart wants to buy <strong>7 new 'Hero' skins</strong>. Each skin costs <strong>9 Battle Stars</strong>. 
-                          <br>What is the total cost? (Use the letter <em>c</em> to represent the total cost).`,
+            questionText: `Nami buys <strong>7 maps</strong>. Each map costs <strong>9 Berries</strong>. 
+                          <br>What is the total cost of the maps? Use the letter <em>c</em> to represent the total cost.`,
             options: [
                 { value: 'A', text: 'c = 16' }, 
                 { value: 'B', text: 'c = 56' }, 
@@ -262,44 +260,45 @@
                 { value: 'D', text: 'c = 72' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 7 groups (skins) of 9 items (stars) each. We need to find the total.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw a tape diagram with 7 boxes. Put 9 in each box. The total length is <em>c</em>.</p></div>
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have 7 groups (maps). Each group is 9 Berries. We need the total.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw a tape diagram with 7 boxes. Write '9' inside each box. The total length is <em>c</em>.</p></div>
                   <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>7 × 9 = 63. So, <strong>c = 63</strong>.</p></div>`
         },
         {
             id: 'q4',
-            questionText: `Peely divides <strong>36 Golden Mushrooms</strong> equally into <strong>9 baskets</strong> for the refugees. 
-                          <br>Let <em>m</em> be the number of mushrooms in each basket. Which equation helps you solve for <em>m</em>?`,
+            questionText: `Sanji bakes a total of <strong>45 muffins</strong> for the crew. He puts <strong>9 muffins</strong> in each box. 
+                          <br>How many boxes did he fill? Let <em>m</em> represent the number of boxes.`,
             options: [
-                { value: 'A', text: '36 ÷ 9 = m' }, 
-                { value: 'B', text: '36 + 9 = m' }, 
-                { value: 'C', text: '9 × m = 360' }, 
-                { value: 'D', text: '36 - 9 = m' }
+                { value: 'A', text: 'm = 5 boxes' }, 
+                { value: 'B', text: 'm = 6 boxes' }, 
+                { value: 'C', text: 'm = 9 boxes' }, 
+                { value: 'D', text: 'm = 4 boxes' }
             ],
             correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are sharing a total (36) into equal groups (9). This is division.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Draw a tape diagram with total 36. Split it into 9 equal parts. Each part is <em>m</em>.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>36 ÷ 9 = 4. So, <strong>m = 4</strong> mushrooms per basket.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total is 45. Size of each group is 9. Find the number of groups.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Skip count by 9 until you reach 45: 9, 18, 27, 36, 45.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>It took 5 counts. 45 ÷ 9 = 5. So, <strong>m = 5</strong>.</p></div>`
         },
         {
             id: 'q5',
-            questionText: `Hatsune Miku gives packs of <strong>9 songs</strong> to her fans. She gives away a total of <strong>45 songs</strong>. 
-                          <br>How many packs did she give away?`,
+            questionText: `Usopp has <strong>9 bags</strong> of slingshot pellets. Each bag holds <strong>9 pellets</strong>. 
+                          After fighting on Enies Lobby, he counts his ammo and has <strong>27 pellets left</strong>. 
+                          <br>How many pellets did he use?`,
             options: [
-                { value: 'A', text: '4 packs' }, 
-                { value: 'B', text: '5 packs' }, 
-                { value: 'C', text: '6 packs' }, 
-                { value: 'D', text: '9 packs' }
+                { value: 'A', text: '45 pellets' }, 
+                { value: 'B', text: '54 pellets' }, 
+                { value: 'C', text: '63 pellets' }, 
+                { value: 'D', text: '81 pellets' }
             ],
             correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total is 45. Size of each group is 9. We need to find the number of groups (packs).</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>You can count by 9s until you hit 45: 9, 18, 27, 36, 45.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>It took 5 counts. 45 ÷ 9 = <strong>5 packs</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>First, find the total pellets he started with. Then subtract what is left.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Start: 9 bags × 9 pellets = 81 pellets.<br>Left: 27 pellets.<br>Used: 81 - 27.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>81 - 27 = 54. Usopp used <strong>54 pellets</strong>.</p></div>`
         },
         {
             id: 'q6',
-            questionText: `Iron Man shares a cable that is <strong>72 meters</strong> long equally with <strong>8 heroes</strong> to tow the Battle Bus. 
-                          <br>How long is the piece of cable that each hero gets?`,
+            questionText: `Zoro has a long rope to train with. The rope is <strong>72 meters</strong> long. He cuts it into <strong>8 equal pieces</strong> to share with the dojo. 
+                          <br>How long is each piece?`,
             options: [
                 { value: 'A', text: '7 meters' }, 
                 { value: 'B', text: '8 meters' }, 
@@ -307,24 +306,24 @@
                 { value: 'D', text: '10 meters' }
             ],
             correctAnswer: 'C',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total length is 72. Divide it by 8 people.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think of your multiplication facts: 8 times what equals 72?</p></div>
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Total is 72. Number of groups is 8. Find the size of one group.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Ask yourself: 8 times what number equals 72?</p></div>
                   <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>8 × 9 = 72. So, 72 ÷ 8 = <strong>9 meters</strong>.</p></div>`
         },
         {
             id: 'q7',
-            questionText: `Lisa is checking supplies. She knows that <strong>4 groups of (2 × 3)</strong> items is the same amount as <strong>4 groups of 6</strong> items. 
-                          <br>What is the total amount?`,
+            questionText: `Chopper is organizing medicine bottles. He knows that <strong>4 groups of (2 × 3)</strong> bottles is the same amount as <strong>4 groups of ____</strong> bottles. 
+                          <br>Fill in the blank and find the total.`,
             options: [
-                { value: 'A', text: '12 items' }, 
-                { value: 'B', text: '24 items' }, 
-                { value: 'C', text: '18 items' }, 
-                { value: 'D', text: '36 items' }
+                { value: 'A', text: '4 groups of 5; Total 20' }, 
+                { value: 'B', text: '4 groups of 6; Total 24' }, 
+                { value: 'C', text: '4 groups of 3; Total 12' }, 
+                { value: 'D', text: '4 groups of 9; Total 36' }
             ],
             correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>First solve the inside of the parenthesis: (2 × 3) = 6.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Now you have 4 groups of 6. This is the same as skip counting by 6 four times.</p></div>
-                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 × 6 = <strong>24 items</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>First, solve the math inside the parenthesis: (2 × 3) = 6.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Now you have 4 groups of 6. Draw 4 circles with 6 dots in each.</p></div>
+                  <div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>4 groups of 6. Total: 4 × 6 = <strong>24</strong>.</p></div>`
         }];
 
 
