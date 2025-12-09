@@ -101,7 +101,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Spelling Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">This Week's Spelling Words</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Consonant Blends (sc, sn, sw)</h2>
                 <ul id="spelling-list" class="list-decimal list-inside text-gray-700 text-lg space-y-1 columns-2">
                     <!-- Spelling words will be injected here by JavaScript -->
                 </ul>
@@ -109,7 +109,7 @@
 
             <!-- Vocabulary Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">This Week's Vocabulary Words</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Word Meanings</h2>
                 <div id="vocab-list" class="space-y-3">
                     <!-- Vocab words and definitions will be injected here -->
                 </div>
@@ -171,81 +171,80 @@
     <script>
         // --- WORD DATA ---
 
-        // (New word list from the image: Consonant Blends sp, sk, sm)
+        // (Corrected spelling words from the Polar Bear image)
         const spellingWords = [
-            { word: 'Spoon', hint: 'You eat soup with this' },
-            { word: 'Spill', hint: 'To accidentally drop a drink' },
-            { word: 'Spider', hint: 'An animal with eight legs' },
-            { word: 'Spear', hint: 'A long stick with a sharp point' },
-            { word: 'Sponge', hint: 'Used to wash dishes or cars' },
-            { word: 'Spout', hint: 'Where water comes out of a teapot' },
-            { word: 'Skateboard', hint: 'A board with wheels you ride on' },
-            { word: 'Skis', hint: 'Long boards used to slide on snow' },
-            { word: 'Skate', hint: 'To slide on ice or roll on wheels' },
-            { word: 'Skunk', hint: 'A black and white animal that sprays a smell' },
-            { word: 'Sky', hint: 'The blue space above the earth' },
-            { word: 'Skirt', hint: 'A piece of clothing worn by girls' },
-            { word: 'Smile', hint: 'You do this when you are happy' },
-            { word: 'Smoke', hint: 'Grey cloud that comes from a fire' },
-            { word: 'Smock', hint: 'A shirt worn to protect clothes from paint' },
-            { word: 'Smell', hint: 'You use your nose to do this' },
-            // Note: 'Smile' was listed twice in the image, but I'm including it once
-            { word: 'Small', hint: 'The opposite of big' }
+            { word: 'Scarecrow', hint: 'A figure made of straw to scare birds' },
+            { word: 'Scale', hint: 'You step on this to weigh yourself' },
+            { word: 'Scooter', hint: 'A vehicle with two wheels and a handle you stand on' },
+            { word: 'Scout', hint: 'Someone sent ahead to look for something' },
+            { word: 'Scarf', hint: 'Warm clothing worn around the neck' },
+            { word: 'School', hint: 'The place where you go to learn' },
+            { word: 'Snail', hint: 'A slow animal with a shell' },
+            { word: 'Snake', hint: 'A long reptile with no legs' },
+            { word: 'Snow', hint: 'White flakes that fall in winter' },
+            { word: 'Snowman', hint: 'A figure made of three balls of snow' },
+            { word: 'Sneakers', hint: 'Shoes you wear for running or sports' },
+            { word: 'Snap', hint: 'A quick cracking sound, or a sudden break' },
+            { word: 'Sweater', hint: 'Warm clothing made of wool' },
+            { word: 'Swan', hint: 'A large, beautiful white bird' },
+            { word: 'Switch', hint: 'To change from one thing to another, or turn a light on' },
+            { word: 'Swing', hint: 'A seat hanging from ropes that moves back and forth' },
+            { word: 'Swim', hint: 'To move through water' }
         ];
 
-        // (Unchanged vocab list)
+        // (New Vocabulary Words drawn FROM the Spelling List)
         const vocabWords = [
-            { word: 'imagine', definition: 'picture something in your mind' },
-            { word: 'bounce', definition: 'spring back after hitting something' },
-            { word: 'inventor', definition: 'a person who creates something for the first time' },
-            { word: 'observer', definition: 'someone who watches something' },
-            { word: 'alliteration', definition: 'several words or syllables in a row start with the same sound' },
-            { word: 'free verse', definition: 'poem in which some verses rhyme and some do not' },
-            { word: 'limerick', definition: 'a funny poem of five lines with a specific rhyme pattern' },
-            { word: 'rhyme', definition: 'when words end with the same sound' }
+            { word: 'scout', definition: 'A soldier or person sent out ahead to gather information' },
+            { word: 'scale', definition: 'To climb up or over something high' },
+            { word: 'switch', definition: 'To change from one thing to another' },
+            { word: 'snap', definition: 'To break suddenly with a sharp sound' },
+            { word: 'scarecrow', definition: 'An object made to look like a person to scare birds away' },
+            { word: 'scooter', definition: 'A small vehicle with two wheels and a handle' },
+            { word: 'swan', definition: 'A large, graceful water bird with a long neck' },
+            { word: 'snow', definition: 'Soft, white flakes of ice that fall from the sky' }
         ];
 
-        // (Unchanged Simpsons/Fortnite-themed vocab questions)
+        // (New Themed Vocab Questions using words from the spelling list)
         const vocabQuestions = [
             {
-                question: "Homer had to _____ what a world made of cartoons would look like inside Fortnite.",
-                options: ['imagine', 'bounce', 'inventor', 'observer'],
-                correct: 'imagine'
+                question: "Jonesy acted as a _____ to go ahead and find where the Dark Presence was hiding.",
+                options: ['scout', 'swan', 'snail', 'switch'],
+                correct: 'scout'
             },
             {
-                question: "Homer loved to _____ on the new, weirdly flat trees in Springfield.",
-                options: ['rhyme', 'bounce', 'imagine', 'alliteration'],
-                correct: 'bounce'
+                question: "King Kong started to _____ the side of the tall Tilted Towers clock building.",
+                options: ['scale', 'swim', 'swing', 'snap'],
+                correct: 'scale'
             },
             {
-                question: "Lisa could be an _____ because she's always creating things, just like the person who made the Rift.",
-                options: ['inventor', 'observer', 'limerick', 'rhyme'],
-                correct: 'inventor'
+                question: "Homer tried to _____ from his pickaxe to his donut, but he pressed the wrong button!",
+                options: ['switch', 'scarecrow', 'snow', 'school'],
+                correct: 'switch'
             },
             {
-                question: "Marge was a careful _____, noticing all the strange new buildings and the closing storm.",
-                options: ['free verse', 'bounce', 'inventor', 'observer'],
-                correct: 'observer'
+                question: "With a loud _____, the golden portal closed behind Iron Man.",
+                options: ['snap', 'snake', 'snail', 'sweater'],
+                correct: 'snap'
             },
             {
-                question: "The sentence 'Peely's perfect plan' is an example of _____.",
-                options: ['alliteration', 'rhyme', 'limerick', 'imagine'],
-                correct: 'alliteration'
+                question: "Bart rode his _____ quickly down the street to escape the storm circle.",
+                options: ['scooter', 'scale', 'scarf', 'swan'],
+                correct: 'scooter'
             },
             {
-                question: "Lisa wrote a poem about Fortnite that didn't rhyme. This is called _____.",
-                options: ['rhyme', 'limerick', 'free verse', 'alliteration'],
-                correct: 'free verse'
+                question: "The spooky new skin looked just like a _____ standing in the cornfield.",
+                options: ['scarecrow', 'scout', 'snowman', 'school'],
+                correct: 'scarecrow'
             },
             {
-                question: "Bart wrote a funny, five-line poem about Homer getting stuck. This is a _____.",
-                options: ['inventor', 'limerick', 'free verse', 'observer'],
-                correct: 'limerick'
+                question: "The alien spaceship glided through the air, graceful and white like a _____.",
+                options: ['swan', 'snake', 'snail', 'scooter'],
+                correct: 'swan'
             },
             {
-                question: "The sentence 'Homer found a shield pot right on the spot' is a good _____.",
-                options: ['rhyme', 'bounce', 'imagine', 'inventor'],
-                correct: 'rhyme'
+                question: "After the Zero Hour event ended, the map was covered in cold, white _____.",
+                options: ['snow', 'scarf', 'sweaters', 'school'],
+                correct: 'snow'
             }
         ];
 
@@ -297,7 +296,7 @@
             vocabWords.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'vocab-card';
-                card.innerHTML = `<strong class="text-indigo-600">${item.word}:</strong> ${item.definition}`;
+                card.innerHTML = `<strong class="text-indigo-600 uppercase">${item.word}:</strong> ${item.definition}`;
                 vocabList.appendChild(card);
             });
         }
