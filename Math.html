@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -19,6 +20,10 @@
 
         .header-font {
             font-family: 'Jost', sans-serif;
+        }
+        
+        .game-font {
+            font-family: 'Bangers', cursive;
         }
 
         .question-option {
@@ -84,17 +89,31 @@
             border-radius: 6px;
         }
         
-        /* New Game Styles */
-        .container-btn {
-            @apply p-2 border-2 border-gray-300 rounded-lg flex items-center justify-center transition-all duration-200;
-        }
-        .container-btn.selected {
-            @apply border-blue-500 bg-blue-50 shadow-lg;
-        }
-        #visualizer-svg svg {
+        /* Game Canvas Styles */
+        #game-canvas {
+            background: #0f172a; /* Dark Blue Space */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             width: 100%;
             height: 100%;
-            max-height: 400px;
+            display: block;
+        }
+
+        .control-button {
+            @apply bg-blue-600 text-white p-4 rounded-xl text-2xl font-bold transition-transform transform active:scale-95 shadow-lg border-b-4 border-blue-800;
+            -webkit-tap-highlight-color: transparent; 
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fire-button {
+            @apply bg-red-600 text-white p-4 rounded-xl text-xl font-bold transition-transform transform active:scale-95 shadow-lg border-b-4 border-red-800;
+            -webkit-tap-highlight-color: transparent;
+            width: 100px;
+            height: 80px;
         }
 
         /* Simple table for question 1 */
@@ -146,7 +165,7 @@
             <p id="scoreText"></p>
             <div class="mt-4 space-x-4">
                 <button id="startGameBtn" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300 shadow-md hidden">
-                    Perfect Score! Play the Volume Explorer!
+                    Perfect Score! Play Space Blaster!
                 </button>
                 <button id="retakeQuizBtn" class="bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-400 transition duration-300 shadow-md hidden">
                     Try Again
@@ -170,46 +189,43 @@
 
         <hr class="my-12 border-gray-200">
 
-        <!-- Game Section (Volume Explorer) -->
-        <div id="game-container" class="p-4 bg-gray-100 rounded-lg shadow-inner" style="display: none;">
-            <div class="text-center mb-6">
-                 <h1 class="text-3xl font-bold mb-2 header-font text-blue-700">Volume Explorer</h1>
-                 <p class="text-gray-600">Choose a container, enter an amount, and see how full it gets!</p>
+        <!-- Space Blaster Game Section -->
+        <div id="game-container" class="flex flex-col items-center justify-center min-h-[600px] p-4 bg-gray-900 rounded-lg shadow-inner border-4 border-blue-500" style="display: none;">
+            
+            <div id="game-info" class="mb-4 w-full max-w-xl text-center text-white bg-blue-900 p-4 rounded-xl border-2 border-blue-400 bg-opacity-80">
+                <h1 class="text-3xl font-bold mb-2 game-font text-yellow-400 tracking-wider">Multiples of 10 Blaster!</h1>
+                <p class="text-gray-200 text-sm sm:text-base">
+                    <span class="text-green-400 font-bold">MISSION:</span> Blast numbers that are <span class="text-yellow-300 font-bold">MULTIPLES OF 10</span> (10, 20, 30...)!<br>
+                    <span class="text-red-400 font-bold">WARNING:</span> Do NOT shoot other numbers. Do NOT crash!
+                </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Container Selection -->
-                <div id="container-selector" class="md:col-span-1 flex md:flex-col justify-around md:justify-start space-x-2 md:space-x-0 md:space-y-4">
-                    <button id="juice-box-btn" class="container-btn">
-                        <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M20,80 L20,20 L80,20 L80,80 Z M30,15 L70,15 L70,20 L30,20 Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
-                    </button>
-                     <button id="water-bottle-btn" class="container-btn">
-                        <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M30 95 L30 40 Q30 20 50 20 Q70 20 70 40 L70 95 Z M40 15 L60 15 L60 20 L40 20Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
-                    </button>
-                     <button id="milk-carton-btn" class="container-btn">
-                         <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M20 95 L20 30 L50 10 L80 30 L80 95 Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
-                    </button>
-                     <button id="soda-bottle-btn" class="container-btn">
-                        <svg class="w-12 h-12" viewBox="0 0 100 100"><path d="M35 95 C 20 80, 20 50, 35 40 L 40 15 L 60 15 L 65 40 C 80 50, 80 80, 65 95 Z M45 10 L55 10 L55 15 L45 15Z" fill="none" stroke="#4b5563" stroke-width="3"/></svg>
-                    </button>
+
+            <!-- Game Stats -->
+            <div class="flex justify-between w-full max-w-xl mb-2 px-4 text-white game-font text-2xl">
+                <div id="score-display">SCORE: 0</div>
+                <div id="lives-display" class="text-red-500">❤❤❤</div>
+            </div>
+
+            <!-- Game Canvas -->
+            <div id="game-canvas-container" class="relative w-full max-w-xl aspect-[3/4] overflow-hidden rounded-lg border-2 border-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                 <canvas id="game-canvas"></canvas>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div id="mobile-controls" class="flex justify-between items-center w-full max-w-xl mt-6 px-2 gap-4">
+                <div class="flex gap-4">
+                    <button id="left-btn" class="control-button">◄</button>
+                    <button id="right-btn" class="control-button">►</button>
                 </div>
-                <!-- Visualizer -->
-                <div class="md:col-span-3 flex flex-col items-center">
-                    <div id="visualizer-svg" class="w-full h-64 md:h-96 bg-white rounded-lg border-2 border-gray-300 p-2 mb-4">
-                        <!-- SVG will be injected here -->
-                    </div>
-                    <div class="text-center mb-4">
-                        <p class="font-semibold text-lg" id="container-name">Select a container</p>
-                        <p class="text-gray-600" id="container-capacity"></p>
-                    </div>
-                     <!-- Controls -->
-                    <div class="flex items-center space-x-2 bg-white p-3 rounded-lg border border-gray-300 shadow-sm">
-                        <input type="number" id="volume-input" value="1" class="w-24 p-2 border rounded-lg text-center font-bold">
-                        <select id="unit-selector" class="p-2 border rounded-lg bg-gray-50">
-                            <option value="L">Liters (L)</option>
-                            <option value="mL" selected>milliliters (mL)</option>
-                        </select>
-                        <button id="fill-btn" class="bg-blue-500 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-600 transition">Fill it!</button>
-                    </div>
+                <button id="fire-btn" class="fire-button">FIRE!</button>
+            </div>
+
+            <!-- Game Over Modal -->
+            <div id="game-over-modal" class="modal-overlay hidden">
+                 <div class="modal-content text-center bg-gray-800 border-4 border-red-500 text-white">
+                    <h2 id="modal-title-text" class="text-4xl font-bold mb-4 text-red-500 game-font">GAME OVER</h2>
+                    <p id="modal-body-text" class="text-gray-300 text-lg mb-6">Final Score: 0</p>
+                    <button id="playAgainBtn" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 shadow-lg border-b-4 border-green-700 text-xl">Play Again</button>
                 </div>
             </div>
         </div>
@@ -217,7 +233,6 @@
 
     <script>
         // --- QUIZ DATA ---
-        // Updated questions based on "Chopper's Journey" and requested math types
         const allQuestions = [
         {
             id: 'q1',
@@ -469,7 +484,7 @@
 
         startGameBtn.addEventListener('click', () => {
             quizContainer.style.display = 'none';
-            gameContainer.style.display = 'grid';
+            gameContainer.style.display = 'flex';
             initGame();
         });
 
@@ -501,131 +516,269 @@
             });
         }
 
-        // --- VOLUME EXPLORER GAME LOGIC ---
-        // (This game is unchanged)
-        const visualizerDiv = document.getElementById('visualizer-svg');
-        const containerNameEl = document.getElementById('container-name');
-        const containerCapacityEl = document.getElementById('container-capacity');
-        const volumeInput = document.getElementById('volume-input');
-        const unitSelector = document.getElementById('unit-selector');
-        const fillBtn = document.getElementById('fill-btn');
-        const containerButtons = {
-            'juice-box': document.getElementById('juice-box-btn'),
-            'water-bottle': document.getElementById('water-bottle-btn'),
-            'milk-carton': document.getElementById('milk-carton-btn'),
-            'soda-bottle': document.getElementById('soda-bottle-btn'),
-        };
-        let currentContainerId = null;
+        // --- SPACE BLASTER GAME LOGIC ---
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('score-display');
+        const livesDisplay = document.getElementById('lives-display');
+        const gameOverModal = document.getElementById('game-over-modal');
+        const modalBodyText = document.getElementById('modal-body-text');
+        const playAgainBtn = document.getElementById('playAgainBtn');
+        const leftBtn = document.getElementById('left-btn');
+        const rightBtn = document.getElementById('right-btn');
+        const fireBtn = document.getElementById('fire-btn');
 
-        const containers = {
-            'juice-box': {
-                name: 'Juice Box',
-                capacity: 250, // mL
-                fillableHeight: 175, // The 'fillable' pixel height in the SVG
-                fillableY: 50, // The starting Y position for filling
-                svg: `
-                    <svg viewBox="0 0 150 250">
-                        <defs><clipPath id="juice-clip"><path d="M25,225 V50 H125 V225 Z" /></clipPath></defs>
-                        <rect id="liquid" clip-path="url(#juice-clip)" x="0" y="250" width="150" height="0" fill="#f97316" style="transition: all 0.5s ease-in-out;"/>
-                        <path d="M25,225 V50 H125 V225 Z M40,35 H110 V50 H40 Z" fill="none" stroke="#4b5563" stroke-width="4" />
-                    </svg>`
-            },
-            'water-bottle': {
-                name: 'Water Bottle',
-                capacity: 500, // mL
-                fillableHeight: 140,
-                fillableY: 100,
-                svg: `
-                    <svg viewBox="0 0 150 250">
-                        <defs><clipPath id="water-clip"><path d="M40,240 V100 C40,70 110,70 110,100 V240 Z" /></clipPath></defs>
-                        <rect id="liquid" clip-path="url(#water-clip)" x="0" y="250" width="150" height="0" fill="#38bdf8" style="transition: all 0.5s ease-in-out;"/>
-                        <path d="M40,240 V100 C40,70 110,70 110,100 V240 Z M50,50 h50 v-15 h-50 Z M60,35 h30 v-15 h-30 Z" fill="none" stroke="#4b5563" stroke-width="4" />
-                    </svg>`
-            },
-            'milk-carton': {
-                name: 'Milk Carton',
-                capacity: 1000, // mL
-                fillableHeight: 170, 
-                fillableY: 70, 
-                svg: `
-                    <svg viewBox="0 0 150 250">
-                        <defs><clipPath id="milk-clip"><path d="M25,240 V70 L75,30 L125,70 V240 Z" /></clipPath></defs>
-                        <rect id="liquid" clip-path="url(#milk-clip)" x="0" y="250" width="150" height="0" fill="#e2e8f0" style="transition: all 0.5s ease-in-out;"/>
-                        <path d="M25,240 V70 L75,30 L125,70 V240 Z" fill="none" stroke="#4b5563" stroke-width="4" />
-                    </svg>`
-            },
-            'soda-bottle': {
-                name: 'Soda Bottle',
-                capacity: 2000, // mL
-                fillableHeight: 160,
-                fillableY: 80,
-                svg: `
-                    <svg viewBox="0 0 150 250">
-                        <defs><clipPath id="soda-clip"><path d="M45,240 C20,200 20,100 45,80 V40 H105 V80 C130,100 130,200 105,240 Z" /></clipPath></defs>
-                        <rect id="liquid" clip-path="url(#soda-clip)" x="0" y="250" width="150" height="0" fill="#166534" style="transition: all 0.5s ease-in-out;"/>
-                        <path d="M45,240 C20,200 20,100 45,80 V40 H105 V80 C130,100 130,200 105,240 Z M60,20 h30 v20 h-30 Z" fill="none" stroke="#4b5563" stroke-width="4" />
-                    </svg>`
-            }
-        };
+        // Game State
+        let gameLoop;
+        let spawnInterval;
+        let score = 0;
+        let lives = 3;
+        let shipX = 0;
+        const shipWidth = 40;
+        const shipHeight = 40;
+        const shipSpeed = 5;
+        let bullets = [];
+        let enemies = [];
+        let keys = {};
+        
+        // Colors
+        const SHIP_COLOR = '#00FFFF'; // Cyan
+        const BULLET_COLOR = '#FFFF00'; // Yellow
+        const TEXT_COLOR = '#FFFFFF';
 
-        function selectContainer(id) {
-            currentContainerId = id;
-            const container = containers[id];
-            
-            // Add checks to ensure elements exist before manipulating them
-            if (visualizerDiv) visualizerDiv.innerHTML = container.svg;
-            if (containerNameEl) containerNameEl.textContent = container.name;
-            if (containerCapacityEl) containerCapacityEl.textContent = `Capacity: ${container.capacity} mL (${container.capacity / 1000} L)`;
-            
-            for (const btnId in containerButtons) {
-                 if (containerButtons[btnId]) { // Check if button exists
-                    containerButtons[btnId].classList.toggle('selected', btnId === id);
-                 }
-            }
-            if (volumeInput) volumeInput.value = container.capacity / 2;
-            if (unitSelector) unitSelector.value = 'mL';
-            handleFill();
+        // Resize canvas
+        function resizeCanvas() {
+            const container = document.getElementById('game-canvas-container');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            shipX = canvas.width / 2 - shipWidth / 2;
         }
 
-        function handleFill() {
-            if (!currentContainerId) return;
-
-            const container = containers[currentContainerId];
-            const liquidEl = document.getElementById('liquid');
-             if (!liquidEl || !volumeInput || !unitSelector) return; // Add checks for elements
-
-            let amount = parseFloat(volumeInput.value) || 0;
-            const unit = unitSelector.value;
-
-            if (unit === 'L') {
-                amount *= 1000; // Convert Liters to mL
+        // Game Objects
+        class Bullet {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.width = 4;
+                this.height = 10;
+                this.speed = 7;
+                this.active = true;
             }
+            update() {
+                this.y -= this.speed;
+                if (this.y < 0) this.active = false;
+            }
+            draw() {
+                ctx.fillStyle = BULLET_COLOR;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
 
-            let fillPercent = (amount / container.capacity);
-            fillPercent = Math.max(0, Math.min(1, fillPercent)); // Clamp between 0 and 1
-            
-            const liquidHeight = fillPercent * container.fillableHeight;
-            const yPos = container.fillableY + container.fillableHeight - liquidHeight;
-            
-            liquidEl.setAttribute('y', yPos);
-            liquidEl.setAttribute('height', liquidHeight);
+        class Enemy {
+            constructor() {
+                this.width = 40;
+                this.height = 30;
+                this.x = Math.random() * (canvas.width - this.width);
+                this.y = -this.height;
+                this.speed = Math.random() * 1.5 + 1; // 1 to 2.5
+                this.active = true;
+                
+                // Determine if this is a multiple of 10
+                this.isMultipleOf10 = Math.random() < 0.4; // 40% chance
+                if (this.isMultipleOf10) {
+                    this.value = Math.floor(Math.random() * 9 + 1) * 10; // 10, 20... 90
+                } else {
+                    // Generate a non-multiple of 10
+                    let num;
+                    do {
+                        num = Math.floor(Math.random() * 99 + 1);
+                    } while (num % 10 === 0);
+                    this.value = num;
+                }
+            }
+            update() {
+                this.y += this.speed;
+                // Check if it hit bottom
+                if (this.y > canvas.height) {
+                    this.active = false;
+                    // Penalty for missing a multiple of 10
+                    if (this.isMultipleOf10) {
+                        score = Math.max(0, score - 10);
+                        updateUI();
+                        showFloatingText("-10", this.x, canvas.height - 20, "red");
+                    }
+                }
+            }
+            draw() {
+                ctx.font = "bold 20px 'Bangers'";
+                ctx.fillStyle = this.isMultipleOf10 ? "#4ade80" : "#f87171"; // Green for targets, Red for hazards
+                ctx.fillText(this.value, this.x, this.y + 20);
+            }
+        }
+
+        // Floating Text for score changes
+        let floatingTexts = [];
+        function showFloatingText(text, x, y, color) {
+            floatingTexts.push({ text, x, y, color, life: 30 });
+        }
+
+        function updateUI() {
+            scoreDisplay.textContent = `SCORE: ${score}`;
+            livesDisplay.textContent = "❤".repeat(lives);
+        }
+
+        function spawnEnemy() {
+            enemies.push(new Enemy());
+        }
+
+        function endGame(reason) {
+            cancelAnimationFrame(gameLoop);
+            clearInterval(spawnInterval);
+            modalBodyText.textContent = `${reason}\nFinal Score: ${score}`;
+            gameOverModal.classList.remove('hidden');
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Move Ship
+            if ((keys['ArrowLeft'] || keys['a']) && shipX > 0) shipX -= shipSpeed;
+            if ((keys['ArrowRight'] || keys['d']) && shipX < canvas.width - shipWidth) shipX += shipSpeed;
+
+            // Draw Ship
+            ctx.fillStyle = SHIP_COLOR;
+            // Simple triangle ship
+            ctx.beginPath();
+            ctx.moveTo(shipX + shipWidth / 2, canvas.height - shipHeight);
+            ctx.lineTo(shipX + shipWidth, canvas.height);
+            ctx.lineTo(shipX, canvas.height);
+            ctx.fill();
+
+            // Bullets
+            bullets.forEach((b, i) => {
+                b.update();
+                b.draw();
+                if (!b.active) bullets.splice(i, 1);
+            });
+
+            // Enemies
+            enemies.forEach((e, i) => {
+                e.update();
+                e.draw();
+
+                // Check collision with Ship
+                if (
+                    shipX < e.x + e.width &&
+                    shipX + shipWidth > e.x &&
+                    canvas.height - shipHeight < e.y + e.height &&
+                    canvas.height > e.y
+                ) {
+                    lives = 0; // Instant Game Over on crash
+                    endGame("You crashed into a number!");
+                    return;
+                }
+
+                // Check collision with Bullets
+                bullets.forEach((b, j) => {
+                    if (
+                        b.x < e.x + e.width &&
+                        b.x + b.width > e.x &&
+                        b.y < e.y + e.height &&
+                        b.y + b.height > e.y
+                    ) {
+                        // Hit!
+                        b.active = false;
+                        e.active = false;
+                        
+                        if (e.isMultipleOf10) {
+                            score += 10;
+                            showFloatingText("+10", e.x, e.y, "#4ade80");
+                        } else {
+                            endGame("You shot a non-multiple of 10!");
+                        }
+                        updateUI();
+                    }
+                });
+
+                if (!e.active) enemies.splice(i, 1);
+            });
+
+            // Floating Texts
+            floatingTexts.forEach((ft, i) => {
+                ft.y -= 1;
+                ft.life--;
+                ctx.fillStyle = ft.color;
+                ctx.font = "bold 24px Arial";
+                ctx.fillText(ft.text, ft.x, ft.y);
+                if (ft.life <= 0) floatingTexts.splice(i, 1);
+            });
+
+            if (lives > 0) {
+                gameLoop = requestAnimationFrame(update);
+            }
         }
 
         function initGame() {
-            // Add checks for button existence before adding listeners
-            if (containerButtons['juice-box']) containerButtons['juice-box'].addEventListener('click', () => selectContainer('juice-box'));
-            if (containerButtons['water-bottle']) containerButtons['water-bottle'].addEventListener('click', () => selectContainer('water-bottle'));
-            if (containerButtons['milk-carton']) containerButtons['milk-carton'].addEventListener('click', () => selectContainer('milk-carton'));
-            if (containerButtons['soda-bottle']) containerButtons['soda-bottle'].addEventListener('click', () => selectContainer('soda-bottle'));
-            if (fillBtn) fillBtn.addEventListener('click', handleFill);
+            resizeCanvas();
+            score = 0;
+            lives = 1; // "Shooting a non multiple of 10 ends the game" implies instant fail conditions usually, but let's stick to the prompt's collision logic
+            updateUI();
+            bullets = [];
+            enemies = [];
+            floatingTexts = [];
             
-            selectContainer('juice-box'); // Select default container
+            // Input Listeners
+            document.addEventListener('keydown', (e) => {
+                keys[e.key] = true;
+                if (e.code === 'Space') {
+                    bullets.push(new Bullet(shipX + shipWidth / 2 - 2, canvas.height - shipHeight));
+                }
+            });
+            document.addEventListener('keyup', (e) => keys[e.key] = false);
+
+            // Mobile Controls
+            let leftInterval, rightInterval;
+            leftBtn.addEventListener('touchstart', (e) => { e.preventDefault(); keys['ArrowLeft'] = true; });
+            leftBtn.addEventListener('touchend', (e) => { e.preventDefault(); keys['ArrowLeft'] = false; });
+            leftBtn.addEventListener('mousedown', (e) => { e.preventDefault(); keys['ArrowLeft'] = true; });
+            leftBtn.addEventListener('mouseup', (e) => { e.preventDefault(); keys['ArrowLeft'] = false; });
+            leftBtn.addEventListener('mouseleave', () => keys['ArrowLeft'] = false);
+
+            rightBtn.addEventListener('touchstart', (e) => { e.preventDefault(); keys['ArrowRight'] = true; });
+            rightBtn.addEventListener('touchend', (e) => { e.preventDefault(); keys['ArrowRight'] = false; });
+            rightBtn.addEventListener('mousedown', (e) => { e.preventDefault(); keys['ArrowRight'] = true; });
+            rightBtn.addEventListener('mouseup', (e) => { e.preventDefault(); keys['ArrowRight'] = false; });
+            rightBtn.addEventListener('mouseleave', () => keys['ArrowRight'] = false);
+
+            fireBtn.addEventListener('touchstart', (e) => { 
+                e.preventDefault(); 
+                bullets.push(new Bullet(shipX + shipWidth / 2 - 2, canvas.height - shipHeight)); 
+            });
+            fireBtn.addEventListener('mousedown', (e) => { 
+                e.preventDefault(); 
+                bullets.push(new Bullet(shipX + shipWidth / 2 - 2, canvas.height - shipHeight)); 
+            });
+
+            playAgainBtn.addEventListener('click', () => {
+                gameOverModal.classList.add('hidden');
+                initGame();
+            });
+
+            gameLoop = requestAnimationFrame(update);
+            clearInterval(spawnInterval);
+            spawnInterval = setInterval(spawnEnemy, 1500); // Spawn every 1.5 seconds
         }
 
-        // --- INITIALIZATION ---
+        // Initialization
         document.addEventListener('DOMContentLoaded', () => {
             renderQuiz();
+            window.addEventListener('resize', () => {
+                if (document.getElementById('game-container').style.display !== 'none') {
+                    resizeCanvas();
+                }
+            });
         });
+
     </script>
 </body>
 
