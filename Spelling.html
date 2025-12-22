@@ -109,7 +109,7 @@
 
             <!-- Vocabulary Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Chopper's Words</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Roz's Words</h2>
                 <div id="vocab-list" class="space-y-3">
                     <!-- Vocab words and definitions will be injected here -->
                 </div>
@@ -158,7 +158,7 @@
         <!-- Combined Results Modal -->
         <div id="final-results-modal" class="modal-overlay hidden">
             <div class="modal-content text-center bg-yellow-50 border-4 border-yellow-400">
-                <h2 class="text-3xl font-bold mb-4 text-yellow-700 header-font">Supa-Speller!</h2>
+                <h2 class="text-3xl font-bold mb-4 text-yellow-700 header-font">Wild Robot Master!</h2>
                 <p class="text-gray-800 text-lg mb-6">Great job finishing all your spelling and vocabulary practice!</p>
                 <button id="closeModalBtn" class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">
                     All Done!
@@ -171,12 +171,12 @@
     <script>
         // --- WORD DATA ---
 
-        // (Corrected spelling words from the Polar Bear image)
+        // (15 Selected Words with 'sc', 'sn', 'sw' blends)
         const spellingWords = [
             { word: 'Scarecrow', hint: 'A figure made of straw to scare birds' },
-            { word: 'Scale', hint: 'You step on this to weigh yourself' },
-            { word: 'Scooter', hint: 'A vehicle with two wheels and a handle you stand on' },
-            { word: 'Scout', hint: 'Someone sent ahead to look for something' },
+            { word: 'Scale', hint: 'To climb up something steep' },
+            { word: 'Scooter', hint: 'A small vehicle with two wheels' },
+            { word: 'Scout', hint: 'To go ahead and look for something' },
             { word: 'Scarf', hint: 'Warm clothing worn around the neck' },
             { word: 'School', hint: 'The place where you go to learn' },
             { word: 'Snail', hint: 'A slow animal with a shell' },
@@ -184,67 +184,65 @@
             { word: 'Snow', hint: 'White flakes that fall in winter' },
             { word: 'Snowman', hint: 'A figure made of three balls of snow' },
             { word: 'Sneakers', hint: 'Shoes you wear for running or sports' },
-            { word: 'Snap', hint: 'A quick cracking sound, or a sudden break' },
+            { word: 'Snap', hint: 'A sudden breaking sound' },
             { word: 'Sweater', hint: 'Warm clothing made of wool' },
-            { word: 'Swan', hint: 'A large, beautiful white bird' },
-            { word: 'Switch', hint: 'To change from one thing to another, or turn a light on' },
-            { word: 'Swing', hint: 'A seat hanging from ropes that moves back and forth' },
+            { word: 'Swan', hint: 'A large, graceful white bird' },
             { word: 'Swim', hint: 'To move through water' }
         ];
 
-        // (New Vocabulary Words drawn FROM the Spelling List)
+        // (Vocabulary Words derived from The Wild Robot theme)
         const vocabWords = [
-            { word: 'scout', definition: 'A soldier or person sent out ahead to gather information' },
-            { word: 'scale', definition: 'To climb up or over something high' },
-            { word: 'switch', definition: 'To change from one thing to another' },
-            { word: 'snap', definition: 'To break suddenly with a sharp sound' },
-            { word: 'scarecrow', definition: 'An object made to look like a person to scare birds away' },
-            { word: 'scooter', definition: 'A small vehicle with two wheels and a handle' },
-            { word: 'swan', definition: 'A large, graceful water bird with a long neck' },
-            { word: 'snow', definition: 'Soft, white flakes of ice that fall from the sky' }
+            { word: 'camouflage', definition: 'Blending in with the environment to hide' },
+            { word: 'migrate', definition: 'To move from one region to another, usually for winter' },
+            { word: 'instinct', definition: 'Knowing how to do something without being taught' },
+            { word: 'survival', definition: 'The act of staying alive in difficult conditions' },
+            { word: 'wilderness', definition: 'A wild, natural area where few humans live' },
+            { word: 'adapt', definition: 'To change in order to fit a new situation' },
+            { word: 'colony', definition: 'A group of animals or people living together' },
+            { word: 'efficient', definition: 'Working well without wasting time or energy' }
         ];
 
-        // (New Themed Vocab Questions matched to Chopper's Journey)
+        // (Themed Vocab Questions matched to The Wild Robot)
         const vocabQuestions = [
             {
-                question: "Chopper had to _____ the snowy forest to find the rare herbs for Dr. Kureha.",
-                options: ['scout', 'swan', 'snail', 'switch'],
-                correct: 'scout'
+                question: "Roz used _____ to hide from the bear by covering herself with mud and leaves.",
+                options: ['camouflage', 'migrate', 'adapt', 'survival'],
+                correct: 'camouflage'
             },
             {
-                question: "To reach the castle, Luffy had to _____ the steep, frozen mountain with his bare hands.",
-                options: ['scale', 'swim', 'swing', 'snap'],
-                correct: 'scale'
+                question: "In the autumn, Brightbill and the other geese had to _____ south to warmer weather.",
+                options: ['migrate', 'instinct', 'colony', 'efficient'],
+                correct: 'migrate'
             },
             {
-                question: "With his Rumble Ball, Chopper can quickly _____ between his seven different forms.",
-                options: ['switch', 'scarecrow', 'snow', 'school'],
-                correct: 'switch'
+                question: "Even though Roz was a robot, she learned the _____ skills needed to live in the forest.",
+                options: ['survival', 'wilderness', 'adapt', 'camouflage'],
+                correct: 'survival'
             },
             {
-                question: "The dry branch gave a loud _____ when the heavy snow fell on it.",
-                options: ['snap', 'snake', 'snail', 'sweater'],
-                correct: 'snap'
+                question: "Brightbill knew how to fly because of _____; nobody had to teach him the basics.",
+                options: ['instinct', 'efficient', 'colony', 'wilderness'],
+                correct: 'instinct'
             },
             {
-                question: "Franky built a cool medical _____ so Chopper could rush to his patients faster.",
-                options: ['scooter', 'scale', 'scarf', 'swan'],
-                correct: 'scooter'
+                question: "The island was a beautiful _____, full of trees, rocks, and wild animals.",
+                options: ['wilderness', 'survival', 'instinct', 'migrate'],
+                correct: 'wilderness'
             },
             {
-                question: "Chopper thought the spooky shadow was a monster, but it was just an old _____ in the field.",
-                options: ['scarecrow', 'scout', 'snowman', 'school'],
-                correct: 'scarecrow'
+                question: "Roz had to _____ to her new life on the island by learning to talk to the animals.",
+                options: ['adapt', 'colony', 'camouflage', 'efficient'],
+                correct: 'adapt'
             },
             {
-                question: "Karoo the duck is fast, but he is not as graceful as a white _____.",
-                options: ['swan', 'snake', 'snail', 'scooter'],
-                correct: 'swan'
+                question: "The beavers lived together in a busy _____ near the stream.",
+                options: ['colony', 'migrate', 'instinct', 'wilderness'],
+                correct: 'colony'
             },
             {
-                question: "Chopper was born on Drum Island, a place covered in deep, cold _____.",
-                options: ['snow', 'scarf', 'sweaters', 'school'],
-                correct: 'snow'
+                question: "Roz's robot brain made her very _____; she never wasted energy when completing a task.",
+                options: ['efficient', 'survival', 'adapt', 'camouflage'],
+                correct: 'efficient'
             }
         ];
 
@@ -355,6 +353,8 @@
             spellingQuestionsContainer.innerHTML = '';
             spellingSubmitted = false;
             spellingResults.classList.add('hidden');
+            // Do NOT shuffle spelling words for the test input to make it easier to follow the list order if desired, 
+            // OR shuffle to test true knowledge. Let's shuffle to prevent just copying the list order.
             const shuffledSpellingWords = shuffleArray([...spellingWords]);
 
             shuffledSpellingWords.forEach((item, index) => {
@@ -395,7 +395,6 @@
                 }
 
                 // Find the original question object
-                // Get the full question text from the data attribute
                 const questionText = questionDiv.getAttribute('data-question-text');
                 const question = vocabQuestions.find(q => q.question === questionText);
                 
@@ -416,8 +415,6 @@
                     } else {
                         selected.parentElement.classList.add('incorrect-answer');
                     }
-                } else {
-                    console.error("Could not find question object for text:", questionText);
                 }
             });
 
