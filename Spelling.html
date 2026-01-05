@@ -101,7 +101,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Spelling Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Consonant Blends (15 Words)</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Consonant Blends (pl, sl, bl, fl)</h2>
                 <ul id="spelling-list" class="list-decimal list-inside text-gray-700 text-lg space-y-1 columns-2">
                     <!-- Spelling words will be injected here by JavaScript -->
                 </ul>
@@ -171,78 +171,87 @@
     <script>
         // --- WORD DATA ---
 
-        // (15 Selected Words with 'sc', 'sn', 'sw' blends - SAME AS BEFORE)
+        // (New Spelling List with pl, sl, bl, fl words)
         const spellingWords = [
-            { word: 'Scarecrow', hint: 'A figure made of straw to scare birds' },
-            { word: 'Scale', hint: 'To climb up something steep' },
-            { word: 'Scooter', hint: 'A small vehicle with two wheels' },
-            { word: 'Scout', hint: 'To go ahead and look for something' },
-            { word: 'Scarf', hint: 'Warm clothing worn around the neck' },
-            { word: 'School', hint: 'The place where you go to learn' },
-            { word: 'Snail', hint: 'A slow animal with a shell' },
-            { word: 'Snake', hint: 'A long reptile with no legs' },
-            { word: 'Snow', hint: 'White flakes that fall in winter' },
-            { word: 'Snowman', hint: 'A figure made of three balls of snow' },
-            { word: 'Sneakers', hint: 'Shoes you wear for running or sports' },
-            { word: 'Snap', hint: 'A sudden breaking sound' },
-            { word: 'Sweater', hint: 'Warm clothing made of wool' },
-            { word: 'Swan', hint: 'A large, graceful white bird' },
-            { word: 'Swim', hint: 'To move through water' }
+            { word: 'Plate', hint: 'Something you eat dinner off of' },
+            { word: 'Plant', hint: 'A living thing that grows in the ground' },
+            { word: 'Plow', hint: 'A large tool used to clear snow from the road' },
+            { word: 'Plug', hint: 'You put this in the wall to give power to a lamp' },
+            { word: 'Pliers', hint: 'A tool used for gripping small things' },
+            { word: 'Plum', hint: 'A purple fruit with a pit' },
+            { word: 'Slide', hint: 'Playground equipment you go down fast' },
+            { word: 'Sled', hint: 'Something you ride down a snowy hill' },
+            { word: 'Slices', hint: 'Pieces cut from a whole, like bread or pizza' },
+            { word: 'Sleep', hint: 'What you do at night in your bed' },
+            { word: 'Slippers', hint: 'Soft shoes you wear inside the house' },
+            { word: 'Slip', hint: 'To lose your balance on ice' },
+            { word: 'Blue', hint: 'The color of the sky or Linus\'s blanket' },
+            { word: 'Blocks', hint: 'Toy cubes you can build with' },
+            { word: 'Black', hint: 'The color of coal or the night sky' },
+            { word: 'Blindfold', hint: 'A cloth tied over eyes so you cannot see' },
+            { word: 'Blanket', hint: 'A soft covering to keep you warm' },
+            { word: 'Blouse', hint: 'A fancy shirt for a girl' },
+            { word: 'Fly', hint: 'To move through the air like a bird' },
+            { word: 'Flag', hint: 'A piece of cloth with colors that represents a country' },
+            { word: 'Flower', hint: 'The colorful part of a plant' },
+            { word: 'Flute', hint: 'A musical instrument you blow into' },
+            { word: 'Float', hint: 'To stay on top of the water' },
+            { word: 'Flashlight', hint: 'A small hand-held electric light' }
         ];
 
-        // (Vocabulary Words derived from the Spelling List - SAME WORDS, NEW CONTEXT)
+        // (Vocabulary Words derived from the Spelling List with Peanuts Theme)
         const vocabWords = [
-            { word: 'scout', definition: 'A person sent ahead to gather information' },
-            { word: 'scale', definition: 'To climb up or over something high' },
-            { word: 'snail', definition: 'A small, slow animal with a spiral shell' },
-            { word: 'snap', definition: 'To break suddenly with a sharp noise' },
-            { word: 'scarecrow', definition: 'A figure dressed in old clothes to frighten birds' },
-            { word: 'scooter', definition: 'A toy or vehicle with a handle and wheels' },
-            { word: 'swan', definition: 'A beautiful water bird with a long neck' },
-            { word: 'snow', definition: 'Soft, white ice crystals that fall from the sky' }
+            { word: 'blanket', definition: 'A warm piece of cloth used for comfort (Linus loves his!)' },
+            { word: 'sled', definition: 'A vehicle used for sliding downhill over snow' },
+            { word: 'slide', definition: 'To move smoothly along a surface, like on ice' },
+            { word: 'flag', definition: 'A piece of cloth used as a symbol or signal' },
+            { word: 'flower', definition: 'The part of a plant that is often brightly colored' },
+            { word: 'plant', definition: 'To put seeds in the ground to grow' },
+            { word: 'blue', definition: 'The color of the sky on a clear day' },
+            { word: 'sleep', definition: 'To rest with your eyes closed' }
         ];
 
         // (Themed Vocab Questions matched to Peanuts Back-to-School Story)
         const vocabQuestions = [
             {
-                question: "Snoopy acted as a _____ to check if the path to school was clear of snow.",
-                options: ['scout', 'swan', 'snail', 'swim'],
-                correct: 'scout'
+                question: "Linus would never leave the house without his trusty blue _____.",
+                options: ['blanket', 'sled', 'flag', 'flute'],
+                correct: 'blanket'
             },
             {
-                question: "The pile of snow was so high, Linus had to _____ it to get to the bus stop.",
-                options: ['scale', 'scoot', 'snap', 'school'],
-                correct: 'scale'
+                question: "Charlie Brown and Snoopy used a _____ to race down the snowy hill.",
+                options: ['sled', 'slide', 'plant', 'plate'],
+                correct: 'sled'
             },
             {
-                question: "Charlie Brown felt as slow as a _____ walking to class on Monday morning.",
-                options: ['snail', 'snake', 'swan', 'scarecrow'],
-                correct: 'snail'
+                question: "The ice on the sidewalk made everyone _____ and almost fall on the way to school.",
+                options: ['slide', 'sleep', 'float', 'fly'],
+                correct: 'slide'
             },
             {
-                question: "With a loud _____, Snoopy closed his thick textbook and ran to play.",
-                options: ['snap', 'snow', 'scout', 'scarf'],
-                correct: 'snap'
+                question: "Every morning, the students stand up to salute the _____.",
+                options: ['flag', 'flower', 'blanket', 'blindfold'],
+                correct: 'flag'
             },
             {
-                question: "Franklin rode his _____ to school instead of taking the bus.",
-                options: ['scooter', 'scale', 'snake', 'sweater'],
-                correct: 'scooter'
+                question: "In the spring, Lucy wants to _____ a garden in her backyard.",
+                options: ['plant', 'plow', 'plug', 'play'],
+                correct: 'plant'
             },
             {
-                question: "Snoopy stood so still in the field that Woodstock thought he was a _____.",
-                options: ['scarecrow', 'scout', 'snowman', 'school'],
-                correct: 'scarecrow'
+                question: "Snoopy brought a bright red _____ to his teacher on the first day of school.",
+                options: ['flower', 'flag', 'flute', 'flashlight'],
+                correct: 'flower'
             },
             {
-                question: "In his daydream, Snoopy was a graceful _____ swimming in a pond near the school.",
-                options: ['swan', 'snake', 'snail', 'scooter'],
-                correct: 'swan'
+                question: "Charlie Brown felt sad and _____ when he thought he failed the test.",
+                options: ['blue', 'black', 'blanket', 'blindfold'],
+                correct: 'blue'
             },
             {
-                question: "Charlie Brown looked out the classroom window at the falling _____.",
-                options: ['snow', 'scarf', 'sweaters', 'school'],
-                correct: 'snow'
+                question: "After a long first day back at school, Snoopy went to _____ on top of his doghouse.",
+                options: ['sleep', 'slide', 'slip', 'sled'],
+                correct: 'sleep'
             }
         ];
 
