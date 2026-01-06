@@ -142,10 +142,10 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-green-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-green-800 mb-2 header-font">
-            Math Mission: Peanuts Problem Solving
+            Math Mission: Snow Tubing Math
         </h1>
         <p class="text-gray-600 text-center mb-8 text-lg">
-            Help Charlie Brown, Linus, and Snoopy solve these math problems!
+            Help the Peanuts gang calculate speeds, distances, and hot cocoa supplies!
         </p>
 
         <!-- Quiz Section -->
@@ -233,23 +233,23 @@
 
     <script>
         // --- QUIZ DATA ---
-        // Questions based on "Charlie Brown & Linus" Theme
+        // Questions based on "Peanuts Snow Tubing" Theme
         const allQuestions = [{
             id: 'q1',
-            questionText: `Charlie Brown brings 48 baseballs to practice, and Linus brings 23 gloves.
-                          <br>Estimate the <strong>total</strong> number of items they brought by rounding each number to the nearest <strong>ten</strong>.`,
+            questionText: `Charlie Brown packs 48 marshmallows for hot cocoa, and Linus packs 23 cookies.
+                          <br>Estimate the <strong>total</strong> number of treats by rounding each number to the nearest <strong>ten</strong>.`,
             options: [
-                { value: 'A', text: '60 items' }, 
-                { value: 'B', text: '70 items' }, 
-                { value: 'C', text: '71 items' }, 
-                { value: 'D', text: '80 items' }
+                { value: 'A', text: '60 treats' }, 
+                { value: 'B', text: '70 treats' }, 
+                { value: 'C', text: '71 treats' }, 
+                { value: 'D', text: '80 treats' }
             ],
             correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the total of baseballs (48) and gloves (23). Round both to the nearest ten, then add.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>48 rounds to 50 (closer to 50).<br>23 rounds to 20 (closer to 20).<br>Now add: 50 + 20.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>50 + 20 = 70. The estimated total is <strong>70 items</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the total of marshmallows (48) and cookies (23). Round both to the nearest ten, then add.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>48 rounds to 50 (closer to 50).<br>23 rounds to 20 (closer to 20).<br>Now add: 50 + 20.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>50 + 20 = 70. The estimated total is <strong>70 treats</strong>.</p></div>`
         }, {
             id: 'q2',
-            questionText: `Snoopy collects 92 bones. He buries 59 of them in the garden.
-                          <br>Estimate how many bones Snoopy has <strong>left</strong> in his bowl by rounding each number to the nearest <strong>ten</strong>.`,
+            questionText: `Snoopy brings 92 dog bones for his snack stash. He eats 59 of them on the bus ride.
+                          <br>Estimate how many bones Snoopy has <strong>left</strong> by rounding each number to the nearest <strong>ten</strong>.`,
             options: [
                 { value: 'A', text: '30 bones' }, 
                 { value: 'B', text: '33 bones' }, 
@@ -257,10 +257,10 @@
                 { value: 'D', text: '150 bones' }
             ],
             correctAnswer: 'A',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the difference between the starting bones (92) and the buried ones (59). Round to the nearest ten, then subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>92 rounds down to 90.<br>59 rounds up to 60.<br>Now subtract: 90 - 60.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>90 - 60 = 30. There are about <strong>30 bones</strong> left.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Estimate the difference between the starting bones (92) and the eaten ones (59). Round to the nearest ten, then subtract.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>92 rounds down to 90.<br>59 rounds up to 60.<br>Now subtract: 90 - 60.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>90 - 60 = 30. There are about <strong>30 bones</strong> left.</p></div>`
         }, {
             id: 'q3',
-            questionText: 'Lucy kicks the football 348 centimeters. What is 348 rounded to the nearest <strong>ten</strong>?',
+            questionText: 'Lucy slides down the hill for 348 feet. What is 348 rounded to the nearest <strong>ten</strong>?',
             options: [
                 { value: 'A', text: '300' }, 
                 { value: 'B', text: '340' }, 
@@ -271,7 +271,7 @@
             rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to round the number 348 to the nearest ten.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Look at the tens place (4). Now look at the ones place (8). The rule is: "5 or more, raise the score."<br>Since 8 is "more," we "raise the score," meaning the tens place (4) goes up to 5. The one's place becomes 0.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>348 rounded to the nearest ten is <strong>350</strong>.</p></div>`
         }, {
             id: 'q4',
-            questionText: `Which equation can you use to find the value of the unknown <em>r</em>? <br><strong>56 ÷ 8 = r</strong>`,
+            questionText: `Which equation can you use to find the unknown number <em>r</em> of tubes? <br><strong>56 ÷ 8 = r</strong>`,
             options: [
                 { value: 'A', text: '56 × r = 8' }, 
                 { value: 'B', text: 'r × 8 = 56' }, 
@@ -279,10 +279,10 @@
                 { value: 'D', text: '56 × 8 = r' }
             ],
             correctAnswer: 'B',
-            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are dividing 56 into 8 groups. <em>r</em> is the number in each group.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think about the related multiplication fact. If 56 ÷ 8 = r, then r groups of 8 equals 56.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The related equation is <strong>r × 8 = 56</strong>.</p></div>`
+            rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are dividing 56 kids into 8 groups. <em>r</em> is the number of tubes in each group.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Think about the related multiplication fact. If 56 ÷ 8 = r, then r groups of 8 equals 56.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The related equation is <strong>r × 8 = 56</strong>.</p></div>`
         }, {
             id: 'q5',
-            questionText: `Linus has 48 pumpkin seeds. He wants to plant them. Fill in the blanks to make the equations true.<br><strong>6 × 8 = 48</strong><br>So, <strong>48 ÷ 8 = ___</strong><br>And <strong>48 ÷ 6 = ___</strong>`,
+            questionText: `Marcie counts 48 snowballs. She stacks them in piles. Fill in the blanks to make the equations true.<br><strong>6 × 8 = 48</strong><br>So, <strong>48 ÷ 8 = ___</strong><br>And <strong>48 ÷ 6 = ___</strong>`,
             options: [
                 { value: 'A', text: '6 and 8' }, 
                 { value: 'B', text: '8 and 6' }, 
@@ -293,7 +293,7 @@
             rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have a multiplication fact: 6 groups of 8 make 48.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>This is a fact family (6, 8, 48).<br>If 6 × 8 = 48, then 48 ÷ 8 must be the other number (6).<br>And 48 ÷ 6 must be the other number (8).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>48 ÷ 8 = <strong>6</strong><br>48 ÷ 6 = <strong>8</strong>.</p></div>`
         }, {
             id: 'q6',
-            questionText: `Use the <strong>distributive property</strong> to find <strong>9 × 6</strong>.<br>9 × 6 = (5 + ___) × 6<br>= (5 × 6) + (___ × 6)<br>= 30 + 24<br>= ___`,
+            questionText: `Use the <strong>distributive property</strong> to find <strong>9 × 6</strong> snowballs.<br>9 × 6 = (5 + ___) × 6<br>= (5 × 6) + (___ × 6)<br>= 30 + 24<br>= ___`,
             options: [
                 { value: 'A', text: '4, 4, 54' }, 
                 { value: 'B', text: '3, 3, 52' }, 
@@ -304,7 +304,7 @@
             rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We are breaking down the 9 in (9 × 6) into (5 + something).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>9 is 5 + 4. So the blank is 4.<br>The equation becomes (5 × 6) + (4 × 6).<br>5 × 6 = 30. 4 × 6 = 24.<br>30 + 24 = 54.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The missing numbers are <strong>4, 4, and 54</strong>.</p></div>`
         }, {
             id: 'q7',
-            questionText: `Schroeder is organizing piano keys. He wants to find <strong>? × 7 = 42</strong>. Which division equation helps him find the unknown factor?`,
+            questionText: `Peppermint Patty is arranging tickets for the lift. She wants to find <strong>? × 7 = 42</strong>. Which division equation helps her find the unknown factor?`,
             options: [
                 { value: 'A', text: '42 ÷ 6 = 7' }, 
                 { value: 'B', text: '42 ÷ 7 = ?' }, 
@@ -315,7 +315,7 @@
             rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We have a missing factor in a multiplication problem. We can use division (the inverse operation) to find it.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Start with the total (42). Divide by the part we know (7). This will give us the missing part (?).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>42 ÷ 7 = ?</strong> is the correct division equation.</p></div>`
         }, {
             id: 'q8',
-            questionText: `Charlie Brown helps Snoopy count dog treats. Which equation shows the <strong>distributive property</strong> for <strong>8 × 4</strong>?`,
+            questionText: `Sally helps count winter hats. Which equation shows the <strong>distributive property</strong> for <strong>8 × 4</strong>?`,
             options: [
                 { value: 'A', text: '8 × 4 = 4 × 8' }, 
                 { value: 'B', text: '8 × 4 = (4 × 4) + (4 × 4)' }, 
@@ -326,7 +326,7 @@
             rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>We need to break apart the 8 into smaller, easier numbers (like 4 + 4).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>Break 8 into 4 + 4.<br>So 8 groups of 4 becomes (4 groups of 4) PLUS (4 groups of 4).</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p><strong>8 × 4 = (4 × 4) + (4 × 4)</strong> is the correct distributive property equation.</p></div>`
         }, {
             id: 'q9',
-            questionText: 'Linus waits in the pumpkin patch for a number of minutes that rounds to 210 (nearest ten). What is the <strong>greatest</strong> whole number of minutes he could have waited?',
+            questionText: 'Linus waits in line for a tube for a number of minutes that rounds to 210 (nearest ten). What is the <strong>greatest</strong> whole number of minutes he could have waited?',
             options: [
                 { value: 'A', text: '209 minutes' }, 
                 { value: 'B', text: '211 minutes' }, 
@@ -337,7 +337,7 @@
             rdw: `<div class="rdw-step"><p class="font-bold text-lg text-blue-700">1. Read:</p><p>Find the biggest number that rounds down to 210.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">2. Draw:</p><p>The numbers that round to 210 (nearest ten) start at 205 (which rounds up) and go all the way up to...<br>Let's check 215. The ones digit is 5 ("5 or more"), so 215 rounds up to 220. That's too high.<br>Let's check 214. The ones digit is 4 ("4 or less"), so 214 rounds down to 210. This is the biggest number that works.</p></div><div class="rdw-step"><p class="font-bold text-lg text-blue-700">3. Write:</p><p>The greatest possible number of minutes is <strong>214 minutes</strong>.</p></div>`
         }, {
             id: 'q10',
-            questionText: 'Charlie Brown builds a rectangular fence for Snoopy\'s doghouse. The fence is 40 meters long and 20 meters wide. What is the <strong>perimeter</strong> (total distance around)?',
+            questionText: 'The snow tubing hill has a fence around the waiting area. The area is 40 meters long and 20 meters wide. What is the <strong>perimeter</strong> (total distance around)?',
             options: [
                 { value: 'A', text: '60 meters' }, 
                 { value: 'B', text: '100 meters' }, 
