@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peanuts Snow Tubing Spelling</title>
+    <title>Snoopy's School Spelling</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,7 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-indigo-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-indigo-800 mb-8 header-font">
-            Peanuts Snow Tubing Spelling
+            Snoopy's School Spelling
         </h1>
 
         <!-- Word Lists Section -->
@@ -109,7 +109,7 @@
 
             <!-- Vocabulary Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Snow Trip Words</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Field Trip Words</h2>
                 <div id="vocab-list" class="space-y-3">
                     <!-- Vocab words and definitions will be injected here -->
                 </div>
@@ -158,7 +158,7 @@
         <!-- Combined Results Modal -->
         <div id="final-results-modal" class="modal-overlay hidden">
             <div class="modal-content text-center bg-yellow-50 border-4 border-yellow-400">
-                <h2 class="text-3xl font-bold mb-4 text-yellow-700 header-font">Snow-tastic Job!</h2>
+                <h2 class="text-3xl font-bold mb-4 text-yellow-700 header-font">A+ Work!</h2>
                 <p class="text-gray-800 text-lg mb-6">Great job finishing all your spelling and vocabulary practice!</p>
                 <button id="closeModalBtn" class="bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">
                     All Done!
@@ -171,7 +171,7 @@
     <script>
         // --- WORD DATA ---
 
-        // (New Spelling List with pl, sl, bl, fl words)
+        // (Spelling List with pl, sl, bl, fl words - Unchanged)
         const spellingWords = [
             { word: 'Plate', hint: 'Something you eat dinner off of' },
             { word: 'Plant', hint: 'A living thing that grows in the ground' },
@@ -199,59 +199,59 @@
             { word: 'Flashlight', hint: 'A small hand-held electric light' }
         ];
 
-        // (Vocabulary Words derived from the Spelling List with Peanuts Theme)
+        // (NEW Vocabulary Words)
         const vocabWords = [
-            { word: 'blanket', definition: 'A warm piece of cloth used for comfort (Linus loves his!)' },
-            { word: 'sled', definition: 'A vehicle used for sliding downhill over snow' },
-            { word: 'slide', definition: 'To move smoothly along a surface, like on ice' },
-            { word: 'flag', definition: 'A piece of cloth used as a symbol or signal' },
-            { word: 'flower', definition: 'The part of a plant that is often brightly colored' },
-            { word: 'plant', definition: 'To put seeds in the ground to grow' },
-            { word: 'blue', definition: 'The color of the sky on a clear day' },
-            { word: 'sleep', definition: 'To rest with your eyes closed' }
+            { word: 'agreeable', definition: 'Nice or pleasant' },
+            { word: 'appreciate', definition: 'Grateful for something' },
+            { word: 'boomed', definition: 'Grown suddenly' },
+            { word: 'descendants', definition: 'People who come from a particular ancestor or group of ancestors' },
+            { word: 'population', definition: 'The number of people who live in a certain region or country' },
+            { word: 'resources', definition: 'Sources of aid or support that may be drawn upon when needed' },
+            { word: 'transportation', definition: 'The means of carrying or moving something from one place to another' },
+            { word: 'vehicles', definition: 'A means of transporting goods' }
         ];
 
         // (Themed Vocab Questions matched to Peanuts Snow Tubing Story)
         const vocabQuestions = [
             {
-                question: "Linus was worried his blue _____ would get lost in the deep snow.",
-                options: ['blanket', 'sled', 'flag', 'flute'],
-                correct: 'blanket'
+                question: "Charlie Brown tried to be _____ and nice, even when Lucy was bossing everyone around on the hill.",
+                options: ['agreeable', 'boomed', 'descendants', 'population'],
+                correct: 'agreeable'
             },
             {
-                question: "Charlie Brown grabbed his tube to _____ down the giant hill at Pinecrest.",
-                options: ['sled', 'slide', 'plant', 'plate'],
-                correct: 'slide'
+                question: "Linus told Snoopy, 'I really _____ you saving my blanket from the tree!'",
+                options: ['appreciate', 'transportation', 'boomed', 'resources'],
+                correct: 'appreciate'
             },
             {
-                question: "Snoopy didn't need a tube; he used a _____ to race down the mountain.",
-                options: ['sled', 'slide', 'slip', 'sleep'],
-                correct: 'sled'
+                question: "The excitement _____ and grew suddenly when the class saw the giant snow hill.",
+                options: ['boomed', 'vehicles', 'descendants', 'agreeable'],
+                correct: 'boomed'
             },
             {
-                question: "At the top of the hill, a bright red _____ showed where the start line was.",
-                options: ['flag', 'flower', 'blanket', 'blindfold'],
-                correct: 'flag'
+                question: "Marcie explained that they were all _____ of people who invented winter sports long ago.",
+                options: ['descendants', 'population', 'resources', 'transportation'],
+                correct: 'descendants'
             },
             {
-                question: "It was too cold in the snow to _____ a garden, so Lucy waited for spring.",
-                options: ['plant', 'plow', 'plug', 'play'],
-                correct: 'plant'
+                question: "The entire _____ of the school, every single student, was on the field trip.",
+                options: ['population', 'vehicles', 'boomed', 'appreciate'],
+                correct: 'population'
             },
             {
-                question: "Snoopy gave the Little Red-Haired Girl a winter _____ he found in the snow.",
-                options: ['flower', 'flag', 'flute', 'flashlight'],
-                correct: 'flower'
+                question: "When Linus got stuck, Snoopy used his flying skills as helpful _____.",
+                options: ['resources', 'transportation', 'descendants', 'agreeable'],
+                correct: 'resources'
             },
             {
-                question: "The sky above the snowy hill was a bright, clear _____.",
-                options: ['blue', 'black', 'blanket', 'blindfold'],
-                correct: 'blue'
+                question: "The yellow school bus provided _____ to get the gang from school to Pinecrest.",
+                options: ['transportation', 'population', 'boomed', 'appreciate'],
+                correct: 'transportation'
             },
             {
-                question: "After a long day of tubing and hot cocoa, Snoopy was ready to _____ by the fire.",
-                options: ['sleep', 'slide', 'slip', 'sled'],
-                correct: 'sleep'
+                question: "Cars, buses, and snowplows are all types of _____ seen on the road.",
+                options: ['vehicles', 'resources', 'descendants', 'agreeable'],
+                correct: 'vehicles'
             }
         ];
 
