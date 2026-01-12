@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snoopy's School Spelling</title>
+    <title>Peanuts Civil Rights Spelling</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,14 +94,14 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-indigo-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-indigo-800 mb-8 header-font">
-            Snoopy's School Spelling
+            Peanuts Civil Rights Spelling
         </h1>
 
         <!-- Word Lists Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Spelling Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Consonant Blends (pl, sl, bl, fl)</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Cr, Cl, Fr, Gl, Gr</h2>
                 <ul id="spelling-list" class="list-decimal list-inside text-gray-700 text-lg space-y-1 columns-2">
                     <!-- Spelling words will be injected here by JavaScript -->
                 </ul>
@@ -109,7 +109,7 @@
 
             <!-- Vocabulary Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Field Trip Words</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Civil Rights Words</h2>
                 <div id="vocab-list" class="space-y-3">
                     <!-- Vocab words and definitions will be injected here -->
                 </div>
@@ -171,35 +171,36 @@
     <script>
         // --- WORD DATA ---
 
-        // (Spelling List with pl, sl, bl, fl words - Unchanged)
+        // (New Spelling List with Cr, Cl, Fr, Gl, Gr words)
         const spellingWords = [
-            { word: 'Plate', hint: 'Something you eat dinner off of' },
-            { word: 'Plant', hint: 'A living thing that grows in the ground' },
-            { word: 'Plow', hint: 'A large tool used to clear snow from the road' },
-            { word: 'Plug', hint: 'You put this in the wall to give power to a lamp' },
-            { word: 'Pliers', hint: 'A tool used for gripping small things' },
-            { word: 'Plum', hint: 'A purple fruit with a pit' },
-            { word: 'Slide', hint: 'Playground equipment you go down fast' },
-            { word: 'Sled', hint: 'Something you ride down a snowy hill' },
-            { word: 'Slices', hint: 'Pieces cut from a whole, like bread or pizza' },
-            { word: 'Sleep', hint: 'What you do at night in your bed' },
-            { word: 'Slippers', hint: 'Soft shoes you wear inside the house' },
-            { word: 'Slip', hint: 'To lose your balance on ice' },
-            { word: 'Blue', hint: 'The color of the sky or Linus\'s blanket' },
-            { word: 'Blocks', hint: 'Toy cubes you can build with' },
-            { word: 'Black', hint: 'The color of coal or the night sky' },
-            { word: 'Blindfold', hint: 'A cloth tied over eyes so you cannot see' },
-            { word: 'Blanket', hint: 'A soft covering to keep you warm' },
-            { word: 'Blouse', hint: 'A fancy shirt for a girl' },
-            { word: 'Fly', hint: 'To move through the air like a bird' },
-            { word: 'Flag', hint: 'A piece of cloth with colors that represents a country' },
-            { word: 'Flower', hint: 'The colorful part of a plant' },
-            { word: 'Flute', hint: 'A musical instrument you blow into' },
-            { word: 'Float', hint: 'To stay on top of the water' },
-            { word: 'Flashlight', hint: 'A small hand-held electric light' }
+            { word: 'Crackers', hint: 'A crunchy snack' },
+            { word: 'Cran', hint: 'Short for cranberry' },
+            { word: 'Crown', hint: 'Worn by a king or queen' },
+            { word: 'Crib', hint: 'A bed for a baby' },
+            { word: 'Crab', hint: 'A sea creature with claws' },
+            { word: 'Clock', hint: 'Tells you the time' },
+            { word: 'Cloud', hint: 'White and fluffy in the sky' },
+            { word: 'Clap', hint: 'What you do with your hands to cheer' },
+            { word: 'Clown', hint: 'Funny performer with a red nose' },
+            { word: 'Class', hint: 'A group of students learning together' },
+            { word: 'Frog', hint: 'Green animal that hops' },
+            { word: 'Fry', hint: 'To cook in hot oil' },
+            { word: 'Fruit', hint: 'Apples, bananas, and oranges' },
+            { word: 'Frame', hint: 'Holds a picture' },
+            { word: 'Freezer', hint: 'Keeps ice cream cold' },
+            { word: 'Glove', hint: 'Keeps your hand warm' },
+            { word: 'Glue', hint: 'Sticks things together' },
+            { word: 'Glasses', hint: 'Helps you see better' },
+            { word: 'Glass', hint: 'Material windows are made of' },
+            { word: 'Globe', hint: 'A round model of the Earth' },
+            { word: 'Grapes', hint: 'Small round fruit, can be green or purple' },
+            { word: 'Grass', hint: 'Green plants on a lawn' },
+            { word: 'Grill', hint: 'Used to cook burgers outside' },
+            { word: 'Grasshopper', hint: 'Insect that jumps in the grass' },
+            { word: 'Groceries', hint: 'Food you buy at the store' }
         ];
 
-        // (NEW Vocabulary Words)
+        // (Vocabulary Words - Unchanged as requested, but definitions refreshed)
         const vocabWords = [
             { word: 'agreeable', definition: 'Nice or pleasant' },
             { word: 'appreciate', definition: 'Grateful for something' },
@@ -211,45 +212,45 @@
             { word: 'vehicles', definition: 'A means of transporting goods' }
         ];
 
-        // (Themed Vocab Questions matched to Peanuts Snow Tubing Story)
+        // (Themed Vocab Questions matched to Peanuts Civil Rights Story)
         const vocabQuestions = [
             {
-                question: "Charlie Brown tried to be _____ and nice, even when Lucy was bossing everyone around on the hill.",
+                question: "Dr. King taught that we should be _____ and kind, even when others are not.",
                 options: ['agreeable', 'boomed', 'descendants', 'population'],
                 correct: 'agreeable'
             },
             {
-                question: "Linus told Snoopy, 'I really _____ you saving my blanket from the tree!'",
+                question: "Charlie Brown learned to _____ the bravery of leaders like Fred Hampton.",
                 options: ['appreciate', 'transportation', 'boomed', 'resources'],
                 correct: 'appreciate'
             },
             {
-                question: "The excitement _____ and grew suddenly when the class saw the giant snow hill.",
+                question: "The number of people marching for freedom _____ and grew suddenly as more joined in.",
                 options: ['boomed', 'vehicles', 'descendants', 'agreeable'],
                 correct: 'boomed'
             },
             {
-                question: "Marcie explained that they were all _____ of people who invented winter sports long ago.",
+                question: "Franklin explained that we are all _____ of people who fought for a better world.",
                 options: ['descendants', 'population', 'resources', 'transportation'],
                 correct: 'descendants'
             },
             {
-                question: "The entire _____ of the school, every single student, was on the field trip.",
+                question: "The entire _____ of the city, many different people, came out to hear the speech.",
                 options: ['population', 'vehicles', 'boomed', 'appreciate'],
                 correct: 'population'
             },
             {
-                question: "When Linus got stuck, Snoopy used his flying skills as helpful _____.",
+                question: "Fred Hampton wanted to use the community's _____ to feed hungry children.",
                 options: ['resources', 'transportation', 'descendants', 'agreeable'],
                 correct: 'resources'
             },
             {
-                question: "The yellow school bus provided _____ to get the gang from school to Pinecrest.",
+                question: "Buses were a form of _____ used during the famous Montgomery Bus Boycott.",
                 options: ['transportation', 'population', 'boomed', 'appreciate'],
                 correct: 'transportation'
             },
             {
-                question: "Cars, buses, and snowplows are all types of _____ seen on the road.",
+                question: "Many types of _____ were used to bring people to the march in Washington.",
                 options: ['vehicles', 'resources', 'descendants', 'agreeable'],
                 correct: 'vehicles'
             }
