@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peanuts Sleep Spelling</title>
+    <title>Peanuts History Spelling</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,14 +94,14 @@
 
     <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-6 sm:p-10 mb-8 border-4 border-indigo-200">
         <h1 class="text-3xl sm:text-5xl font-extrabold text-center text-indigo-800 mb-8 header-font">
-            Peanuts Sleep Spelling
+            Peanuts History Spelling
         </h1>
 
         <!-- Word Lists Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Spelling Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Cr, Cl, Fr, Gl, Gr</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Spelling: Pr, Tr, Dr, Br</h2>
                 <ul id="spelling-list" class="list-decimal list-inside text-gray-700 text-lg space-y-1 columns-2">
                     <!-- Spelling words will be injected here by JavaScript -->
                 </ul>
@@ -109,7 +109,7 @@
 
             <!-- Vocabulary Words List -->
             <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: Sleep Words</h2>
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4 header-font">Vocab: History Words</h2>
                 <div id="vocab-list" class="space-y-3">
                     <!-- Vocab words and definitions will be injected here -->
                 </div>
@@ -171,88 +171,87 @@
     <script>
         // --- WORD DATA ---
 
-        // (Spelling List with Cr, Cl, Fr, Gl, Gr words)
+        // (New Spelling List with Pr, Tr, Dr, Br words)
         const spellingWords = [
-            { word: 'Crackers', hint: 'A crunchy snack' },
-            { word: 'Cran', hint: 'Short for cranberry' },
-            { word: 'Crown', hint: 'Worn by a king or queen' },
-            { word: 'Crib', hint: 'A bed for a baby' },
-            { word: 'Crab', hint: 'A sea creature with claws' },
-            { word: 'Clock', hint: 'Tells you the time' },
-            { word: 'Cloud', hint: 'White and fluffy in the sky' },
-            { word: 'Clap', hint: 'What you do with your hands to cheer' },
-            { word: 'Clown', hint: 'Funny performer with a red nose' },
-            { word: 'Class', hint: 'A group of students learning together' },
-            { word: 'Frog', hint: 'Green animal that hops' },
-            { word: 'Fry', hint: 'To cook in hot oil' },
-            { word: 'Fruit', hint: 'Apples, bananas, and oranges' },
-            { word: 'Frame', hint: 'Holds a picture' },
-            { word: 'Freezer', hint: 'Keeps ice cream cold' },
-            { word: 'Glove', hint: 'Keeps your hand warm' },
-            { word: 'Glue', hint: 'Sticks things together' },
-            { word: 'Glasses', hint: 'Helps you see better' },
-            { word: 'Glass', hint: 'Material windows are made of' },
-            { word: 'Globe', hint: 'A round model of the Earth' },
-            { word: 'Grapes', hint: 'Small round fruit, can be green or purple' },
-            { word: 'Grass', hint: 'Green plants on a lawn' },
-            { word: 'Grill', hint: 'Used to cook burgers outside' },
-            { word: 'Grasshopper', hint: 'Insect that jumps in the grass' },
-            { word: 'Groceries', hint: 'Food you buy at the store' }
+            { word: 'Present', hint: 'A gift you give someone' },
+            { word: 'Princess', hint: 'The daughter of a king and queen' },
+            { word: 'Prize', hint: 'Something you win in a contest' },
+            { word: 'Prince', hint: 'The son of a king and queen' },
+            { word: 'Pretzel', hint: 'A salty snack twisted into a knot' },
+            { word: 'Price', hint: 'How much something costs' },
+            { word: 'Truck', hint: 'A large vehicle for carrying things' },
+            { word: 'Tray', hint: 'Used to carry food' },
+            { word: 'Track', hint: 'Rails for a train to run on' },
+            { word: 'Triangle', hint: 'A shape with three sides' },
+            { word: 'Tree', hint: 'A tall plant with a trunk and leaves' },
+            { word: 'Train', hint: 'A long vehicle that runs on tracks' },
+            { word: 'Drum', hint: 'A musical instrument you hit with sticks' },
+            { word: 'Dragon', hint: 'A mythical creature that breathes fire' },
+            { word: 'Draw', hint: 'To make a picture with a pencil' },
+            { word: 'Dream', hint: 'Thoughts you have while sleeping' },
+            { word: 'Drill', hint: 'A tool for making holes' },
+            { word: 'Dress', hint: 'Clothing often worn by girls' },
+            { word: 'Bread', hint: 'Food made from flour, used for sandwiches' },
+            { word: 'Brick', hint: 'A hard block used to build walls' },
+            { word: 'Brush', hint: 'Used to comb hair or paint' },
+            { word: 'Bridge', hint: 'A structure built over water' },
+            { word: 'Broom', hint: 'Used to sweep the floor' },
+            { word: 'Bride', hint: 'A woman on her wedding day' }
         ];
 
-        // (Vocabulary Words - Unchanged as requested)
+        // (Vocabulary Words derived from the NEW Spelling List)
         const vocabWords = [
-            { word: 'agreeable', definition: 'Nice or pleasant' },
-            { word: 'appreciate', definition: 'Grateful for something' },
-            { word: 'boomed', definition: 'Grown suddenly' },
-            { word: 'descendants', definition: 'People who come from a particular ancestor or group of ancestors' },
-            { word: 'population', definition: 'The number of people who live in a certain region or country' },
-            { word: 'resources', definition: 'Sources of aid or support that may be drawn upon when needed' },
-            { word: 'transportation', definition: 'The means of carrying or moving something from one place to another' },
-            { word: 'vehicles', definition: 'A means of transporting goods' }
+            { word: 'dream', definition: 'A strong hope or wish for the future' },
+            { word: 'track', definition: 'To follow the path or progress of something' },
+            { word: 'bridge', definition: 'Something that connects two things or places' },
+            { word: 'present', definition: 'The time happening right now' },
+            { word: 'draw', definition: 'To create a picture or diagram' },
+            { word: 'train', definition: 'To practice a skill to get better at it' },
+            { word: 'prize', definition: 'A reward for doing something well' },
+            { word: 'drum', definition: 'To tap or beat rhythmically' }
         ];
 
-        // (Themed Vocab Questions matched to Peanuts Sleep Story)
+        // (Themed Vocab Questions matched to Peanuts & History Heroes)
         const vocabQuestions = [
             {
-                question: "Charlie Brown tried to be _____ when Lucy suggested listening to quiet music to sleep.",
-                options: ['agreeable', 'boomed', 'descendants', 'population'],
-                correct: 'agreeable'
+                question: "Martin Luther King Jr. had a famous _____ that one day everyone would be treated equally.",
+                options: ['dream', 'drum', 'track', 'bridge'],
+                correct: 'dream'
             },
             {
-                question: "Snoopy learned to _____ a good nap on top of his doghouse.",
-                options: ['appreciate', 'transportation', 'boomed', 'resources'],
-                correct: 'appreciate'
+                question: "Skip Ellis used computers to _____ how people work together on screens.",
+                options: ['track', 'train', 'present', 'prize'],
+                correct: 'track'
             },
             {
-                question: "The noise from the Monster Truck Marathon _____ through the living room, keeping everyone awake.",
-                options: ['boomed', 'vehicles', 'descendants', 'agreeable'],
-                correct: 'boomed'
+                question: "Ralph Bunche built a _____ of peace between countries that were fighting.",
+                options: ['bridge', 'brick', 'broom', 'brush'],
+                correct: 'bridge'
             },
             {
-                question: "Linus said that all humans are _____ of people who needed sleep to survive long ago.",
-                options: ['descendants', 'population', 'resources', 'transportation'],
-                correct: 'descendants'
+                question: "Dr. Shirley Jackson's inventions help us communicate in the _____ time, right now.",
+                options: ['present', 'princess', 'pretzel', 'price'],
+                correct: 'present'
             },
             {
-                question: "If the entire _____ of the school doesn't sleep, everyone will be grumpy tomorrow!",
-                options: ['population', 'vehicles', 'boomed', 'appreciate'],
-                correct: 'population'
+                question: "Linus decided to _____ a comic book about Christopher Priest's hero, Black Panther.",
+                options: ['draw', 'drill', 'dress', 'dream'],
+                correct: 'draw'
             },
             {
-                question: "Sleep gives your body the _____ and energy it needs to play baseball the next day.",
-                options: ['resources', 'transportation', 'descendants', 'agreeable'],
-                correct: 'resources'
+                question: "Guion Bluford had to _____ very hard to become an astronaut and fly the shuttle.",
+                options: ['train', 'truck', 'tray', 'tree'],
+                correct: 'train'
             },
             {
-                question: "Dreams can feel like magical _____, taking you to the moon without a rocket ship.",
-                options: ['transportation', 'population', 'boomed', 'appreciate'],
-                correct: 'transportation'
+                question: "The Nobel Peace _____ was given to Ralph Bunche for his amazing work.",
+                options: ['prize', 'prince', 'price', 'pretzel'],
+                correct: 'prize'
             },
             {
-                question: "Cars and buses are _____, but a good bed is the best vehicle for dreams.",
-                options: ['vehicles', 'resources', 'descendants', 'agreeable'],
-                correct: 'vehicles'
+                question: "Snoopy marched around beating a _____ to celebrate freedom and justice.",
+                options: ['drum', 'dragon', 'drill', 'dress'],
+                correct: 'drum'
             }
         ];
 
